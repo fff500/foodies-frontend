@@ -1,0 +1,23 @@
+:root {
+  --font-family-body: 'Mulish', sans-serif;
+
+  --color-black: #050505;
+  --color-light-black: rgba(5, 5, 5, 0.9);
+  --color-gray: #e8e8e8;
+  --color-white: #ffffff;
+  --color-body-text: rgba(5, 5, 5, 0.8);
+  --color-body-text-light: rgba(5, 5, 5, 0.6);
+
+  --font-size-body: 16px;
+  --font-size-h1: 40px;
+  --font-size-h2: 24px;
+  --font-size-h3: 20px;
+
+  --font-weight-body: 500;
+  --font-weight-headlines: 800;
+
+  --line-height-body: 1.5;
+  --line-height-h1: 1.1;
+  --line-height-h2: 1.17;
+  --line-height-h3: 1.2;
+}

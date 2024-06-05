@@ -12,6 +12,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
+      <footer>Footer</footer>
     </>
   );
 };
