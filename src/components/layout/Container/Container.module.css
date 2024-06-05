@@ -1,14 +1,14 @@
 .container {
-  max-width: 1440px;
+  max-width: 375px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0 16px;
 }
 
 .container.wide {
-  padding: 0 20px;
+  padding: 0 8px;
 }
 
-@media (max-width: 1439px) {
+@media (min-width: 768px) {
   .container {
     max-width: 768px;
     padding: 0 32px;
@@ -19,13 +19,13 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 375px;
-    padding: 0 16px;
+    max-width: 1440px;
+    padding: 0 80px;
   }
 
   .container.wide {
-    padding: 0 8px;
+    padding: 0 20px;
   }
 }
