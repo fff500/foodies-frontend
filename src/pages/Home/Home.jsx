@@ -1,5 +1,12 @@
+import Container from "../../components/layout/Container/Container";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Container wide>Hero section</Container>
+      <Container>Categories</Container>
+    </>
+  );
 };
 
 export default Home;
