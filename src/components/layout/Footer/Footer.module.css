@@ -1,0 +1,8 @@
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialLinksContainer {
+  display: flex;
+}
