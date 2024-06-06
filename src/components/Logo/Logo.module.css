@@ -1,9 +1,8 @@
 .logo {
-    color: #FFF;
-    font-family: Mulish;
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 1.17;
+    color: inherit;
+    font-size: var(--font-size-h2, 24px);
+    font-weight: var(--font-weight-headlines, 800);
+    line-height: var(--line-height-h2, 1.17);
     letter-spacing: -0.48px;
     text-transform: lowercase;
 }
