@@ -1,3 +1,3 @@
-import { projectName } from "./constants";
+import { PROJECT_NAME } from "./constants";
 
-export { projectName };
+export { PROJECT_NAME };
