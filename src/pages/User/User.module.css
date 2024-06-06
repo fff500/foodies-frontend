@@ -15,10 +15,8 @@
     padding: 23px 18px;
     align-items: flex-start;
     gap: 10px;
-
     border-radius: 30px;
     background: lightgray 50%;
-
 }
 
 .userName {
@@ -42,7 +40,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 0;
     border: none;
     background-color: transparent;

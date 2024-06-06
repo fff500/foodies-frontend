@@ -1,1 +1,1 @@
-export const projectName = "Foodies";
+export const PROJECT_NAME = "Foodies";
