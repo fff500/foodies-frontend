@@ -1,5 +1,5 @@
-const Logo = ({ logoProps }) => {
-  const {  text } = logoProps;
-  return <p className="logo-text">{text}</p>;
-};
+import { projectName } from "../../../utils/constants";
+
+const Logo = () => <p className="logo-text">{projectName}</p>;
+
 export default Logo;

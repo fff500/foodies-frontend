@@ -1,13 +1,11 @@
-import { Link, NavLink } from 'react-router-dom';
-import Logo from '../Logo/Logo';
-import logoProps from '../../../utils/logoProps';
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 export const Header = () => {
   return (
     <header>
       <Link to="/">
-        {' '}
-        <Logo logoProps={logoProps} />
+        <Logo />
       </Link>
       <nav>
         <ul>
