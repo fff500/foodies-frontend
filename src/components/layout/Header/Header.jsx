@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import HeaderNav from "../../HeaderNav";
+import { HeaderNav } from "../../HeaderNav";
 import User from "../../../pages/User";
-import Logo from "../../Logo";
+import { Logo } from "../../Logo";
 import styles from "./Header.module.css";
 // import AuthButtons from "../../AuthButtons";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="/">
@@ -17,5 +17,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

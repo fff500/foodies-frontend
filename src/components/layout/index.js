@@ -1,5 +1,4 @@
-import Header from "./Header";
-import Container from "./Container";
-import SharedLayout from "./SharedLayout";
-
-export { Header, Container, SharedLayout };
+export * from "./Header";
+export * from "./Container";
+export * from "./SharedLayout";
+export * from "./Footer";

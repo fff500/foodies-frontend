@@ -1,5 +1,4 @@
-import Container from "../../components/layout/Container/Container";
-import { Testimonials } from "../../components";
+import { Testimonials, Container } from "../../components";
 import {
   useGetAreasQuery,
   useGetIngredientsQuery,
