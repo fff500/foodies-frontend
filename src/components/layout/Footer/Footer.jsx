@@ -15,7 +15,7 @@ const Footer = () => {
           <ul className={styles.socialLinksContainer}>
             {socialLinks.map(({ id, link }) => (
               <li className={styles.socialLinkItem} key={id}>
-                <a href={link}>
+                <a href={link} className={styles.socialLink}>
                   <svg width="20" height="20">
                     <use xlinkHref={`${sprite}#${id}`} />
                   </svg>
@@ -24,10 +24,12 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className={styles.footerBottom}>
-          <span>@2024, Foodies. All rights reserved</span>
-        </div>
       </Container>
+      <div className={styles.footerBottom}>
+        <span className={styles.footerCopyright}>
+          @2024, Foodies. All rights reserved
+        </span>
+      </div>
     </footer>
   );
 };
