@@ -1,4 +1,5 @@
 import Container from "../../components/layout/Container/Container";
+import Hero from "../../components/layout/Hero/Hero";
 
 import {
   useGetAreasQuery,
@@ -52,7 +53,9 @@ const Home = () => {
   });
   return (
     <>
-      <Container wide>Hero section</Container>
+      <Container wide>
+        <Hero />
+      </Container>
       <Container>Categories</Container>
     </>
   );
