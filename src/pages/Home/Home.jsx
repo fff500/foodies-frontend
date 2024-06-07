@@ -1,5 +1,5 @@
 import { Testimonials, Container } from "../../components";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/Hero";
 import {
   useGetAreasQuery,
   useGetIngredientsQuery,
