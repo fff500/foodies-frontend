@@ -3,6 +3,7 @@ body {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-body);
   line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   color: var(--color-body-text);
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
