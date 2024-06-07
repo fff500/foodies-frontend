@@ -1,0 +1,38 @@
+.authButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: var(--color-white, #ffffff);
+    color: var(--color-black, #050505);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+}
+
+.signInButton {
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 30px;
+    border: none;
+}
+
+.signUpButton {
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 28px;
+    border: none;
+}
+
+.active {
+    border-radius: 30px;
+    padding: 14px 28px;
+    color: #ffffff;
+    background: rgba(5, 5, 5, 0.90);
+}
