@@ -4,6 +4,7 @@ import { Logo } from "../../Logo";
 import sprite from "../../../assets/icons/sprite.svg";
 import { socialLinks } from "./data";
 import styles from "./Footer.module.css";
+
 export const Footer = () => {
   return (
     <footer>

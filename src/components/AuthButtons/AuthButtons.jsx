@@ -1,4 +1,5 @@
 import styles from "./AuthButtons.module.css";
+
 export const AuthButtons = () => {
   return (
     <div className={styles.authButtons}>
