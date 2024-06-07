@@ -1,13 +1,10 @@
 import React from "react";
-
-import Container from "../Container/Container";
-import Logo from "../../Logo";
+import { Container } from "../Container/";
+import { Logo } from "../../Logo";
 import sprite from "../../../assets/icons/sprite.svg";
-
 import { socialLinks } from "./data";
 import styles from "./Footer.module.css";
-
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer>
       <Container>
@@ -41,5 +38,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

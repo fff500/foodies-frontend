@@ -1,7 +1,3 @@
-import { PROJECT_NAME } from "../../utils";
-
+import { PROJECT_NAME } from "../../constants";
 import styles from "./Logo.module.css";
-
-const Logo = () => <p className={styles.logo}>{PROJECT_NAME}</p>;
-
-export default Logo;
+export const Logo = () => <p className={styles.logo}>{PROJECT_NAME}</p>;

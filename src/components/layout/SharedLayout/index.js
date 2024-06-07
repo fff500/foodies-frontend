@@ -1,3 +1,1 @@
-import SharedLayout from "./SharedLayout";
-
-export default SharedLayout;
+export * from "./SharedLayout";
