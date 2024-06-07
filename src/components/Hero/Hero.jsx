@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 import styles from "./Hero.module.css";
 
-const Hero = () => {
+export const Hero = () => {
   const handleCTA = useCallback(() => {
     console.log("TODO: add here logic for CTA");
   }, []);
@@ -26,5 +26,3 @@ const Hero = () => {
     </section>
   );
 };
-
-export default Hero;
