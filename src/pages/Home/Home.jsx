@@ -1,6 +1,5 @@
-import Container from "../../components/layout/Container/Container";
+import { Testimonials, Container } from "../../components";
 import Hero from "../../components/layout/Hero/Hero";
-
 import {
   useGetAreasQuery,
   useGetIngredientsQuery,
@@ -57,6 +56,9 @@ const Home = () => {
         <Hero />
       </Container>
       <Container>Categories</Container>
+      <Container>
+        <Testimonials />
+      </Container>
     </>
   );
 };

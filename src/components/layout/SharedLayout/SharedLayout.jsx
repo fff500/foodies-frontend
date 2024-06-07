@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
 
-import { Header } from "../Header/Header";
-
-const SharedLayout = () => {
+export const SharedLayout = () => {
   return (
     <>
       <Header />
@@ -12,9 +12,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer>Footer</footer>
+      <Footer />
     </>
   );
 };
-
-export default SharedLayout;
