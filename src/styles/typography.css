@@ -34,3 +34,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 40px;
+        line-height: var(--line-height-h2-tablet);
+    }
+}

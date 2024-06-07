@@ -1,5 +1,5 @@
 import Container from "../../components/layout/Container/Container";
-
+import { Testimonials } from "../../components";
 import {
   useGetAreasQuery,
   useGetIngredientsQuery,
@@ -54,6 +54,9 @@ const Home = () => {
     <>
       <Container wide>Hero section</Container>
       <Container>Categories</Container>
+      <Container>
+        <Testimonials />
+      </Container>
     </>
   );
 };
