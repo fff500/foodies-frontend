@@ -9,7 +9,7 @@ export const ErrorComponent = ({ message, onRetry }) => {
       <p className={styles.errorMessage}>
         Error: {message || "Something went wrong!"}
       </p>
-      <button className={styles.reloadButton} onClick={onReload || onRetry}>
+      <button className={styles.reloadButton} onClick={onRetry || onReload}>
         Retry
       </button>
     </div>
