@@ -1,0 +1,29 @@
+.headerNav {}
+
+.headerNavList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px
+}
+
+.headerNavItem {
+    color: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: var(--line-height-body, 1.5);
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+}
+
+.homeLink {}
+
+.recipeLink {
+    display: flex;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid rgba(5, 5, 5, 0.20);
+}
