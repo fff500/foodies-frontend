@@ -18,6 +18,6 @@
 
 .active {
   padding: 14px 28px;
-  color: #ffffff;
-  background: rgba(5, 5, 5, 0.9);
+  color: var(--color-white, #ffffff);
+  background: var(--color-light-black, rgba(5, 5, 5, 0.9))
 }

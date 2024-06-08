@@ -28,7 +28,7 @@ export const Header = () => {
           <Link to="/">
             <Logo />
           </Link>
-          {!isLoggedIn ? (
+          {isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons />
             </div>
@@ -41,19 +41,6 @@ export const Header = () => {
           )}
         </div>
       </Container>
-      {isMenuOpen && (
-        <div className={styles.modal}>
-          <HeaderNav />
-          <User userImage={"data.userImage"} userName={"data.userName"} />
-          <button
-            onClick={handleMenuToggle}
-            className={styles.closeButton}
-            type="button"
-          >
-            Close
-          </button>
-        </div>
-      )}
     </header>
   );
 };
