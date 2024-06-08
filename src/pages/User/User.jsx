@@ -1,3 +1,4 @@
+import { Button } from "../../components";
 import styles from "./User.module.css";
 const User = ({ userName, userImage }) => {
   const toggleButtonIcon = () => {};
@@ -6,7 +7,7 @@ const User = ({ userName, userImage }) => {
       <img className={styles.userImage} src={userImage} alt={userName} />
       <div className={styles.userDetails}>
         <p className={styles.userName}>{userName}</p>
-        <button
+        <Button
           className={styles.userButton}
           type="button"
           onClick={toggleButtonIcon}
@@ -27,7 +28,7 @@ const User = ({ userName, userImage }) => {
               stroke-linejoin="round"
             />
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
   );

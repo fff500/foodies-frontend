@@ -1,8 +1,10 @@
+import styles from "./Button.module.css";
+
 export const Button = ({ children, onClick, className, type }) => {
   return (
     <button
       type={type}
-      className={className}
+      className={`${styles.btn} ${className}`}
       onClick={onClick}
       aria-label="button"
     >
