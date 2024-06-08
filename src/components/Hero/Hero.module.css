@@ -1,7 +1,7 @@
 .heroSection {
   position: relative;
   background: var(--color-black, #050505);
-  border-radius: 20px;
+  border-radius: var(--border-radius-small, 20px);
 }
 
 .heroContentContainer {
@@ -18,11 +18,9 @@
   display: inline-block;
   margin: 0 auto;
 
-  font-family: Mulish;
   font-size: 40px;
   font-weight: 800;
-  line-height: 40px;
-  letter-spacing: -0.02em;
+  line-height: 1;
   text-align: center;
   color: var(--color-white, #ffffff);
   text-transform: uppercase;
@@ -33,11 +31,8 @@
   display: inline-block;
   margin: 0 auto;
 
-  font-family: Mulish;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.02em;
+  line-height: 1.42;
   text-align: center;
 
   color: #ffffffcc;
@@ -47,14 +42,12 @@
   display: inline-block;
   padding: 12px 24px;
   margin: 0 auto;
-  border-radius: 30px;
+  border-radius: var(--border-radius-regular, 30px);
   background-color: transparent;
 
-  font-family: Mulish;
   font-size: 14px;
   font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.02em;
+  line-height: 1.42;
   text-align: center;
   color: var(--color-white, #ffffff);
   text-transform: uppercase;
@@ -62,94 +55,112 @@
   border: 1px solid #ffffffe5;
 }
 
-.heroImageOneContainer {
+.heroImageContainer {
   position: absolute;
-  /* top: 710px;
-  left: 116px; */
-  top: 580px;
-  left: 26px;
-  /* width: 128px;
-  height: 116px; */
+  top: 488px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 268px;
+}
+
+.heroLeftImageContainer {
+  position: absolute;
+  top: 92px;
+  left: 0;
   width: 77px;
   height: 70px;
 
-  border-width: 1px;
-  border-color: #ffffff;
-  border-style: solid;
-  border-radius: 15px;
-
-  overflow: hidden;
-  rotate: 11deg;
+  background-image: url("../../assets/images/hero/1x/left-hero-image.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-.heroImageTwoContainer {
+.heroRightImageContainer {
   position: absolute;
-  /* top: 570px;
-  right: 116px; */
-  top: 488px;
-  right: 22px;
-  /* width: 302px;
-  height: 273px; */
+  top: 0;
+  right: 0;
   width: 190px;
   height: 172px;
 
-  border-width: 1px;
-  border-color: #ffffff;
-  border-style: solid;
-  border-radius: 15px;
+  background-image: url("../../assets/images/hero/1x/right-hero-image.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 
-  overflow: hidden;
-  rotate: -12deg;
+@media screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx),
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-device-pixel-ratio: 2) {
+  .heroLeftImageContainer {
+    background-image: url("../../assets/images/hero/2x/left-hero-image@2x.webp");
+  }
+
+  .heroRightImageContainer {
+    background-image: url("../../assets/images/hero/2x/right-hero-image@2x.webp");
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .heroSection {
+    border-radius: var(--border-radius-regular, 30px);
+  }
   .heroContentContainer {
-    padding-top: 216px;
-    padding-bottom: 451px;
+    padding-top: 218px;
+    padding-bottom: 450px;
     gap: 40px;
   }
 
   .heroTitle {
-    width: 678px;
+    width: 736px;
 
     font-size: 70px;
-    line-height: 70px;
+    line-height: 1;
   }
 
   .heroSubtitle {
     width: 576px;
 
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--font-size-body, 16px);
+    line-height: var(--line-height-body, 24px);
   }
 
   .heroSectionButton {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--font-size-body, 16px);
+    line-height: var(--line-height-body, 24px);
   }
 
-  .heroImageOneContainer {
-    top: 710px;
-    left: 116px;
+  .heroImageContainer {
+    top: 572px;
+    width: 430px;
+  }
 
+  .heroLeftImageContainer {
     width: 128px;
     height: 116px;
   }
 
-  .heroImageTwoContainer {
-    top: 570px;
-    right: 116px;
-
+  .heroRightImageContainer {
     width: 302px;
     height: 273px;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .heroContentContainer {
+    padding-top: 154px;
+    padding-bottom: 452px;
+  }
+
   .heroTitle {
-    width: 875px;
+    width: 890px;
 
     font-size: 90px;
-    line-height: 90px;
+    line-height: 1;
+  }
+
+  .heroImageContainer {
+    top: 558px;
   }
 }
