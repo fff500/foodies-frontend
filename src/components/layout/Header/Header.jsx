@@ -12,6 +12,7 @@ export const Header = () => {
   const [isLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,7 +20,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`${styles.header} ${location.pathname === "/" ? styles.homePageHeader : ""} 
+      className={`${styles.header} ${isHomePage ? styles.homePageHeader : ""} 
       `}
     >
       <Container>
@@ -35,7 +36,7 @@ export const Header = () => {
             <>
               <HeaderNav />
               <User />
-              <BurgerMenu onClick={handleMenuToggle} />
+              <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
         </div>
