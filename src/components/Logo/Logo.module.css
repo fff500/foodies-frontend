@@ -5,4 +5,5 @@
   line-height: var(--line-height-h2, 1.17);
   letter-spacing: -0.48px;
   text-transform: lowercase;
+  grid-area: logo;
 }

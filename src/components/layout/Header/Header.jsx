@@ -7,10 +7,10 @@ import { Container } from "../Container";
 import { BurgerMenu } from "../../BurgerMenu";
 import { AuthButtons } from "../../AuthButtons";
 import styles from "./Header.module.css";
-import { Button } from "../../Button";
+// import { Button } from "../../Button";
 
 export const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 

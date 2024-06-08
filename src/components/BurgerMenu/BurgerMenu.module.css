@@ -1,3 +1,13 @@
-.burgerMenuButton {
-  border: none;
-}
+ .burgerMenu {}
+
+ .burgerMenuButton {
+   border: none;
+   grid-area: burgerMenu;
+   justify-self: end;
+ }
+
+ @media (min-width: 768px) {
+   .burgerMenu {
+     display: none;
+   }
+ }

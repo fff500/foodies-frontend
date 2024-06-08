@@ -1,11 +1,13 @@
 .headerNav {
+  grid-area: nav;
+  display: none;
 }
 
 .headerNavList {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 16px;
 }
 
 .headerNavItem {
@@ -17,8 +19,7 @@
   text-transform: uppercase;
 }
 
-.homeLink {
-}
+.homeLink {}
 
 .recipeLink {
   display: flex;
@@ -28,4 +29,18 @@
   gap: 10px;
   border-radius: 30px;
   border: 1px solid rgba(5, 5, 5, 0.2);
+}
+
+@media (min-width: 768px) {
+  .headerNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerNavList {
+    gap: 40px;
+  }
 }

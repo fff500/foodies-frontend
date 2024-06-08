@@ -8,14 +8,19 @@
 }
 
 .headerContentWrapper {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: space-between;
   padding-inline: 8px;
+  grid-template-areas: "logo userMenu burgerMenu";
+  grid-template-columns: auto 1fr auto;
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+
+@media (min-width: 768px) {
   .headerContentWrapper {
+    grid-template-areas: "logo nav userMenu";
+    grid-template-columns: auto 1fr auto;
     padding-inline: 16px;
   }
 }
