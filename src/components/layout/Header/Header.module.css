@@ -7,6 +7,11 @@
   z-index: 99;
 }
 
+.authButtonsWrapper {
+  display: flex;
+  justify-self: end;
+}
+
 .headerContentWrapper {
   display: grid;
   align-items: center;
@@ -15,7 +20,6 @@
   grid-template-areas: "logo userMenu burgerMenu";
   grid-template-columns: auto 1fr auto;
 }
-
 
 @media (min-width: 768px) {
   .headerContentWrapper {
@@ -33,4 +37,33 @@
 
 .homePageHeader {
   color: var(--color-white, #ffffff);
+}
+
+.headerWithoutAuth .headerContentWrapper {
+  grid-template-areas: "logo authButtons";
+  grid-template-columns: auto 1fr;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }

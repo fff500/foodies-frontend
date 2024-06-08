@@ -7,7 +7,6 @@ import { Container } from "../Container";
 import { BurgerMenu } from "../../BurgerMenu";
 import { AuthButtons } from "../../AuthButtons";
 import styles from "./Header.module.css";
-// import { Button } from "../../Button";
 
 export const Header = () => {
   const [isLoggedIn] = useState(false);
@@ -20,37 +19,40 @@ export const Header = () => {
 
   return (
     <header
-      className={`${styles.header} ${location.pathname === "/" ? styles.homePageHeader : ""}`}
+      className={`${styles.header} ${location.pathname === "/" ? styles.homePageHeader : ""} 
+      `}
     >
       <Container>
         <div className={styles.headerContentWrapper}>
           <Link to="/">
             <Logo />
           </Link>
-          {isLoggedIn ? (
-            <AuthButtons />
+          {!isLoggedIn ? (
+            <div className={styles.authButtonsWrapper}>
+              <AuthButtons />
+            </div>
           ) : (
             <>
               <HeaderNav />
-              <User userImage={"data.serImage"} userName={"data.userName"} />
+              <User />
               <BurgerMenu onClick={handleMenuToggle} />
             </>
           )}
         </div>
       </Container>
-      {/* {isMenuOpen && (
+      {isMenuOpen && (
         <div className={styles.modal}>
           <HeaderNav />
-          <User userImage={"data.serImage"} userName={"data.userName"} />
-          <Button
+          <User userImage={"data.userImage"} userName={"data.userName"} />
+          <button
             onClick={handleMenuToggle}
             className={styles.closeButton}
             type="button"
           >
             Close
-          </Button>
+          </button>
         </div>
-      )} */}
+      )}
     </header>
   );
 };
