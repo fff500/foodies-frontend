@@ -1,19 +1,19 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { HeaderNav } from "../../HeaderNav";
+import User from "../../../pages/User";
+import { Logo } from "../../Logo";
+import styles from "./Header.module.css";
+// import AuthButtons from "../../AuthButtons";
 
 export const Header = () => {
   return (
-    <header>
-      <Link to="/">Logo</Link>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/recipe">Recipe</NavLink>
-          </li>
-        </ul>
-      </nav>
+    <header className={styles.header}>
+      <Link to="/">
+        <Logo />
+      </Link>
+      {/* <AuthButtons /> */}
+      <HeaderNav />
+      <User userImage={"data.serImage"} userName={"data.userName"} />
     </header>
   );
 };

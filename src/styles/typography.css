@@ -3,6 +3,7 @@ body {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-body);
   line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   color: var(--color-body-text);
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
@@ -33,4 +34,11 @@ h3 {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 40px;
+        line-height: var(--line-height-h2-tablet);
+    }
 }
