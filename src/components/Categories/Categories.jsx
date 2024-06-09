@@ -4,10 +4,9 @@ import { CategoriesCard } from "../CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
 import { nanoid } from "@reduxjs/toolkit";
-
 export const Categories = () => {
   return (
-    <section>
+    <section className={styles.categoriesSection}>
       <h2 className={styles.title}>Categories</h2>
       <p className={styles.subtitle}>
         Discover a limitless world of culinary possibilities and enjoy exquisite
@@ -16,11 +15,13 @@ export const Categories = () => {
       </p>
       <div className={styles.categoriesGridWrapper}>
         <ul className={styles.categoriesGrid}>
-          {categoriesData.map((category) => (
-            <li key={nanoid()} className={styles.categoriesGridItem}>
+          {categoriesData.map(({ id, title, imageUrl, imageUrl_x2 }) => (
+            <li className={styles.categoriesGridItem} key={nanoid()}>
               <CategoriesCard
-                categoryTitle={category.title}
-                categoryImageUrl={category.imageUrl}
+                categoryTitle={title}
+                categoryImageUrl={imageUrl}
+                categoryImageUrl_x2={imageUrl_x2}
+                id={id}
               />
             </li>
           ))}
