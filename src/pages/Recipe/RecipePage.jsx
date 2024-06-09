@@ -1,11 +1,11 @@
-import { useGetRecipeQuery } from "../../redux";
-import { useParams } from "react-router-dom";
+import { RecipeInfo } from "../../components/RecipesPageComponents/RecipeInfo";
+import { Container } from "../../components";
 
 const RecipePage = () => {
   return (
-    <>
+    <Container>
       <RecipeInfo />
-    </>
+    </Container>
   );
 };
 

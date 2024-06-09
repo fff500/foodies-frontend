@@ -1,0 +1,269 @@
+.sectionWrapper {
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+.recipeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.recipeContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.recipeContainerWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.imageContainer {
+    border-radius: 30px;
+}
+
+.loadingStyles {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.isHidden {
+   visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.recipeTitle {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.recipeMainInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.recipeLabelContainer {
+    display: flex;
+    gap: 8px;
+}
+.recipeLabel {
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    border-radius: 30px;
+    padding: 10px;
+    color: rgba(5, 5, 5, 0.6);
+}
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.userInfo img {
+    border-radius: 50%;
+    background-color: red;
+    width: 32px;
+    height: 32px;
+}
+
+.userInfoText {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.userInfoLabelText {
+    color: rgba(5, 5, 5, 0.6);
+    font-size: 12px;
+}
+
+.userInfoTextName{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.resetButton {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    overflow: visible;
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+}
+
+.button {
+    padding: 14px 20px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    width: fit-content;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+.button:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+.buttonPosition {
+    margin-top: 12px;
+}
+
+.recipeText{
+    font-size: 14px;
+}
+
+.ingredientsItems {
+    /*display: flex;*/
+    /*gap: 16px;*/
+    /*flex-wrap: wrap;*/
+    /*width: calc(50% - 16px);*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+}
+
+.ingredient {
+    display: flex;
+    gap: 10px;
+}
+
+.ingredientImg {
+    width: 75px;
+    height: 75px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    padding: 10px;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.ingredientTextColor {
+    color: rgba(5, 5, 5, 0.6);
+}
+
+.ingredientTextItems {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .recipeWrapper {
+        gap: 98px;
+    }
+    .sectionWrapper {
+        margin-top: 40px;
+        margin-bottom: 100px;
+    }
+
+    .recipeContainers {
+        gap: 40px;
+    }
+    .imageContainer {
+        width: 100%;
+    }
+    .recipeTitle {
+        font-size: 28px;
+    }
+
+    .recipeMainInfoContainer {
+        gap: 40px;
+    }
+
+    .userInfo img {
+        border-radius: 50%;
+        background-color: red;
+        width: 50px;
+        height: 50px;
+    }
+
+    .recipeContainerWrapper{
+        gap: 40px;
+    }
+
+    .buttonPosition {
+        margin-top: 20px;
+    }
+
+    .userInfoLabelText {
+        font-size: 14px;
+    }
+
+    .userInfoTextName{
+        font-size: 16px;
+    }
+
+    .recipeText{
+        font-size: 16px;
+    }
+
+    .ingredientsItems {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+
+    }
+
+    .ingredient {
+        gap: 14px;
+    }
+
+    .ingredientImg {
+        width: 90px;
+        height: 90px;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .recipeWrapper {
+        gap: 120px;
+    }
+
+    .sectionWrapper{
+        margin-bottom: 120px;
+    }
+
+
+    .recipeContainers {
+        flex-direction: row;
+        align-items: start;
+        gap: 80px;
+    }
+
+    .recipeContainer {
+        width: 50%;
+    }
+
+    .imageContainer {
+        object-fit: cover;
+        min-width: 550px;
+    }
+
+    .recipeMainInfoContainer {
+        gap: 20px;
+    }
+
+    .button {
+        padding: 16px 32px;
+    }
+
+}
+
+
+
+
