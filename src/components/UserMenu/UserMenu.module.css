@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   border-radius: 30px;
-  background: rgba(5, 5, 5, 0.9);
-  color: rgba(5, 5, 5, 0.9);
-  font-size: 24px;
+  background: var(--color-light-black, rgba(5, 5, 5, 0.9));
+  color: var(--color-light-black, rgba(5, 5, 5, 0.9));
+  font-size: var(--font-size-h2, 24px);
   grid-area: userMenu;
   justify-self: end;
 }
@@ -22,7 +22,7 @@
   font-size: 12px;
   font-weight: 700;
   line-height: var(--line-height-body, 1.5);
-  letter-spacing: -0.24px;
+  letter-spacing: var(--letter-spacing-body, -0.02em);
   text-transform: uppercase;
 }
 
@@ -31,12 +31,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 4px;
-  padding: 7px 6px 7px 6px;
+  padding: 7px 6px;
 }
 
 .userButton {
   border: none;
-  color: #ffffff;
+  color: var(--color-white, #ffffff);
 }
 
 
