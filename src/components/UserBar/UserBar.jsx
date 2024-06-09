@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "..";
-import styles from "./UserMenu.module.css";
+import styles from "./UserBar.module.css";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import sprite from "../../assets/icons/sprite.svg";
 
-export const UserMenu = ({ userName, userImage }) => {
+export const UserBar = ({ userName, userImage }) => {
   const [icon, setIcon] = useState("chevronUp");
 
   const toggleButtonIcon = () => {

@@ -5,9 +5,10 @@ import { Logo } from "../../Logo";
 import { Container } from "../Container";
 import { BurgerMenu } from "../../BurgerMenu";
 import { AuthButtons } from "../../AuthButtons";
-import { UserMenu } from "../../UserMenu";
+
 import styles from "./Header.module.css";
 import classnames from "classnames";
+import { UserBar } from "../../UserBar/UserBar";
 
 export const Header = () => {
   const [isLoggedIn] = useState(false);
@@ -37,7 +38,7 @@ export const Header = () => {
           ) : (
             <>
               <HeaderNav />
-              <UserMenu />
+              <UserBar />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
