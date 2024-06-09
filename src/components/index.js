@@ -7,3 +7,4 @@ export * from "./LoadingSpinner";
 export * from "./Logo";
 export * from "./Testimonials";
 export * from "./Hero";
+export * from "./UserMenu";
