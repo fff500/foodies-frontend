@@ -7,6 +7,7 @@ import Modal from "../../Modals/Modal/Modal";
 import SignUpModal from "../../Modals/SignUpModal/SignUpModal";
 import SignInModal from "../../Modals/SignInModal/SignInModal";
 import LogOutModal from "../../Modals/LogOutModal/LogOutModal";
+import UserModal from "../../Modals/UserModal/UserModal";
 
 export const SharedLayout = () => {
   const [isModal, setIsModal] = useState(false);
@@ -25,6 +26,7 @@ export const SharedLayout = () => {
       <button type="button" onClick={onModalClick}>
         Open modal window - Temporary button - should be deleted
       </button>
+      <UserModal />
       <Header />
       <main>
         <Suspense fallback={<div>Loading...</div>}>
