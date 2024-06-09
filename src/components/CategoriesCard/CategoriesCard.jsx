@@ -1,41 +1,27 @@
 import React from "react";
-import { Button } from "../Button";
 import styles from "./CategoriesCard.module.css";
+import { Button } from "../Button";
+import sprite from "../../assets/icons/sprite.svg";
 
 export const CategoriesCard = ({ categoryTitle, categoryImageUrl }) => {
+  const cardStyle = {
+    background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl}) lightgray 50% / cover no-repeat`,
+  };
+
   return (
-    <div className={styles.categoriesCard}>
-      <img
-        className={styles.categoriesCardImage}
-        src={categoryImageUrl}
-        alt={categoryTitle}
-      />
-      <h3>{categoryTitle}</h3>
-      <Button className={styles.categoriesCardButton} type="button">
-        <svg
-          className={styles.categoriesCardIcon}
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.25 12.75L12.75 5.25"
-            stroke="#050505"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M5.25 5.25H12.75V12.75"
-            stroke="#050505"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Button>
+    <div className={styles.categoriesCard} style={cardStyle}>
+      <div className={styles.categoriesCardContent}>
+        <h3 className={styles.categoriesCardTitle}>{categoryTitle}</h3>
+        <Button className={styles.categoriesCardButton} type="button">
+          <svg
+            width="16"
+            height="16"
+            className={styles.categoriesCardIconButton}
+          >
+            <use xlinkHref={`${sprite}#arrowUpRight`} />
+          </svg>
+        </Button>
+      </div>
     </div>
   );
 };

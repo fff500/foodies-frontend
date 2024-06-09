@@ -1,0 +1,33 @@
+.title {
+    color: #050505;
+
+    /* Mobile/H2 */
+    font-family: Mulish;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+    /* 114.286% */
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: rgba(5, 5, 5, 0.80);
+
+    /* Mobile/Main text */
+    font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -0.28px;
+
+}
+
+.categoriesGrid {}
+
+.categoriesGridItem {}
+
+.allCategoriesButton {}
