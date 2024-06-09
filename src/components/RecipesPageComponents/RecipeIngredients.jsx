@@ -6,7 +6,7 @@ export const RecipeIngredients = ({ ingredients }) => {
     <>
       <h3 className={classNames(styles.recipeTitle)}>Ingredients</h3>
       <ul className={classNames(styles.ingredientsItems)}>
-        {ingredients.map((elem) => (
+        {ingredients?.map((elem) => (
           <li className={classNames(styles.ingredient)}>
             <div className={classNames(styles.ingredientImg)}>
               <img src={elem.img} alt={elem.name} />
@@ -19,7 +19,7 @@ export const RecipeIngredients = ({ ingredients }) => {
             >
               <span>{elem.name}</span>
               <span className={classNames(styles.ingredientTextColor)}>
-                100 g
+                {elem.measure}
               </span>
             </div>
           </li>

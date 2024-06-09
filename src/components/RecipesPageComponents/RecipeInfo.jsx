@@ -15,8 +15,8 @@ export const RecipeInfo = () => {
     isLoading: recipeLoading,
     isFetching: recipeFetching,
     refetch: refetchRecipe,
-  } = useGetRecipeQuery("6462a8f74c3d0ddd28897fcd");
-  // 6462a8f74c3d0ddd28897fbc
+  } = useGetRecipeQuery(recipeId);
+
   const isLoading = recipeLoading || recipeFetching;
 
   return (
