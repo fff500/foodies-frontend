@@ -39,5 +39,27 @@
 <symbol id="youtube" viewBox="0 0 32 32">
 <path d="M30.112 9.356c0 0-0.288-2.080-1.152-2.971-1.056-1.189-2.304-1.189-2.88-1.288-4.032-0.297-10.080-0.297-10.080-0.297s-6.048 0-10.080 0.297c-0.576 0.099-1.824 0.099-2.88 1.288-0.864 0.891-1.152 2.971-1.152 2.971s-0.288 2.377-0.288 4.754v2.179c0 2.377 0.288 4.853 0.288 4.853s0.288 2.080 1.152 2.971c1.056 1.189 2.496 1.189 3.168 1.288 2.304 0.099 9.792 0.198 9.792 0.198s6.048 0 10.080-0.297c0.576-0.099 1.824-0.099 2.88-1.288 0.864-0.891 1.152-2.971 1.152-2.971s0.288-2.377 0.288-4.754v-2.179c0-2.377-0.288-4.754-0.288-4.754zM13.024 19.063v-8.32l7.776 4.16-7.776 4.16z"></path>
 </symbol>
+
+<symbol id="burger" viewBox="0 0 28 28" >
+<path d="M24.5 11.6665H3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.5 7H3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.5 16.3335H3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.5 21H3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="chevronDown" viewBox="0 0 12 6" >
+<path d="M1.5 0.75L6 5.25L10.5 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="chevronUp" viewBox="0 0 12 6" >
+<path d="M1.5 5.25L6 1.25L10.5 5.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="plus" viewBox="0 0 18 18" >
+<path d="M9 3.75V14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.75 9H14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol> 
+
+
 </defs>
 </svg>

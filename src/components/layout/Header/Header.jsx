@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HeaderNav } from "../../HeaderNav";
-import User from "../../../pages/User";
 import { Logo } from "../../Logo";
 import { Container } from "../Container";
 import { BurgerMenu } from "../../BurgerMenu";
 import { AuthButtons } from "../../AuthButtons";
+
 import styles from "./Header.module.css";
+import classnames from "classnames";
+import { UserBar } from "../../UserBar/UserBar";
 
 export const Header = () => {
   const [isLoggedIn] = useState(false);
@@ -20,8 +22,9 @@ export const Header = () => {
 
   return (
     <header
-      className={`${styles.header} ${isHomePage ? styles.homePageHeader : ""} 
-      `}
+      className={classnames(styles.header, {
+        [styles.homePageHeader]: isHomePage,
+      })}
     >
       <Container>
         <div className={styles.headerContentWrapper}>
@@ -35,7 +38,7 @@ export const Header = () => {
           ) : (
             <>
               <HeaderNav />
-              <User />
+              <UserBar />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
