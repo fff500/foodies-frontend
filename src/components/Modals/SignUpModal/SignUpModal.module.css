@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleBlock {
+  width: 100%;
+  text-align: start;
+}
+
+.inputsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 14px;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #05050512;
+  border-radius: 30px;
+}
+
+.submitBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.submitBtn {
+  width: 100%;
+}

@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import sprite from "../../../assets/icons/sprite.svg";
 
 import css from "./Modal.module.css";
 
-const Modal = ({ onModalClick }) => {
-  const [isOpen, setIsOpen] = useState(true);
-
+const Modal = ({ children, onModalClick }) => {
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
-        setIsOpen(false);
         onModalClick();
       }
     };
@@ -19,7 +16,7 @@ const Modal = ({ onModalClick }) => {
     return () => {
       document.removeEventListener("keydown", onEscPress);
     };
-  }, [isOpen, onModalClick]);
+  }, [onModalClick]);
 
   const onBackdropClick = (evt) => {
     if (evt.target === evt.currentTarget) {
@@ -39,7 +36,7 @@ const Modal = ({ onModalClick }) => {
             <use xlinkHref={`${sprite}#close`} />
           </svg>
         </button>
-        {isOpen && <p>OPEN</p>}
+        {children}
       </div>
     </div>
   );

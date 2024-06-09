@@ -4,6 +4,7 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { useState } from "react";
 import Modal from "../../Modals/Modal/Modal";
+import SignUpModal from "../../Modals/SignUpModal/SignUpModal";
 
 export const SharedLayout = () => {
   const [isModal, setIsModal] = useState(false);
@@ -11,6 +12,9 @@ export const SharedLayout = () => {
   const onModalClick = () => {
     setIsModal(!isModal);
   };
+
+  // const child = <p>P</p>;
+  const child = <SignUpModal title={"SIGN UP"} />;
 
   return (
     <>
@@ -24,7 +28,7 @@ export const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
-      {isModal && <Modal onModalClick={onModalClick} />}
+      {isModal && <Modal children={child} onModalClick={onModalClick} />}
     </>
   );
 };
