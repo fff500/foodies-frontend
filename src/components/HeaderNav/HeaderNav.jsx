@@ -6,12 +6,15 @@ export const HeaderNav = () => {
     <nav className={styles.headerNav}>
       <ul className={styles.headerNavList}>
         <li className={styles.headerNavItem}>
-          <NavLink to="/" className={styles.homeLink}>
+          <NavLink to="/" className={`${styles.homeLink} ${styles.navLink}`}>
             Home
           </NavLink>
         </li>
         <li className={styles.headerNavItem}>
-          <NavLink to="/recipe" className={styles.recipeLink}>
+          <NavLink
+            to="/recipe"
+            className={`${styles.recipeLink} ${styles.navLink}`}
+          >
             Add recipe
           </NavLink>
         </li>

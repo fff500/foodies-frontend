@@ -19,11 +19,11 @@
   text-transform: uppercase;
 }
 
-.homeLink {
-  hover {
-    color: var(--color-gray-secondary, #D9D9D9)
-  }
+.headerNavItem:hover {
+  color: var(--color-gray-secondary, #D9D9D9)
 }
+
+
 
 .recipeLink {
   display: flex;

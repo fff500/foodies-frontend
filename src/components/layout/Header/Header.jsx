@@ -28,7 +28,7 @@ export const Header = () => {
           <Link to="/">
             <Logo />
           </Link>
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons />
             </div>

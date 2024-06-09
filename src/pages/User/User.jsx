@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components";
 import styles from "./User.module.css";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
+import sprite from "../../assets/icons/sprite.svg";
 
 const User = ({ userName, userImage }) => {
-  const toggleButtonIcon = () => {};
+  const [icon, setIcon] = useState("chevronUp");
+
+  const toggleButtonIcon = () => {
+    if (icon === "chevronUp") {
+      setIcon("chevronDown");
+    } else {
+      setIcon("chevronUp");
+    }
+  };
   return (
     <div className={styles.user}>
       <img
@@ -20,21 +29,8 @@ const User = ({ userName, userImage }) => {
           type="button"
           onClick={toggleButtonIcon}
         >
-          <svg
-            className={styles.userButtonIcon}
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-          >
-            <path
-              d="M4.5 6.75L9 11.25L13.5 6.75"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="18" height="18">
+            <use xlinkHref={`${sprite}#${icon}`} />
           </svg>
         </Button>
       </div>
