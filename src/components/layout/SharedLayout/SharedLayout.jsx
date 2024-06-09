@@ -6,6 +6,7 @@ import { useState } from "react";
 import Modal from "../../Modals/Modal/Modal";
 import SignUpModal from "../../Modals/SignUpModal/SignUpModal";
 import SignInModal from "../../Modals/SignInModal/SignInModal";
+import LogOutModal from "../../Modals/LogOutModal/LogOutModal";
 
 export const SharedLayout = () => {
   const [isModal, setIsModal] = useState(false);
@@ -17,6 +18,7 @@ export const SharedLayout = () => {
   // const child = <p>P</p>;
   const child1 = <SignUpModal title={"SIGN UP"} />;
   const child2 = <SignInModal title={"SIGN IN"} />;
+  const child3 = <LogOutModal title={"LOG OUT"} />;
 
   return (
     <>
@@ -30,7 +32,7 @@ export const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
-      {isModal && <Modal children={child2} onModalClick={onModalClick} />}
+      {isModal && <Modal children={child1} onModalClick={onModalClick} />}
     </>
   );
 };

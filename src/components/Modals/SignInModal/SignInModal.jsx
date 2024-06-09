@@ -10,7 +10,7 @@ const SignInModal = ({ title }) => {
       </div>
       <div className={css.submitBlock}>
         <button className={css.submitBtn} type="submit">
-          CREATE
+          SIGN IN
         </button>
         <p className={css.message}>
           Don't have an account?{" "}

@@ -10,6 +10,9 @@
 .titleBlock {
   width: 100%;
   text-align: start;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-black);
 }
 
 .inputsBlock {
@@ -41,7 +44,8 @@
   padding: 14px 0;
   border: none;
   border-radius: 30px;
-  background-color: #05050512;
+  background-color: #05050520;
+  color: #ffffff40;
 }
 
 .message {
