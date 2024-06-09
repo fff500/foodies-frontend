@@ -126,10 +126,6 @@
 }
 
 .ingredientsItems {
-    /*display: flex;*/
-    /*gap: 16px;*/
-    /*flex-wrap: wrap;*/
-    /*width: calc(50% - 16px);*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 16px;
@@ -260,7 +256,3 @@
     }
 
 }
-
-
-
-

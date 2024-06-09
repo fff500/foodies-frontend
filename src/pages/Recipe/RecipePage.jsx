@@ -1,5 +1,4 @@
-import { RecipeInfo } from "../../components/RecipesPageComponents/RecipeInfo";
-import { Container } from "../../components";
+import { Container, RecipeInfo } from "../../components";
 
 const RecipePage = () => {
   return (

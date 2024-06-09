@@ -5,8 +5,6 @@ import { PopularRecipes } from "./PopularRecipes";
 import styles from "./Recipes.module.css";
 
 export const RecipeMainInfo = ({ data }) => {
-  console.log(data);
-
   return (
     <div className={classNames(styles.recipeWrapper)}>
       <div className={classNames(styles.recipeContainers)}>
