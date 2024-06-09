@@ -30,7 +30,7 @@ export const Testimonials = () => {
       )}
       {testimonialsData.length > 0 && (
         <>
-          <span className={styles.tagline}>What our customer say</span>
+          <h3 className={styles.tagline}>What our customer say</h3>
           <h2 className={styles.headline}>TESTIMONIALS</h2>
           <Swiper
             autoplay={{
