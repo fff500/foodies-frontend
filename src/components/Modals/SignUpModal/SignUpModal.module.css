@@ -38,4 +38,34 @@
 
 .submitBtn {
   width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 30px;
+  background-color: #05050512;
+}
+
+.message {
+  color: var(--color-body-text-light);
+  font-size: 12px;
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.link {
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .container {
+    row-gap: 32px;
+  }
+  .submitBtn {
+    padding: 16px 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    row-gap: 32px; /* to delete */
+  }
 }
