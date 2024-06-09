@@ -47,8 +47,12 @@
             font-size: 18px;
 
             .svg {
+                fill: var(--color-gray-secondary);
                 margin-right: auto;
                 margin-bottom: 20px;
+                margin-left: 8px;
+                width: 40px;
+                height: 32px;
             }
 
             .description {
@@ -89,9 +93,9 @@
             }
             .swiperSlide {
                 .svg {
-                    margin-bottom: 40px;
+                    width: 60px;
+                    height: 48px;
                 }
-
                 .description {
                     font-size: 24px;
                     line-height: 1.5;
