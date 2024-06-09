@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 
 import styles from "./Hero.module.css";
-import Modal from "../Modals/Modal/Modal";
 
 export const Hero = () => {
   const handleCTA = useCallback(() => {
@@ -10,8 +9,6 @@ export const Hero = () => {
 
   return (
     <section className={styles.heroSection}>
-      <Modal />
-
       <div className={styles.heroContentContainer}>
         <h1 className={styles.heroTitle} id="hero-title">
           Improve Your Culinary Talents
