@@ -13,8 +13,6 @@ const RecipeList = () => {
     refetch: refetchRecipe,
   } = useGetRecipeQuery();
 
-  console.log("recipeData: ", recipeData);
-
   const isLoading = recipeLoading || recipeFetching;
 
   return (
