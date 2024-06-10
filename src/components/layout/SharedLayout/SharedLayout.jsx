@@ -20,7 +20,6 @@ export const SharedLayout = () => {
   const child1 = <SignUpModal title={"SIGN UP"} />;
   const child2 = <SignInModal title={"SIGN IN"} />;
   const child3 = <LogOutModal title={"LOG OUT"} />;
-  const burger = <BurgerModal title={"Burger"} />;
 
   return (
     <>
@@ -35,6 +34,8 @@ export const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
+      {false && <Modal children={child1} onModalClick={onModalClick} />}
+      {false && <Modal children={child2} onModalClick={onModalClick} />}
       {false && <Modal children={child3} onModalClick={onModalClick} />}
       {isModal && <BurgerModal onBurgerMenuClick={onModalClick} />}
     </>
