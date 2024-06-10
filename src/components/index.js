@@ -11,3 +11,5 @@ export * from "./Categories";
 export * from "./UserBar";
 export * from "./RecipesPageComponents";
 
+export * from "./HeroImageContainer";
+export * from "./HeroContentContainer";
