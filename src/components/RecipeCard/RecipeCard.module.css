@@ -1,0 +1,59 @@
+.infoCard {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.infoCardImg {
+  width: 100%;
+  aspect-ratio: 1.05;
+  object-fit: auto;
+}
+.infoCardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+}
+.infoCardDescription {
+  color: rgba(5, 5, 5, 0.8);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.infoCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.infoCardAuthor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(5, 5, 5, 0.9);
+}
+.authorAvatar {
+  width: 40px;
+  aspect-ratio: 1;
+}
+.infoCardSocial {
+  display: flex;
+  gap: 4px;
+}
+.icon {
+  width: 18px;
+}
+@media (max-width: 991px) {
+  .infoCard {
+    width: 100%;
+  }
+  .infoCardDescription,
+  .infoCardTitle,
+  .backButton {
+    white-space: initial;
+  }
+}
