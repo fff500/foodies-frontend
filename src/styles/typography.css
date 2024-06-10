@@ -1,8 +1,8 @@
 body {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body-mobile);
   font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body);
+  line-height: var(--line-height-body-mobile);
   letter-spacing: var(--letter-spacing-body);
   color: var(--color-body-text);
   background-color: var(--color-white);
@@ -17,18 +17,18 @@ h3 {
 }
 
 h1 {
-  font-size: var(--font-size-h1);
-  line-height: var(--line-height-h1);
+  font-size: var(--font-size-h1-mobile);
+  line-height: var(--line-height-h1-mobile);
 }
 
 h2 {
-  font-size: var(--font-size-h2);
-  line-height: var(--line-height-h2);
+  font-size: var(--font-size-h2-mobile);
+  line-height: var(--line-height-h2-mobile);
 }
 
 h3 {
-  font-size: var(--font-size-h3);
-  line-height: var(--line-height-h3);
+  font-size: var(--font-size-h3-mobile);
+  line-height: var(--line-height-h3-mobile);
 }
 
 code {
@@ -37,8 +37,23 @@ code {
 }
 
 @media (min-width: 768px) {
-    h2 {
-        font-size: 40px;
-        line-height: var(--line-height-h2-tablet);
-    }
+  body {
+    font-size: var(--font-size-body-tablet);
+    line-height: var(--line-height-body-tablet);
+  }
+
+  h1 {
+    font-size: var(--font-size-h1-tablet);
+    line-height: var(--line-height-h1-tablet);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2-tablet);
+    line-height: var(--line-height-h2-tablet);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3-tablet);
+    line-height: var(--line-height-h3-tablet);
+  }
 }
