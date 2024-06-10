@@ -1,6 +1,7 @@
+import classnames from "classnames";
+import sprite from "../../assets/icons/sprite.svg";
 import { Button } from "../Button";
 import styles from "./BurgerMenu.module.css";
-import sprite from "../../assets/icons/sprite.svg";
 
 export const BurgerMenu = ({ isHomePage }) => {
   return (
@@ -9,7 +10,9 @@ export const BurgerMenu = ({ isHomePage }) => {
         <svg
           width="28"
           height="28"
-          className={`${styles.burgerMenuIcon} ${isHomePage ? styles.burgerMenuHomeIcon : ""}`}
+          className={classnames(styles.burgerMenuIcon, {
+            [styles.burgerMenuHomeIcon]: isHomePage,
+          })}
         >
           <use xlinkHref={`${sprite}#burger`} />
         </svg>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classnames from "classnames";
 import { Button } from "../Button";
 import styles from "./AuthButtons.module.css";
 
@@ -12,14 +13,14 @@ export const AuthButtons = () => {
   return (
     <div className={styles.authButtons}>
       <Button
-        className={`${styles.signInButton} ${activeButton === "signIn" ? styles.active : ""}`}
+        className={classnames(styles.signInButton, { [styles.active]: activeButton === "signIn" })}
         type="button"
         onClick={() => toggleActive("signIn")}
       >
         Sign in
       </Button>
       <Button
-        className={`${styles.signUpButton} ${activeButton === "signUp" ? styles.active : ""}`}
+        className={classnames(styles.signUpButton, { [styles.active]: activeButton === "signUp" })}
         type="button"
         onClick={() => toggleActive("signUp")}
       >

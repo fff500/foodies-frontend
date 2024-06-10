@@ -4,9 +4,9 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M25.427 16.001l-18.856-0.002"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M15.998 25.428l-9.427-9.429 9.429-9.427"></path>
 </symbol>
-<symbol id="arrowUpRight" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 22.667l13.333-13.333"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 9.333h13.333v13.333"></path>
+<symbol id="arrowUpRight" viewBox="0 0 32 32" fill="none">
+<path stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 22.667l13.333-13.333"></path>
+<path stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 9.333h13.333v13.333"></path>
 </symbol>
 <symbol id="close" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
