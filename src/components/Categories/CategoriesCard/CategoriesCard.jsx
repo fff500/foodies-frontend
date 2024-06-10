@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./CategoriesCard.module.css";
-import { Button } from "../Button";
-import sprite from "../../assets/icons/sprite.svg";
+import { Button } from "../../Button";
+import sprite from "../../../assets/icons/sprite.svg";
 
 export const CategoriesCard = ({
   categoryTitle,

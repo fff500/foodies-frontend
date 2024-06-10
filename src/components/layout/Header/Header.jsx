@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
-import { HeaderNav } from "../../HeaderNav";
-import { Logo } from "../../Logo";
-import { Container } from "../Container";
-import { BurgerMenu } from "../../BurgerMenu";
-import { AuthButtons } from "../../AuthButtons";
-import { UserBar } from "../../UserBar";
 import styles from "./Header.module.css";
+import { Container } from "../Container";
+import { Logo } from "../../Logo";
+import { AuthButtons } from "./components";
+import { HeaderNav } from "./components";
+import { UserBar } from "./components";
+import { BurgerMenu } from "./components";
 
 export const Header = () => {
   const [isLoggedIn] = useState(false);
