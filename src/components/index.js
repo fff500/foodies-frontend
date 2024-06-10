@@ -13,3 +13,5 @@ export * from "./RecipesPageComponents";
 export * from "./HeroImageContainer";
 export * from "./HeroContentContainer";
 export * from "./Recipes";
+export * from "./RecipeList";
+export * from "./RecipeCard";

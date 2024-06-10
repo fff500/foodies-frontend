@@ -3,6 +3,7 @@ import RecipeList from "../RecipeList/RecipeList";
 import sprite from "../../assets/icons/sprite.svg";
 import styles from "./Recipes.module.css";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
+import { Container } from "../layout";
 
 export const Recipes = () => {
   const {
@@ -29,7 +30,7 @@ export const Recipes = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container>
         <div className={styles.recipesNav}>
           <button className={styles.backButton}>
             <svg className={styles.logo}>
@@ -44,7 +45,7 @@ export const Recipes = () => {
           chord, and every dessert is an expression of the most refined
           gastronomic desires.
         </p>
-      </div>
+      </Container>
       <select value={selectedIngredient} onChange={handleIngredientChange}>
         {ingredientsData.map((ingredient) => (
           <option key={ingredient} value={ingredient}>
@@ -60,13 +61,13 @@ export const Recipes = () => {
         ))}
       </select>
       <RecipeList />
-      <footer className={styles.container}>
+      <Container>
         <nav className={styles.pagination}>
           <button className={styles.paginationButton}>1</button>
           <button className={styles.paginationButton}>2</button>
           <button className={styles.paginationButton}>3</button>
         </nav>
-      </footer>
+      </Container>
     </>
   );
 };
