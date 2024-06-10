@@ -1,0 +1,223 @@
+.categoriesSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title"
+        "subtitle"
+        "grid"
+        "button";
+
+
+    gap: 16px;
+    margin-bottom: 64px;
+    margin-top: 64px;
+
+    @media (min-width: 768px) {
+        gap: 20px;
+        margin-bottom: 100px;
+        margin-top: 100px;
+    }
+
+    @media (min-width: 1440px) {
+
+        margin-bottom: 120px;
+        margin-top: 120px;
+    }
+}
+
+.title {
+    grid-area: title;
+    color: #050505;
+
+    /* Mobile/H2 */
+    font-family: Mulish;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+    /* 114.286% */
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+        color: #050505;
+
+        /* Desktop _tablet/H2 */
+        font-family: Mulish;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 44px;
+        /* 110% */
+        letter-spacing: -0.8px;
+        text-transform: uppercase;
+    }
+}
+
+.subtitle {
+    grid-area: subtitle;
+    color: rgba(5, 5, 5, 0.80);
+
+    /* Mobile/Main text */
+    font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: -0.28px;
+
+    @media (min-width: 768px) {
+        width: 531px;
+        color: rgba(5, 5, 5, 0.80);
+
+        /* Desktop _tablet/Main */
+        font-family: Mulish;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        /* 150% */
+        letter-spacing: -0.32px;
+    }
+}
+
+.categoriesGridWrapper {
+    position: relative;
+    grid-area: grid;
+}
+
+.categoriesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+    width: 100%;
+}
+
+.categoriesGridItem:nth-child(n+9) {
+    display: none;
+}
+
+.allCategoriesButton {
+    grid-area: button;
+    margin-top: 16px;
+    height: 250px;
+    width: 100%;
+    padding: 0 16px;
+    background: var(--color-light-black, rgba(5, 5, 5, 0.9));
+    color: var(--color-white, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;
+
+    @media (min-width: 768px) {
+        height: 369px;
+        padding: 0px 88px;
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        width: 340px;
+        margin: 0;
+    }
+
+    @media (min-width: 1440px) {
+        width: 325px;
+        padding: 0px 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    .categoriesGrid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "card0 card1"
+            "card2 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card7"
+            "card8 card9"
+            "card10 .";
+        gap: 24px;
+    }
+
+    .categoriesGridItem:nth-child(1) {
+        grid-area: card0;
+    }
+
+    .categoriesGridItem:nth-child(2) {
+        grid-area: card1;
+    }
+
+    .categoriesGridItem:nth-child(3) {
+        grid-area: card2;
+    }
+
+    .categoriesGridItem:nth-child(4) {
+        grid-area: card3;
+    }
+
+    .categoriesGridItem:nth-child(5) {
+        grid-area: card4;
+    }
+
+    .categoriesGridItem:nth-child(6) {
+        grid-area: card5;
+    }
+
+    .categoriesGridItem:nth-child(7) {
+        grid-area: card6;
+    }
+
+    .categoriesGridItem:nth-child(8) {
+        grid-area: card7;
+    }
+
+    .categoriesGridItem:nth-child(9) {
+        grid-area: card8;
+    }
+
+    .categoriesGridItem:nth-child(10) {
+        grid-area: card9;
+    }
+
+    .categoriesGridItem:nth-child(11) {
+        grid-area: card10;
+    }
+
+    .categoriesGridItem:nth-child(12) {
+        grid-area: card11;
+    }
+
+    .categoriesGridItem:nth-child(13) {
+        grid-area: card12;
+    }
+
+    .categoriesGridItem:nth-child(-n+11) {
+        display: block;
+
+    }
+
+    @media (min-width: 1440px) {
+        .categoriesGrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .categoriesGridItem {
+            width: calc((100% - 40px-) / 2);
+        }
+
+        .categoriesGridItem:nth-child(3),
+        .categoriesGridItem:nth-child(4),
+        .categoriesGridItem:nth-child(8),
+        .categoriesGridItem:nth-child(10) {
+            width: 45%;
+        }
+    }
+}

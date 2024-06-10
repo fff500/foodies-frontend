@@ -1,0 +1,21 @@
+.burgerMenuButton {
+  border: none;
+  background: none;
+  grid-area: burgerMenu;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.burgerMenuIcon {
+  color: var(--color-black, #050505);
+}
+
+.burgerMenuHomeIcon {
+  color: var(--color-white, #ffffff);
+}
+
+@media (min-width: 768px) {
+  .burgerMenu {
+    display: none;
+  }
+}
