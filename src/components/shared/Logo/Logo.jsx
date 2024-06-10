@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { PROJECT_NAME } from "../../constants";
+import { PROJECT_NAME } from "../../../constants";
 import styles from "./Logo.module.css";
 
 export const Logo = () => (

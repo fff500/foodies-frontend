@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../Button";
-import { CategoriesCard } from "../CategoriesCard";
+import { Button } from "../shared";
+import { CategoriesCard } from "./CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
 import { nanoid } from "@reduxjs/toolkit";

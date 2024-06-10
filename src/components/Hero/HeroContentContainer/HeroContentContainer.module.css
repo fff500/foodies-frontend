@@ -66,13 +66,13 @@
   .heroSubtitle {
     width: 576px;
 
-    font-size: var(--font-size-body, 16px);
-    line-height: var(--line-height-body, 24px);
+    font-size: var(--font-size-body-tablet, 16px);
+    line-height: var(--line-height-body-tablet, 24px);
   }
 
   .heroSectionButton {
-    font-size: var(--font-size-body, 16px);
-    line-height: var(--line-height-body, 24px);
+    font-size: var(--font-size-body-tablet, 16px);
+    line-height: var(--line-height-body-tablet, 24px);
   }
 }
 

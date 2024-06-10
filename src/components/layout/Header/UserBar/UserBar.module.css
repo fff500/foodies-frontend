@@ -4,7 +4,7 @@
   border-radius: 30px;
   background: var(--color-light-black, rgba(5, 5, 5, 0.9));
   color: var(--color-light-black, rgba(5, 5, 5, 0.9));
-  font-size: var(--font-size-h2, 24px);
+  font-size: var(--font-size-h2-tablet, 24px);
   grid-area: userMenu;
   justify-self: end;
 }
@@ -21,7 +21,7 @@
   color: var(--color-white, #ffffff);
   font-size: 12px;
   font-weight: 700;
-  line-height: var(--line-height-body, 1.5);
+  line-height: var(--line-height-body-mobile, 1.5);
   letter-spacing: var(--letter-spacing-body, -0.02em);
   text-transform: uppercase;
 }
@@ -64,7 +64,7 @@
   background: transparent;
   font-size: 12px;
   font-weight: 700;
-  line-height: var(--line-height-body, 1.5);
+  line-height: var(--line-height-body-mobile, 1.5);
   letter-spacing: var(--letter-spacing-body, -0.02em);
   text-transform: uppercase;
   overflow: hidden;
@@ -82,6 +82,7 @@
 .logoutIcon {
   color: var(--color-white, #ffffff);
 }
+
 .logoutButton {
   display: flex;
   align-items: center;
@@ -94,12 +95,15 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--color-white, #ffffff);
 }
+
 .otherPageSelect {
   border: 1px solid var(--color-gray-secondary, #d9d9d9);
   color: var(--color-light-black, rgba(5, 5, 5, 0.9));
+
   .logoutButton {
     color: var(--color-light-black, rgba(5, 5, 5, 0.9));
   }
+
   .logoutIcon {
     color: var(--color-light-black, rgba(5, 5, 5, 0.9));
   }
