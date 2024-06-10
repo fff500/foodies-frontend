@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import sprite from "../../../assets/icons/sprite.svg";
 
 import css from "./BurgerModal.module.css";
+import { Logo } from "../../Logo";
+import { NavLink } from "react-router-dom";
 
 const BurgerModal = ({ onBurgerMenuClick }) => {
   useEffect(() => {
@@ -18,15 +20,10 @@ const BurgerModal = ({ onBurgerMenuClick }) => {
     };
   }, [onBurgerMenuClick]);
 
-  const onBackdropClick = (evt) => {
-    if (evt.target === evt.currentTarget) {
-      onBurgerMenuClick();
-    }
-  };
-
   return (
-    <div className={css.backdrop} onClick={onBackdropClick}>
+    <div className={css.backdrop}>
       <div className={css.header}>
+        <Logo />
         <button
           className={css.closeBtn}
           type="button"
@@ -37,6 +34,23 @@ const BurgerModal = ({ onBurgerMenuClick }) => {
           </svg>
         </button>
       </div>
+      <ul className={css.headerNavList}>
+        <li className={css.headerNavItem}>
+          <NavLink to="/" className={css.homeLink}>
+            Home
+          </NavLink>
+        </li>
+        <li className={css.headerNavItem}>
+          <NavLink
+            to="/recipe"
+            className={css.recipeLink}
+            state={{ recipe: "Add recipe" }}
+          >
+            Add recipe
+          </NavLink>
+        </li>
+      </ul>
+      <div className={css.images}></div>
     </div>
   );
 };
