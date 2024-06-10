@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import sprite from "../../../assets/icons/sprite.svg";
 
 import css from "./BurgerModal.module.css";
-import { Logo } from "../../Logo";
+import { Logo } from "../../shared/Logo";
 import { NavLink } from "react-router-dom";
 
 const BurgerModal = ({ onBurgerMenuClick }) => {
