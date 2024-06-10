@@ -9,7 +9,8 @@
     background-color: var(--color-black);
     color: var(--color-white);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -47,6 +48,8 @@
   }
 
   .headerNavList {
+    position: absolute;
+    top: 33%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,5 +64,38 @@
     letter-spacing: -0.24px;
     text-transform: uppercase;
     padding: 14px 0;
+  }
+
+  .heroImageOneContainer {
+    position: absolute;
+    top: 66%;
+    right: 65%;
+
+    width: 77px;
+    height: 70px;
+
+    border-width: 1px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 15px;
+
+    overflow: hidden;
+    rotate: 11deg;
+  }
+
+  .heroImageTwoContainer {
+    position: absolute;
+    top: 55%;
+    left: 40%;
+    width: 190px;
+    height: 172px;
+
+    border-width: 1px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 15px;
+
+    overflow: hidden;
+    rotate: -12deg;
   }
 }

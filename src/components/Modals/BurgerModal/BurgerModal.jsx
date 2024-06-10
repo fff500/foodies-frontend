@@ -50,7 +50,8 @@ const BurgerModal = ({ onBurgerMenuClick }) => {
           </NavLink>
         </li>
       </ul>
-      <div className={css.images}></div>
+      <div className={css.heroImageOneContainer}></div>
+      <div className={css.heroImageTwoContainer}></div>
     </div>
   );
 };
