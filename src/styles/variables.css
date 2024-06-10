@@ -10,19 +10,26 @@
   --color-body-text: rgba(5, 5, 5, 0.8);
   --color-body-text-light: rgba(5, 5, 5, 0.6);
 
-  --font-size-body: 16px;
-  --font-size-h1: 40px;
-  --font-size-h2: 24px;
-  --font-size-h3: 20px;
+  --font-size-body-mobile: 14px;
+  --font-size-body-tablet: 16px;
+  --font-size-h1-mobile: 28px;
+  --font-size-h1-tablet: 40px;
+  --font-size-h2-mobile: 18px;
+  --font-size-h2-tablet: 24px;
+  --font-size-h3-mobile: 16px;
+  --font-size-h3-tablet: 20px;
 
   --font-weight-body: 500;
   --font-weight-headlines: 800;
 
-  --line-height-body: 1.5;
-  --line-height-h1: 1.1;
-  --line-height-h2: 1.17;
-  --line-height-h2-tablet: 1.1;
-  --line-height-h3: 1.2;
+  --line-height-body-mobile: 1.5;
+  --line-height-body-tablet: 1.43;
+  --line-height-h1-mobile: 1.14;
+  --line-height-h1-tablet: 1.1;
+  --line-height-h2-mobile: 1.33;
+  --line-height-h2-tablet: 1.17;
+  --line-height-h3-mobile: 1.5;
+  --line-height-h3-tablet: 1.2;
 
   --letter-spacing-body: -0.02em;
 

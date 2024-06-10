@@ -11,7 +11,11 @@ export const HeaderNav = () => {
           </NavLink>
         </li>
         <li className={styles.headerNavItem}>
-          <NavLink to="/recipe" className={styles.recipeLink}>
+          <NavLink
+            to="/recipe"
+            className={styles.recipeLink}
+            state={{ recipe: "Add recipe" }}
+          >
             Add recipe
           </NavLink>
         </li>
