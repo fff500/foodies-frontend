@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
-import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
-import sprite from "../../assets/icons/sprite.svg";
-import { Button } from "../Button";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
+import { Button } from "../../../Button";
+import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./UserBar.module.css";
 
 export const UserBar = ({ userName, userImage }) => {

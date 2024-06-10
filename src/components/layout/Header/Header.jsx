@@ -4,9 +4,9 @@ import classnames from "classnames";
 import { HeaderNav } from "../../HeaderNav";
 import { Logo } from "../../Logo";
 import { Container } from "../Container";
-import { BurgerMenu } from "../../BurgerMenu";
-import { AuthButtons } from "../../AuthButtons";
-import { UserBar } from "../../UserBar";
+import { BurgerMenu } from "./BurgerMenu";
+import { AuthButtons } from "./AuthButtons";
+import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
 export const Header = () => {
