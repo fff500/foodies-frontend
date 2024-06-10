@@ -1,8 +1,9 @@
 .logo {
   color: inherit;
-  font-size: var(--font-size-h2, 24px);
+  font-size: var(--font-size-h2-tablet, 24px);
   font-weight: var(--font-weight-headlines, 800);
-  line-height: var(--line-height-h2, 1.17);
+  line-height: var(--line-height-h2-tablet, 1.17);
   letter-spacing: -0.48px;
   text-transform: lowercase;
+  grid-area: logo;
 }

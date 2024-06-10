@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import { Link, useLocation } from "react-router-dom";
-import { Container } from "../layout";
+import { Container } from "../";
 import styles from "./Breadcrumbs.module.css";
 
 export const Breadcrumbs = () => {
