@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classnames from "classnames";
-import { Button } from "../../../Button";
+import { Button } from "../../../shared";
 import styles from "./AuthButtons.module.css";
 
 export const AuthButtons = () => {

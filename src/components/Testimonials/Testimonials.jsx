@@ -3,8 +3,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGetTestimonialsQuery } from "../../redux";
 import sprite from "../../assets/icons/sprite.svg";
-import { ErrorComponent } from "../ErrorComponent";
-import { LoadingSpinner } from "../LoadingSpinner";
+import { ErrorComponent, LoadingSpinner } from "../shared";
 import styles from "./Testimotinials.module.css";
 
 const idMap = {

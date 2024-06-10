@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "../Container/";
-import { Logo } from "../../Logo";
 import sprite from "../../../assets/icons/sprite.svg";
+import { Logo } from "../../shared/";
 import { socialLinks } from "./data";
 import styles from "./Footer.module.css";
 

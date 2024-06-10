@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
-import { HeaderNav } from "../../HeaderNav";
-import { Logo } from "../../Logo";
+import { Logo } from "../../shared/Logo";
 import { Container } from "../Container";
+import { HeaderNav } from "./HeaderNav";
 import { BurgerMenu } from "./BurgerMenu";
 import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";

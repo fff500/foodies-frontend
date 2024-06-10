@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { Button } from "../../../Button";
+import { Button } from "../../../shared";
 import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
 
