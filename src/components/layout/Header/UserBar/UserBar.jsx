@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
-import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
-import sprite from "../../assets/icons/sprite.svg";
-import { Button } from "../Button";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
+import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./UserBar.module.css";
+import { Button } from "../../../shared";
 
 export const UserBar = ({ userName, userImage }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +40,6 @@ export const UserBar = ({ userName, userImage }) => {
       />
       <div className={styles.userDetails}>
         <p className={styles.userName}>{userName || "User"}</p>
-
         <Button
           className={styles.userButton}
           type="button"

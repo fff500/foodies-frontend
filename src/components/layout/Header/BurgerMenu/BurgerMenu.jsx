@@ -1,6 +1,6 @@
 import classnames from "classnames";
-import sprite from "../../assets/icons/sprite.svg";
-import { Button } from "../Button";
+import { Button } from "../../../shared";
+import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
 
 export const BurgerMenu = ({ isHomePage }) => {

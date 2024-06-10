@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { Button } from "../Button";
+import { Button } from "../shared";
 import styles from "./Recipes.module.css";
 
 export const RecipePreparation = ({ instructions }) => {

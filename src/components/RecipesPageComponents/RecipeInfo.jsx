@@ -2,8 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetRecipeQuery } from "../../redux";
 import { RecipeMainInfo } from "./RecipeMainInfo";
-import { LoadingSpinner } from "../LoadingSpinner";
-import { ErrorComponent } from "../ErrorComponent";
+import { ErrorComponent, LoadingSpinner } from "../shared";
 import styles from "./Recipes.module.css";
 
 export const RecipeInfo = () => {
