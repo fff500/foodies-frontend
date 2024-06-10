@@ -4,6 +4,7 @@ import { SharedLayout } from "./components";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const User = lazy(() => import("./pages/User/User"));
+const AddRecipe = lazy(() => import("./pages/AddRecipe/AddRecipe"));
 const RecipePage = lazy(() => import("./pages/Recipe/RecipePage"));
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
       <Route index element={<Home />} />
       <Route path="/user" element={<User />} />
       <Route path="/recipe/:recipeId" element={<RecipePage />} />
+      <Route path="/add-recipe" element={<AddRecipe />} />
       <Route path="*" element={<Home />} />
     </Route>
   </Routes>
