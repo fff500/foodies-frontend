@@ -1,11 +1,13 @@
 .headerNav {
+  grid-area: nav;
+  display: none;
 }
 
 .headerNavList {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 16px;
 }
 
 .headerNavItem {
@@ -13,12 +15,15 @@
   font-size: 12px;
   font-weight: 700;
   line-height: var(--line-height-body, 1.5);
-  letter-spacing: -0.24px;
+  letter-spacing: var(--letter-spacing-body, -0.02em);
   text-transform: uppercase;
 }
 
-.homeLink {
+.headerNavItem:hover {
+  color: var(--color-gray-secondary, #D9D9D9)
 }
+
+
 
 .recipeLink {
   display: flex;
@@ -28,4 +33,19 @@
   gap: 10px;
   border-radius: 30px;
   border: 1px solid rgba(5, 5, 5, 0.2);
+}
+
+
+@media (min-width: 768px) {
+  .headerNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerNavList {
+    gap: 40px;
+  }
 }

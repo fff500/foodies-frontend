@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import classnames from "classnames";
 import styles from "./HeaderNav.module.css";
 
 export const HeaderNav = () => {
@@ -6,14 +7,22 @@ export const HeaderNav = () => {
     <nav className={styles.headerNav}>
       <ul className={styles.headerNavList}>
         <li className={styles.headerNavItem}>
-          <NavLink to="/" className={styles.homeLink}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              classnames(styles.navLink, styles.homeLink, { [styles.active]: isActive })
+            }
+          >
             Home
           </NavLink>
         </li>
         <li className={styles.headerNavItem}>
           <NavLink
             to="/recipe"
-            className={styles.recipeLink}
+
+            className={({ isActive }) =>
+              classnames(styles.navLink, styles.recipeLink, { [styles.active]: isActive })
+            }
             state={{ recipe: "Add recipe" }}
           >
             Add recipe
