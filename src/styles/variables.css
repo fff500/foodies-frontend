@@ -5,7 +5,7 @@
   --color-black-secondary: #000000;
   --color-light-black: rgba(5, 5, 5, 0.9);
   --color-gray: #e8e8e8;
-  --color-gray-secondary: #D9D9D9;
+  --color-gray-secondary: #d9d9d9;
   --color-white: #ffffff;
   --color-body-text: rgba(5, 5, 5, 0.8);
   --color-body-text-light: rgba(5, 5, 5, 0.6);
@@ -32,4 +32,7 @@
   --line-height-h3-tablet: 1.2;
 
   --letter-spacing-body: -0.02em;
+
+  --border-radius-small: 20px;
+  --border-radius-regular: 30px;
 }
