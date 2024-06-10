@@ -8,3 +8,4 @@ export * from "./Logo";
 export * from "./Testimonials";
 export * from "./Hero";
 export * from "./HeroImageContainer";
+export * from "./HeroContentContainer";
