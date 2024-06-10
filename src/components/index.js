@@ -9,5 +9,4 @@ export * from "./HeroContentContainer";
 export * from "./Recipes";
 export * from "./RecipeList";
 export * from "./RecipeCard";
-
 export * from "./Modals";
