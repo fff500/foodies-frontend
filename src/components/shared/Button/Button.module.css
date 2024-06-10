@@ -10,7 +10,7 @@
     color: var(--color-black, #050505);
     font-size: 12px;
     font-weight: 700;
-    line-height: var(--line-height-body, 1.5);
+    line-height: var(--line-height-body-mobile, 1.5);
     letter-spacing: var(--letter-spacing-body, -0.02em);
     text-transform: uppercase;
 }
