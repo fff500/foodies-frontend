@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import { useParams } from "react-router-dom";
 import { useGetRecipeQuery } from "../../redux";
 import { RecipeMainInfo } from "./RecipeMainInfo";
@@ -20,10 +19,10 @@ export const RecipeInfo = () => {
   const isLoading = recipeLoading || recipeFetching;
 
   return (
-    <section className={classNames(styles.sectionWrapper)}>
-      <h1 className={classNames(styles.isHidden)}>Recipe</h1>
+    <section className={styles.sectionWrapper}>
+      <h1 className={styles.isHidden}>Recipe</h1>
       {isLoading && (
-        <div className={classNames(styles.loadingStyles)}>
+        <div className={styles.loadingStyles}>
           <LoadingSpinner />
         </div>
       )}
