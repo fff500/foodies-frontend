@@ -1,6 +1,13 @@
 import styles from "./RecipeCard.module.css";
 
-const RecipeCard = ({ title, description, imgSrc, alt, author, avatarSrc }) => {
+export const RecipeCard = ({
+  title,
+  description,
+  imgSrc,
+  alt,
+  author,
+  avatarSrc,
+}) => {
   return (
     <div className={styles.infoCard}>
       <img
@@ -41,4 +48,3 @@ const RecipeCard = ({ title, description, imgSrc, alt, author, avatarSrc }) => {
     </div>
   );
 };
-export default RecipeCard;
