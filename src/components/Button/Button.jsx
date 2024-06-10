@@ -1,5 +1,5 @@
-import styles from "./Button.module.css";
 import classnames from "classnames";
+import styles from "./Button.module.css";
 
 export const Button = ({ children, onClick, className, type }) => {
   return (

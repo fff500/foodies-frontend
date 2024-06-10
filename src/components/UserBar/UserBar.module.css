@@ -32,14 +32,13 @@
   justify-content: space-between;
   gap: 4px;
   padding: 7px 6px;
+  position: relative;
 }
 
 .userButton {
   border: none;
   color: var(--color-white, #ffffff);
 }
-
-
 
 @media (min-width: 768px) {
   .userImage {
@@ -50,5 +49,58 @@
   .userDetails {
     gap: 4px;
     padding: 16px 14px 16px 6px;
+  }
+}
+
+.select {
+  position: absolute;
+  width: 122px;
+  height: 72px;
+  top: 46px;
+  right: 0;
+  z-index: 999;
+  border-radius: 15px;
+  padding: 16px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: var(--line-height-body, 1.5);
+  letter-spacing: var(--letter-spacing-body, -0.02em);
+  text-transform: uppercase;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    top: 58px;
+    width: 148px;
+    height: 74px;
+  }
+}
+
+.logoutIcon {
+  color: var(--color-white, #ffffff);
+}
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  color: var(--color-white, #ffffff);
+}
+
+.homeSelect {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-white, #ffffff);
+}
+.otherPageSelect {
+  border: 1px solid var(--color-gray-secondary, #d9d9d9);
+  color: var(--color-light-black, rgba(5, 5, 5, 0.9));
+  .logoutButton {
+    color: var(--color-light-black, rgba(5, 5, 5, 0.9));
+  }
+  .logoutIcon {
+    color: var(--color-light-black, rgba(5, 5, 5, 0.9));
   }
 }
