@@ -7,7 +7,7 @@ export const RecipeIngredients = ({ ingredients }) => {
       <h3 className={styles.recipeTitle}>Ingredients</h3>
       <ul className={styles.ingredientsItems}>
         {ingredients?.map((elem) => (
-          <li className={styles.ingredient}>
+          <li className={styles.ingredient} key={elem.id}>
             <div className={styles.ingredientImg}>
               <img src={elem.img} alt={elem.name} />
             </div>
