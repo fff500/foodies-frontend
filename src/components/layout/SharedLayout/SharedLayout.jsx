@@ -16,11 +16,10 @@ export const SharedLayout = () => {
     setIsModal(!isModal);
   };
 
-  // const child = <p>P</p>;
   const child1 = <SignUpModal title={"SIGN UP"} />;
   const child2 = <SignInModal title={"SIGN IN"} />;
   const child3 = <LogOutModal title={"LOG OUT"} />;
-  const child4 = <BurgerModal title={"Burger"} />;
+  const burger = <BurgerModal title={"Burger"} />;
 
   return (
     <>
@@ -34,7 +33,8 @@ export const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
-      {isModal && <Modal children={child4} onModalClick={onModalClick} />}
+      {false && <Modal children={child3} onModalClick={onModalClick} />}
+      {isModal && <BurgerModal onBurgerMenuClick={onModalClick} />}
     </>
   );
 };

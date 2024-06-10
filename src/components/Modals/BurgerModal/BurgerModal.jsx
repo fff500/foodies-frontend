@@ -1,24 +1,41 @@
+import { useEffect } from "react";
+import sprite from "../../../assets/icons/sprite.svg";
+
 import css from "./BurgerModal.module.css";
 
-const BurgerModal = ({ title }) => {
+const BurgerModal = ({ onBurgerMenuClick }) => {
+  useEffect(() => {
+    const onEscPress = (evt) => {
+      if (evt.code === "Escape") {
+        onBurgerMenuClick();
+      }
+    };
+
+    document.addEventListener("keydown", onEscPress);
+
+    return () => {
+      document.removeEventListener("keydown", onEscPress);
+    };
+  }, [onBurgerMenuClick]);
+
+  const onBackdropClick = (evt) => {
+    if (evt.target === evt.currentTarget) {
+      onBurgerMenuClick();
+    }
+  };
+
   return (
-    <div className={css.container}>
-      <h3 className={css.titleBlock}>{title}</h3>
-      <div className={css.inputsBlock}>
-        <input className={css.input} placeholder="name" type="text" />
-        <input className={css.input} placeholder="email" type="email" />
-        <input className={css.input} placeholder="password" type="password" />
-      </div>
-      <div className={css.submitBlock}>
-        <button className={css.submitBtn} type="submit">
-          CREATE
+    <div className={css.backdrop} onClick={onBackdropClick}>
+      <div className={css.header}>
+        <button
+          className={css.closeBtn}
+          type="button"
+          onClick={() => onBurgerMenuClick()}
+        >
+          <svg className={css.closeSvg}>
+            <use xlinkHref={`${sprite}#close`} />
+          </svg>
         </button>
-        <p className={css.message}>
-          I already have an account?{" "}
-          <a className={css.link} href="/">
-            Sign in
-          </a>
-        </p>
       </div>
     </div>
   );
