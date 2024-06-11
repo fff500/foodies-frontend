@@ -3,11 +3,11 @@ import sprite from "../../../assets/icons/sprite.svg";
 
 import styles from "./Modal.module.css";
 
-export const Modal = ({ children, onModalClick }) => {
+export const Modal = ({ children, onClose }) => {
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
-        onModalClick();
+        onClose();
       }
     };
 
@@ -16,11 +16,11 @@ export const Modal = ({ children, onModalClick }) => {
     return () => {
       document.removeEventListener("keydown", onEscPress);
     };
-  }, [onModalClick]);
+  }, [onClose]);
 
   const onBackdropClick = (evt) => {
     if (evt.target === evt.currentTarget) {
-      onModalClick();
+      onClose();
     }
   };
 
@@ -30,7 +30,7 @@ export const Modal = ({ children, onModalClick }) => {
         <button
           className={styles.closeBtn}
           type="button"
-          onClick={() => onModalClick()}
+          onClick={() => onClose()}
         >
           <svg className={styles.closeSvg}>
             <use xlinkHref={`${sprite}#close`} />
