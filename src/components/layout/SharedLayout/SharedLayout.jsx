@@ -4,11 +4,13 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { useState } from "react";
-import Modal from "../../Modals/Modal/Modal";
-import SignUpModal from "../../Modals/SignUpModal/SignUpModal";
-import SignInModal from "../../Modals/SignInModal/SignInModal";
-import LogOutModal from "../../Modals/LogOutModal/LogOutModal";
-import BurgerModal from "../../Modals/BurgerModal/BurgerModal";
+import {
+  Modal,
+  SignUpModal,
+  SignInModal,
+  LogOutModal,
+  BurgerModal,
+} from "../../Modals";
 
 export const SharedLayout = () => {
   /**

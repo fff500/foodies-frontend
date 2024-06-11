@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import sprite from "../../../assets/icons/sprite.svg";
 
-import css from "./Modal.module.css";
+import styles from "./Modal.module.css";
 
-const Modal = ({ children, onModalClick }) => {
+export const Modal = ({ children, onModalClick }) => {
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
@@ -25,14 +25,14 @@ const Modal = ({ children, onModalClick }) => {
   };
 
   return (
-    <div className={css.backdrop} onClick={onBackdropClick}>
-      <div className={css.container}>
+    <div className={styles.backdrop} onClick={onBackdropClick}>
+      <div className={styles.container}>
         <button
-          className={css.closeBtn}
+          className={styles.closeBtn}
           type="button"
           onClick={() => onModalClick()}
         >
-          <svg className={css.closeSvg}>
+          <svg className={styles.closeSvg}>
             <use xlinkHref={`${sprite}#close`} />
           </svg>
         </button>
@@ -41,5 +41,3 @@ const Modal = ({ children, onModalClick }) => {
     </div>
   );
 };
-
-export default Modal;

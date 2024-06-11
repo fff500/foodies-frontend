@@ -1,20 +1,24 @@
-import css from "./SignInModal.module.css";
+import styles from "./SignInModal.module.css";
 
-const SignInModal = ({ title }) => {
+export const SignInModal = ({ title }) => {
   return (
-    <div className={css.container}>
-      <h3 className={css.titleBlock}>{title}</h3>
-      <div className={css.inputsBlock}>
-        <input className={css.input} placeholder="email" type="email" />
-        <input className={css.input} placeholder="password" type="password" />
+    <div className={styles.container}>
+      <h3 className={styles.titleBlock}>{title}</h3>
+      <div className={styles.inputsBlock}>
+        <input className={styles.input} placeholder="email" type="email" />
+        <input
+          className={styles.input}
+          placeholder="password"
+          type="password"
+        />
       </div>
-      <div className={css.submitBlock}>
-        <button className={css.submitBtn} type="submit">
+      <div className={styles.submitBlock}>
+        <button className={styles.submitBtn} type="submit">
           SIGN IN
         </button>
-        <p className={css.message}>
+        <p className={styles.message}>
           Don't have an account?{" "}
-          <a className={css.link} href="/">
+          <a className={styles.link} href="/">
             Create an account
           </a>
         </p>
@@ -22,5 +26,3 @@ const SignInModal = ({ title }) => {
     </div>
   );
 };
-
-export default SignInModal;

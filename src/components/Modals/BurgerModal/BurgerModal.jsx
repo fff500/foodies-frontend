@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 import sprite from "../../../assets/icons/sprite.svg";
 
-import css from "./BurgerModal.module.css";
+import styles from "./BurgerModal.module.css";
 
-const BurgerModal = ({ onBurgerMenuClick }) => {
+export const BurgerModal = ({ onBurgerMenuClick }) => {
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
@@ -22,29 +22,29 @@ const BurgerModal = ({ onBurgerMenuClick }) => {
   }, [onBurgerMenuClick]);
 
   return (
-    <div className={css.backdrop}>
-      <div className={css.header}>
+    <div className={styles.backdrop}>
+      <div className={styles.header}>
         <Logo />
         <button
-          className={css.closeBtn}
+          className={styles.closeBtn}
           type="button"
           onClick={() => onBurgerMenuClick()}
         >
-          <svg className={css.closeSvg}>
+          <svg className={styles.closeSvg}>
             <use xlinkHref={`${sprite}#close`} />
           </svg>
         </button>
       </div>
-      <ul className={css.headerNavList}>
-        <li className={css.headerNavItem}>
-          <NavLink to="/" className={css.homeLink}>
+      <ul className={styles.headerNavList}>
+        <li className={styles.headerNavItem}>
+          <NavLink to="/" className={styles.homeLink}>
             Home
           </NavLink>
         </li>
-        <li className={css.headerNavItem}>
+        <li className={styles.headerNavItem}>
           <NavLink
             to="/recipe"
-            className={css.recipeLink}
+            className={styles.recipeLink}
             state={{ recipe: "Add recipe" }}
           >
             Add recipe
@@ -55,5 +55,3 @@ const BurgerModal = ({ onBurgerMenuClick }) => {
     </div>
   );
 };
-
-export default BurgerModal;

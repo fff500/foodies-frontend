@@ -1,22 +1,20 @@
-import css from "./LogOutModal.module.css";
+import styles from "./LogOutModal.module.css";
 
-const LogOutModal = ({ title }) => {
+export const LogOutModal = ({ title }) => {
   return (
-    <div className={css.container}>
-      <div className={css.titleBlock}>
-        <h3 className={css.title}>{title}</h3>
-        <p className={css.message}>You can always log back in at my time.</p>
+    <div className={styles.container}>
+      <div className={styles.titleBlock}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.message}>You can always log back in at my time.</p>
       </div>
-      <div className={css.submitBlock}>
-        <button className={css.logoutBtn} type="submit">
+      <div className={styles.submitBlock}>
+        <button className={styles.logoutBtn} type="submit">
           LOG OUT
         </button>
-        <button className={css.cancelBtn} type="submit">
+        <button className={styles.cancelBtn} type="submit">
           CANCEL
         </button>
       </div>
     </div>
   );
 };
-
-export default LogOutModal;
