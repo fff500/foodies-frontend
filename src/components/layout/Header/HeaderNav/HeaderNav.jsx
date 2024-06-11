@@ -10,7 +10,9 @@ export const HeaderNav = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              classnames(styles.navLink, styles.homeLink, { [styles.active]: isActive })
+              classnames(styles.navLink, styles.homeLink, {
+                [styles.active]: isActive,
+              })
             }
           >
             Home
@@ -19,9 +21,10 @@ export const HeaderNav = () => {
         <li className={styles.headerNavItem}>
           <NavLink
             to="/recipe"
-
             className={({ isActive }) =>
-              classnames(styles.navLink, styles.recipeLink, { [styles.active]: isActive })
+              classnames(styles.navLink, styles.recipeLink, {
+                [styles.active]: isActive,
+              })
             }
             state={{ recipe: "Add recipe" }}
           >

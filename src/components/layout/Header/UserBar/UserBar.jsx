@@ -6,7 +6,7 @@ import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./UserBar.module.css";
 import { Button } from "../../../shared";
 
-export const UserBar = ({ userName, userImage }) => {
+export const UserBar = ({ userName, userImage, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [icon, setIcon] = useState("chevronUp");
   const location = useLocation();
@@ -26,7 +26,7 @@ export const UserBar = ({ userName, userImage }) => {
     if (value === "profile") {
       setIcon("chevronDown");
     } else if (value === "logout") {
-      alert("Are you sure?");
+      onLogout();
       setIcon("chevronDown");
     }
   };
@@ -73,7 +73,7 @@ export const UserBar = ({ userName, userImage }) => {
               <Button
                 type="button"
                 className={styles.logoutButton}
-                onClick={() => alert("Are you sure?")}
+                onClick={() => handleSelectChange("logout")}
               >
                 Log out
                 <svg width="18" height="18" className={styles.logoutIcon}>

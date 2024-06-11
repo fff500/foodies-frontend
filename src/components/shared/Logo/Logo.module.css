@@ -3,7 +3,7 @@
   font-size: var(--font-size-h2-tablet, 24px);
   font-weight: var(--font-weight-headlines, 800);
   line-height: var(--line-height-h2-tablet, 1.17);
-  letter-spacing: -0.48px;
+  letter-spacing: var(--letter-spacing-body, -0.02em);
   text-transform: lowercase;
   grid-area: logo;
 }
