@@ -1,0 +1,10 @@
+.logOut {
+  width: 100%;
+  background: var(--color-black, #050505);
+  padding: 14px 0;
+  color: var(--color-white, #ffffff);
+  font-size: var(--font-size-body-mobile);
+  font-weight: var(--font-weight-headlines);
+  margin-top: 20px;
+  margin-bottom: 64px;
+}

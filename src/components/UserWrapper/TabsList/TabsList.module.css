@@ -1,0 +1,21 @@
+.tabList {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.tab {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-black, #050505);
+}
+
+.selectedTab {
+  border-bottom: 3px solid var(--color-black, #050505);
+}
+
+.react-tabs__tab-panel {
+  padding: 30px;
+}
