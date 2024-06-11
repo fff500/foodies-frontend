@@ -58,7 +58,7 @@
     border: 1px solid rgba(5, 5, 5, 0.2);
     border-radius: 30px;
     padding: 10px;
-    color: rgba(5, 5, 5, 0.6);
+    color: var(--color-body-text-light);
 }
 .userInfo {
     display: flex;
@@ -79,7 +79,7 @@
 }
 
 .userInfoLabelText {
-    color: rgba(5, 5, 5, 0.6);
+    color: var(--color-body-text-light);
     font-size: 12px;
 }
 

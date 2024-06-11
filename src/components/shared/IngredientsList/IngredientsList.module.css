@@ -19,7 +19,7 @@
 }
 
 .ingredientText {
-    color: rgba(5, 5, 5, 0.6);
+    color: var(--color-body-text-light);
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
