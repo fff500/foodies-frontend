@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container } from "../Container/";
 import sprite from "../../../assets/icons/sprite.svg";
 import { Logo } from "../../shared/";
@@ -11,7 +12,9 @@ export const Footer = () => {
       <Container>
         <div className={styles.footerTop}>
           <div className={styles.logoContainer}>
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
           <ul className={styles.socialLinksContainer}>
             {socialLinks.map(({ id, link }) => (
