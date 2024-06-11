@@ -13,7 +13,7 @@ const App = () => (
       <Route index element={<Home />} />
       <Route path="/user" element={<User />} />
       <Route path="/recipe/:recipeId" element={<RecipePage />} />
-      <Route path="/add-recipe" element={<AddRecipe />} />
+      <Route path="/recipe/add" element={<AddRecipe />} />
       <Route path="*" element={<Home />} />
     </Route>
   </Routes>
