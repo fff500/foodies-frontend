@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { Logo } from "../../shared/Logo";
 import { Container } from "../Container";
@@ -9,11 +9,9 @@ import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
-export const Header = () => {
+export const Header = ({ isHomePage }) => {
   const [isLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);

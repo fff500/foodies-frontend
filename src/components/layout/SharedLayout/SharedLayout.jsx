@@ -1,8 +1,10 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { Breadcrumbs } from "../Breadcrumbs";
+// TODO: will be fixed later
+// import { Breadcrumbs } from "../Breadcrumbs";
 import { useState } from "react";
 import {
   Modal,
@@ -11,38 +13,18 @@ import {
   LogOutModal,
   BurgerModal,
 } from "../../Modals";
+import styles from "./SharedLayout.module.css";
 
 export const SharedLayout = () => {
-  /**
-   * delete this block after integration
-   * START
-   */
-  const [isModal, setIsModal] = useState(false);
-  const onModalClick = () => {
-    setIsModal(!isModal);
-  };
-  const child1 = <SignUpModal title={"SIGN UP"} />;
-  const child2 = <SignInModal title={"SIGN IN"} />;
-  const child3 = <LogOutModal title={"LOG OUT"} />;
-  /**
-   * END
-   */
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
     <>
-      {/* delete it as well  - swap isModal to open different modals*/}
-      <button type="button" onClick={onModalClick}>
-        Open modal window - Temporary button - should be deleted
-      </button>
-      {false && <Modal children={child1} onModalClick={onModalClick} />}
-      {false && <Modal children={child2} onModalClick={onModalClick} />}
-      {false && <Modal children={child3} onModalClick={onModalClick} />}
-      {isModal && <BurgerModal onBurgerMenuClick={onModalClick} />}
-      {/* delete it as well */}
-
-      <Header />
-      <main>
+      <Header isHomePage={isHomePage} />
+      <main className={!isHomePage && styles.paddingTop}>
         <Suspense fallback={<div>Loading...</div>}>
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
           <Outlet />
         </Suspense>
       </main>

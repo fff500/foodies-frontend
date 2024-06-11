@@ -1,0 +1,15 @@
+main.paddingTop {
+  padding-top: 126px;
+}
+
+@media (min-width: 768px) {
+  main.paddingTop {
+    padding-top: 150px;
+  }
+}
+
+@media (min-width: 1440px) {
+  main.paddingTop {
+    padding-top: 170px;
+  }
+}
