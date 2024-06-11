@@ -1,5 +1,5 @@
 import React from "react";
-import RecipeList from "../RecipeList/RecipeList";
+import { RecipeList } from "../";
 import sprite from "../../assets/icons/sprite.svg";
 import styles from "./Recipes.module.css";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";

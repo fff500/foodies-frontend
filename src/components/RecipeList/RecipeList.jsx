@@ -3,7 +3,7 @@ import { ErrorComponent, LoadingSpinner } from "../shared";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import styles from "./RecipeList.module.css";
 
-const RecipeList = () => {
+export const RecipeList = () => {
   const {
     data: recipeData,
     error: recipeError,
@@ -38,5 +38,3 @@ const RecipeList = () => {
     </div>
   );
 };
-
-export default RecipeList;
