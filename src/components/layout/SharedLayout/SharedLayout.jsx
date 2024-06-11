@@ -32,9 +32,9 @@ export const SharedLayout = () => {
         Open modal window - Temporary button - should be deleted
       </button>
       {false && <Modal children={child1} onModalClick={onModalClick} />}
-      {isModal && <Modal children={child2} onModalClick={onModalClick} />}
+      {false && <Modal children={child2} onModalClick={onModalClick} />}
       {false && <Modal children={child3} onModalClick={onModalClick} />}
-      {false && <BurgerModal onBurgerMenuClick={onModalClick} />}
+      {isModal && <BurgerModal onBurgerMenuClick={onModalClick} />}
       {/* delete it as well */}
 
       <Header />

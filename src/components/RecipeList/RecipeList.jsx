@@ -1,6 +1,6 @@
 import { useGetRecipeQuery } from "../../redux";
-import { ErrorComponent } from "../ErrorComponent";
-import { LoadingSpinner } from "../LoadingSpinner";
+import { ErrorComponent } from "../shared/ErrorComponent";
+import { LoadingSpinner } from "../shared/LoadingSpinner";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import styles from "./RecipeList.module.css";
 

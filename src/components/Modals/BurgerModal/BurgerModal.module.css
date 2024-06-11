@@ -65,39 +65,6 @@
   padding: 14px 0;
 }
 
-.heroImageOneContainer {
-  position: absolute;
-  top: 66%;
-  right: 65%;
-
-  width: 77px;
-  height: 70px;
-
-  border-width: 1px;
-  border-color: #ffffff;
-  border-style: solid;
-  border-radius: 15px;
-
-  overflow: hidden;
-  rotate: 11deg;
-}
-
-.heroImageTwoContainer {
-  position: absolute;
-  top: 55%;
-  left: 40%;
-  width: 190px;
-  height: 172px;
-
-  border-width: 1px;
-  border-color: #ffffff;
-  border-style: solid;
-  border-radius: 15px;
-
-  overflow: hidden;
-  rotate: -12deg;
-}
-
 @media (min-width: 768px) {
   .backdrop {
     display: none;
