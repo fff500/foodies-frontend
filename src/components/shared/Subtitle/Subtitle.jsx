@@ -1,3 +1,3 @@
-export const Subtitle = ({ className, children }) => (
-  <p className={className}>{children}</p>
+export const Subtitle = ({ className, children, Tag = "h2" }) => (
+  <Tag className={className}>{children}</Tag>
 );
