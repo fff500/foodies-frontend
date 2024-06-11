@@ -1,10 +1,9 @@
 import { useGetRecipeQuery } from "../../redux";
-import { ErrorComponent } from "../ErrorComponent";
-import { LoadingSpinner } from "../LoadingSpinner";
-import RecipeCard from "../RecipeCard/RecipeCard";
+import { ErrorComponent, LoadingSpinner, RecipeCard } from "../";
+
 import styles from "./RecipeList.module.css";
 
-const RecipeList = () => {
+export const RecipeList = () => {
   const {
     data: recipeData,
     error: recipeError,
@@ -39,5 +38,3 @@ const RecipeList = () => {
     </div>
   );
 };
-
-export default RecipeList;
