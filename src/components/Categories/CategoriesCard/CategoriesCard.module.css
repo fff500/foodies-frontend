@@ -39,8 +39,9 @@
 
 .categoriesCardButton {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
-    gap: 10px;
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.30);
     color: var(--color-white, #ffffff);

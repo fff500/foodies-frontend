@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import styles from "./CategoriesCard.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
-import { Button } from "../../shared";
 
 export const CategoriesCard = ({
   categoryTitle,
@@ -18,7 +18,11 @@ export const CategoriesCard = ({
     <div className={styles.categoriesCard} style={cardStyle}>
       <div className={styles.categoriesCardContent}>
         <h3 className={styles.categoriesCardTitle}>{categoryTitle}</h3>
-        <Button className={styles.categoriesCardButton} type="button">
+        <Link
+          to={`/recipesInfo/${categoryTitle}`}
+          className={styles.categoriesCardButton}
+          type="button"
+        >
           <svg
             width="16"
             height="16"
@@ -26,7 +30,7 @@ export const CategoriesCard = ({
           >
             <use xlinkHref={`${sprite}#arrowUpRight`} />
           </svg>
-        </Button>
+        </Link>
       </div>
     </div>
   );
