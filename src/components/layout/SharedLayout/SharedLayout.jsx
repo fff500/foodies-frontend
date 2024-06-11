@@ -5,14 +5,6 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 // TODO: will be fixed later
 // import { Breadcrumbs } from "../Breadcrumbs";
-import { useState } from "react";
-import {
-  Modal,
-  SignUpModal,
-  SignInModal,
-  LogOutModal,
-  BurgerModal,
-} from "../../Modals";
 import styles from "./SharedLayout.module.css";
 
 export const SharedLayout = () => {
