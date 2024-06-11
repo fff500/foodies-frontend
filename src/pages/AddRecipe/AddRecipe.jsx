@@ -6,7 +6,7 @@ import styles from "./AddRecipe.module.css";
 
 const AddRecipe = () => {
   return (
-    <>
+    <div className={styles.pageWrapper}>
       <Container>
         <MainTitle className={styles.pageTitle}>AddRecipe</MainTitle>
         <Subtitle className={styles.pageDescription}>
@@ -15,7 +15,7 @@ const AddRecipe = () => {
         </Subtitle>
         <AddRecipeForm />
       </Container>
-    </>
+    </div>
   );
 };
 
