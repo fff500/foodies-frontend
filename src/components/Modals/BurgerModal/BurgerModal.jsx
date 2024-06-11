@@ -1,10 +1,10 @@
 import { useEffect } from "react";
+import { Logo } from "../../shared";
+import { NavLink } from "react-router-dom";
+import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 import sprite from "../../../assets/icons/sprite.svg";
 
 import css from "./BurgerModal.module.css";
-import { Logo } from "../../shared/Logo";
-import { NavLink } from "react-router-dom";
-import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 
 const BurgerModal = ({ onBurgerMenuClick }) => {
   useEffect(() => {
