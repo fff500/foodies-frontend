@@ -5,7 +5,7 @@ export const UserInfo = ({ userData }) => {
   return (
     <div className={styles.userInfo}>
       <img src={userData.avatar} alt="User avatar" className={styles.avatar} />
-      <h2 className={styles.name}>{userData.name}</h2>
+      <h2 className={styles.name}>{userData.name.toUpperCase()}</h2>
       <div className={styles.stats}>
         <div>
           <span className={styles.statLabel}>Email:</span>
