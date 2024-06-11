@@ -1,9 +1,8 @@
-import React from "react";
-import { RecipeList } from "../";
-import sprite from "../../assets/icons/sprite.svg";
-import styles from "./Recipes.module.css";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
+import { Button, Icon } from "../shared";
 import { Container } from "../layout";
+import styles from "./Recipes.module.css";
+import { RecipeList } from "..";
 
 export const Recipes = () => {
   const {
@@ -32,12 +31,19 @@ export const Recipes = () => {
     <>
       <Container>
         <div className={styles.recipesNav}>
-          <button className={styles.backButton}>
-            <svg className={styles.logo}>
-              <use xlinkHref={`${sprite}#arrowLeft`} />
-            </svg>
+          <Button
+            className={styles.backButton}
+            type={"button"}
+            onClick={() => window.history.back()}
+          >
+            <Icon
+              id={"arrowLeft"}
+              className={styles.logo}
+              width={16}
+              height={16}
+            />
             Back
-          </button>
+          </Button>
         </div>
         <h1 className={styles.title}>DESSERTS</h1>
         <p className={styles.description}>

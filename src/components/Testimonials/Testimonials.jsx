@@ -1,9 +1,7 @@
-import React from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGetTestimonialsQuery } from "../../redux";
-import sprite from "../../assets/icons/sprite.svg";
-import { ErrorComponent, LoadingSpinner } from "../shared";
+import { ErrorComponent, Icon, LoadingSpinner } from "../shared";
 import styles from "./Testimotinials.module.css";
 
 const idMap = {
@@ -42,9 +40,12 @@ export const Testimonials = () => {
           >
             {testimonialsData.map((el) => (
               <SwiperSlide className={styles.swiperSlide}>
-                <svg className={styles.svg}>
-                  <use xlinkHref={`${sprite}#quote`} />
-                </svg>
+                <Icon
+                  id={"quote"}
+                  className={styles.icon}
+                  width={24}
+                  height={24}
+                />
                 <span className={styles.description}>{el.testimonial}</span>
                 <span className={styles.owner}>{idMap[el.owner]}</span>
               </SwiperSlide>

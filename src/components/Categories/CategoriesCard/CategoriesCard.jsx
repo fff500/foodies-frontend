@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { Icon } from "../../shared";
 import styles from "./CategoriesCard.module.css";
-import sprite from "../../../assets/icons/sprite.svg";
 
 export const CategoriesCard = ({
   categoryTitle,
@@ -13,6 +13,12 @@ export const CategoriesCard = ({
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+  const mediaQuery = `@media screen and (min-resolution: 192dpi), 
+                          screen and (min-resolution: 2dppx), 
+                          screen and (-webkit-min-device-pixel-ratio: 2), 
+                          screen and (min-device-pixel-ratio: 2)`;
+
+  cardStyle.backgroundImage += `, url(${categoryImageUrl_x2})`;
 
   return (
     <div className={styles.categoriesCard} style={cardStyle}>
@@ -23,13 +29,12 @@ export const CategoriesCard = ({
           className={styles.categoriesCardButton}
           type="button"
         >
-          <svg
-            width="16"
-            height="16"
-            className={styles.categoriesCardIconButton}
-          >
-            <use xlinkHref={`${sprite}#arrowUpRight`} />
-          </svg>
+          <Icon
+            id="arrowUpRight"
+            className={styles.categoriesCardIcon}
+            width={16}
+            height={16}
+          />
         </Link>
       </div>
     </div>

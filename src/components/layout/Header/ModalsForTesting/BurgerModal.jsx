@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./BurgerModal.module.css";
-import heroImage1 from "../../../../assets/images/hero/1x/left-hero-image.webp";
-import heroImage2 from "../../../../assets/images/hero/1x/right-hero-image.webp";
+import heroImage1 from "../../../../assets/images/hero/1x/leftHeroImage.webp";
+import heroImage2 from "../../../../assets/images/hero/1x/rightHeroImage.webp";
 import { Button, Logo } from "../../../shared";
 
 export const BurgerModal = ({ onClose }) => {
