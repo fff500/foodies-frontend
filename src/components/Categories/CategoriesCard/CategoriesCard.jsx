@@ -1,16 +1,17 @@
-import React from "react";
 import styles from "./CategoriesCard.module.css";
-import { Button } from "../../shared";
 import sprite from "../../../assets/icons/sprite.svg";
+import { Button } from "../../shared";
 
 export const CategoriesCard = ({
   categoryTitle,
   categoryImageUrl,
   categoryImageUrl_x2,
-  id,
 }) => {
   const cardStyle = {
     background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl}) lightgray 50% / cover no-repeat`,
+    backgroundImage: `url(${categoryImageUrl}), url(${categoryImageUrl_x2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   return (

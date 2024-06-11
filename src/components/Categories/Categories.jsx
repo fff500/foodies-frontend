@@ -1,9 +1,9 @@
-import React from "react";
+import { nanoid } from "@reduxjs/toolkit";
 import { Button } from "../shared";
 import { CategoriesCard } from "./CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
-import { nanoid } from "@reduxjs/toolkit";
+
 export const Categories = () => {
   return (
     <section className={styles.categoriesSection}>
