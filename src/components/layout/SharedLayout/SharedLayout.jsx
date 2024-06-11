@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { Breadcrumbs } from "../Breadcrumbs";
+// TODO: will be fixed later
+// import { Breadcrumbs } from "../Breadcrumbs";
 
 export const SharedLayout = () => {
   return (
@@ -10,7 +11,7 @@ export const SharedLayout = () => {
       <Header />
       <main>
         <Suspense fallback={<div>Loading...</div>}>
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
           <Outlet />
         </Suspense>
       </main>
