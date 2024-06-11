@@ -2,16 +2,8 @@ import React from "react";
 import styles from "./RecipePreview.module.css";
 import { Button } from "../../shared";
 import sprite from "../../../assets/icons/sprite.svg";
-// import { useDispatch } from "react-redux";
-// import { deleteRecipe } from "../../redux"; // Replace with your actual action
 
 export const RecipePreview = ({ recipe }) => {
-  //   const dispatch = useDispatch();
-
-  //   const handleDelete = () => {
-  //     dispatch(deleteRecipe(recipe._id)); // Replace with your actual action
-  //   };
-
   return (
     <div className={styles.recipePreview}>
       <img src={recipe.image} alt={recipe.title} className={styles.image} />
