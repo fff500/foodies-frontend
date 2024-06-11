@@ -35,4 +35,6 @@
 
   --border-radius-small: 20px;
   --border-radius-regular: 30px;
+
+  --modal-z-index: 999;
 }
