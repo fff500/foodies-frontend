@@ -1,23 +1,28 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./CategoriesCard.module.css";
-import { Button } from "../../shared";
 import sprite from "../../../assets/icons/sprite.svg";
 
 export const CategoriesCard = ({
   categoryTitle,
   categoryImageUrl,
   categoryImageUrl_x2,
-  id,
 }) => {
   const cardStyle = {
     background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl}) lightgray 50% / cover no-repeat`,
+    backgroundImage: `url(${categoryImageUrl}), url(${categoryImageUrl_x2})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   return (
     <div className={styles.categoriesCard} style={cardStyle}>
       <div className={styles.categoriesCardContent}>
         <h3 className={styles.categoriesCardTitle}>{categoryTitle}</h3>
-        <Button className={styles.categoriesCardButton} type="button">
+        <Link
+          to={`/recipesInfo/${categoryTitle}`}
+          className={styles.categoriesCardButton}
+          type="button"
+        >
           <svg
             width="16"
             height="16"
@@ -25,7 +30,7 @@ export const CategoriesCard = ({
           >
             <use xlinkHref={`${sprite}#arrowUpRight`} />
           </svg>
-        </Button>
+        </Link>
       </div>
     </div>
   );
