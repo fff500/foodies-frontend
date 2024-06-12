@@ -4,15 +4,23 @@ import { SignInModal } from "../../Modals";
 import styles from "./HeroContentContainer.module.css";
 
 export const HeroContentContainer = () => {
-  const [open, setOpen] = useState(false);
+  const [isSignInModalOpen, setSignInModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const openSignInModal = () => {
+    setSignInModalOpen(true);
+  };
+
+  const closeModals = () => {
+    setSignInModalOpen(false);
+  };
 
   const token = localStorage.getItem("token");
   const handleCTA = useCallback(() => {
     if (token && token.length > 20) {
       navigate("Add recipe");
     } else {
-      setOpen(true);
+      openSignInModal();
     }
   }, [navigate, token]);
   return (
@@ -29,7 +37,9 @@ export const HeroContentContainer = () => {
           Add recipe
         </button>
       </div>
-      {open && <SignInModal open />}
+      {isSignInModalOpen && (
+        <SignInModal isOpen={isSignInModalOpen} onClose={closeModals} />
+      )}
     </>
   );
 };
