@@ -8,6 +8,7 @@ import { BurgerMenu } from "./BurgerMenu";
 import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
+import { BurgerModal, LogOutModal } from "../../Modals";
 
 export const Header = ({ isHomePage }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -45,6 +46,7 @@ export const Header = ({ isHomePage }) => {
               <HeaderNav />
               <UserBar userName="User" onLogout={handleLogout} />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
+              <BurgerModal open={isMenuOpen} onClose={handleMenuToggle} />
             </>
           )}
         </div>

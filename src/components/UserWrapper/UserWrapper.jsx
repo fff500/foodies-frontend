@@ -5,14 +5,16 @@
 // import { UserInfo } from "./UserInfo";
 // import { TabsList } from "./TabsList/TabsList";
 
-// export const UserWrapper = () => {
-//   const {
-//     data: userData = {},
-//     isFetching: userIsFetching,
-//     isLoading: userIsLoading,
-//     isError: userIsError,
-//     refetch: refetchUser,
-//   } = useGetUserQuery("bezegajenja0306@gmail.com");
+
+export const UserWrapper = () => {
+  const {
+    data: userData = {},
+    isFetching: userIsFetching,
+    isLoading: userIsLoading,
+    isError: userIsError,
+    refetch: refetchUser,
+  } = useGetUserQuery("66675ee0991f562abe707d4c");
+
 
 //   const isLoading = userIsFetching || userIsLoading;
 

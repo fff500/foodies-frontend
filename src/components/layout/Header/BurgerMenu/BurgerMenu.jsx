@@ -5,6 +5,7 @@ import styles from "./BurgerMenu.module.css";
 import { BurgerModal } from "../ModalsForTesting/BurgerModal";
 import { Icon } from "../../../shared";
 
+
 export const BurgerMenu = ({ isHomePage }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
