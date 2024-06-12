@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Button, Icon, Logo } from "../../shared";
 import { NavLink } from "react-router-dom";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
-
 import styles from "./BurgerModal.module.css";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
