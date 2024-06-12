@@ -3,8 +3,8 @@ import { Outlet, useLocation } from "react-router-dom";
 
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import styles from "./SharedLayout.module.css";
 import { Breadcrumbs } from "../Breadcrumbs";
+import styles from "./SharedLayout.module.css";
 
 export const SharedLayout = () => {
   const location = useLocation();

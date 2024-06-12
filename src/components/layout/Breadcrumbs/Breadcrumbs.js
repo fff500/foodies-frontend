@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import classnames from "classnames";
 import { Link, useLocation } from "react-router-dom";
+import { useGetRecipeQuery } from "../../../redux";
 import { Container } from "../";
 import styles from "./Breadcrumbs.module.css";
-import { useGetRecipeQuery } from "../../../redux";
 
 const mapRouteName = {
   recipe: "Add recipe",
