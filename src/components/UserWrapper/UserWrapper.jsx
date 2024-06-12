@@ -1,10 +1,8 @@
-// import React from "react";
 // import { useGetUserQuery } from "../../redux";
 // import { ErrorComponent, LoadingSpinner, Button } from "../shared";
 // import styles from "./UserWrapper.module.css";
 // import { UserInfo } from "./UserInfo";
-// import { TabsList } from "./TabsList/TabsList";
-
+// import { TabsList } from "./TabsList";
 
 // export const UserWrapper = () => {
 //   const {

@@ -1,3 +1,4 @@
+import { RecipeList } from "../";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import { Button, Icon } from "../shared";
 import { Container } from "../layout";

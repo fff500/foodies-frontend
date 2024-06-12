@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import styles from "./TabsList.module.css";
-import { ListItems } from "../ListItems/ListItems";
+import { ListItems } from "../ListItems/";
 import {
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
