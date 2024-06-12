@@ -23,6 +23,16 @@ export const createApiUsers = createApi({
         },
       }),
     }),
+    getCurrentUser: builder.query({
+      query: (id) => ({
+        url: `users/current`,
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
+    }),
     getMyOwnRecipes: builder.query({
       query: () => ({
         url: "recipes/own-recipes",
@@ -68,6 +78,8 @@ export const createApiUsers = createApi({
 
 export const {
   useGetUserQuery,
+  useGetCurrentUserQuery,
+  useLazyGetCurrentUserQuery,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
