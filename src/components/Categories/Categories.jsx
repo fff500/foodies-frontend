@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import classnames from "classnames";
 import { Button } from "../shared";
@@ -46,7 +46,11 @@ export const Categories = () => {
             </li>
           ))}
         </ul>
-        <Button className={styles.allCategoriesButton} type="button" onClick={handleShowAll}>
+        <Button
+          className={styles.allCategoriesButton}
+          type="button"
+          onClick={handleShowAll}
+        >
           {showAll ? "Show less" : "All categories"}
         </Button>
       </div>

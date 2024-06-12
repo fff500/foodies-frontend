@@ -1,8 +1,7 @@
-import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import styles from "./TabsList.module.css";
-import { RecipePreview } from "../RecipePreview/RecipePreview";
+import { RecipePreview } from "../RecipePreview";
 
 export const TabsList = () => {
   const mockRecipe = {
