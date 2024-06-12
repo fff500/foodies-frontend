@@ -6,14 +6,15 @@ import { Container } from "../";
 import styles from "./Breadcrumbs.module.css";
 
 const mapRouteName = {
-  recipe: "Add recipe",
+  "/": "Home",
+  add: "Add recipe",
   user: "Profile",
 };
 
 export const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((path) => path);
-  const id = pathnames.filter((el) => !mapRouteName[el]);
+  const id = pathnames.filter((el) => el !== "recipe" && !mapRouteName[el]);
   const { data: { title } = {} } = useGetRecipeQuery(id, { skip: !id });
   const renderPathNames = useMemo(() => {
     if (id[0]) {
@@ -21,7 +22,9 @@ export const Breadcrumbs = () => {
       return ["id"];
     }
     mapRouteName.id = undefined;
-    return location.pathname.split("/").filter((path) => path);
+    return location.pathname
+      .split("/")
+      .filter((path) => path && path !== "recipe");
   }, [title, id, location]);
 
   return (
