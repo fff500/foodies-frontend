@@ -1,5 +1,5 @@
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
-import { useGetAreasQuery, useGetRecipesQuery } from "../../redux";
+import { useGetRecipesQuery } from "../../redux";
 import { ErrorComponent, LoadingSpinner } from "../shared";
 import { RecipeCard } from "./RecipeCard";
 
@@ -10,7 +10,7 @@ export const RecipeList = () => {
     data: recipeData,
     error: recipeError,
     isLoading: recipeLoading,
-    isFetching: recipeFetching,
+    // isFetching: recipeFetching,
     refetch: refetchRecipe,
   } = useGetRecipesQuery();
 

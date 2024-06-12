@@ -1,4 +1,3 @@
-import React from "react";
 import sprite from "../../assets/icons/sprite.svg";
 import styles from "./Recipes.module.css";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
@@ -8,13 +7,13 @@ export const Recipes = () => {
   const {
     data: ingredientsData = [],
     isLoading: ingredientsIsLoading,
-    isError: ingredientsIsError,
+    // isError: ingredientsIsError,
   } = useGetIngredientsQuery();
 
   const {
     data: areasData = [],
     isLoading: areasIsLoading,
-    isError: areasIsError,
+    // isError: areasIsError,
   } = useGetAreasQuery();
 
   const selectedIngredient = "";
