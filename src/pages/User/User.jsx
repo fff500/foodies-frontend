@@ -5,16 +5,16 @@ import { MainTitle, Subtitle } from "../../components";
 
 const User = () => {
   return (
-    <Container>
-      <section className={styles.userSection}>
+    <section className={styles.userSection}>
+      <Container>
         <MainTitle className={styles.pageTitle}>Profile</MainTitle>
         <Subtitle className={styles.pageDescription}>
           Reveal your culinary art, share your favorite recipe and create
           gastronomic masterpieces with us.
         </Subtitle>
         <UserWrapper />
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
