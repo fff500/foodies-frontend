@@ -15,7 +15,3 @@
 .selectedTab {
   border-bottom: 3px solid var(--color-black, #050505);
 }
-
-.react-tabs__tab-panel {
-  padding: 30px;
-}

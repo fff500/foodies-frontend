@@ -1,20 +1,49 @@
+import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import styles from "./TabsList.module.css";
-import { RecipePreview } from "../RecipePreview";
+import { ListItems } from "../ListItems/ListItems";
+import {
+  useGetMyOwnRecipesQuery,
+  useGetMyFavoritesQuery,
+  useGetFollowingQuery,
+  useGetFollowersQuery,
+} from "../../../redux";
+import { ErrorComponent, LoadingSpinner } from "../../shared";
 
 export const TabsList = () => {
-  const mockRecipe = {
-    _id: "1",
-    title: "Chilli prawn lin sdfsdfsdfsdf dsfgd ",
-    description:
-      "Mix the dressing ingredients in a small bo sfdgsdgd dfgdfb dfg ",
-    image:
-      "https://img.freepik.com/free-photo/forkful-steaming-spaghetti-with-shiny-noodles-hint-tomato-sauce_157027-4214.jpg?t=st=1718118547~exp=1718122147~hmac=9a846e5138f76b96f224261e4f46a637db3c14f00d74d8581bfcea25d8c0657d&w=2000",
-  };
+  const [activeTab, setActiveTab] = useState(0);
+
+  const {
+    data: myRecipes = [],
+    isLoading: isLoadingMyRecipes,
+    isError: isErrorMyRecipes,
+    refetch: refetchMyRecipes,
+  } = useGetMyOwnRecipesQuery(undefined, { skip: activeTab !== 0 });
+
+  const {
+    data: myFavorites = [],
+    isLoading: isLoadingMyFavorites,
+    isError: isErrorMyFavorites,
+    refetch: refetchMyFavorites,
+  } = useGetMyFavoritesQuery(undefined, { skip: activeTab !== 1 });
+
+  const {
+    data: followers = {},
+    isLoading: isLoadingFollowers,
+    isError: isErrorFollowers,
+    refetch: refetchFollowers,
+  } = useGetFollowersQuery(undefined, { skip: activeTab !== 2 });
+
+  const {
+    data: following = {},
+    isLoading: isLoadingFollowing,
+    isError: isErrorFollowing,
+    refetch: refetchFollowing,
+  } = useGetFollowingQuery(undefined, { skip: activeTab !== 3 });
 
   return (
-    <Tabs>
+    <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
       <TabList className={styles.tabList}>
         <Tab className={styles.tab} selectedClassName={styles.selectedTab}>
           MY RECIPES
@@ -23,21 +52,51 @@ export const TabsList = () => {
           MY FAVORITES
         </Tab>
         <Tab className={styles.tab} selectedClassName={styles.selectedTab}>
-          FOLLOW
+          FOLLOWERS
+        </Tab>
+        <Tab className={styles.tab} selectedClassName={styles.selectedTab}>
+          FOLLOWING
         </Tab>
       </TabList>
 
       <TabPanel>
-        <RecipePreview recipe={mockRecipe} />
-        {/* Include your recipe list here */}
+        {isLoadingMyRecipes && <LoadingSpinner />}
+        {!isLoadingMyRecipes && isErrorMyRecipes && (
+          <ErrorComponent onRetry={refetchMyRecipes} />
+        )}
+        {!isLoadingMyRecipes && !isErrorMyRecipes && (
+          <ListItems type={"recipes"} items={myRecipes} />
+        )}
       </TabPanel>
+
       <TabPanel>
-        <h2>Content for My Favorites</h2>
-        {/* Include your favorites list here */}
+        {isLoadingMyFavorites && <LoadingSpinner />}
+        {!isLoadingMyFavorites && isErrorMyFavorites && (
+          <ErrorComponent onRetry={refetchMyFavorites} />
+        )}
+        {!isLoadingMyFavorites && !isErrorMyFavorites && (
+          <ListItems type={"recipes"} items={myFavorites} />
+        )}
       </TabPanel>
+
       <TabPanel>
-        <h2>Content for Follow</h2>
-        {/* Include your follow list here */}
+        {isLoadingFollowers && <LoadingSpinner />}
+        {!isLoadingFollowers && isErrorFollowers && (
+          <ErrorComponent onRetry={refetchFollowers} />
+        )}
+        {!isLoadingFollowers && !isErrorFollowers && (
+          <ListItems type={"followers"} items={followers.followersData} />
+        )}
+      </TabPanel>
+
+      <TabPanel>
+        {isLoadingFollowing && <LoadingSpinner />}
+        {!isLoadingFollowing && isErrorFollowing && (
+          <ErrorComponent onRetry={refetchFollowing} />
+        )}
+        {!isLoadingFollowing && !isErrorFollowing && (
+          <ListItems type={"following"} items={following.followingData} />
+        )}
       </TabPanel>
     </Tabs>
   );
