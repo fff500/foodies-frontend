@@ -1,7 +1,6 @@
 import classnames from "classnames";
 import { RecipeIngredients } from "./RecipeIngredients";
 import { RecipePreparation } from "./RecipePreparation";
-import { PopularRecipes } from "./PopularRecipes";
 import profileAvatarPlaceholder from "../../assets/images/profileAvatarPlaceholder.png";
 import styles from "./Recipes.module.css";
 
@@ -11,7 +10,7 @@ export const RecipeMainInfo = ({ data }) => {
       <div className={styles.recipeContainers}>
         <div className={styles.recipeContainer}>
           <img
-            src={data.thumb}
+            src={data?.thumb}
             alt={data.title}
             className={styles.imageContainer}
           />
@@ -50,17 +49,14 @@ export const RecipeMainInfo = ({ data }) => {
               </div>
             </button>
           </div>
-
           <div className={styles.recipeMainInfoContainer}>
             <RecipeIngredients ingredients={data.ingredients} />
           </div>
-
           <div className={styles.recipeMainInfoContainer}>
             <RecipePreparation instructions={data.instructions} />
           </div>
         </div>
       </div>
-      <PopularRecipes />
     </div>
   );
 };

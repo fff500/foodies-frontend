@@ -1,4 +1,5 @@
 import styles from "./RecipeCard.module.css";
+import classnames from "classnames";
 
 export const RecipeCard = ({
   title,
@@ -7,9 +8,10 @@ export const RecipeCard = ({
   alt,
   author,
   avatarSrc,
+  className,
 }) => {
   return (
-    <div className={styles.infoCard}>
+    <div className={classnames(styles.infoCard, className)}>
       <img
         loading="lazy"
         src={imgSrc}

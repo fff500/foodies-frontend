@@ -9,7 +9,12 @@ export const createApiRecipes = createApi({
       providesTags: "recipe",
       query: (id) => `/recipes/${id}`,
     }),
+    getPopularRecipes: build.query({
+      providesTags: "popularRecipes",
+      query: (id) => `/recipes/popular`,
+    }),
   }),
 });
 
-export const { useGetRecipeQuery } = createApiRecipes;
+export const { useGetRecipeQuery, useGetPopularRecipesQuery } =
+  createApiRecipes;

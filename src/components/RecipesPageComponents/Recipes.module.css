@@ -1,8 +1,3 @@
-.sectionWrapper {
-    margin-top: 32px;
-    margin-bottom: 64px;
-}
-
 .recipeWrapper {
     display: flex;
     flex-direction: column;
@@ -25,20 +20,6 @@
     border-radius: 30px;
 }
 
-.loadingStyles {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.isHidden {
-   visibility: hidden;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-}
 
 .recipeTitle {
     font-size: 24px;
@@ -125,16 +106,16 @@
     font-size: 14px;
 }
 
+.cardsList {
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
 
 @media (min-width: 768px) {
     .recipeWrapper {
         gap: 98px;
     }
-    .sectionWrapper {
-        margin-top: 40px;
-        margin-bottom: 100px;
-    }
-
     .recipeContainers {
         gap: 40px;
     }
@@ -173,6 +154,15 @@
     .recipeText{
         font-size: 16px;
     }
+    .cardsList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .cardStyle{
+        width: 48%;
+    }
 
 }
 
@@ -181,11 +171,6 @@
     .recipeWrapper {
         gap: 120px;
     }
-
-    .sectionWrapper{
-        margin-bottom: 120px;
-    }
-
 
     .recipeContainers {
         flex-direction: row;
@@ -209,5 +194,14 @@
     .button {
         padding: 16px 32px;
     }
+    .cardsList {
+        display: flex;
+        flex-direction: row;
 
+        gap:20px
+    }
+
+    .cardStyle{
+        width: 23%;
+    }
 }
