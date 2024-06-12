@@ -4,6 +4,7 @@ import { useGetTestimonialsQuery } from "../../redux";
 import sprite from "../../assets/icons/sprite.svg";
 import { ErrorComponent, LoadingSpinner } from "../shared";
 import styles from "./Testimotinials.module.css";
+import { Fragment } from "react";
 
 const idMap = {
   "64c8d958249fae54bae90bb9": "John Dou",
@@ -20,6 +21,7 @@ export const Testimonials = () => {
   } = useGetTestimonialsQuery();
 
   const isLoading = testimonialsIsFetching || testimonialsIsLoading;
+  console.log(testimonialsData);
   return (
     <div className={styles.container}>
       {isLoading && <LoadingSpinner className={styles.loading} />}
@@ -39,8 +41,8 @@ export const Testimonials = () => {
             modules={[Pagination, Autoplay]}
             className={styles.swiper}
           >
-            {testimonialsData.map((el) => (
-              <SwiperSlide className={styles.swiperSlide}>
+            {testimonialsData.map((el, ind) => (
+              <SwiperSlide className={styles.swiperSlide} key={el._id}>
                 <svg className={styles.svg}>
                   <use xlinkHref={`${sprite}#quote`} />
                 </svg>
