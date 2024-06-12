@@ -38,5 +38,6 @@
 
   --border-radius-regular: 30px;
 
-  --border-radius-regular: 30px --modal-z-index: 999;
+  --border-radius-regular: 30px;
+  --modal-z-index: 999;
 }

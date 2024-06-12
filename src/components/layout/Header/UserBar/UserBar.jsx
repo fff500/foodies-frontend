@@ -4,30 +4,32 @@ import classnames from "classnames";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
+import { LogOutModal } from "../../../Modals";
 
 export const UserBar = ({ userName, userImage, onLogout }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [iconId, setIcon] = useState("chevronUp");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const toggleButtonIcon = () => {
-    if (iconId === "chevronUp") {
-      setIcon("chevronDown");
-    } else {
-      setIcon("chevronUp");
-    }
-    setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIcon(isMenuOpen ? "chevronUp" : "chevronDown");
   };
 
-  const handleSelectChange = (value) => {
-    setIsOpen(false);
-    if (value === "profile") {
-      setIcon("chevronDown");
-    } else if (value === "logout") {
-      onLogout();
-      setIcon("chevronDown");
-    }
+  const openLogOutModal = () => {
+    setIsModalOpen(true);
+    setIsMenuOpen(false);
+  };
+
+  const closeLogOutModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    closeLogOutModal();
   };
 
   return (
@@ -42,7 +44,7 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
         <Button
           className={styles.userButton}
           type="button"
-          onClick={toggleButtonIcon}
+          onClick={toggleMenu}
         >
           <Icon
             id={iconId}
@@ -52,31 +54,19 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           />
         </Button>
 
-        {isOpen && (
+        {isMenuOpen && (
           <div
             className={classnames(styles.select, {
               [styles.homeSelect]: isHomePage,
               [styles.otherPageSelect]: !isHomePage,
             })}
-            onBlur={() => setIsOpen(false)}
+            onBlur={() => setIsMenuOpen(false)}
           >
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("profile")}
-              value="profile"
-            >
+            <div className={styles.option} onClick={() => setIsMenuOpen(false)}>
               <Link to="/user">Profile</Link>
             </div>
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("logout")}
-              value="logout"
-            >
-              <Button
-                type="button"
-                className={styles.logoutButton}
-                onClick={() => handleSelectChange("logout")}
-              >
+            <div className={styles.option} onClick={openLogOutModal}>
+              <Button type="button" className={styles.logoutButton}>
                 Log out
                 <Icon
                   id={"arrowUpRight"}
@@ -89,6 +79,11 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           </div>
         )}
       </div>
+      <LogOutModal
+        isOpen={isModalOpen}
+        onClose={closeLogOutModal}
+        onLogout={handleLogout}
+      />
     </div>
   );
 };

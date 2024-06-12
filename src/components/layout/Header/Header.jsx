@@ -37,7 +37,7 @@ export const Header = ({ isHomePage }) => {
           <Link to="/">
             <Logo />
           </Link>
-          {!isLoggedIn ? (
+          {isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons onSignIn={handleSignIn} />
             </div>
