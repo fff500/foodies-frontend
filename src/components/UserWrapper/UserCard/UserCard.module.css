@@ -1,0 +1,52 @@
+.userCard {
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.title {
+  color: var(--color-black, #050505);
+  font-size: 16px;
+  font-weight: var(--font-weight-headlines);
+  margin-bottom: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.description {
+  font-size: 12px;
+  color: var(--color-body-text-light);
+  margin-bottom: 8px;
+}
+
+.actions {
+  display: flex;
+  margin-left: auto;
+}
+
+.link {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border-icons-light);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  border: 1px solid var(--color-border-icons-light);
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: var(--font-size-body-mobile);
+  font-weight: 700;
+}

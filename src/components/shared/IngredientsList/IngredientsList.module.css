@@ -1,0 +1,62 @@
+.ingredientsItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+}
+
+.ingredient {
+    display: flex;
+    gap: 10px;
+}
+
+.ingredientImg {
+    width: 75px;
+    height: 75px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    padding: 10px;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.ingredientText {
+    color: var(--color-body-text-light);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+.ingredientTextItems {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .ingredientsItems {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .ingredient {
+        gap: 14px;
+    }
+
+
+    .ingredientImg {
+        width: 90px;
+        height: 90px;
+        padding: 15px;
+    }
+    .ingredientText {
+        -webkit-line-clamp: 2;
+    }
+
+    .ingredientTextItems {
+        font-size: 16px;
+    }
+}

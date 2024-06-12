@@ -5,6 +5,7 @@ import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
 import { BurgerModal } from "../ModalsForTesting/BurgerModal";
 
+
 export const BurgerMenu = ({ isHomePage }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

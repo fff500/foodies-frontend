@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import classnames from "classnames";
 import { Button, Subtitle } from "../shared";

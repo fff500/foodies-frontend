@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetRecipeQuery } from "../../redux";
 import { RecipeMainInfo } from "./RecipeMainInfo";

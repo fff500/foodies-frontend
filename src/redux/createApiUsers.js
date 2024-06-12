@@ -3,28 +3,73 @@ import { apiInstance } from "../api/api";
 
 export const createApiUsers = createApi({
   reducerPath: "users",
-  baseQuery: async ({
-    endpoint = "users/bezegajenja0306@gmail.com",
-    method = "GET",
-    body,
-  }) => {
-    const result = await apiInstance({
-      url: endpoint,
-      method,
-      data: body,
-      headers: {
-        authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODA1MDUzOCwiZXhwIjoxNzE4MTMzMzM4fQ.n_C9hYbMVaJr6sEuaJoPTAM3AjFQrYv9ZRUSyPZ7ZJc",
-      },
+  baseQuery: async (args) => {
+    const { data } = await apiInstance({
+      url: args.url,
+      method: args.method,
+      data: args.body,
+      headers: args.headers,
     });
-
-    return { data: result.data };
+    return { data };
   },
   endpoints: (builder) => ({
     getUser: builder.query({
-      query: (userEmail) => `users/${userEmail}`,
+      query: (id) => ({
+        url: `users/${id}`,
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
+    }),
+    getMyOwnRecipes: builder.query({
+      query: () => ({
+        url: "recipes/own-recipes",
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
+    }),
+    getMyFavorites: builder.query({
+      query: () => ({
+        url: "users/favorites",
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
+    }),
+    getFollowing: builder.query({
+      query: () => ({
+        url: "users/following",
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
+    }),
+    getFollowers: builder.query({
+      query: () => ({
+        url: "users/followers",
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njc1ZWUwOTkxZjU2MmFiZTcwN2Q0YyIsImlhdCI6MTcxODEyNjA3MiwiZXhwIjoxNzE4MjA4ODcyfQ.H7PDfdVRNECktXHgk4Vk_QSUSoIfixT-A1v-vGGlmnM",
+        },
+      }),
     }),
   }),
 });
 
-export const { useGetUserQuery } = createApiUsers;
+export const {
+  useGetUserQuery,
+  useGetMyOwnRecipesQuery,
+  useGetMyFavoritesQuery,
+  useGetFollowingQuery,
+  useGetFollowersQuery,
+} = createApiUsers;

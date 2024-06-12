@@ -8,3 +8,4 @@ export * from "./Categories";
 export * from "./Recipes";
 export * from "./RecipeList";
 export * from "./RecipeCard";
+export * from "./Modals";

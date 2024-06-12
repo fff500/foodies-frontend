@@ -1,9 +1,8 @@
-import React from "react";
 import { useGetUserQuery } from "../../redux";
 import { ErrorComponent, LoadingSpinner, Button } from "../shared";
 import styles from "./UserWrapper.module.css";
 import { UserInfo } from "./UserInfo";
-import { TabsList } from "./TabsList/TabsList";
+import { TabsList } from "./TabsList";
 
 export const UserWrapper = () => {
   const {
@@ -12,7 +11,7 @@ export const UserWrapper = () => {
     isLoading: userIsLoading,
     isError: userIsError,
     refetch: refetchUser,
-  } = useGetUserQuery("bezegajenja0306@gmail.com");
+  } = useGetUserQuery("66675ee0991f562abe707d4c");
 
   const isLoading = userIsFetching || userIsLoading;
 
