@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classnames from "classnames";
 import { Button } from "../../../shared";
-import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
 import { BurgerModal } from "../ModalsForTesting/BurgerModal";
 import { Icon } from "../../../shared";

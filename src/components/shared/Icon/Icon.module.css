@@ -1,5 +1,5 @@
 .icon {
-    display: inline-block;
+    display: block;
     stroke: currentColor;
     fill: currentColor;
 }
