@@ -5,19 +5,30 @@ import { Button } from "../shared";
 import { CategoriesCard } from "./CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
+import { generateSequence } from "./generateSequence";
+
+const maxNumber = categoriesData.length;
+const sequence = generateSequence(maxNumber);
 
 export const Categories = () => {
   const [showAll, setShowAll] = useState(false);
-
+  const [visibleCategories, setVisibleCategories] = useState(
+    window.innerWidth < 767
+      ? categoriesData.slice(0, 8)
+      : categoriesData.slice(0, 11)
+  );
   const handleShowAll = () => {
-    setShowAll((prevShowAll) => !prevShowAll);
+    setShowAll(!showAll);
+    if (!showAll) {
+      setVisibleCategories(categoriesData);
+    } else {
+      setVisibleCategories(
+        window.innerWidth < 767
+          ? categoriesData.slice(0, 8)
+          : categoriesData.slice(0, 11)
+      );
+    }
   };
-
-  // Define grid areas dynamically
-  const areas = [];
-  categoriesData.forEach((_, index) => {
-    areas.push(`card${index}`);
-  });
 
   return (
     <section className={styles.categoriesSection}>
@@ -27,32 +38,35 @@ export const Categories = () => {
         recipes that combine taste, style and the warm atmosphere of the
         kitchen.
       </p>
-      <div className={styles.categoriesGridWrapper}>
-        <ul className={styles.categoriesGrid}>
-          {categoriesData.map(({ id, title, imageUrl, imageUrl_x2 }, index) => (
-            <li
-              className={classnames(styles.categoriesGridItem, {
-                [styles.hidden]: !showAll && index >= 8,
-              })}
-              style={{ gridArea: areas[index] }}
-              key={nanoid()}
+      <div className={styles.categoriesContainer}>
+        <ul className={styles.categories}>
+          {visibleCategories.map(
+            ({ id, title, imageUrl, imageUrl_x2 }, index) => (
+              <li
+                className={classnames(styles.category, {
+                  [styles.bigCategory]: sequence.includes(index + 1),
+                })}
+                key={nanoid()}
+              >
+                <CategoriesCard
+                  categoryTitle={title}
+                  categoryImageUrl={imageUrl}
+                  categoryImageUrl_x2={imageUrl_x2}
+                  id={id}
+                />
+              </li>
+            )
+          )}
+          <li>
+            <Button
+              className={styles.allCategoriesButton}
+              type="button"
+              onClick={handleShowAll}
             >
-              <CategoriesCard
-                categoryTitle={title}
-                categoryImageUrl={imageUrl}
-                categoryImageUrl_x2={imageUrl_x2}
-                id={id}
-              />
-            </li>
-          ))}
+              {showAll ? "Show less" : "All categories"}
+            </Button>
+          </li>
         </ul>
-        <Button
-          className={styles.allCategoriesButton}
-          type="button"
-          onClick={handleShowAll}
-        >
-          {showAll ? "Show less" : "All categories"}
-        </Button>
       </div>
     </section>
   );
