@@ -1,7 +1,15 @@
-import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setSelectedArea,
+  setSelectedIngredient,
+  useGetAreasQuery,
+  useGetIngredientsQuery,
+} from "../../redux";
 import styles from "./Recipes.module.css";
 
 export const RecipeFilters = () => {
+  const dispatch = useDispatch();
+
   const {
     data: ingredientsData = [],
     isLoading: ingredientsIsLoading,
@@ -14,17 +22,24 @@ export const RecipeFilters = () => {
     // isError: areasIsError,
   } = useGetAreasQuery();
 
-  const selectedIngredient = "";
-  const selectedRegion = "";
-  const handleIngredientChange = (event) => {};
+  const selectedIngredient = useSelector(
+    (state) => state.filters.selectedIngredient
+  );
+  const selectedRegion = useSelector((state) => state.filters.selectedArea);
+  console.log("selectedIngredient", selectedIngredient);
+  console.log("selectedRegion", selectedRegion);
+  const handleIngredientChange = (event) =>
+    dispatch(setSelectedIngredient(event.target.value));
 
-  const handleRegionChange = (event) => {};
+  const handleRegionChange = (event) =>
+    dispatch(setSelectedArea(event.target.value));
+
   return (
     <div className={styles.filtersSelect}>
       {!ingredientsIsLoading && (
         <select value={selectedIngredient} onChange={handleIngredientChange}>
           {ingredientsData.map((ingredient) => (
-            <option key={ingredient._id} value={ingredient.name}>
+            <option key={ingredient._id} value={ingredient._id}>
               {ingredient.name}
             </option>
           ))}
