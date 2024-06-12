@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import classNames from "classnames";
 
 import { Header } from "../Header";
 import { Footer } from "../Footer";
@@ -14,7 +15,7 @@ export const SharedLayout = () => {
   return (
     <>
       <Header isHomePage={isHomePage} />
-      <main className={!isHomePage && styles.paddingTop}>
+      <main className={classNames({ [styles.paddingTop]: !isHomePage })}>
         <Suspense fallback={<div>Loading...</div>}>
           {/* <Breadcrumbs /> */}
           <Outlet />
