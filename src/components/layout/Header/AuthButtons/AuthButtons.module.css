@@ -1,5 +1,4 @@
 .authButtonsWrapper {
-
   border-radius: var(--border-radius-regular, 30px);
   background-color: var(--color-white, #ffffff);
 }

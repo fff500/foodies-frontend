@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios"; // або інший HTTP клієнт
 import styles from "./Modal.module.css";
 
