@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./RecipePreview.module.css";
 import { Button } from "../../shared";
 import sprite from "../../../assets/icons/sprite.svg";
