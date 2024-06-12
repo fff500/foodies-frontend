@@ -1,10 +1,4 @@
-import {
-  Testimonials,
-  Container,
-  Hero,
-  Categories,
-  Recipes,
-} from "../../components";
+import { Testimonials, Container, Hero, Categories } from "../../components";
 import {
   useGetAreasQuery,
   useGetIngredientsQuery,
@@ -61,7 +55,7 @@ const Home = () => {
         <Hero />
       </Container>
       <Container>
-        <Recipes />
+        <Categories />
       </Container>
       <Container>
         <Testimonials />

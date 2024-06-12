@@ -20,6 +20,7 @@ export const RecipeList = () => {
     filterIngredient: selectedIngredient,
     filterArea: selectedArea,
   });
+
   return (
     <div className={styles.resipeList}>
       {recipeLoading && (
@@ -32,7 +33,7 @@ export const RecipeList = () => {
       )}
 
       {recipeData &&
-        recipeData.recipes.map((card, index) => (
+        recipeData.recipes.map((card) => (
           <RecipeCard
             key={card._id}
             title={card.title}
