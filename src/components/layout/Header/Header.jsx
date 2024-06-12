@@ -8,7 +8,6 @@ import { BurgerMenu } from "./BurgerMenu";
 import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
-import { BurgerModal, LogOutModal } from "../../Modals";
 
 export const Header = ({ isHomePage }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,7 +36,7 @@ export const Header = ({ isHomePage }) => {
           <Link to="/">
             <Logo />
           </Link>
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons onSignIn={handleSignIn} />
             </div>
