@@ -37,7 +37,6 @@ export const Modal = ({ children, onClose }) => {
             type="button"
             onClick={() => onClose()}
           >
-            {/* <Icon className={styles.closeSvg} id={"close"} /> */}
             <svg className={styles.closeSvg}>
               <use xlinkHref={`${sprite}#close`} />
             </svg>
