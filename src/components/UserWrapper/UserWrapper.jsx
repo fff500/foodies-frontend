@@ -1,33 +1,75 @@
-import { useGetUserQuery } from "../../redux";
-import { ErrorComponent, LoadingSpinner, Button } from "../shared";
+import { useState } from "react";
+import { Button } from "../shared";
 import styles from "./UserWrapper.module.css";
 import { UserInfo } from "./UserInfo";
 import { TabsList } from "./TabsList";
+import { ListPagination } from "./ListPagination/ListPagination";
+import { useGetFollowersQuery, useGetRecipesByOwnerIdQuery } from "../../redux";
 
-export const UserWrapper = () => {
+export const UserWrapper = ({ userId }) => {
+  const [page, setPage] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
+
   const {
-    data: userData = {},
-    isFetching: userIsFetching,
-    isLoading: userIsLoading,
-    isError: userIsError,
-    refetch: refetchUser,
-  } = useGetUserQuery("66675ee0991f562abe707d4c");
+    data: userRecipes = {},
+    isLoading: isLoadingUserRecipes,
+    isError: isErrorUserRecipes,
+    refetch: refetchUseRecipes,
+  } = useGetRecipesByOwnerIdQuery(userId, page, { skip: activeTab !== 0 });
 
-  const isLoading = userIsFetching || userIsLoading;
+  const {
+    data: followers = {},
+    isLoading: isLoadingFollowers,
+    isError: isErrorFollowers,
+    refetch: refetchFollowers,
+  } = useGetFollowersQuery(userId, { skip: activeTab !== 1 });
+
+  const dataForTabs = () => {
+    switch (activeTab) {
+      case 0:
+        return {
+          data: userRecipes.recipes || [],
+          loading: isLoadingUserRecipes,
+          error: isErrorUserRecipes,
+          refetch: refetchUseRecipes,
+          totalCount: userRecipes.totalCount,
+        };
+      case 1:
+        return {
+          data: followers.followersData || [],
+          loading: isLoadingFollowers,
+          error: isErrorFollowers,
+          refetch: refetchFollowers,
+        };
+      default:
+        return {};
+    }
+  };
 
   return (
     <div className={styles.container}>
-      {isLoading && <LoadingSpinner className={styles.loading} />}
-      {!isLoading && userIsError && <ErrorComponent onRetry={refetchUser} />}
-      {userData.name && (
-        <>
-          <UserInfo userData={userData} />
-          <Button className={styles.logOut} type="button">
-            LOG OUT
-          </Button>
-          <TabsList />
-        </>
-      )}
+      <>
+        <UserInfo userId={userId} />
+        <Button className={styles.logOut} type="button">
+          FOLLOW
+        </Button>
+
+        <TabsList
+          setActiveTab={setActiveTab}
+          activeTab={activeTab}
+          data={dataForTabs().data}
+          loading={dataForTabs().loading}
+          error={dataForTabs().error}
+          refetch={dataForTabs().refetch}
+        />
+        {activeTab === 0 && dataForTabs().totalCount && (
+          <ListPagination
+            setPage={setPage}
+            totalCount={dataForTabs().totalCount}
+            page={page}
+          />
+        )}
+      </>
     </div>
   );
 };

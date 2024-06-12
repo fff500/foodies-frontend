@@ -1,17 +1,17 @@
 import { useRef } from "react";
 import styles from "./UserInfo.module.css";
 import { ErrorComponent, LoadingSpinner } from "../../shared";
-import { useGetUserQuery } from "../../../redux";
+import { useGetCurrentUserQuery } from "../../../redux";
 import { useUpdateAvatarMutation } from "../../../redux";
 
-export const UserInfo = ({ userId }) => {
+export const UserInfoLoggedIn = () => {
   const {
     data: userData = {},
     isFetching: userIsFetching,
     isLoading: userIsLoading,
     isError: userIsError,
     refetch: refetchUser,
-  } = useGetUserQuery(userId);
+  } = useGetCurrentUserQuery();
 
   const fileInputRef = useRef(null);
   const [updateAvatar, { isLoading }] = useUpdateAvatarMutation();
@@ -75,9 +75,21 @@ export const UserInfo = ({ userId }) => {
               </span>
             </div>
             <div>
+              <span className={styles.statLabel}>Favorites:</span>
+              <span className={styles.statValue}>
+                {userData.favoritesCount || 0}
+              </span>
+            </div>
+            <div>
               <span className={styles.statLabel}>Followers:</span>
               <span className={styles.statValue}>
                 {userData.followersCount || 0}
+              </span>
+            </div>
+            <div>
+              <span className={styles.statLabel}>Following:</span>
+              <span className={styles.statValue}>
+                {userData.followingCount || 0}
               </span>
             </div>
           </div>
