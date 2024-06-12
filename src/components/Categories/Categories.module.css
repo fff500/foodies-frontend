@@ -1,7 +1,6 @@
 .categoriesSection {
   display: flex;
   flex-direction: column;
-
   gap: 16px;
   margin-bottom: 32px;
   margin-top: 32px;
@@ -48,15 +47,12 @@
   }
 }
 
-
 .categories {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  gap: 16px;
 
   @media (min-width: 1440px) {
-    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 20px;
@@ -71,9 +67,7 @@
   .bigCategory {
     flex: 1 0 40%;
   }
-
 }
-
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .categories {
@@ -93,6 +87,7 @@
   padding: 0 16px;
   background: var(--color-light-black, rgba(5, 5, 5, 0.9));
   color: var(--color-white, #ffffff);
+  border-radius: 30px;
 
   @media (min-width: 768px) {
     height: 369px;
@@ -104,4 +99,9 @@
     width: 325px;
     padding: 0 80px;
   }
+}
+
+.allCategoriesButton:hover,
+.allCategoriesButton:focus {
+  background: var(--color-black, rgba(5, 5, 5, 0.9));
 }

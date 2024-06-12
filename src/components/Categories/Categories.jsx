@@ -5,10 +5,6 @@ import { Button } from "../shared";
 import { CategoriesCard } from "./CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
-import { generateSequence } from "./generateSequence";
-
-const maxNumber = categoriesData.length;
-const sequence = generateSequence(maxNumber);
 
 export const Categories = () => {
   const [showAll, setShowAll] = useState(false);
@@ -44,7 +40,8 @@ export const Categories = () => {
             ({ id, title, imageUrl, imageUrl_x2 }, index) => (
               <li
                 className={classnames(styles.category, {
-                  [styles.bigCategory]: sequence.includes(index + 1),
+                  [styles.bigCategory]:
+                    index === 2 || index === 4 || index === 8 || index === 10,
                 })}
                 key={nanoid()}
               >
