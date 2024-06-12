@@ -53,9 +53,6 @@
     border-color: var(--color-black, #050505);
 }
 
-.categoriesCardIconButton {
-    fill: transparent;
-}
 
 @media (min-width: 768px) {
     .categoriesCardButton {

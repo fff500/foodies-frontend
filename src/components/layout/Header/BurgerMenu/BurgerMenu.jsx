@@ -1,10 +1,9 @@
 import { useState } from "react";
 import classnames from "classnames";
 import { Button } from "../../../shared";
-import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
+import { Icon } from "../../../shared";
 import { BurgerModal } from "../../../Modals/BurgerModal";
-
 
 export const BurgerMenu = ({ isHomePage }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,15 +19,14 @@ export const BurgerMenu = ({ isHomePage }) => {
         type="button"
         onClick={toggleModal}
       >
-        <svg
-          width="28"
-          height="28"
+        <Icon
+          width={24}
+          height={24}
+          id={"burger"}
           className={classnames(styles.burgerMenuIcon, {
             [styles.burgerMenuHomeIcon]: isHomePage,
           })}
-        >
-          <use xlinkHref={`${sprite}#burger`} />
-        </svg>
+        />
       </Button>
 
       {isModalOpen && (

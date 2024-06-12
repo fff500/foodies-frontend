@@ -2,18 +2,17 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
-import sprite from "../../../../assets/icons/sprite.svg";
+import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
-import { Button } from "../../../shared";
 
 export const UserBar = ({ userName, userImage, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [icon, setIcon] = useState("chevronUp");
+  const [iconId, setIcon] = useState("chevronUp");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
   const toggleButtonIcon = () => {
-    if (icon === "chevronUp") {
+    if (iconId === "chevronUp") {
       setIcon("chevronDown");
     } else {
       setIcon("chevronUp");
@@ -45,9 +44,12 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           type="button"
           onClick={toggleButtonIcon}
         >
-          <svg width="18" height="18" className={styles.userIcon}>
-            <use xlinkHref={`${sprite}#${icon}`} />
-          </svg>
+          <Icon
+            id={iconId}
+            className={styles.userIcon}
+            width={18}
+            height={18}
+          />
         </Button>
 
         {isOpen && (
@@ -76,9 +78,12 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
                 onClick={() => handleSelectChange("logout")}
               >
                 Log out
-                <svg width="18" height="18" className={styles.logoutIcon}>
-                  <use xlinkHref={`${sprite}#arrowUpRight`} />
-                </svg>
+                <Icon
+                  id={"arrowUpRight"}
+                  className={styles.logoutIcon}
+                  width={18}
+                  height={18}
+                />
               </Button>
             </div>
           </div>

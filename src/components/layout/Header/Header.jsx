@@ -26,7 +26,6 @@ export const Header = ({ isHomePage }) => {
     setIsLoggedIn(false);
   };
 
-
   return (
     <header
       className={classnames(styles.header, {
