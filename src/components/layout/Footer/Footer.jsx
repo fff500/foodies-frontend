@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../Container/";
 import sprite from "../../../assets/icons/sprite.svg";
