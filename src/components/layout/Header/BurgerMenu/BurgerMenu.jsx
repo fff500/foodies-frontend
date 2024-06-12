@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { Button } from "../../../shared";
 import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
-import { BurgerModal } from "../ModalsForTesting/BurgerModal";
+import { BurgerModal } from "../../../Modals/BurgerModal";
 
 
 export const BurgerMenu = ({ isHomePage }) => {
