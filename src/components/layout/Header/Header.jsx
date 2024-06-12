@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
-import { Logo } from "../../shared/Logo";
+import { Logo } from "../../shared";
 import { Container } from "../Container";
 import { HeaderNav } from "./HeaderNav";
 import { BurgerMenu } from "./BurgerMenu";

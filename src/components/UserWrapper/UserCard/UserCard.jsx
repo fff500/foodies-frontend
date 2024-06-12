@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./UserCard.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 import { Button } from "../../shared";
