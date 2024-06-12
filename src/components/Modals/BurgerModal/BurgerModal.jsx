@@ -6,7 +6,7 @@ import sprite from "../../../assets/icons/sprite.svg";
 
 import styles from "./BurgerModal.module.css";
 
-export const BurgerModal = ({ open, onClose }) => {
+export const BurgerModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
@@ -23,7 +23,7 @@ export const BurgerModal = ({ open, onClose }) => {
 
   return (
     <>
-      {open && (
+      {isOpen && (
         <div className={styles.backdrop}>
           <div className={styles.header}>
             <Logo />

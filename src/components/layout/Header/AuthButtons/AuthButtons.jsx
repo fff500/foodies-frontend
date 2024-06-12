@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classnames from "classnames";
 import { Button } from "../../../shared";
-import SignInModal from "../ModalsForTesting/SignInModal";
-import SignUpModal from "../ModalsForTesting/SignUpModal";
+import { SignInModal } from "../../../Modals/SignInModal";
+import { SignUpModal } from "../../../Modals/SignUpModal";
 import styles from "./AuthButtons.module.css";
 
 export const AuthButtons = ({ onSignIn }) => {

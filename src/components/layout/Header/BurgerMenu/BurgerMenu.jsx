@@ -2,9 +2,8 @@ import { useState } from "react";
 import classnames from "classnames";
 import { Button } from "../../../shared";
 import styles from "./BurgerMenu.module.css";
-import { BurgerModal } from "../ModalsForTesting/BurgerModal";
 import { Icon } from "../../../shared";
-
+import { BurgerModal } from "../../../Modals/BurgerModal";
 
 export const BurgerMenu = ({ isHomePage }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

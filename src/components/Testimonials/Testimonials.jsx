@@ -19,6 +19,7 @@ export const Testimonials = () => {
   } = useGetTestimonialsQuery();
 
   const isLoading = testimonialsIsFetching || testimonialsIsLoading;
+
   return (
     <div className={styles.container}>
       {isLoading && <LoadingSpinner className={styles.loading} />}
@@ -39,13 +40,14 @@ export const Testimonials = () => {
             className={styles.swiper}
           >
             {testimonialsData.map((el) => (
-              <SwiperSlide className={styles.swiperSlide}>
+              <SwiperSlide className={styles.swiperSlide} key={el._id}>
                 <Icon
                   id={"quote"}
                   className={styles.icon}
                   width={24}
                   height={24}
                 />
+
                 <span className={styles.description}>{el.testimonial}</span>
                 <span className={styles.owner}>{idMap[el.owner]}</span>
               </SwiperSlide>

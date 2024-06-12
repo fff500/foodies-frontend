@@ -46,7 +46,6 @@ export const Header = ({ isHomePage }) => {
               <HeaderNav />
               <UserBar userName="User" onLogout={handleLogout} />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
-              <BurgerModal open={isMenuOpen} onClose={handleMenuToggle} />
             </>
           )}
         </div>
