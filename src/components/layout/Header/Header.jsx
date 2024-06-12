@@ -11,22 +11,21 @@ import styles from "./Header.module.css";
 import { BurgerModal, LogOutModal } from "../../Modals";
 
 export const Header = ({ isHomePage }) => {
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // delete me start
-  const [open, setOpen] = useState(false);
-  const onClickModal = () => {
-    setOpen(true);
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
   };
-  const onClose = () => {
-    setOpen(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
-  // delete me end
+
 
   return (
     <header
@@ -39,26 +38,15 @@ export const Header = ({ isHomePage }) => {
           <Link to="/">
             <Logo />
           </Link>
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
+              <AuthButtons onSignIn={handleSignIn} />
             </div>
           ) : (
             <>
-              {/* delete me start */}
-              <button type="button" onClick={onClickModal}>
-                modal
-              </button>
-              <LogOutModal open={open} onClose={onClose} />
-              {/* delete me start */}
-
               <HeaderNav />
-              <UserBar />
-              <BurgerMenu
-                isHomePage={isHomePage}
-                handleMenuToggle={handleMenuToggle}
-              />
-              <BurgerModal open={isMenuOpen} onClose={handleMenuToggle} />
+              <UserBar userName="User" onLogout={handleLogout} />
+              <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import classnames from "classnames";
-import { Button } from "../shared";
+import { Button, Subtitle } from "../shared";
 import { CategoriesCard } from "./CategoriesCard";
 import { categoriesData } from "./categoriesData";
 import styles from "./Categories.module.css";
@@ -13,7 +13,8 @@ export const Categories = () => {
     setShowAll((prevShowAll) => !prevShowAll);
   };
 
-  // Define grid areas dynamically
+  const buttonName = showAll ? "Show less" : "All categories";
+
   const areas = [];
   categoriesData.forEach((_, index) => {
     areas.push(`card${index}`);
@@ -22,11 +23,11 @@ export const Categories = () => {
   return (
     <section className={styles.categoriesSection}>
       <h2 className={styles.title}>Categories</h2>
-      <p className={styles.subtitle}>
+      <Subtitle className={styles.subtitle}>
         Discover a limitless world of culinary possibilities and enjoy exquisite
         recipes that combine taste, style and the warm atmosphere of the
         kitchen.
-      </p>
+      </Subtitle>
       <div className={styles.categoriesGridWrapper}>
         <ul className={styles.categoriesGrid}>
           {categoriesData.map(({ id, title, imageUrl, imageUrl_x2 }, index) => (
@@ -51,7 +52,7 @@ export const Categories = () => {
           type="button"
           onClick={handleShowAll}
         >
-          {showAll ? "Show less" : "All categories"}
+          {buttonName}
         </Button>
       </div>
     </section>
