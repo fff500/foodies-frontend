@@ -19,7 +19,7 @@ export const RecipeMainInfo = ({ data }) => {
         <div
           className={classnames(
             styles.recipeContainer,
-            styles.recipeContainerWrapper,
+            styles.recipeContainerWrapper
           )}
         >
           <div className={styles.recipeMainInfoContainer}>
