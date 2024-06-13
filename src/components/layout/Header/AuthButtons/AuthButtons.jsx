@@ -1,65 +1,57 @@
-import { useState } from "react";
 import classnames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../../../shared";
-import { SignInModal } from "../../../Modals/SignInModal";
-import { SignUpModal } from "../../../Modals/SignUpModal";
 import styles from "./AuthButtons.module.css";
+import { openModal } from "../../../../redux/modalSlice";
 
-export const AuthButtons = ({ onSignIn }) => {
-  const [activeButton, setActiveButton] = useState("signUp");
-  const [isSignInModalOpen, setSignInModalOpen] = useState(false);
-  const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);
+export const AuthButtons = () => {
+  const { modalType } = useSelector((state) => state.modal);
+  const dispatch = useDispatch();
 
-  const openSignInModal = () => {
-    setActiveButton("signIn");
-    setSignInModalOpen(true);
-    setSignUpModalOpen(false);
+  const handleOpenRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "register",
+      }),
+    );
   };
 
-  const openSignUpModal = () => {
-    setActiveButton("signUp");
-    setSignUpModalOpen(true);
-    setSignInModalOpen(false);
-  };
-
-  const closeModals = () => {
-    setSignInModalOpen(false);
-    setSignUpModalOpen(false);
+  const handleOpenLoginModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "login",
+      }),
+    );
   };
 
   return (
     <div className={styles.authButtonsWrapper}>
       <ul className={styles.authButtonsList}>
-        <li className={styles.authButtonsItem}>
+        <li>
           <Button
             className={classnames(styles.signInButton, {
-              [styles.active]: activeButton === "signIn",
+              [styles.active]: modalType === "login",
             })}
             type="button"
-            onClick={openSignInModal}
+            onClick={handleOpenLoginModal}
           >
             Sign in
           </Button>
         </li>
-        <li className={styles.authButtonsItem}>
+        <li>
           <Button
             className={classnames(styles.signUpButton, {
-              [styles.active]: activeButton === "signUp",
+              [styles.active]: modalType === "register" || !modalType,
             })}
             type="button"
-            onClick={openSignUpModal}
+            onClick={handleOpenRegisterModal}
           >
             Sign up
           </Button>
         </li>
       </ul>
-
-      <SignInModal
-        isOpen={isSignInModalOpen}
-        onClose={closeModals}
-        onSignIn={onSignIn}
-      />
-      <SignUpModal isOpen={isSignUpModalOpen} onClose={closeModals} />
     </div>
   );
 };

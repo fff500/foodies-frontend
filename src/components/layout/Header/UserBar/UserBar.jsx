@@ -1,35 +1,43 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
+import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
-import { LogOutModal } from "../../../Modals";
 
-export const UserBar = ({ userName, userImage, onLogout }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const UserBar = ({ userName, userImage }) => {
+  const dispatch = useDispatch();
+  const handleLogoutRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "logout",
+      }),
+    );
+  };
+  const [isOpen, setIsOpen] = useState(false);
   const [iconId, setIcon] = useState("chevronUp");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setIcon(isMenuOpen ? "chevronUp" : "chevronDown");
+  const toggleButtonIcon = () => {
+    if (iconId === "chevronUp") {
+      setIcon("chevronDown");
+    } else {
+      setIcon("chevronUp");
+    }
+    setIsOpen(!isOpen);
   };
 
-  const openLogOutModal = () => {
-    setIsModalOpen(true);
-    setIsMenuOpen(false);
-  };
-
-  const closeLogOutModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleLogout = () => {
-    onLogout();
-    closeLogOutModal();
+  const handleSelectChange = (value) => {
+    setIsOpen(false);
+    if (value === "profile") {
+      setIcon("chevronDown");
+    } else if (value === "logout") {
+      setIcon("chevronDown");
+    }
   };
 
   return (
@@ -44,7 +52,7 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
         <Button
           className={styles.userButton}
           type="button"
-          onClick={toggleMenu}
+          onClick={toggleButtonIcon}
         >
           <Icon
             id={iconId}
@@ -54,19 +62,31 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           />
         </Button>
 
-        {isMenuOpen && (
+        {isOpen && (
           <div
             className={classnames(styles.select, {
               [styles.homeSelect]: isHomePage,
               [styles.otherPageSelect]: !isHomePage,
             })}
-            onBlur={() => setIsMenuOpen(false)}
+            onBlur={() => setIsOpen(false)}
           >
-            <div className={styles.option} onClick={() => setIsMenuOpen(false)}>
+            <div
+              className={styles.option}
+              onClick={() => handleSelectChange("profile")}
+              value="profile"
+            >
               <Link to="/user">Profile</Link>
             </div>
-            <div className={styles.option} onClick={openLogOutModal}>
-              <Button type="button" className={styles.logoutButton}>
+            <div
+              className={styles.option}
+              onClick={() => handleSelectChange("logout")}
+              value="logout"
+            >
+              <Button
+                type="button"
+                className={styles.logoutButton}
+                onClick={handleLogoutRegisterModal}
+              >
                 Log out
                 <Icon
                   id={"arrowUpRight"}
@@ -79,11 +99,6 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           </div>
         )}
       </div>
-      <LogOutModal
-        isOpen={isModalOpen}
-        onClose={closeLogOutModal}
-        onLogout={handleLogout}
-      />
     </div>
   );
 };
