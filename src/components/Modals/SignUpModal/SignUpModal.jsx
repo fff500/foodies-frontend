@@ -12,7 +12,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
 
   const [create, { isLoading }] = useCreateUserMutation();
   const [login, { isLoading: isLoadingLogin }] = useLoginUserMutation();
-  const [token, setToken] = useLocalStorage({
+  const [, setToken] = useLocalStorage({
     key: "token",
   });
   const handleOpenLoginModal = () => {
@@ -73,9 +73,9 @@ export const SignUpModal = ({ isOpen, onClose }) => {
                 type="password"
                 min="6"
               />
-              <button className={styles.submitBtn} type="submit">
+              <Button className={styles.submitBtn} type="submit">
                 CREATE
-              </button>
+              </Button>
             </form>
             <div className={styles.submitBlock}>
               <p className={styles.message}>

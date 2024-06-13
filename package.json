@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@mantine/core": "^7.10.2",
     "@mantine/hooks": "^7.10.2",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.14.1",

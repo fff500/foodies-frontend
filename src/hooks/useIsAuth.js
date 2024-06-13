@@ -1,5 +1,4 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@mantine/hooks";
 import { apiInstance } from "../api/";
 
@@ -10,7 +9,6 @@ export const useIsAuth = () => {
   const [isAuth, setIsAuth] = useState(token);
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
   const checkAuth = useCallback(() => {
     setIsLoading(true);
     apiInstance
@@ -22,11 +20,11 @@ export const useIsAuth = () => {
         setIsAuth(false);
       })
       .finally(() => setIsLoading(false));
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     checkAuth();
-  }, [token]);
+  }, [token, checkAuth]);
 
   const isValidUser = useMemo(() => isAuth && !isLoading, [isLoading, isAuth]);
 

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal, openModal } from "../../../redux/modalSlice";
+import { closeModal } from "../../../redux/";
 import { LogOutModal, SignInModal, SignUpModal } from "../../Modals";
 
 const type = {

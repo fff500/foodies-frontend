@@ -7,7 +7,7 @@ import { Modal } from "../Modal";
 import styles from "./SignInModal.module.css";
 
 export const SignInModal = ({ isOpen, onClose }) => {
-  const [_, setToken] = useLocalStorage({
+  const [, setToken] = useLocalStorage({
     key: "token",
   });
   const dispatch = useDispatch();

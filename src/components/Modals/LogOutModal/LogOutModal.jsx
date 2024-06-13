@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
 import { closeModal } from "../../../redux";
 import { MODALS } from "../../../constants";
+import { Button } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./LogOutModal.module.css";
 
 export const LogOutModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [_, setToken] = useLocalStorage({
+  const [, setToken] = useLocalStorage({
     key: "token",
   });
   const handleLogOut = () => {
@@ -30,7 +31,7 @@ export const LogOutModal = ({ isOpen, onClose }) => {
               </p>
             </div>
             <div className={styles.submitBlock}>
-              <button
+              <Button
                 className={styles.logoutBtn}
                 type="button"
                 onClick={() => {
@@ -38,10 +39,10 @@ export const LogOutModal = ({ isOpen, onClose }) => {
                 }}
               >
                 LOG OUT
-              </button>
-              <button className={styles.cancelBtn} onClick={onClose}>
+              </Button>
+              <Button className={styles.cancelBtn} onClick={onClose}>
                 CANCEL
-              </button>
+              </Button>
             </div>
           </div>
         </Modal>
