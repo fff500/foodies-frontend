@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Container } from "../Container/";
 import { Icon, Logo } from "../../shared/";
 import { socialLinks } from "./data";
@@ -9,11 +8,7 @@ export const Footer = () => {
     <footer>
       <Container>
         <div className={styles.footerTop}>
-          <div className={styles.logoContainer}>
-            <Link to="/">
-              <Logo />
-            </Link>
-          </div>
+          <Logo />
           <ul className={styles.socialLinksContainer}>
             {socialLinks.map(({ id, link }) => (
               <li className={styles.socialLinkItem} key={id}>
