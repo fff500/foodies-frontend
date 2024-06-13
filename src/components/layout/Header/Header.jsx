@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classnames from "classnames";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
@@ -7,22 +6,10 @@ import { BurgerMenu } from "./BurgerMenu";
 import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
+import { useIsAuth } from "../../../hooks/useIsAuth";
 
 export const Header = ({ isHomePage }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleSignIn = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+  const { isAuth } = useIsAuth();
 
   return (
     <header
@@ -32,16 +19,16 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Logo className={styles.logo} />
-          {!isLoggedIn ? (
+            <Logo className={styles.logo} />
+          {!isAuth ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons onSignIn={handleSignIn} />
+              <AuthButtons />
             </div>
           ) : (
             <>
               <HeaderNav />
-              <UserBar userName="User" onLogout={handleLogout} />
-              <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
+              <UserBar userName="User" />
+              <BurgerMenu isHomePage={isHomePage} />
             </>
           )}
         </div>
