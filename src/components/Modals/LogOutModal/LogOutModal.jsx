@@ -2,10 +2,10 @@ import { MODALS } from "../../../constants";
 import { Modal } from "../Modal";
 import styles from "./LogOutModal.module.css";
 
-export const LogOutModal = ({ open, onClose }) => {
+export const LogOutModal = ({ isOpen, onClose }) => {
   return (
     <>
-      {open && (
+      {isOpen && (
         <Modal onClose={onClose}>
           <div className={styles.container}>
             <div className={styles.titleBlock}>
