@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 import { useIsAuth } from "../../../hooks/useIsAuth";
 
 export const Header = ({ isHomePage }) => {
-  const { isAuth } = useIsAuth();
+  const { isAuth, isLoading } = useIsAuth();
 
   return (
     <header
@@ -19,7 +19,7 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-            <Logo className={styles.logo} />
+          <Logo className={styles.logo} />
           {!isAuth ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons />
