@@ -1,18 +1,25 @@
+import { useSearchParams } from "react-router-dom";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import { useGetRecipesQuery } from "../../redux";
 import { ErrorComponent, LoadingSpinner } from "../shared";
 import { RecipeCard } from "./RecipeCard";
-
 import styles from "./Recipes.module.css";
 
 export const RecipeList = () => {
+  const [searchParams] = useSearchParams();
+  const selectedIngredient = searchParams.get("ingredient") || "";
+  const selectedArea = searchParams.get("area") || "";
   const {
     data: recipeData,
     error: recipeError,
     isLoading: recipeLoading,
-    // isFetching: recipeFetching,
     refetch: refetchRecipe,
-  } = useGetRecipesQuery();
+  } = useGetRecipesQuery({
+    page: 1,
+    limit: 12,
+    filterIngredient: selectedIngredient,
+    filterArea: selectedArea,
+  });
 
   return (
     <div className={styles.resipeList}>
@@ -26,7 +33,7 @@ export const RecipeList = () => {
       )}
 
       {recipeData &&
-        recipeData.map((card, index) => (
+        recipeData.recipes.map((card) => (
           <RecipeCard
             key={card._id}
             title={card.title}
