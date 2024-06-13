@@ -7,12 +7,10 @@ export const CategoryImageContainer = ({
   children,
 }) => {
   const backgroundImageStyle = {
-    borderRadius: "30px",
     background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl}) center center / cover no-repeat`,
   };
 
   const backgroundImageStyleHighRes = {
-    borderRadius: "30px",
     background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl_x2}) center center / cover no-repeat`,
   };
 
