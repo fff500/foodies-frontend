@@ -57,6 +57,7 @@
 
 .link {
   color: var(--color-black);
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

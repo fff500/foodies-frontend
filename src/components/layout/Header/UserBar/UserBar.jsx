@@ -1,11 +1,22 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
+import { openModal } from "../../../../redux/modalSlice";
+import { useDispatch } from "react-redux";
 
-export const UserBar = ({ userName, userImage, onLogout }) => {
+export const UserBar = ({ userName, userImage }) => {
+  const dispatch = useDispatch();
+  const handleLogoutRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "logout",
+      }),
+    );
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [iconId, setIcon] = useState("chevronUp");
   const location = useLocation();
@@ -25,7 +36,6 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
     if (value === "profile") {
       setIcon("chevronDown");
     } else if (value === "logout") {
-      onLogout();
       setIcon("chevronDown");
     }
   };
@@ -75,7 +85,7 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
               <Button
                 type="button"
                 className={styles.logoutButton}
-                onClick={() => handleSelectChange("logout")}
+                onClick={handleLogoutRegisterModal}
               >
                 Log out
                 <Icon

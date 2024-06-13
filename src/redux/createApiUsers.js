@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/api";
+import { apiInstance } from "../api/";
 
 export const createApiUsers = createApi({
   reducerPath: "users",
@@ -63,11 +63,27 @@ export const createApiUsers = createApi({
         },
       }),
     }),
+    createUser: builder.mutation({
+      query: (userData) => ({
+        url: "users/signup",
+        method: "POST",
+        body: userData,
+      }),
+    }),
+    loginUser: builder.mutation({
+      query: (userData) => ({
+        url: "users/login",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetUserQuery,
+  useCreateUserMutation,
+  useLoginUserMutation,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
