@@ -2,7 +2,6 @@ import { MODALS } from "../../../constants";
 import { Button } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./LogOutModal.module.css";
-
 export const LogOutModal = ({ isOpen, onClose, onLogout }) => {
   return (
     <>
