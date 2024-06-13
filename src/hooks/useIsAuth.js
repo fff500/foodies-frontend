@@ -6,7 +6,7 @@ export const useIsAuth = () => {
   const [token] = useLocalStorage({
     key: "token",
   });
-  const [isAuth, setIsAuth] = useState(token);
+  const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const checkAuth = useCallback(() => {
