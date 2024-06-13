@@ -1,5 +1,5 @@
-import { RecipeCard } from "../RecipeCard";
 import styles from "./Recipes.module.css";
+import { RecipeCard } from "../RecipesComponents";
 
 export const PopularRecipes = ({ data }) => {
   return (
@@ -16,7 +16,7 @@ export const PopularRecipes = ({ data }) => {
                 imgSrc={card.thumb}
                 author={card.owner.name}
                 avatarSrc={card.owner.avatar}
-                className={styles.cardStyle}
+                // className={styles.cardStyle}
               />
             ),
         )}

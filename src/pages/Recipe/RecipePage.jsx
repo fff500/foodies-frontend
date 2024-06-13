@@ -23,16 +23,22 @@ const RecipePage = () => {
     error: popularRecipeError,
     isLoading: popularRecipeLoading,
     isFetching: popularRecipeFetching,
-    refetch: refetchPopularRecipe,
+  } = useGetPopularRecipesQuery();
+  const {
+    data: userFavorites,
+    error: userFavoritesError,
+    isLoading: userFavoritesLoading,
+    isFetching: userFavoritesFetching,
   } = useGetPopularRecipesQuery();
 
   const isLoading =
     recipeLoading ||
     recipeFetching ||
     popularRecipeLoading ||
-    popularRecipeFetching;
-  const errors = recipeError || popularRecipeError;
-
+    popularRecipeFetching ||
+    userFavoritesLoading | userFavoritesFetching;
+  const errors = recipeError || popularRecipeError || userFavoritesError;
+  console.log(popularRecipeData);
   return (
     <Container>
       <section>
