@@ -6,10 +6,10 @@ import { Icon } from "../../../shared";
 import { BurgerModal } from "../../../Modals/BurgerModal";
 
 export const BurgerMenu = ({ isHomePage }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -29,11 +29,7 @@ export const BurgerMenu = ({ isHomePage }) => {
         />
       </Button>
 
-      {isModalOpen && (
-        <div className={styles.modal}>
-          <BurgerModal onClose={toggleModal} />
-        </div>
-      )}
+      {isOpen && <BurgerModal onClose={toggleModal} isOpen={isOpen} />}
     </div>
   );
 };

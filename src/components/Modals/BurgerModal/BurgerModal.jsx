@@ -1,9 +1,7 @@
 import { useEffect } from "react";
-import { Logo } from "../../shared";
+import { Button, Icon, Logo } from "../../shared";
 import { NavLink } from "react-router-dom";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
-import sprite from "../../../assets/icons/sprite.svg";
-
 import styles from "./BurgerModal.module.css";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
@@ -27,15 +25,13 @@ export const BurgerModal = ({ isOpen, onClose }) => {
         <div className={styles.backdrop}>
           <div className={styles.header}>
             <Logo />
-            <button
+            <Button
               className={styles.closeBtn}
               type="button"
               onClick={() => onClose()}
             >
-              <svg className={styles.closeSvg}>
-                <use xlinkHref={`${sprite}#close`} />
-              </svg>
-            </button>
+              <Icon className={styles.closeSvg} id={"close"} />
+            </Button>
           </div>
           <ul className={styles.headerNavList}>
             <li className={styles.headerNavItem}>

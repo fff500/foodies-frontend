@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
@@ -20,9 +19,7 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Link to="/">
-            <Logo />
-          </Link>
+            <Logo className={styles.logo} />
           {!isAuth ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons />
