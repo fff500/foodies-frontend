@@ -40,6 +40,10 @@
   color: var(--color-white, #ffffff);
 }
 
+.userIcon {
+  fill: none;
+}
+
 @media (min-width: 768px) {
   .userImage {
     width: 50px;
@@ -77,10 +81,6 @@
     width: 148px;
     height: 74px;
   }
-}
-
-.logoutIcon {
-  color: var(--color-white, #ffffff);
 }
 
 .logoutButton {

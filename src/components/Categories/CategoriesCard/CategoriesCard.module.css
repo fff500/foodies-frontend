@@ -1,6 +1,7 @@
 .categoriesCard {
     display: flex;
     height: 250px;
+    width: 100%;
     padding: 16px;
     flex-direction: column;
     justify-content: flex-end;
@@ -53,9 +54,6 @@
     border-color: var(--color-black, #050505);
 }
 
-.categoriesCardIconButton {
-    fill: transparent;
-}
 
 @media (min-width: 768px) {
     .categoriesCardButton {

@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../Container/";
-import sprite from "../../../assets/icons/sprite.svg";
-import { Logo } from "../../shared/";
+import { Icon, Logo } from "../../shared/";
 import { socialLinks } from "./data";
 import styles from "./Footer.module.css";
 
@@ -25,9 +23,12 @@ export const Footer = () => {
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                 >
-                  <svg width="20" height="20">
-                    <use xlinkHref={`${sprite}#${id}`} />
-                  </svg>
+                  <Icon
+                    id={id}
+                    className={styles.socialLinkIcon}
+                    width={20}
+                    height={20}
+                  />
                 </a>
               </li>
             ))}

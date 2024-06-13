@@ -32,6 +32,7 @@ export const Breadcrumbs = () => {
       <nav>
         <ol className={styles.breadcrumb}>
           <li
+              aria-current="page"
             className={classnames(styles.breadcrumbItem, {
               [styles.last]: renderPathNames.length === 0,
             })}
@@ -46,6 +47,7 @@ export const Breadcrumbs = () => {
                 <li
                   key={to}
                   className={classnames(styles.breadcrumbItem, styles.last)}
+                  aria-current="page"
                 >
                   {mapRouteName[value]}
                 </li>

@@ -35,5 +35,8 @@
   --letter-spacing-body: -0.02em;
 
   --border-radius-small: 20px;
+
   --border-radius-regular: 30px;
+
+  --border-radius-regular: 30px --modal-z-index: 999;
 }

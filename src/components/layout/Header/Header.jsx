@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
-import { Logo } from "../../shared/Logo";
+import { Logo } from "../../shared";
 import { Container } from "../Container";
 import { HeaderNav } from "./HeaderNav";
 import { BurgerMenu } from "./BurgerMenu";
@@ -10,11 +10,19 @@ import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
 export const Header = ({ isHomePage }) => {
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   return (
@@ -28,14 +36,14 @@ export const Header = ({ isHomePage }) => {
           <Link to="/">
             <Logo />
           </Link>
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
+              <AuthButtons onSignIn={handleSignIn} />
             </div>
           ) : (
             <>
               <HeaderNav />
-              <UserBar />
+              <UserBar userName="User" onLogout={handleLogout} />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
