@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import classnames from "classnames";
 import { Link, useLocation } from "react-router-dom";
 import { useGetRecipeQuery } from "../../../redux";
