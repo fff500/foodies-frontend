@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
+import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
-import { openModal } from "../../../../redux/modalSlice";
-import { useDispatch } from "react-redux";
 
 export const UserBar = ({ userName, userImage }) => {
   const dispatch = useDispatch();

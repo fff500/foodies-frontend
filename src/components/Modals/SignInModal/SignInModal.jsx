@@ -1,11 +1,10 @@
+import { useLocalStorage } from "@mantine/hooks";
+import { useDispatch } from "react-redux";
 import { MODALS } from "../../../constants";
+import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./SignInModal.module.css";
-import { useDispatch } from "react-redux";
-import { closeModal, openModal } from "../../../redux/modalSlice";
-import { useLoginUserMutation } from "../../../redux";
-import { useLocalStorage } from "@mantine/hooks";
 
 export const SignInModal = ({ isOpen, onClose }) => {
   const [_, setToken] = useLocalStorage({

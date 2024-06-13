@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux";
 import { Testimonials, Container, Hero, Categories } from "../../components";
 import { ReduxModal } from "../../components/shared/ReduxModal/ReduxModal";
-import { useSelector } from "react-redux";
 
 const Home = () => {
   const { modalType } = useSelector((state) => state.modal);

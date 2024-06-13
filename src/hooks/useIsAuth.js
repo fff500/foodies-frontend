@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiInstance } from "../api/api";
 import { useLocalStorage } from "@mantine/hooks";
+import { apiInstance } from "../api/";
 
 export const useIsAuth = () => {
   const [token] = useLocalStorage({
