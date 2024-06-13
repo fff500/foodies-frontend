@@ -1,4 +1,4 @@
-import { Container } from "../../components";
+import { Breadcrumbs, Container } from "../../components";
 import { UserWrapper } from "../../components/UserWrapper";
 import styles from "./User.module.css";
 import { MainTitle, Subtitle } from "../../components";
@@ -6,6 +6,7 @@ import { MainTitle, Subtitle } from "../../components";
 const User = () => {
   return (
     <section className={styles.userSection}>
+        <Breadcrumbs />
       <Container>
         <MainTitle className={styles.pageTitle}>Profile</MainTitle>
         <Subtitle className={styles.pageDescription}>

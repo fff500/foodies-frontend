@@ -1,0 +1,12 @@
+.copyright {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body-text-light);
+}
+
+@media (min-width: 768px) {
+  .copyright {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

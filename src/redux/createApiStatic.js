@@ -17,6 +17,11 @@ export const createApiStatic = createApi({
       providesTags: "testimonials",
       query: (arg) => "/testimonials",
     }),
+    getRecipes: build.query({
+      providesTags: "recipes",
+      query: ({ page, limit, filterIngredient, filterArea }) =>
+        `/recipes?page=${page}&limit=${limit}&ingredient=${filterIngredient}&area=${filterArea}`,
+    }),
   }),
 });
 
@@ -24,4 +29,5 @@ export const {
   useGetIngredientsQuery,
   useGetAreasQuery,
   useGetTestimonialsQuery,
+  useGetRecipesQuery,
 } = createApiStatic;

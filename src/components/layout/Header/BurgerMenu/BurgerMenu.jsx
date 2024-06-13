@@ -1,26 +1,35 @@
+import { useState } from "react";
 import classnames from "classnames";
 import { Button } from "../../../shared";
-import sprite from "../../../../assets/icons/sprite.svg";
 import styles from "./BurgerMenu.module.css";
+import { Icon } from "../../../shared";
+import { BurgerModal } from "../../../Modals/BurgerModal";
 
-export const BurgerMenu = ({ isHomePage, handleMenuToggle }) => {
+export const BurgerMenu = ({ isHomePage }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className={styles.burgerMenu}>
       <Button
-        onClick={() => handleMenuToggle()}
         className={styles.burgerMenuButton}
         type="button"
+        onClick={toggleModal}
       >
-        <svg
-          width="28"
-          height="28"
+        <Icon
+          width={24}
+          height={24}
+          id={"burger"}
           className={classnames(styles.burgerMenuIcon, {
             [styles.burgerMenuHomeIcon]: isHomePage,
           })}
-        >
-          <use xlinkHref={`${sprite}#burger`} />
-        </svg>
+        />
       </Button>
+
+      {isOpen && <BurgerModal onClose={toggleModal} isOpen={isOpen} />}
     </div>
   );
 };

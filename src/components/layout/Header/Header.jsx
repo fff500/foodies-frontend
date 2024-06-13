@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
@@ -8,25 +7,22 @@ import { BurgerMenu } from "./BurgerMenu";
 import { AuthButtons } from "./AuthButtons";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
-import { BurgerModal, LogOutModal } from "../../Modals";
 
 export const Header = ({ isHomePage }) => {
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // delete me start
-  const [open, setOpen] = useState(false);
-  const onClickModal = () => {
-    setOpen(true);
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
   };
-  const onClose = () => {
-    setOpen(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
-  // delete me end
 
   return (
     <header
@@ -36,29 +32,16 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Link to="/">
-            <Logo />
-          </Link>
-          {isLoggedIn ? (
+          <Logo className={styles.logo} />
+          {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
+              <AuthButtons onSignIn={handleSignIn} />
             </div>
           ) : (
             <>
-              {/* delete me start */}
-              <button type="button" onClick={onClickModal}>
-                modal
-              </button>
-              <LogOutModal open={open} onClose={onClose} />
-              {/* delete me start */}
-
               <HeaderNav />
-              <UserBar />
-              <BurgerMenu
-                isHomePage={isHomePage}
-                handleMenuToggle={handleMenuToggle}
-              />
-              <BurgerModal open={isMenuOpen} onClose={handleMenuToggle} />
+              <UserBar userName="User" onLogout={handleLogout} />
+              <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>
           )}
         </div>

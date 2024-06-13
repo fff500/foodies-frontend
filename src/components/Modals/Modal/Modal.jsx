@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import sprite from "../../../assets/icons/sprite.svg";
-
 import styles from "./Modal.module.css";
+// import { Icon,Button } from "../../shared";
+import { Button } from "../../shared";
+import { Portal } from "../Portal/Portal";
 
 export const Modal = ({ children, onClose }) => {
   useEffect(() => {
@@ -24,20 +26,24 @@ export const Modal = ({ children, onClose }) => {
     }
   };
 
+  const portal = document.getElementById("portal-root");
+
   return (
-    <div className={styles.backdrop} onClick={onBackdropClick}>
-      <div className={styles.container}>
-        <button
-          className={styles.closeBtn}
-          type="button"
-          onClick={() => onClose()}
-        >
-          <svg className={styles.closeSvg}>
-            <use xlinkHref={`${sprite}#close`} />
-          </svg>
-        </button>
-        {children}
+    <Portal portal={portal}>
+      <div className={styles.backdrop} onClick={onBackdropClick}>
+        <div className={styles.container}>
+          <Button
+            className={styles.closeBtn}
+            type="button"
+            onClick={() => onClose()}
+          >
+            <svg className={styles.closeSvg}>
+              <use xlinkHref={`${sprite}#close`} />
+            </svg>
+          </Button>
+          {children}
+        </div>
       </div>
-    </div>
+    </Portal>
   );
 };

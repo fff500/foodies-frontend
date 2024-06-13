@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 import { MODALS } from "../../../constants";
+import { Button } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./SignUpModal.module.css";
 
-export const SignUpModal = ({ open, onClose }) => {
+export const SignUpModal = ({ isOpen, onClose }) => {
   return (
     <>
-      {open && (
+      {isOpen && (
         <Modal onClose={onClose}>
           <div className={styles.container}>
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
@@ -23,14 +25,14 @@ export const SignUpModal = ({ open, onClose }) => {
               />
             </div>
             <div className={styles.submitBlock}>
-              <button className={styles.submitBtn} type="submit">
+              <Button className={styles.submitBtn} type="submit">
                 CREATE
-              </button>
+              </Button>
               <p className={styles.message}>
                 I already have an account?{" "}
-                <a className={styles.link} href="/">
+                <Link className={styles.link} to="/">
                   Sign in
-                </a>
+                </Link>
               </p>
             </div>
           </div>
