@@ -1,10 +1,6 @@
-import { useSelector } from "react-redux";
 import { Testimonials, Container, Hero, Categories } from "../../components";
-import { ReduxModal } from "../../components/shared/ReduxModal/ReduxModal";
 
 const Home = () => {
-  const { modalType } = useSelector((state) => state.modal);
-
   return (
     <>
       <Container wide>
@@ -16,7 +12,6 @@ const Home = () => {
       <Container>
         <Testimonials />
       </Container>
-      <ReduxModal key={modalType} />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useClickOutside } from "@mantine/hooks";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
@@ -17,31 +18,13 @@ export const UserBar = ({ userName, userImage }) => {
       }),
     );
   };
-  const [isOpen, setIsOpen] = useState(false);
-  const [iconId, setIcon] = useState("chevronUp");
+  const [open, setOpen] = useState(false);
+  const ref = useClickOutside(() => setOpen(false));
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const toggleButtonIcon = () => {
-    if (iconId === "chevronUp") {
-      setIcon("chevronDown");
-    } else {
-      setIcon("chevronUp");
-    }
-    setIsOpen(!isOpen);
-  };
-
-  const handleSelectChange = (value) => {
-    setIsOpen(false);
-    if (value === "profile") {
-      setIcon("chevronDown");
-    } else if (value === "logout") {
-      setIcon("chevronDown");
-    }
-  };
-
   return (
-    <div className={styles.user}>
+    <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>
       <img
         className={styles.userImage}
         src={userImage || DEFAULT_IMAGE_AVATAR_URL}
@@ -49,39 +32,26 @@ export const UserBar = ({ userName, userImage }) => {
       />
       <div className={styles.userDetails}>
         <p className={styles.userName}>{userName || "User"}</p>
-        <Button
-          className={styles.userButton}
-          type="button"
-          onClick={toggleButtonIcon}
-        >
+        <Button className={styles.userButton} type="button">
           <Icon
-            id={iconId}
+            id={open ? "chevronDown" : "chevronUp"}
             className={styles.userIcon}
             width={18}
             height={18}
           />
         </Button>
 
-        {isOpen && (
+        {open && (
           <div
             className={classnames(styles.select, {
               [styles.homeSelect]: isHomePage,
               [styles.otherPageSelect]: !isHomePage,
             })}
-            onBlur={() => setIsOpen(false)}
           >
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("profile")}
-              value="profile"
-            >
+            <div>
               <Link to="/user">Profile</Link>
             </div>
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("logout")}
-              value="logout"
-            >
+            <div>
               <Button
                 type="button"
                 className={styles.logoutButton}

@@ -6,4 +6,4 @@ export * from "./MainTitle";
 export * from "./Subtitle";
 export * from "./Icon";
 export * from "./IngredientsList";
-
+export * from "./ReduxModal";
