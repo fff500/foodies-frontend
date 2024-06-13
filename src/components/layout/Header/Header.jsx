@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
@@ -33,9 +32,7 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Link to="/">
-            <Logo />
-          </Link>
+          <Logo className={styles.logo} />
           {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
               <AuthButtons onSignIn={handleSignIn} />
