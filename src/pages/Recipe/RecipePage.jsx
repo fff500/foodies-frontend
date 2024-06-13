@@ -1,5 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useGetPopularRecipesQuery, useGetRecipeQuery } from "../../redux";
+import {
+  useAddToFavoritesMutation,
+  useGetCurrentUserQuery,
+  useGetPopularRecipesQuery,
+  useGetRecipeQuery,
+  useRemoveFromFavoritesMutation,
+} from "../../redux";
 import {
   Container,
   ErrorComponent,
@@ -25,24 +31,31 @@ const RecipePage = () => {
     isFetching: popularRecipeFetching,
   } = useGetPopularRecipesQuery();
   const {
-    data: userFavorites,
-    error: userFavoritesError,
-    isLoading: userFavoritesLoading,
-    isFetching: userFavoritesFetching,
-  } = useGetPopularRecipesQuery();
+    data: userCurrent,
+    error: userCurrentError,
+    isLoading: userCurrentLoading,
+    isFetching: userCurrentFetching,
+  } = useGetCurrentUserQuery();
+  const [addToFavorites, { isError: error, isLoading: loadingFavoritesAdd }] =
+    useAddToFavoritesMutation();
+
+  const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
+    useRemoveFromFavoritesMutation();
 
   const isLoading =
     recipeLoading ||
     recipeFetching ||
     popularRecipeLoading ||
     popularRecipeFetching ||
-    userFavoritesLoading ||
-    userFavoritesFetching;
-  const errors = recipeError || popularRecipeError || userFavoritesError;
-  console.log(userFavorites, recipeData, "userFavorites");
-  const isFavorite = userFavorites.find(
-    (recipe) => recipe._id === recipeData._id,
+    userCurrentLoading ||
+    userCurrentFetching;
+
+  const errors = recipeError || popularRecipeError || userCurrentError;
+
+  const isFavorite = userCurrent?.user?.favorites?.find(
+    (id) => id === recipeData?._id,
   );
+  console.log(userCurrent);
   return (
     <Container>
       <section>
@@ -55,9 +68,20 @@ const RecipePage = () => {
         {!isLoading && errors && <ErrorComponent onRetry={refetchRecipe} />}
         <div className={styles.sectionWrapper}>
           {recipeData && (
-            <RecipeInfo data={recipeData} isFavorite={isFavorite} />
+            <RecipeInfo
+              data={recipeData}
+              isFavorite={isFavorite}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
           )}
-          {popularRecipeData && <PopularRecipes data={popularRecipeData} />}
+          {popularRecipeData && (
+            <PopularRecipes
+              data={popularRecipeData}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          )}
         </div>
       </section>
     </Container>

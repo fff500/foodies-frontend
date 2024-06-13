@@ -1,7 +1,11 @@
 import styles from "./Recipes.module.css";
 import { RecipeCard } from "../RecipesComponents";
 
-export const PopularRecipes = ({ data }) => {
+export const PopularRecipes = ({
+  data,
+  addToFavorites,
+  removeFromFavorites,
+}) => {
   return (
     <div>
       <h3 className={styles.recipeTitle}>Popular recipes</h3>

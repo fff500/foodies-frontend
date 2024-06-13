@@ -27,6 +27,7 @@ export const createApiUsers = createApi({
     }),
     getMyFavorites: builder.query({
       query: () => ({
+        providesTags: "favorites",
         url: "users/favorites",
         method: "GET",
       }),
@@ -57,6 +58,27 @@ export const createApiUsers = createApi({
         body: userData,
       }),
     }),
+    addToFavorites: builder.mutation({
+      query: (id) => ({
+        url: `users/favorites/${id}`,
+        method: "POST",
+      }),
+      invalidatesTags: ["current"],
+    }),
+    removeFromFavorites: builder.mutation({
+      query: (id) => ({
+        url: `users/favorites/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["current"],
+    }),
+    getCurrentUser: builder.query({
+      providesTags: ["current"],
+      query: (id) => ({
+        url: "users/current",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -64,6 +86,9 @@ export const {
   useGetUserQuery,
   useCreateUserMutation,
   useLoginUserMutation,
+  useAddToFavoritesMutation,
+  useRemoveFromFavoritesMutation,
+  useGetCurrentUserQuery,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
