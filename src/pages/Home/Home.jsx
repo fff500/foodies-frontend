@@ -1,4 +1,10 @@
-import { Testimonials, Container, Hero, Categories } from "../../components";
+import {
+  Testimonials,
+  Container,
+  Hero,
+  Categories,
+  Recipes,
+} from "../../components";
 
 const Home = () => {
   return (
@@ -7,7 +13,7 @@ const Home = () => {
         <Hero />
       </Container>
       <Container>
-        <Categories />
+        <Recipes />
       </Container>
       <Container>
         <Testimonials />
