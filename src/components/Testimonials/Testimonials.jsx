@@ -4,11 +4,6 @@ import { useGetTestimonialsQuery } from "../../redux";
 import { ErrorComponent, Icon, LoadingSpinner } from "../shared";
 import styles from "./Testimotinials.module.css";
 
-const idMap = {
-  "64c8d958249fae54bae90bb9": "John Dou",
-  "64c8d958249fae54bae90bb8": "Mark Frost",
-  "64c8d958249fae54bae90bb7": "John Loyd",
-};
 export const Testimonials = () => {
   const {
     data: testimonialsData = [],
@@ -49,7 +44,7 @@ export const Testimonials = () => {
                 />
 
                 <span className={styles.description}>{el.testimonial}</span>
-                <span className={styles.owner}>{idMap[el.owner]}</span>
+                <span className={styles.owner}>{el?.owner?.name}</span>
               </SwiperSlide>
             ))}
           </Swiper>
