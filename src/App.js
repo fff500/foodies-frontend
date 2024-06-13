@@ -18,5 +18,8 @@ const App = () => (
     </Route>
   </Routes>
 );
-
+localStorage.setItem(
+  "token",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmE4MTdiMjQ0MmQ4MmQ2MTQ0MjAwMiIsImlhdCI6MTcxODI1NjAxNywiZXhwIjoxNzE4MzM4ODE3fQ.SdTy598bWBy5PM9ZX91O3uiggHiuYpLkPNGYdpMwQXk",
+);
 export default App;

@@ -4,10 +4,13 @@ import {
   useGetIngredientsQuery,
   useGetTestimonialsQuery,
 } from "../../redux/";
+import { PrivateLink } from "../../components/shared/PrivateLink";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   // TODO: Delete this
   // INFO: How to retrieve data from requests
+  const navigate = useNavigate();
   const {
     data: ingredientsData,
     isFetching: ingredientsIsFetching,
@@ -51,6 +54,15 @@ const Home = () => {
   });
   return (
     <>
+      <PrivateLink to={"/user"} />
+      <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/");
+        }}
+      >
+        Log out
+      </button>
       <Container wide>
         <Hero />
       </Container>
