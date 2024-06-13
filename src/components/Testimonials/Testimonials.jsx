@@ -14,7 +14,7 @@ export const Testimonials = () => {
   } = useGetTestimonialsQuery();
 
   const isLoading = testimonialsIsFetching || testimonialsIsLoading;
-  console.log(testimonialsData);
+
   return (
     <div className={styles.container}>
       {isLoading && <LoadingSpinner className={styles.loading} />}
