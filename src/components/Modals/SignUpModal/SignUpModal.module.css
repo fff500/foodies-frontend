@@ -25,12 +25,6 @@
   width: 100%;
 }
 
-.input {
-  width: 100%;
-  border: 1px solid #05050512;
-  border-radius: 30px;
-}
-
 .submitBlock {
   display: flex;
   flex-direction: column;
@@ -64,6 +58,15 @@
 @media (min-width: 768px) {
   .container {
     row-gap: 32px;
+  }
+  .showPassword {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--color-black);
   }
   .submitBtn {
     padding: 16px 0;

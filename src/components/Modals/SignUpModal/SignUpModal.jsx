@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { closeModal, openModal } from "../../../redux/modalSlice";
 import { useCreateUserMutation, useLoginUserMutation } from "../../../redux";
 import { useLocalStorage } from "@mantine/hooks";
+import { Input } from "../Inputs/Input";
+import { PasswordInput } from "../Inputs/PasswordInput";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
       openModal({
         isOpen: true,
         modalType: "login",
-      }),
+      })
     );
   };
 
@@ -51,35 +53,16 @@ export const SignUpModal = ({ isOpen, onClose }) => {
             {isLoading || (isLoadingLogin && <LoadingSpinner />)}
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
             <form className={styles.inputsBlock} onSubmit={handleSubmit}>
-              <input
-                id="name"
-                name="name"
-                className={styles.input}
-                placeholder="name"
-                type="text"
-              />
-              <input
-                id="email"
-                name="email"
-                className={styles.input}
-                placeholder="email"
-                type="email"
-              />
-              <input
-                id="password"
-                name="password"
-                className={styles.input}
-                placeholder="password"
-                type="password"
-                min="6"
-              />
+              <Input name={"name"} type={"text"} placeholder={"Name*"} />
+              <Input name={"email"} type={"email"} placeholder={"Email*"} />
+              <PasswordInput />
               <Button className={styles.submitBtn} type="submit">
                 CREATE
               </Button>
             </form>
             <div className={styles.submitBlock}>
               <p className={styles.message}>
-                I already have an account?
+                I already have an account?{" "}
                 <span
                   role="button"
                   onClick={handleOpenLoginModal}

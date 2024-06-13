@@ -5,6 +5,8 @@ import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./SignInModal.module.css";
+import { Input } from "../Inputs/Input";
+import { PasswordInput } from "../Inputs/PasswordInput";
 
 export const SignInModal = ({ isOpen, onClose }) => {
   const [, setToken] = useLocalStorage({
@@ -17,7 +19,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
       openModal({
         isOpen: true,
         modalType: "register",
-      }),
+      })
     );
   };
   const handleSubmit = async (e) => {
@@ -45,20 +47,8 @@ export const SignInModal = ({ isOpen, onClose }) => {
             {isLoading && <LoadingSpinner />}
             <h3 className={styles.titleBlock}>{MODALS.signIn}</h3>
             <form className={styles.inputsBlock} onSubmit={handleSubmit}>
-              <input
-                id="email"
-                name="email"
-                className={styles.input}
-                placeholder="email"
-                type="email"
-              />
-              <input
-                id="password"
-                name="password"
-                className={styles.input}
-                placeholder="password"
-                type="password"
-              />
+              <Input name={"email"} type={"email"} placeholder={"Email*"} />
+              <PasswordInput />
               <Button className={styles.submitBtn} type="submit">
                 SIGN IN
               </Button>
