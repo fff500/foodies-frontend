@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
+import { Button, Icon } from "../../shared";
 import styles from "./UserCard.module.css";
-import sprite from "../../../assets/icons/sprite.svg";
-import { Button } from "../../shared";
 
 export const UserCard = ({ type, user }) => {
   return (
@@ -23,11 +23,9 @@ export const UserCard = ({ type, user }) => {
         )}
       </div>
       <div className={styles.actions}>
-        <a href={`/recipe/${user._id}`} className={styles.link}>
-          <svg width="16" height="16">
-            <use xlinkHref={`${sprite}#arrowUpRight`} />
-          </svg>
-        </a>
+        <Link to={`/recipe/${user._id}`} className={styles.link}>
+          <Icon id={"arrowUpRight"} width={16} height={16} />
+        </Link>
       </div>
     </div>
   );

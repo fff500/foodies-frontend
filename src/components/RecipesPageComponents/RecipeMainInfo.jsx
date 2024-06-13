@@ -1,8 +1,8 @@
 import classnames from "classnames";
+import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import { RecipeIngredients } from "./RecipeIngredients";
 import { RecipePreparation } from "./RecipePreparation";
 import { PopularRecipes } from "./PopularRecipes";
-import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import styles from "./Recipes.module.css";
 
 export const RecipeMainInfo = ({ data }) => {

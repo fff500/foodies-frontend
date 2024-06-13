@@ -1,5 +1,5 @@
-import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import { useSearchParams } from "react-router-dom";
+import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import styles from "./Recipes.module.css";
 
 export const RecipeFilters = () => {

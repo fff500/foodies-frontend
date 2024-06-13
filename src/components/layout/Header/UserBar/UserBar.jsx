@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
-import styles from "./UserBar.module.css";
 import { LogOutModal } from "../../../Modals";
+import styles from "./UserBar.module.css";
 
 export const UserBar = ({ userName, userImage, onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +35,7 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
   return (
     <div className={styles.user}>
       <img
+        loading="lazy"
         className={styles.userImage}
         src={userImage || DEFAULT_IMAGE_AVATAR_URL}
         alt={userName || "User avatar"}

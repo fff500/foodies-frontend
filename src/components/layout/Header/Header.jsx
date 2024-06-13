@@ -2,9 +2,9 @@ import { useState } from "react";
 import classnames from "classnames";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
-import { HeaderNav } from "./HeaderNav";
+import { Nav } from "./Nav";
 import { BurgerMenu } from "./BurgerMenu";
-import { AuthButtons } from "./AuthButtons";
+import { AuthBar } from "./AuthBar";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
@@ -35,11 +35,11 @@ export const Header = ({ isHomePage }) => {
           <Logo className={styles.logo} />
           {!isLoggedIn ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons onSignIn={handleSignIn} />
+              <AuthBar onSignIn={handleSignIn} />
             </div>
           ) : (
             <>
-              <HeaderNav />
+              <Nav />
               <UserBar userName="User" onLogout={handleLogout} />
               <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
             </>

@@ -54,7 +54,6 @@
     border-color: var(--color-black, #050505);
 }
 
-
 @media (min-width: 768px) {
     .categoriesCardButton {
         padding: 12px;

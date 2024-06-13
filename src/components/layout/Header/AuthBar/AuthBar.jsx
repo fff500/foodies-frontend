@@ -3,9 +3,9 @@ import classnames from "classnames";
 import { Button } from "../../../shared";
 import { SignInModal } from "../../../Modals/SignInModal";
 import { SignUpModal } from "../../../Modals/SignUpModal";
-import styles from "./AuthButtons.module.css";
+import styles from "./AuthBar.module.css";
 
-export const AuthButtons = ({ onSignIn }) => {
+export const AuthBar = ({ onSignIn }) => {
   const [activeButton, setActiveButton] = useState("signUp");
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
   const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);

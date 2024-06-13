@@ -2,9 +2,9 @@ import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { SharedLayout } from "./components";
 
-const Home = lazy(() => import("./pages/Home/Home"));
+const Home = lazy(() => import("./pages/HomePage/HomePage"));
 const User = lazy(() => import("./pages/User/User"));
-const AddRecipe = lazy(() => import("./pages/AddRecipe/AddRecipe"));
+const AddRecipe = lazy(() => import("./pages/AddRecipePage/AddRecipePage"));
 const RecipePage = lazy(() => import("./pages/Recipe/RecipePage"));
 
 const App = () => (

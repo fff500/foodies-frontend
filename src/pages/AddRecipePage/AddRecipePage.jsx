@@ -1,10 +1,8 @@
 import { Container } from "../../components/layout";
-
 import { AddRecipeForm, MainTitle, Subtitle } from "../../components";
+import styles from "./AddRecipePage.module.css";
 
-import styles from "./AddRecipe.module.css";
-
-const AddRecipe = () => {
+const AddRecipePage = () => {
   return (
     <div className={styles.pageWrapper}>
       <Container>
@@ -19,4 +17,4 @@ const AddRecipe = () => {
   );
 };
 
-export default AddRecipe;
+export default AddRecipePage;

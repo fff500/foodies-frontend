@@ -1,20 +1,17 @@
-import sprite from "../../assets/icons/sprite.svg";
-import styles from "./Recipes.module.css";
+import { Button, Icon, MainTitle, Subtitle } from "../shared";
 import { RecipeList } from "./RecipeList";
 import RecipeFilters from "./RecipeFilters";
-import { MainTitle, Subtitle } from "../shared";
+import styles from "./Recipes.module.css";
 
 export const Recipes = () => {
   return (
     <>
       <section className={styles.recipesSection}>
         <div className={styles.recipesNav}>
-          <button className={styles.backButton}>
-            <svg className={styles.logo}>
-              <use xlinkHref={`${sprite}#arrowLeft`} />
-            </svg>
+          <Button className={styles.backButton}>
+            <Icon id={"arrowLeft"} className={styles.icon} />
             Back
-          </button>
+          </Button>
         </div>
         <div className={styles.titleContainer}>
           <MainTitle>DESSERTS</MainTitle>
@@ -29,9 +26,9 @@ export const Recipes = () => {
           <RecipeList />
         </div>
         <nav className={styles.pagination}>
-          <button className={styles.paginationButton}>1</button>
-          <button className={styles.paginationButton}>2</button>
-          <button className={styles.paginationButton}>3</button>
+          <Button className={styles.paginationButton}>1</Button>
+          <Button className={styles.paginationButton}>2</Button>
+          <Button className={styles.paginationButton}>3</Button>
         </nav>
       </section>
     </>

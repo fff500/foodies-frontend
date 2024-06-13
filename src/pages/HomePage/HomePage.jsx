@@ -3,9 +3,9 @@ import {
   useGetAreasQuery,
   useGetIngredientsQuery,
   useGetTestimonialsQuery,
-} from "../../redux/";
+} from "../../redux";
 
-const Home = () => {
+const HomePage = () => {
   // TODO: Delete this
   // INFO: How to retrieve data from requests
   const {
@@ -64,4 +64,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
