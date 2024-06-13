@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLazyGetCurrentUserQuery } from "../../../redux";
-import { SignInModal, SignUpModal } from "../../Modals";
+import { SignInModal } from "../../Modals";
 import { apiInstance } from "../../../api/api";
 
 export const PrivateLink = ({ to = "/" }) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const getCurr = () =>
+  const getCurrent = () =>
     apiInstance
       .get("users/current")
       .then(() => navigate(to))
-      .catch(() => setOpen(true));
+      .catch(() => {
+        setOpen(true);
+        localStorage.removeItem("token");
+      });
 
   return (
     <>
-      <button role="link" onClick={() => getCurr()}>
+      <button role="link" onClick={() => getCurrent()}>
         Go to user
       </button>
       <SignInModal isOpen={open} onClose={() => setOpen(false)} />
