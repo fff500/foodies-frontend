@@ -13,7 +13,11 @@ export const SharedLayout = () => {
   return (
     <>
       <Header isHomePage={isHomePage} />
-      <main className={classnames({ [styles.paddingTop]: !isHomePage })}>
+      <main
+        className={classnames(styles.main, {
+          [styles.paddingTop]: !isHomePage,
+        })}
+      >
         {!isHomePage && <Breadcrumbs />}
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
