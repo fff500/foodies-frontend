@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { Button } from "../shared";
 import styles from "./Recipes.module.css";
 
-export const RecipePreparation = ({ instructions }) => {
+export const RecipePreparation = ({ instructions, isFavorite }) => {
   return (
     <>
       <h3 className={styles.recipeTitle}>Recipe Preparation</h3>
@@ -12,7 +12,7 @@ export const RecipePreparation = ({ instructions }) => {
           className={classnames(styles.button, styles.resetButton)}
           onClick={() => {}}
         >
-          Add to favorites
+          {isFavorite ? "Remove from favorites" : "Add to favorites"}
         </Button>
       </div>
     </>

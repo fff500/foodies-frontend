@@ -53,7 +53,10 @@ export const RecipeMainInfo = ({ data }) => {
             <RecipeIngredients ingredients={data.ingredients} />
           </div>
           <div className={styles.recipeMainInfoContainer}>
-            <RecipePreparation instructions={data.instructions} />
+            <RecipePreparation
+              instructions={data.instructions}
+              isFavorite={isFavorite}
+            />
           </div>
         </div>
       </div>

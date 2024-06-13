@@ -36,9 +36,13 @@ const RecipePage = () => {
     recipeFetching ||
     popularRecipeLoading ||
     popularRecipeFetching ||
-    userFavoritesLoading | userFavoritesFetching;
+    userFavoritesLoading ||
+    userFavoritesFetching;
   const errors = recipeError || popularRecipeError || userFavoritesError;
-  console.log(popularRecipeData);
+  console.log(userFavorites, recipeData, "userFavorites");
+  const isFavorite = userFavorites.find(
+    (recipe) => recipe._id === recipeData._id,
+  );
   return (
     <Container>
       <section>
@@ -50,7 +54,9 @@ const RecipePage = () => {
         )}
         {!isLoading && errors && <ErrorComponent onRetry={refetchRecipe} />}
         <div className={styles.sectionWrapper}>
-          {recipeData && <RecipeInfo data={recipeData} />}
+          {recipeData && (
+            <RecipeInfo data={recipeData} isFavorite={isFavorite} />
+          )}
           {popularRecipeData && <PopularRecipes data={popularRecipeData} />}
         </div>
       </section>

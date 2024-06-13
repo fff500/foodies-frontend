@@ -1,5 +1,5 @@
 import { RecipeMainInfo } from "./RecipeMainInfo";
 
-export const RecipeInfo = ({ data }) => {
-  return <RecipeMainInfo data={data} />;
+export const RecipeInfo = ({ data, isFavorite }) => {
+  return <RecipeMainInfo data={data} isFavorite={isFavorite} />;
 };
