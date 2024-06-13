@@ -21,10 +21,10 @@ export const RecipeCard = ({
         <h3 className={styles.infoCardTitle}>{title}</h3>
         <p className={styles.infoCardDescription}>{description}</p>
         <div className={styles.infoCardFooter}>
-          <div className={styles.infoCardAuthor}>
+          <button type="button" className={styles.infoCardAuthor}>
             <img src={avatarSrc} alt={author} className={styles.authorAvatar} />
             <span>{author}</span>
-          </div>
+          </button>
           <div className={styles.infoCardSocial}>
             <div className={styles.iconCircle}>
               <svg className={styles.icon}>

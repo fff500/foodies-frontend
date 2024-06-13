@@ -2,6 +2,7 @@ import sprite from "../../assets/icons/sprite.svg";
 import styles from "./Recipes.module.css";
 import { RecipeList } from "./RecipeList";
 import RecipeFilters from "./RecipeFilters";
+import { MainTitle, Subtitle } from "../shared";
 
 export const Recipes = () => {
   return (
@@ -16,12 +17,12 @@ export const Recipes = () => {
           </button>
         </div>
         <div className={styles.titleContainer}>
-          <h2 className={styles.title}>DESSERTS</h2>
-          <p className={styles.description}>
+          <MainTitle>DESSERTS</MainTitle>
+          <Subtitle>
             Go on a taste journey, where every sip is a sophisticated creative
             chord, and every dessert is an expression of the most refined
             gastronomic desires.
-          </p>
+          </Subtitle>
         </div>
         <div className={styles.mainResipesContainer}>
           <RecipeFilters />
