@@ -22,9 +22,8 @@ export const SignInModal = ({ isOpen, onClose }) => {
       openModal({
         isOpen: true,
         modalType: "register",
-      })
         to,
-      }),
+      })
     );
   };
 
