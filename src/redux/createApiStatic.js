@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/api";
+import { apiInstance } from "../api/";
 
 export const createApiStatic = createApi({
   reducerPath: "static",

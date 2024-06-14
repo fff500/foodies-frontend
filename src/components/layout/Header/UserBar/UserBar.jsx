@@ -1,39 +1,31 @@
 import { useState } from "react";
+import { useClickOutside } from "@mantine/hooks";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
+import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import { LogOutModal } from "../../../Modals";
 import styles from "./UserBar.module.css";
 
-export const UserBar = ({ userName, userImage, onLogout }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [iconId, setIcon] = useState("chevronUp");
+export const UserBar = ({ userName, userImage }) => {
+  const dispatch = useDispatch();
+  const handleLogoutRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "logout",
+      }),
+    );
+  };
+  const [open, setOpen] = useState(false);
+  const ref = useClickOutside(() => setOpen(false));
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setIcon(isMenuOpen ? "chevronUp" : "chevronDown");
-  };
-
-  const openLogOutModal = () => {
-    setIsModalOpen(true);
-    setIsMenuOpen(false);
-  };
-
-  const closeLogOutModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleLogout = () => {
-    onLogout();
-    closeLogOutModal();
-  };
-
   return (
-    <div className={styles.user}>
+    <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>
       <img
         loading="lazy"
         className={styles.userImage}
@@ -42,32 +34,31 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
       />
       <div className={styles.userDetails}>
         <p className={styles.userName}>{userName || "User"}</p>
-        <Button
-          className={styles.userButton}
-          type="button"
-          onClick={toggleMenu}
-        >
+        <Button className={styles.userButton} type="button">
           <Icon
-            id={iconId}
+            id={open ? "chevronDown" : "chevronUp"}
             className={styles.userIcon}
             width={18}
             height={18}
           />
         </Button>
 
-        {isMenuOpen && (
+        {open && (
           <div
             className={classnames(styles.select, {
               [styles.homeSelect]: isHomePage,
               [styles.otherPageSelect]: !isHomePage,
             })}
-            onBlur={() => setIsMenuOpen(false)}
           >
-            <div className={styles.option} onClick={() => setIsMenuOpen(false)}>
+            <div>
               <Link to="/user">Profile</Link>
             </div>
-            <div className={styles.option} onClick={openLogOutModal}>
-              <Button type="button" className={styles.logoutButton}>
+            <div>
+              <Button
+                type="button"
+                className={styles.logoutButton}
+                onClick={handleLogoutRegisterModal}
+              >
                 Log out
                 <Icon
                   id={"arrowUpRight"}
@@ -80,11 +71,6 @@ export const UserBar = ({ userName, userImage, onLogout }) => {
           </div>
         )}
       </div>
-      <LogOutModal
-        isOpen={isModalOpen}
-        onClose={closeLogOutModal}
-        onLogout={handleLogout}
-      />
     </div>
   );
 };
