@@ -14,6 +14,7 @@
   width: 18px;
   aspect-ratio: 1;
   object-fit: auto;
+  fill: transparent;
 }
 
 .backButton {
@@ -28,8 +29,11 @@
 }
 
 .titleContainer {
+  display: flex;
+  flex-direction: column;
   width: 343px;
   margin-bottom: 32px;
+  gap: 16px;
 }
 
 .title {
@@ -75,14 +79,18 @@ select {
   position: relative;
   display: inline-block;
 }
+.customArrow {}
 
 .selectWrapper:after {
   content: url("../../assets/icons/sprite.svg#dropDown");
   position: absolute;
-  right: 19px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+.dropDownIcon {
+  fill: transparent;
 }
 
 .resipeList {
@@ -90,6 +98,9 @@ select {
   flex-wrap: wrap;
   flex-direction: column;
   gap: 32px;
+}
+.textNotFound {
+  font-size: 14px;
 }
 
 .infoCard {
@@ -143,7 +154,8 @@ select {
   gap: 8px;
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-light-black);
+  background: none;
+  border: none;
 }
 
 .authorAvatar {
@@ -210,9 +222,12 @@ select {
 
 .paginationButton:hover {
   transform: scale(1.1);
+  border-color: var(--color-black);
+}
+.paginationButton.active {
+  transform: scale(1.1);
   background: rgba(5, 5, 5, 0.1);
 }
-
 @media (min-width: 768px) {
   .recipesSection {
     margin-bottom: 50px;
@@ -223,7 +238,12 @@ select {
     margin-bottom: 20px;
   }
 
+  .textNotFound {
+    font-size: 28px;
+  }
+
   .titleContainer {
+    gap: 20px;
     width: 540px;
     margin-bottom: 40px;
   }
@@ -295,6 +315,10 @@ select {
 
   select {
     width: 330px;
+  }
+
+  .textNotFound {
+    font-size: 38px;
   }
 
   .infoCard {

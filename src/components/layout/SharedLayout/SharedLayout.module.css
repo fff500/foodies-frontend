@@ -1,5 +1,5 @@
 .main {
-  padding-top: 8px;
+  padding: 8px 0 80px;
 }
 
 .main.paddingTop {
@@ -8,7 +8,7 @@
 
 @media (min-width: 768px) {
   .main {
-    padding-top: 16px;
+    padding: 16px 0 100px;
   }
 
   .main.paddingTop {
@@ -18,7 +18,7 @@
 
 @media (min-width: 1440px) {
   .main {
-    padding-top: 20px;
+    padding: 20px 0 120px;
   }
 
   .main.paddingTop {

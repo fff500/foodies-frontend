@@ -10,12 +10,10 @@ import {
 } from "../../redux";
 import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
 import { getSelectOptions } from "../../utils/getSelectOptions";
-import { IngredientList } from "./IngredientList/IngredientList";
+import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
-import { ErrorMessage } from "./ErrorMesage./ErrorMessage";
+import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
-import { useNavigate } from "react-router-dom";
-
 import styles from "./AddRecipeForm.module.css";
 
 const defaultValues = {
@@ -40,8 +38,6 @@ export const AddRecipeForm = () => {
   const { data: areas, isFetching: areasIsFetching } = useGetAreasQuery();
   const [create, { isLoading, error: errorCreate, reset: onRetry }] =
     useCreateRecipeMutation();
-
-  const navigate = useNavigate();
 
   const {
     register,
