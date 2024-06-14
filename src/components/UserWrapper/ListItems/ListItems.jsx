@@ -1,9 +1,10 @@
 import { RecipePreview } from "../RecipePreview";
 import { UserCard } from "../UserCard";
+import styles from "./ListItems.module.css";
 
 export const ListItems = ({ type, items }) => {
   return (
-    <>
+    <div className={styles.wrapper}>
       {type === "recipes" && items.length > 0 && (
         <div>
           {items.map((recipe) => (
@@ -19,6 +20,6 @@ export const ListItems = ({ type, items }) => {
         </div>
       )}
       {items.length === 0 && <p>No items found</p>}
-    </>
+    </div>
   );
 };

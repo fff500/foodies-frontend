@@ -1,45 +1,31 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { apiInstance } from "../api";
 
-const getAuthHeader = () => {
-  const token = window.localStorage.getItem("token");
-  return {
-    authorization: `Bearer ${token}`,
-  };
-};
-
 export const createApiUsers = createApi({
   reducerPath: "users",
-  baseQuery: async (args) => {
-    const { data } = await apiInstance({
-      url: args.url,
-      method: args.method,
-      data: args.body,
-      headers: args.headers,
-    });
-    return { data };
-  },
+  baseQuery: apiInstance,
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
       providesTags: ["current"],
       query: () => ({
         url: "users/current",
         method: "GET",
-        headers: getAuthHeader(),
       }),
+      providesTags: (result, error, page) => [
+        { type: "GetCurrentUser", id: "LIST" },
+      ],
     }),
     getUser: builder.query({
       query: (id) => ({
         url: `users/${id}`,
         method: "GET",
-        headers: getAuthHeader(),
       }),
+      providesTags: (result, error, page) => [{ type: "GetUser", id: "LIST" }],
     }),
     getMyOwnRecipes: builder.query({
       query: (page) => ({
         url: `recipes/own-recipes?page=${page}`,
         method: "GET",
-        headers: getAuthHeader(),
       }),
       providesTags: (result, error, page) => [
         { type: "GetMyOwnRecipes", id: "LIST" },
@@ -49,14 +35,12 @@ export const createApiUsers = createApi({
       query: (page) => ({
         url: `users/favorites?page=${page}`,
         method: "GET",
-        headers: getAuthHeader(),
       }),
     }),
     getFollowing: builder.query({
       query: () => ({
         url: "users/following",
         method: "GET",
-        headers: getAuthHeader(),
       }),
       providesTags: (result, error, page) => [
         { type: "GetFollowing", id: "LIST" },
@@ -66,14 +50,12 @@ export const createApiUsers = createApi({
       query: (userId) => ({
         url: `users/followers/${userId}`,
         method: "GET",
-        headers: getAuthHeader(),
       }),
     }),
     getFollowersCurrentUser: builder.query({
       query: () => ({
         url: "users/followers",
         method: "GET",
-        headers: getAuthHeader(),
       }),
     }),
     updateAvatar: builder.mutation({
@@ -81,7 +63,6 @@ export const createApiUsers = createApi({
         url: "users/avatars",
         method: "PATCH",
         body: formData,
-        headers: getAuthHeader(),
       }),
     }),
     getRecipesByOwnerId: builder.query({
@@ -122,14 +103,22 @@ export const createApiUsers = createApi({
         url: `users/unfollow/${userId}`,
         method: "DELETE",
       }),
-      invalidatesTags: [{ type: "GetFollowing", id: "LIST" }],
+      invalidatesTags: [
+        { type: "GetFollowing", id: "LIST" },
+        { type: "GetCurrentUser", id: "LIST" },
+        { type: "GetUser", id: "LIST" },
+      ],
     }),
     followUser: builder.mutation({
       query: (userId) => ({
         url: `users/follow/${userId}`,
         method: "PATCH",
       }),
-      invalidatesTags: [{ type: "GetFollowing", id: "LIST" }],
+      invalidatesTags: [
+        { type: "GetFollowing", id: "LIST" },
+        { type: "GetCurrentUser", id: "LIST" },
+        { type: "GetUser", id: "LIST" },
+      ],
     }),
     logoutUser: builder.mutation({
       query: (userData) => ({
