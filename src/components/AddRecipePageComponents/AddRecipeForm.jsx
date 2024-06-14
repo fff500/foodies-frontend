@@ -2,7 +2,7 @@ export const AddRecipeForm = () => {
   return (
     <form>
       <div className="formGroup">
-        <label for="photo">Upload a photo</label>
+        <label htmlFor="photo">Upload a photo</label>
         <input
           type="file"
           id="photo"
@@ -26,11 +26,11 @@ export const AddRecipeForm = () => {
         />
       </div>
       <div className="formGroup">
-        <label for="category">Category</label>
+        <label htmlFor="category">Category</label>
         <select id="category" name="category" />
       </div>
       <div className="formGroup">
-        <label for="ingredient">Ingredients</label>
+        <label htmlFor="ingredient">Ingredients</label>
         <select id="ingredient" name="ingredient" />
       </div>
       <div className="formGroup">
@@ -42,7 +42,7 @@ export const AddRecipeForm = () => {
         />
       </div>
       <div className="formGroup">
-        <label for="preparation">Recipe Preparation</label>
+        <label htmlFor="preparation">Recipe Preparation</label>
         <textarea
           id="preparation"
           name="preparation"

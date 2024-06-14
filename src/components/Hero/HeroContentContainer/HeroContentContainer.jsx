@@ -1,7 +1,5 @@
-import { PrivateLink } from "../../shared/PrivateLink/PrivateLink";
-import {  MainTitle, Subtitle } from "../../shared";
+import { MainTitle, Subtitle, PrivateLink } from "../../shared";
 import styles from "./HeroContentContainer.module.css";
-
 
 export const HeroContentContainer = () => {
   return (
@@ -14,9 +12,9 @@ export const HeroContentContainer = () => {
           Amazing recipes for beginners in the world of cooking, enveloping you
           in the aromas and tastes of various cuisines.
         </Subtitle>
-          <PrivateLink to={"/recipe/add"} className={styles.heroSectionButton}>
-              Add recipe
-          </PrivateLink>
+        <PrivateLink to={"/recipe/add"} className={styles.heroSectionButton}>
+          Add recipe
+        </PrivateLink>
       </div>
     </>
   );

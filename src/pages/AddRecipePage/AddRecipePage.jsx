@@ -1,5 +1,9 @@
-import { Container } from "../../components/layout";
-import { AddRecipeForm, MainTitle, Subtitle } from "../../components";
+import {
+  Container,
+  AddRecipeForm,
+  MainTitle,
+  Subtitle,
+} from "../../components";
 import styles from "./AddRecipePage.module.css";
 
 const AddRecipePage = () => {

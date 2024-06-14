@@ -1,4 +1,4 @@
-import { RecipePreview } from "../RecipePreview/RecipePreview";
+import { RecipePreview } from "../RecipePreview";
 import { UserCard } from "../UserCard";
 
 export const ListItems = ({ type, items }) => {

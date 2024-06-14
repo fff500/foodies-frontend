@@ -1,7 +1,3 @@
-import { MODALS } from "../../../constants";
-import { Button, LoadingSpinner } from "../../shared";
-import { Modal } from "../Modal";
-import styles from "./SignUpModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +7,10 @@ import {
   closeModal,
   openModal,
 } from "../../../redux";
+import { MODALS } from "../../../constants";
+import { Button, LoadingSpinner } from "../../shared";
+import { Modal } from "../Modal";
+import styles from "./SignUpModal.module.css";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
