@@ -1,0 +1,14 @@
+.countCharatyers {
+  font-size: 12px;
+  position: absolute;
+  top: -15px;
+  right: 0;
+}
+
+.errorLimitCount {
+  color: var(--color-error-message);
+}
+
+.countLimit {
+  color: rgb(5, 5, 5, 0.5);
+}
