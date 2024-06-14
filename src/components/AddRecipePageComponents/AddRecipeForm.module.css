@@ -7,13 +7,6 @@
   margin: 0 auto;
 }
 
-.smallSpinner {
-  width: 20px;
-  height: 20px;
-  border-width: 2px;
-  margin-left: 10px;
-}
-
 .inputName::placeholder {
   font-size: 18px;
   font-weight: 800;

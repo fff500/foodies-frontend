@@ -24,6 +24,8 @@ export const createApiRecipes = createApi({
   }),
 });
 
-export const { useGetRecipeQuery, useGetPopularRecipesQuery, useCreateRecipeMutation } =
-  createApiRecipes;
-
+export const {
+  useGetRecipeQuery,
+  useGetPopularRecipesQuery,
+  useCreateRecipeMutation,
+} = createApiRecipes;

@@ -6,7 +6,9 @@ import {
   useCreateRecipeMutation,
   useGetAreasQuery,
   useGetCategoriesQuery,
+  useGetCurrentUserQuery,
   useGetIngredientsQuery,
+  useLazyGetCurrentUserQuery,
 } from "../../redux";
 import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
 import { getSelectOptions } from "../../utils/getSelectOptions";
@@ -14,7 +16,9 @@ import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
+
 import styles from "./AddRecipeForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 const defaultValues = {
   thumb: "",
@@ -36,8 +40,9 @@ export const AddRecipeForm = () => {
     isFetching: ingredientsIsFetching,
   } = useGetIngredientsQuery();
   const { data: areas, isFetching: areasIsFetching } = useGetAreasQuery();
-  const [create, { isLoading, error: errorCreate, reset: onRetry }] =
+  const [create, { error: errorCreate, reset: onRetry }] =
     useCreateRecipeMutation();
+  const { data: currentUser } = useGetCurrentUserQuery();
 
   const {
     register,
@@ -55,6 +60,7 @@ export const AddRecipeForm = () => {
   const [imageRecipe, setImageRecipe] = useState(null);
   const [newIngredients, setNewIngredients] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const navigate = useNavigate();
 
   const onSubmit = ({
     title,
@@ -64,23 +70,25 @@ export const AddRecipeForm = () => {
     instructions,
     time,
   }) => {
-    const formData = {
+    const formFields = {
       title,
       description,
       instructions,
       time: time.toString(),
       ingredients,
-      thumb: imageRecipe,
       area: area.value,
       category: category.value,
     };
 
-    create(formData)
+    const postData = new FormData();
+    postData.append("json", JSON.stringify(formFields));
+    postData.append("image", imageRecipe);
+
+    create(postData)
       .unwrap()
       .then((res) => {
-        console.log("response", res);
         if (res) {
-          // navigate('/user');
+          // navigate(`/user/${currentUser._id}`);
         }
       })
       .catch((error) => console.log(error));
@@ -156,11 +164,12 @@ export const AddRecipeForm = () => {
           </label>
           <div className={styles.descriptionWrapper}>
             <textarea
-              {...register("description", { required: true, maxLength: 200 })}
+              {...register("description", { required: true, maxLength: 199 })}
               id="description"
               name="description"
               placeholder="Enter a description of the dish"
               className={styles.description}
+              maxLength={200}
             />
             <CountCharacters
               errors={errors}
@@ -324,7 +333,7 @@ export const AddRecipeForm = () => {
                 placeholder="Enter recipe"
                 {...register("instructions", {
                   required: true,
-                  maxLength: 200,
+                  maxLength: 199,
                 })}
                 maxLength={200}
                 className={styles.description}
@@ -353,7 +362,6 @@ export const AddRecipeForm = () => {
             </Button>
             <Button type="submit" className={styles.publishButton}>
               Publish
-              {isLoading && <LoadingSpinner className={styles.smallSpinner} />}
             </Button>
           </div>
         </div>
