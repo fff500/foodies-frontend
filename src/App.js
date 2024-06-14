@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useLocalStorage } from "@mantine/hooks";
 import { LoadingSpinner, SharedLayout } from "./components";
-import { useIsAuth } from "./hooks/";
 
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
 const User = lazy(() => import("./pages/User/User"));
@@ -10,7 +10,7 @@ const RecipePage = lazy(() => import("./pages/Recipe/RecipePage"));
 const PrivateRoutes = lazy(() => import("./pages/PrivateRoutes/PrivateRoutes"));
 
 const App = () => {
-  const { isAuth } = useIsAuth();
+  const [isAuth] = useLocalStorage({ key: "token" });
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
@@ -18,8 +18,8 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/" element={<PrivateRoutes isAuth={isAuth} />}>
             <Route path="user/:userId" element={<User />} />
-            <Route path="recipe/:recipeId" element={<RecipePage />} />
             <Route path="recipe/add" element={<AddRecipe />} />
+            <Route path="recipe/:recipeId" element={<RecipePage />} />
           </Route>
           <Route path="*" element={<Home />} />
         </Route>
