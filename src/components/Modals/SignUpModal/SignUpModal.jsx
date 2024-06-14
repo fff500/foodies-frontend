@@ -11,10 +11,6 @@ import { MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import styles from "./SignUpModal.module.css";
-import { useDispatch } from "react-redux";
-import { closeModal, openModal } from "../../../redux/modalSlice";
-import { useCreateUserMutation, useLoginUserMutation } from "../../../redux";
-import { useLocalStorage } from "@mantine/hooks";
 import { Input } from "../Inputs/Input";
 import { PasswordInput } from "../Inputs/PasswordInput";
 
