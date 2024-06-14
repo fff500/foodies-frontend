@@ -34,7 +34,7 @@ export const RecipeMainInfo = ({
               <span className={styles.recipeLabel}>{data.time} min</span>
             </div>
             <p className={styles.recipeText}>{data.description}</p>
-            <PrivateLink to={`/user/${data.owner.id}`}>
+            <PrivateLink to={`/user/${data.owner._id}`}>
               <button
                 className={classnames(styles.userInfo, styles.resetButton)}
               >

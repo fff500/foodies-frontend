@@ -14,9 +14,12 @@ import {
   RecipeInfo,
 } from "../../components";
 import styles from "./RecipePage.module.css";
+import { useWindowScroll } from "@mantine/hooks";
+import { useEffect } from "react";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
+  const [, scrollTo] = useWindowScroll();
   const {
     data: recipeData,
     error: recipeError,
@@ -41,7 +44,9 @@ const RecipePage = () => {
 
   const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
     useRemoveFromFavoritesMutation();
-
+  useEffect(() => {
+    scrollTo({ x: 0, y: 0 });
+  }, []);
   const isLoading =
     recipeLoading ||
     recipeFetching ||
