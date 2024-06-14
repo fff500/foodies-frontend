@@ -1,8 +1,7 @@
 import { useState } from "react";
 import classnames from "classnames";
-import { Button } from "../../../shared";
-import { Icon } from "../../../shared";
-import { BurgerModal } from "../../../Modals/BurgerModal";
+import { Button, Icon } from "../../../shared";
+import { BurgerModal } from "../../../Modals/";
 import styles from "./BurgerMenu.module.css";
 
 export const BurgerMenu = ({ isHomePage }) => {

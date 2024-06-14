@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../../../shared";
-import styles from "./AuthButtons.module.css";
 import { openModal } from "../../../../redux/";
+import { Button } from "../../../shared";
+import styles from "./AuthBar.module.css";
 
 export const AuthBar = () => {
   const { modalType } = useSelector((state) => state.modal);

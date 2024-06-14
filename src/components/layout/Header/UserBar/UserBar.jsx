@@ -6,7 +6,6 @@ import classnames from "classnames";
 import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
-import { LogOutModal } from "../../../Modals";
 import styles from "./UserBar.module.css";
 
 export const UserBar = ({ userName, userImage }) => {
