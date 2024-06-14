@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { SharedLayout } from "./components";
+import { LoadingSpinner, SharedLayout } from "./components";
 import { useIsAuth } from "./hooks/";
 
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
@@ -12,18 +12,19 @@ const PrivateRoutes = lazy(() => import("./pages/PrivateRoutes/PrivateRoutes"));
 const App = () => {
   const { isAuth } = useIsAuth();
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/" element={<PrivateRoutes isAuth={isAuth} />}>
-          <Route path="user/:userId" element={<User />} />
-          <Route path="recipe/:recipeId" element={<RecipePage />} />
-          <Route path="recipe/add" element={<AddRecipe />} />
+    <Suspense fallback={<LoadingSpinner />}>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/" element={<PrivateRoutes isAuth={isAuth} />}>
+            <Route path="user/:userId" element={<User />} />
+            <Route path="recipe/:recipeId" element={<RecipePage />} />
+            <Route path="recipe/add" element={<AddRecipe />} />
+          </Route>
+          <Route path="*" element={<Home />} />
         </Route>
-        <Route path="*" element={<Home />} />
-      </Route>
-    </Routes>
-  </Suspense>);
+      </Routes>
+    </Suspense>
+  );
 };
 export default App;

@@ -3,8 +3,10 @@ import { Button, Icon, Logo } from "../../shared";
 import { NavLink } from "react-router-dom";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 import styles from "./BurgerModal.module.css";
+import { useBodyScrollLock } from "../../../hooks";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
+  useBodyScrollLock();
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
