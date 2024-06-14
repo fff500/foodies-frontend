@@ -57,7 +57,7 @@ export const AddRecipeForm = () => {
 
   const [imageRecipe, setImageRecipe] = useState(null);
   const [newIngredients, setNewIngredients] = useState([]);
-  const [ingredirents, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   const onSubmit = ({
     name,
@@ -72,12 +72,11 @@ export const AddRecipeForm = () => {
       description,
       preparation,
       time,
-      ingredients: ingredirents,
+      ingredients: ingredients,
       thumb: imageRecipe,
       area: { _id: area.value },
       category: { _id: category.value },
     };
-    console.log(formData);
 
     create(formData)
       .unwrap()
