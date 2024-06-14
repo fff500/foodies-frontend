@@ -27,12 +27,7 @@ export const CategoriesCard = ({
           className={styles.categoriesCardButton}
           onClick={handleCategoryClick}
         >
-          <Icon
-            id="arrowUpRight"
-            className={styles.categoriesCardIcon}
-            width={16}
-            height={16}
-          />
+          <Icon id="arrowUpRight" className={styles.categoriesCardIcon} />
         </Button>
       </div>
     </CategoryImageContainer>
