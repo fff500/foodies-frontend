@@ -1,17 +1,20 @@
 import { useRef } from "react";
 import styles from "./UserInfo.module.css";
-import { ErrorComponent, LoadingSpinner } from "../../shared";
-import { useGetUserQuery } from "../../../redux";
+import { Button, ErrorComponent, LoadingSpinner } from "../../shared";
+import { useGetCurrentUserQuery, useGetUserQuery } from "../../../redux";
 import { useUpdateAvatarMutation } from "../../../redux";
 
-export const UserInfo = ({ userId }) => {
+export const UserInfo = ({ handleCtaClick, ctaText, userId }) => {
+  const currentQuery = useGetCurrentUserQuery();
+  const userQuery = useGetUserQuery(userId);
+
   const {
     data: userData = {},
     isFetching: userIsFetching,
     isLoading: userIsLoading,
     isError: userIsError,
     refetch: refetchUser,
-  } = useGetUserQuery(userId);
+  } = userId ? userQuery : currentQuery;
 
   const fileInputRef = useRef(null);
   const [updateAvatar, { isLoading }] = useUpdateAvatarMutation();
@@ -44,43 +47,75 @@ export const UserInfo = ({ userId }) => {
         <ErrorComponent onRetry={refetchUser} />
       )}
       {userData.name && (
-        <div className={styles.userInfo}>
-          <div className={styles.avatarContainer}>
-            <img
-              src={userData.avatar}
-              alt="User avatar"
-              className={styles.avatar}
-            />
-            <div className={styles.plusButton} onClick={handleButtonClick}>
-              +
+        <div>
+          <div className={styles.userInfo}>
+            <div className={styles.avatarContainer}>
+              <img
+                src={userData.avatar}
+                alt="User avatar"
+                className={styles.avatar}
+              />
+              {!userId && (
+                <>
+                  <div
+                    className={styles.plusButton}
+                    onClick={handleButtonClick}
+                  >
+                    +
+                  </div>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    className={styles.fileInput}
+                    onChange={handleFileChange}
+                    accept="image/*"
+                  />
+                </>
+              )}
             </div>
-            <input
-              type="file"
-              ref={fileInputRef}
-              className={styles.fileInput}
-              onChange={handleFileChange}
-              accept="image/*"
-            />
+            <h2 className={styles.name}>{userData.name.toUpperCase()}</h2>
+            <div className={styles.stats}>
+              <div>
+                <span className={styles.statLabel}>Email:</span>
+                <span className={styles.statValue}>{userData.email}</span>
+              </div>
+              <div>
+                <span className={styles.statLabel}>Added recipes:</span>
+                <span className={styles.statValue}>
+                  {userData.createdRecipesCount || 0}
+                </span>
+              </div>
+              {!userId && (
+                <div>
+                  <span className={styles.statLabel}>Favorites:</span>
+                  <span className={styles.statValue}>
+                    {userData.favorites.length || 0}
+                  </span>
+                </div>
+              )}
+              <div>
+                <span className={styles.statLabel}>Followers:</span>
+                <span className={styles.statValue}>
+                  {userData.followers.length || 0}
+                </span>
+              </div>
+              {!userId && (
+                <div>
+                  <span className={styles.statLabel}>Following:</span>
+                  <span className={styles.statValue}>
+                    {userData.following.length || 0}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
-          <h2 className={styles.name}>{userData.name.toUpperCase()}</h2>
-          <div className={styles.stats}>
-            <div>
-              <span className={styles.statLabel}>Email:</span>
-              <span className={styles.statValue}>{userData.email}</span>
-            </div>
-            <div>
-              <span className={styles.statLabel}>Added recipes:</span>
-              <span className={styles.statValue}>
-                {userData.createdRecipesCount || 0}
-              </span>
-            </div>
-            <div>
-              <span className={styles.statLabel}>Followers:</span>
-              <span className={styles.statValue}>
-                {userData.followersCount || 0}
-              </span>
-            </div>
-          </div>
+          <Button
+            onClick={handleCtaClick}
+            className={styles.logOut}
+            type="button"
+          >
+            {ctaText}
+          </Button>
         </div>
       )}
     </>

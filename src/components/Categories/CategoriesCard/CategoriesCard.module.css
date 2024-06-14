@@ -1,72 +1,80 @@
 .categoriesCard {
-    display: flex;
-    height: 250px;
-    width: 100%;
-    padding: 16px;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 30px;
-    background: linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%);
-}
-
-@media (min-width: 768px) {
-    .categoriesCard {
-        height: 369px;
-        padding: 24px;
-        min-width: 325px;
-    }
+  display: flex;
+  height: 250px;
+  width: 100%;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 30px;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 5, 0.18) 0%,
+    rgba(5, 5, 5, 0.18) 100%
+  );
 }
 
 .categoriesCardContent {
-    display: flex;
-    gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 
 .categoriesCardTitle {
-    color: var(--color-white, #ffffff);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: -0.32px;
-    display: flex;
-    padding: 8px 12px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    background: rgba(255, 255, 255, 0.30);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.32px;
+  height: 40px;
+  display: flex;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-white, #ffffff);
+  border-radius: var(--border-radius-regular, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .categoriesCardButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.30);
-    color: var(--color-white, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-white, #ffffff);
+  width: 40px;
+  height: 40px;
+  transition: var(--transition-ease);
 }
 
-.categoriesCardButton:hover {
-    background-color: var(--color-black, #050505);
-    color: var(--color-white, #ffffff);
-    border-color: var(--color-black, #050505);
+.categoriesCardButton:hover,
+.categoriesCardButton:focus {
+  background-color: var(--color-black, #050505);
+  color: var(--color-white, #ffffff);
+  border-color: var(--color-black, #050505);
+}
+
+.categoriesCardIcon {
+  width: 18px;
+  height: 18px;
 }
 
 @media (min-width: 768px) {
-    .categoriesCardButton {
-        padding: 12px;
-    }
+  .categoriesCard {
+    height: 369px;
+    padding: 24px;
+    min-width: 325px;
+  }
 
-    .categoriesCardIconButton {
-        width: 18px;
-        height: 18px;
-    }
+  .categoriesCardTitle {
+    font-size: 20px;
+    letter-spacing: -0.4px;
+    padding: 10px 14px;
+    height: 44px;
+  }
 
-    .categoriesCardTitle {
-        font-size: 20px;
-        letter-spacing: -0.4px;
-        padding: 10px 14px;
-    }
+  .categoriesCardButton {
+    width: 44px;
+    height: 44px;
+  }
 }

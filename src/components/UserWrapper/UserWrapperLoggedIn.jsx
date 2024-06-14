@@ -1,19 +1,31 @@
 import { useState } from "react";
-import { Button } from "../shared";
 import styles from "./UserWrapper.module.css";
-import { UserInfoLoggedIn } from "./UserInfo";
+import { UserInfo } from "./UserInfo";
 import { ListPagination } from "./ListPagination/ListPagination";
 import {
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
   useGetFollowersCurrentUserQuery,
+  openModal,
 } from "../../redux";
-import { TabsListLoggedIn } from "./TabsList/TabsListLoggedIn";
+import { useDispatch } from "react-redux";
+import { TabsList } from "./TabsList";
 
 export const UserWrapperLoggedIn = () => {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const handleLogoutRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "logout",
+      })
+    );
+  };
 
   const {
     data: myRecipes = {},
@@ -82,19 +94,22 @@ export const UserWrapperLoggedIn = () => {
 
   return (
     <div className={styles.container}>
-      <>
-        <UserInfoLoggedIn />
-        <Button className={styles.logOut} type="button">
-          LOG OUT
-        </Button>
+      <div className={styles.userInfoWrapper}>
+        <UserInfo
+          ctaText={"LOG OUT"}
+          handleCtaClick={handleLogoutRegisterModal}
+        />
+      </div>
 
-        <TabsListLoggedIn
+      <div>
+        <TabsList
           setActiveTab={setActiveTab}
           activeTab={activeTab}
           data={dataForTabs().data}
           loading={dataForTabs().loading}
           error={dataForTabs().error}
           refetch={dataForTabs().refetch}
+          isCurrentUser={true}
         />
         {(activeTab === 0 || activeTab === 1) && dataForTabs().totalCount && (
           <ListPagination
@@ -103,7 +118,7 @@ export const UserWrapperLoggedIn = () => {
             page={page}
           />
         )}
-      </>
+      </div>
     </div>
   );
 };
