@@ -1,3 +1,8 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
 .input {
   width: 100%;
   border: 1px solid #05050512;
@@ -11,6 +16,15 @@
 
 .input:focus {
   border: 1px solid var(--color-black);
+}
+
+.errorMsg {
+  position: absolute;
+  color: var(--color-error-message);
+  font-size: 12px;
+  font-weight: var(--font-weight-body);
+  bottom: -16px;
+  left: 5%;
 }
 
 @media (min-width: 768px) {

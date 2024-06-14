@@ -2,20 +2,24 @@ import styles from "./Input.module.css";
 import passwordStyles from "./PasswordInput.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 
-export const PasswordInput = () => {
+export const PasswordInput = ({ register, errors, config }) => {
   return (
-    <div className={passwordStyles.passInput}>
-      <input
-        id="password"
-        name="password"
-        className={styles.input}
-        placeholder="Password"
-        type="password"
-        min="6"
-      />
-      <svg className={passwordStyles.showPassword}>
-        <use xlinkHref={`${sprite}#showPassword`} />
-      </svg>
+    <div className={styles.container}>
+      <div className={passwordStyles.passInput}>
+        <input
+          id={config.name}
+          className={styles.input}
+          placeholder={config.placeholder}
+          type={config.type}
+          {...register(`${config.name}`, config.validation)}
+        />
+        <svg className={passwordStyles.showPassword}>
+          <use xlinkHref={`${sprite}#showPassword`} />
+        </svg>
+      </div>
+      <p className={styles.errorMsg}>
+        {errors[config.name] && <span>{errors[config.name].message}</span>}
+      </p>
     </div>
   );
 };
