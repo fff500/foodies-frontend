@@ -1,0 +1,77 @@
+.categoriesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  @media (min-width: 1440px) {
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 1440px) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .category {
+    display: flex;
+    flex: 20%;
+    gap: 10px;
+  }
+
+  .bigCategory {
+    flex: 1 0 40%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .categories>li:nth-child(5n+3) {
+    grid-column: span 2;
+  }
+}
+
+.allCategoriesButton {
+  height: 250px;
+  width: 100%;
+  padding: 0 16px;
+  background: var(--color-light-black, rgba(5, 5, 5, 0.9));
+  color: var(--color-white, #ffffff);
+  border-radius: 30px;
+
+  @media (min-width: 768px) {
+    height: 369px;
+    padding: 0 88px;
+    width: 340px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 325px;
+    padding: 0 80px;
+  }
+}
+
+.allCategoriesButton:hover,
+.allCategoriesButton:focus {
+  background: var(--color-black, rgba(5, 5, 5, 0.9));
+}

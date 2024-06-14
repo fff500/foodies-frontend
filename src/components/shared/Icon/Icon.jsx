@@ -1,6 +1,6 @@
 import classnames from "classnames";
-import styles from "./Icon.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
+import styles from "./Icon.module.css";
 
 export const Icon = ({ id, className, width, height }) => {
   return (

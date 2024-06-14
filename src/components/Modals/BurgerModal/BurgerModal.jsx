@@ -1,10 +1,14 @@
 import { useEffect } from "react";
-import { Button, Icon, Logo } from "../../shared";
 import { NavLink } from "react-router-dom";
+import { useFocusTrap } from "@mantine/hooks";
+import { useBodyScrollLock } from "../../../hooks";
+import { Button, Icon, Logo } from "../../shared";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 import styles from "./BurgerModal.module.css";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
+  useBodyScrollLock();
+  const focusTrapRef = useFocusTrap();
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
@@ -18,11 +22,14 @@ export const BurgerModal = ({ isOpen, onClose }) => {
       document.removeEventListener("keydown", onEscPress);
     };
   }, [onClose]);
+  const handleLinkClick = () => {
+    onClose();
+  };
 
   return (
     <>
       {isOpen && (
-        <div className={styles.backdrop}>
+        <div className={styles.backdrop} ref={focusTrapRef}>
           <div className={styles.header}>
             <Logo />
             <Button
@@ -35,15 +42,20 @@ export const BurgerModal = ({ isOpen, onClose }) => {
           </div>
           <ul className={styles.headerNavList}>
             <li className={styles.headerNavItem}>
-              <NavLink to="/" className={styles.homeLink}>
+              <NavLink
+                to="/"
+                className={styles.homeLink}
+                onClick={() => handleLinkClick()}
+              >
                 Home
               </NavLink>
             </li>
             <li className={styles.headerNavItem}>
               <NavLink
-                to="/recipe"
+                to="/recipe/add"
                 className={styles.recipeLink}
                 state={{ recipe: "Add recipe" }}
+                onClick={() => handleLinkClick()}
               >
                 Add recipe
               </NavLink>

@@ -1,20 +1,53 @@
-import sprite from "../../assets/icons/sprite.svg";
 import styles from "./Recipes.module.css";
 import { RecipeList } from "./RecipeList";
-import RecipeFilters from "./RecipeFilters";
-import { MainTitle, Subtitle } from "../shared";
+import {
+  Button,
+  ErrorComponent,
+  Icon,
+  LoadingSpinner,
+  MainTitle,
+  Subtitle,
+} from "../shared";
+import { useState } from "react";
+import { RecipePagination } from "./RecipePagination";
+import { useSearchParams } from "react-router-dom";
+import { useGetRecipesQuery } from "../../redux";
+import { RecipeFilters } from "./RecipeFilters";
 
 export const Recipes = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams] = useSearchParams();
+  const selectedIngredient = searchParams.get("ingredient") || "";
+  const selectedArea = searchParams.get("area") || "";
+  const limit = 12;
+  const {
+    data: recipeData,
+    error: recipeError,
+    isLoading: recipeLoading,
+    refetch: refetchRecipe,
+  } = useGetRecipesQuery({
+    page: currentPage,
+    limit: limit,
+    filterIngredient: selectedIngredient,
+    filterArea: selectedArea,
+  });
+  let totalPages = 0;
+  if (recipeData) {
+    totalPages = recipeData.totalCount / limit;
+  }
+  console.log("recipeData: ", recipeData);
+  const handlePageChange = (page) => {
+    console.log(page);
+    setCurrentPage(page);
+  };
   return (
     <>
       <section className={styles.recipesSection}>
         <div className={styles.recipesNav}>
-          <button className={styles.backButton}>
-            <svg className={styles.logo}>
-              <use xlinkHref={`${sprite}#arrowLeft`} />
-            </svg>
+          <Button className={styles.backButton}>
+            <Icon id={"arrowLeft"} className={styles.icon} />
             Back
-          </button>
+          </Button>
         </div>
         <div className={styles.titleContainer}>
           <MainTitle>DESSERTS</MainTitle>
@@ -26,13 +59,21 @@ export const Recipes = () => {
         </div>
         <div className={styles.mainResipesContainer}>
           <RecipeFilters />
-          <RecipeList />
+          {recipeLoading && (
+            <div>
+              <LoadingSpinner />
+            </div>
+          )}
+          {!recipeLoading && recipeError && (
+            <ErrorComponent onRetry={refetchRecipe} />
+          )}
+          <RecipeList data={recipeData} />
         </div>
-        <nav className={styles.pagination}>
-          <button className={styles.paginationButton}>1</button>
-          <button className={styles.paginationButton}>2</button>
-          <button className={styles.paginationButton}>3</button>
-        </nav>
+        <RecipePagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </section>
     </>
   );

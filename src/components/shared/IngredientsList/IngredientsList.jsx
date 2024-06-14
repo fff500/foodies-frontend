@@ -4,7 +4,7 @@ export const IngredientsList = ({ ingredients }) => {
   return (
     <ul className={styles.ingredientsItems}>
       {ingredients?.map((elem) => (
-        <li className={styles.ingredient} key={elem.id}>
+        <li className={styles.ingredient} key={elem._id}>
           <div className={styles.ingredientImg}>
             <img src={elem.img} alt={elem.name} />
           </div>

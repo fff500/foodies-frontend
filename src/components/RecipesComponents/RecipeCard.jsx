@@ -1,4 +1,4 @@
-import sprite from "../../assets/icons/sprite.svg";
+import { Button, Icon } from "../shared";
 import styles from "./Recipes.module.css";
 
 export const RecipeCard = ({
@@ -21,20 +21,16 @@ export const RecipeCard = ({
         <h3 className={styles.infoCardTitle}>{title}</h3>
         <p className={styles.infoCardDescription}>{description}</p>
         <div className={styles.infoCardFooter}>
-          <button type="button" className={styles.infoCardAuthor}>
+          <Button type="button" className={styles.infoCardAuthor}>
             <img src={avatarSrc} alt={author} className={styles.authorAvatar} />
             <span>{author}</span>
-          </button>
+          </Button>
           <div className={styles.infoCardSocial}>
             <div className={styles.iconCircle}>
-              <svg className={styles.icon}>
-                <use xlinkHref={`${sprite}#heart`} />
-              </svg>
+              <Icon id="heart" className={styles.icon} />
             </div>
             <div className={styles.iconCircle}>
-              <svg className={styles.icon}>
-                <use xlinkHref={`${sprite}#arrowUpRight`} />
-              </svg>
+              <Icon id="arrowUpRight" className={styles.icon} />
             </div>
           </div>
         </div>

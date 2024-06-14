@@ -1,5 +1,6 @@
 import { useLocalStorage } from "@mantine/hooks";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { MODALS } from "../../../constants";
 import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
@@ -13,6 +14,8 @@ export const SignInModal = ({ isOpen, onClose }) => {
     key: "token",
   });
   const dispatch = useDispatch();
+  const { to } = useSelector((state) => state.modal);
+  const navigate = useNavigate();
   const [login, { isLoading }] = useLoginUserMutation();
   const handleOpenLoginModal = () => {
     dispatch(
@@ -20,8 +23,11 @@ export const SignInModal = ({ isOpen, onClose }) => {
         isOpen: true,
         modalType: "register",
       })
+        to,
+      }),
     );
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -33,6 +39,9 @@ export const SignInModal = ({ isOpen, onClose }) => {
         },
       } = await login(data);
       setToken(token);
+      if (to) {
+        navigate(to);
+      }
       dispatch(closeModal());
     } catch (e) {
       console.log(e);
