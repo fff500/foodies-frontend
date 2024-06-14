@@ -8,5 +8,3 @@ Disallow: /static/         # Заборонити індексацію стат�
 
 User-agent: Googlebot
 Allow: /                  # Дозволити доступ для Googlebot на всі сторінки
-
-Sitemap: https://yourdomain.com/sitemap.xml  # Посилання на sitemap.xml
