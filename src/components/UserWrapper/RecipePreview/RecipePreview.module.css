@@ -1,5 +1,8 @@
 .recipePreview {
   display: flex;
+}
+
+.recipePreview:not(:last-child) {
   margin-bottom: 32px;
 }
 
@@ -23,6 +26,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
 }
 
 .description {
@@ -49,4 +57,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .recipePreview:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+  }
+
+  .details {
+    width: 468px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: var(----font-size-body-tablet);
+  }
+
+  .actions {
+    gap: 4px;
+    margin-left: 32px;
+  }
+
+  .link,
+  .deleteButton {
+    width: 42px;
+    height: 42px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    width: 610px;
+  }
 }

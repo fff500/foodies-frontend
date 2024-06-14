@@ -1,14 +1,50 @@
-import { useState } from "react";
-import { Button } from "../shared";
+import { useEffect, useState } from "react";
 import styles from "./UserWrapper.module.css";
 import { UserInfo } from "./UserInfo";
 import { TabsList } from "./TabsList";
 import { ListPagination } from "./ListPagination/ListPagination";
-import { useGetFollowersQuery, useGetRecipesByOwnerIdQuery } from "../../redux";
+import {
+  useFollowUserMutation,
+  useGetCurrentUserQuery,
+  useGetFollowersQuery,
+  useGetRecipesByOwnerIdQuery,
+  useUnfollowUserMutation,
+} from "../../redux";
 
 export const UserWrapper = ({ userId }) => {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
+  const [followUser] = useFollowUserMutation();
+  const [unfollowUser] = useUnfollowUserMutation();
+
+  const { data: currentUser } = useGetCurrentUserQuery();
+
+  const [isFollowing, setIsFollowing] = useState(
+    currentUser ? currentUser.following.includes(userId) : false
+  );
+
+  useEffect(() => {
+    console.log("currentUser", currentUser);
+    setIsFollowing(
+      currentUser ? currentUser.following.includes(userId) : false
+    );
+  }, [currentUser, userId]);
+
+  const handleFollow = async () => {
+    try {
+      await followUser(userId).unwrap();
+    } catch (error) {
+      console.error("Error when following user", error);
+    }
+  };
+
+  const handleUnfollow = async () => {
+    try {
+      await unfollowUser(userId).unwrap();
+    } catch (error) {
+      console.error("Error when unfollowing user", error);
+    }
+  };
 
   const {
     data: userRecipes = {},
@@ -48,12 +84,15 @@ export const UserWrapper = ({ userId }) => {
 
   return (
     <div className={styles.container}>
-      <>
-        <UserInfo userId={userId} />
-        <Button className={styles.logOut} type="button">
-          FOLLOW
-        </Button>
+      <div className={styles.userInfoWrapper}>
+        <UserInfo
+          ctaText={isFollowing ? "UNFOLLOW" : "FOLLOW"}
+          handleCtaClick={isFollowing ? handleUnfollow : handleFollow}
+          userId={userId}
+        />
+      </div>
 
+      <div>
         <TabsList
           setActiveTab={setActiveTab}
           activeTab={activeTab}
@@ -61,6 +100,7 @@ export const UserWrapper = ({ userId }) => {
           loading={dataForTabs().loading}
           error={dataForTabs().error}
           refetch={dataForTabs().refetch}
+          isCurrentUser={false}
         />
         {activeTab === 0 && dataForTabs().totalCount && (
           <ListPagination
@@ -69,7 +109,7 @@ export const UserWrapper = ({ userId }) => {
             page={page}
           />
         )}
-      </>
+      </div>
     </div>
   );
 };
