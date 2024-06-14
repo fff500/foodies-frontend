@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Button, Icon } from "../../shared";
 import { CategoryImageContainer } from "../CategoryImageContainer";
 import styles from "./CategoriesCard.module.css";
@@ -9,10 +9,11 @@ export const CategoriesCard = ({
   categoryImageUrl_x2,
   id,
 }) => {
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleCategoryClick = () => {
-    navigate(`/recipes/${id}`);
+    searchParams.set("category", id);
+    setSearchParams(searchParams);
   };
 
   return (
@@ -27,7 +28,12 @@ export const CategoriesCard = ({
           className={styles.categoriesCardButton}
           onClick={handleCategoryClick}
         >
-          <Icon id="arrowUpRight" className={styles.categoriesCardIcon} />
+          <Icon
+            id="arrowUpRight"
+            className={styles.categoriesCardIcon}
+            width={16}
+            height={16}
+          />
         </Button>
       </div>
     </CategoryImageContainer>
