@@ -18,6 +18,9 @@ export const BurgerModal = ({ isOpen, onClose }) => {
       document.removeEventListener("keydown", onEscPress);
     };
   }, [onClose]);
+  const handleLinkClick = () => {
+    onClose();
+  };
 
   return (
     <>
@@ -35,15 +38,20 @@ export const BurgerModal = ({ isOpen, onClose }) => {
           </div>
           <ul className={styles.headerNavList}>
             <li className={styles.headerNavItem}>
-              <NavLink to="/" className={styles.homeLink}>
+              <NavLink
+                to="/"
+                className={styles.homeLink}
+                onClick={() => handleLinkClick()}
+              >
                 Home
               </NavLink>
             </li>
             <li className={styles.headerNavItem}>
               <NavLink
-                to="/recipe"
+                to="/recipe/add"
                 className={styles.recipeLink}
                 state={{ recipe: "Add recipe" }}
+                onClick={() => handleLinkClick()}
               >
                 Add recipe
               </NavLink>

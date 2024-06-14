@@ -15,7 +15,9 @@ export const SharedLayout = () => {
 
   return (
     <>
-      <Header isHomePage={isHomePage} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header isHomePage={isHomePage} />
+      </Suspense>
       <main
         className={classnames(styles.main, {
           [styles.paddingTop]: !isHomePage,
@@ -26,8 +28,12 @@ export const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
-      <ReduxModal key={modalType} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ReduxModal key={modalType} />
+      </Suspense>
     </>
   );
 };

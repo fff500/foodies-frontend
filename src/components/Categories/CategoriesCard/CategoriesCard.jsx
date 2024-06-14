@@ -12,7 +12,7 @@ export const CategoriesCard = ({
   const navigate = useNavigate();
 
   const handleCategoryClick = () => {
-    navigate(`/category/${id}`);
+    navigate(`/recipes/${id}`);
   };
 
   return (
