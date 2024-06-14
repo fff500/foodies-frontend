@@ -11,10 +11,10 @@ export const createApiRecipes = createApi({
     }),
     createRecipe: build.mutation({
       providesTags: "recipe",
-      query: (body) => ({
+      query: (data) => ({
         url: "/recipes",
         method: "POST",
-        body,
+        data,
       }),
     }),
   }),
