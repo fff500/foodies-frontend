@@ -33,9 +33,8 @@ export const SignUpModal = ({ isOpen, onClose }) => {
       openModal({
         isOpen: true,
         modalType: "login",
-      })
         to,
-      }),
+      })
     );
   };
 
