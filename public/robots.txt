@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /users/          # Заборонити індексацію каталогу користувачів
+Disallow: /assets/fonts/   # Заборонити індексацію шрифтів
+Disallow: /media/          # Заборонити індексацію медіа-файлів
+Disallow: /js/             # Заборонити індексацію JavaScript файлів
+Disallow: /css/            # Заборонити індексацію CSS файлів
+Disallow: /static/         # Заборонити індексацію статичних ресурсів
+
+User-agent: Googlebot
+Allow: /                  # Дозволити доступ для Googlebot на всі сторінки
+
+Sitemap: https://yourdomain.com/sitemap.xml  # Посилання на sitemap.xml
