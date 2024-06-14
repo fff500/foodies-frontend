@@ -1,9 +1,15 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { Button, Icon } from "../../shared";
 import styles from "./RecipePreview.module.css";
-import { Button } from "../../shared";
-import sprite from "../../../assets/icons/sprite.svg";
+import { useDeleteRecipeMutation } from "../../../redux";
 
 export const RecipePreview = ({ recipe }) => {
+  const [deleteRecipe] = useDeleteRecipeMutation();
+
+  const handleDelete = async () => {
+    await deleteRecipe(recipe._id);
+  };
+
   return (
     <div className={styles.recipePreview}>
       <img src={recipe.image} alt={recipe.title} className={styles.image} />
@@ -12,15 +18,15 @@ export const RecipePreview = ({ recipe }) => {
         <p className={styles.description}>{recipe.description}</p>
       </div>
       <div className={styles.actions}>
-        <a href={`/recipe/${recipe._id}`} className={styles.link}>
-          <svg width="16" height="16">
-            <use xlinkHref={`${sprite}#arrowUpRight`} />
-          </svg>
-        </a>
-        <Button className={styles.deleteButton} type="button">
-          <svg width="16" height="16">
-            <use xlinkHref={`${sprite}#trash`} />
-          </svg>
+        <Link to={`/recipe/${recipe._id}`} className={styles.link}>
+          <Icon id={"arrowUpRight"} width={16} height={16} />
+        </Link>
+        <Button
+          onClick={handleDelete}
+          className={styles.deleteButton}
+          type="button"
+        >
+          <Icon id={"trash"} width={16} height={16} />
         </Button>
       </div>
     </div>

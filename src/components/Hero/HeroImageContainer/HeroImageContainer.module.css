@@ -33,9 +33,9 @@
 }
 
 @media screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-device-pixel-ratio: 2) {
+screen and (min-resolution: 2dppx),
+screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-device-pixel-ratio: 2) {
   .heroLeftImageContainer {
     background-image: url("../../../assets/images/hero/2x/left-hero-image@2x.webp");
   }

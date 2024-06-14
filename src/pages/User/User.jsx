@@ -1,20 +1,26 @@
-import { Container } from "../../components";
 import { UserWrapper } from "../../components/UserWrapper";
-import styles from "./User.module.css";
+import { Breadcrumbs, Container } from "../../components";
 import { MainTitle, Subtitle } from "../../components";
+import { UserWrapperLoggedIn } from "../../components/UserWrapper";
+import { useParams } from "react-router-dom";
+import styles from "./User.module.css";
 
 const User = () => {
+  const { userId } = useParams("userId");
+
   return (
-    <Container>
-      <section className={styles.userSection}>
+    <section className={styles.userSection}>
+      <Breadcrumbs />
+      <Breadcrumbs />
+      <Container>
         <MainTitle className={styles.pageTitle}>Profile</MainTitle>
         <Subtitle className={styles.pageDescription}>
           Reveal your culinary art, share your favorite recipe and create
           gastronomic masterpieces with us.
         </Subtitle>
-        <UserWrapper />
-      </section>
-    </Container>
+        {userId ? <UserWrapper userId={userId} /> : <UserWrapperLoggedIn />}
+      </Container>
+    </section>
   );
 };
 

@@ -1,21 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import classnames from "classnames";
-import { Logo } from "../../shared/Logo";
+import { useIsAuth } from "../../../hooks/";
+import { Logo } from "../../shared";
 import { Container } from "../Container";
-import { HeaderNav } from "./HeaderNav";
+import { Nav } from "./Nav";
 import { BurgerMenu } from "./BurgerMenu";
-import { AuthButtons } from "./AuthButtons";
+import { AuthBar } from "./AuthBar";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
 export const Header = ({ isHomePage }) => {
-  const [isLoggedIn] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const { isAuth } = useIsAuth();
 
   return (
     <header
@@ -25,18 +19,16 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Link to="/">
-            <Logo />
-          </Link>
-          {isLoggedIn ? (
+          <Logo className={styles.logo} />
+          {!isAuth ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
+              <AuthBar />
             </div>
           ) : (
             <>
-              <HeaderNav />
-              <UserBar />
-              <BurgerMenu isHomePage={isHomePage} onClick={handleMenuToggle} />
+              <Nav />
+              <UserBar userName="User" />
+              <BurgerMenu isHomePage={isHomePage} />
             </>
           )}
         </div>

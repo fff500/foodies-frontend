@@ -1,37 +1,40 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Button, Icon } from "../../shared";
+import { CategoryImageContainer } from "../CategoryImageContainer";
 import styles from "./CategoriesCard.module.css";
-import sprite from "../../../assets/icons/sprite.svg";
 
 export const CategoriesCard = ({
   categoryTitle,
   categoryImageUrl,
   categoryImageUrl_x2,
+  id,
 }) => {
-  const cardStyle = {
-    background: `linear-gradient(0deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.18) 100%), url(${categoryImageUrl}) lightgray 50% / cover no-repeat`,
-    backgroundImage: `url(${categoryImageUrl}), url(${categoryImageUrl_x2})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+  const navigate = useNavigate();
+
+  const handleCategoryClick = () => {
+    navigate(`/recipes/${id}`);
   };
 
   return (
-    <div className={styles.categoriesCard} style={cardStyle}>
+    <CategoryImageContainer
+      categoryImageUrl={categoryImageUrl}
+      categoryImageUrl_x2={categoryImageUrl_x2}
+    >
       <div className={styles.categoriesCardContent}>
         <h3 className={styles.categoriesCardTitle}>{categoryTitle}</h3>
-        <Link
-          to={`/recipesInfo/${categoryTitle}`}
-          className={styles.categoriesCardButton}
+        <Button
           type="button"
+          className={styles.categoriesCardButton}
+          onClick={handleCategoryClick}
         >
-          <svg
-            width="16"
-            height="16"
-            className={styles.categoriesCardIconButton}
-          >
-            <use xlinkHref={`${sprite}#arrowUpRight`} />
-          </svg>
-        </Link>
+          <Icon
+            id="arrowUpRight"
+            className={styles.categoriesCardIcon}
+            width={16}
+            height={16}
+          />
+        </Button>
       </div>
-    </div>
+    </CategoryImageContainer>
   );
 };

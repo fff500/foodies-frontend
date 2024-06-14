@@ -1,4 +1,4 @@
-import React from "react";
+import { Button } from "../Button";
 import styles from "./ErrorComponent.module.css";
 
 export const ErrorComponent = ({ message, onRetry }) => {
@@ -9,9 +9,9 @@ export const ErrorComponent = ({ message, onRetry }) => {
       <p className={styles.errorMessage}>
         Error: {message || "Something went wrong!"}
       </p>
-      <button className={styles.reloadButton} onClick={onRetry || onReload}>
+      <Button className={styles.reloadButton} onClick={onRetry || onReload}>
         Retry
-      </button>
+      </Button>
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetRecipeQuery } from "../../redux";
+import { ErrorComponent, LoadingSpinner, MainTitle } from "../shared";
 import { RecipeMainInfo } from "./RecipeMainInfo";
-import { ErrorComponent, LoadingSpinner } from "../shared";
 import styles from "./Recipes.module.css";
 
 export const RecipeInfo = () => {
@@ -19,7 +18,7 @@ export const RecipeInfo = () => {
 
   return (
     <section className={styles.sectionWrapper}>
-      <h1 className={styles.isHidden}>Recipe</h1>
+      <MainTitle className={styles.isHidden}>Recipe</MainTitle>
       {isLoading && (
         <div className={styles.loadingStyles}>
           <LoadingSpinner />

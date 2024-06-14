@@ -1,0 +1,306 @@
+.recipesSection {
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.recipesNav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 18px;
+  aspect-ratio: 1;
+  object-fit: auto;
+}
+
+.backButton {
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.28px;
+  line-height: 129%;
+  border: 0;
+  background: none;
+}
+
+.titleContainer {
+  width: 343px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.description {
+  color: var(--color-body-text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+
+.mainResipesContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.filtersSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+select {
+  width: 100%;
+  height: 48px;
+  border-radius: 30px;
+  border: 1px solid var(--color-border-icons-light);
+  padding: 16px 18px 16px 18px;
+  color: var(--color-body-text-light);
+  appearance: none;
+}
+
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.selectWrapper:after {
+  content: url("../../assets/icons/sprite.svg#dropDown");
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.resipeList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.infoCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoCardImg {
+  width: 100%;
+  height: 230px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.infoCardTitle {
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.infoCardDescription {
+  height: 54px;
+  color: var(--color-body-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 8px;
+}
+
+.infoCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoCardAuthor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-light-black);
+}
+
+.authorAvatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.infoCardSocial {
+  display: flex;
+  gap: 4px;
+}
+
+.iconCircle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(5, 5, 5, 0.1);
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+
+.iconCircle:hover {
+  transform: scale(0.855);
+}
+
+.iconCircle:active {
+  transform: scale(1);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-white);
+  stroke: var(--color-black);
+}
+
+.icon:active {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-black);
+  stroke: var(--color-white);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.paginationButton {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  padding: 15px 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(5, 5, 5, 0.1);
+  background: none;
+  transition: transform 0.3s ease;
+}
+
+.paginationButton:hover {
+  transform: scale(1.1);
+  background: rgba(5, 5, 5, 0.1);
+}
+
+@media (min-width: 768px) {
+  .recipesSection {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .recipesNav {
+    margin-bottom: 20px;
+  }
+
+  .titleContainer {
+    width: 540px;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    max-width: 100%;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .infoCard {
+    width: 100%;
+  }
+
+  .filtersSelect {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+  }
+
+  select {
+    width: 345px;
+    height: 56px;
+  }
+
+  .resipeList {
+    display: flex;
+    flex-direction: row;
+    gap: 40px 20px;
+  }
+
+  .infoCard {
+    width: 342px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .infoCardImg {
+    height: 275px;
+  }
+
+  .backButton {
+    white-space: initial;
+  }
+}
+
+@media (min-width: 1440px) {
+  .recipesSection {
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
+
+  .mainResipesContainer {
+    flex-direction: row;
+  }
+
+  .filtersSelect {
+    flex-direction: column;
+    width: 330px;
+    margin-right: 40px;
+  }
+
+  select {
+    width: 330px;
+  }
+
+  .infoCard {
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

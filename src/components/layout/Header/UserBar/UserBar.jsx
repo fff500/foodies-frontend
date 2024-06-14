@@ -1,84 +1,70 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useClickOutside } from "@mantine/hooks";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
+import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
-import sprite from "../../../../assets/icons/sprite.svg";
+import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
-import { Button } from "../../../shared";
 
 export const UserBar = ({ userName, userImage }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [icon, setIcon] = useState("chevronUp");
+  const dispatch = useDispatch();
+  const handleLogoutRegisterModal = () => {
+    dispatch(
+      openModal({
+        isOpen: true,
+        modalType: "logout",
+      }),
+    );
+  };
+  const [open, setOpen] = useState(false);
+  const ref = useClickOutside(() => setOpen(false));
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const toggleButtonIcon = () => {
-    if (icon === "chevronUp") {
-      setIcon("chevronDown");
-    } else {
-      setIcon("chevronUp");
-    }
-    setIsOpen(!isOpen);
-  };
-
-  const handleSelectChange = (value) => {
-    setIsOpen(false);
-    if (value === "profile") {
-      setIcon("chevronDown");
-    } else if (value === "logout") {
-      alert("Are you sure?");
-      setIcon("chevronDown");
-    }
-  };
-
   return (
-    <div className={styles.user}>
+    <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>
       <img
+        loading="lazy"
         className={styles.userImage}
         src={userImage || DEFAULT_IMAGE_AVATAR_URL}
         alt={userName || "User avatar"}
       />
       <div className={styles.userDetails}>
         <p className={styles.userName}>{userName || "User"}</p>
-        <Button
-          className={styles.userButton}
-          type="button"
-          onClick={toggleButtonIcon}
-        >
-          <svg width="18" height="18" className={styles.userIcon}>
-            <use xlinkHref={`${sprite}#${icon}`} />
-          </svg>
+        <Button className={styles.userButton} type="button">
+          <Icon
+            id={open ? "chevronDown" : "chevronUp"}
+            className={styles.userIcon}
+            width={18}
+            height={18}
+          />
         </Button>
 
-        {isOpen && (
+        {open && (
           <div
             className={classnames(styles.select, {
               [styles.homeSelect]: isHomePage,
               [styles.otherPageSelect]: !isHomePage,
             })}
-            onBlur={() => setIsOpen(false)}
           >
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("profile")}
-              value="profile"
-            >
+            <div>
               <Link to="/user">Profile</Link>
             </div>
-            <div
-              className={styles.option}
-              onClick={() => handleSelectChange("logout")}
-              value="logout"
-            >
+            <div>
               <Button
                 type="button"
                 className={styles.logoutButton}
-                onClick={() => alert("Are you sure?")}
+                onClick={handleLogoutRegisterModal}
               >
                 Log out
-                <svg width="18" height="18" className={styles.logoutIcon}>
-                  <use xlinkHref={`${sprite}#arrowUpRight`} />
-                </svg>
+                <Icon
+                  id={"arrowUpRight"}
+                  className={styles.logoutIcon}
+                  width={18}
+                  height={18}
+                />
               </Button>
             </div>
           </div>

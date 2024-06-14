@@ -5,6 +5,5 @@ export * from "./AddRecipePageComponents";
 export * from "./Testimonials";
 export * from "./Hero";
 export * from "./Categories";
-export * from "./Recipes";
-export * from "./RecipeList";
-export * from "./RecipeCard";
+export * from "./RecipesComponents";
+export * from "./Modals";

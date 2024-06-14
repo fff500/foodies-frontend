@@ -1,0 +1,80 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleBlock {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+.submitBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 14px 0;
+  border: 1px solid var(--color-black);
+  border-radius: 30px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cancelBtn {
+  width: 100%;
+  padding: 14px 0;
+  border: 1px solid #05050590;
+  border-radius: 30px;
+  color: #05050590;
+  background-color: var(--color-white);
+  color: #05050590;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.message {
+  color: var(--color-body-text-light);
+  font-size: 14px;
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.link {
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .container {
+    row-gap: 32px;
+  }
+  .submitBtn {
+    padding: 16px 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    row-gap: 32px; /* to delete */
+  }
+}

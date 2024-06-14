@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import { RecipeIngredients } from "./RecipeIngredients";
 import { RecipePreparation } from "./RecipePreparation";
 import { PopularRecipes } from "./PopularRecipes";
@@ -18,7 +19,7 @@ export const RecipeMainInfo = ({ data }) => {
         <div
           className={classnames(
             styles.recipeContainer,
-            styles.recipeContainerWrapper,
+            styles.recipeContainerWrapper
           )}
         >
           <div className={styles.recipeMainInfoContainer}>
@@ -30,7 +31,16 @@ export const RecipeMainInfo = ({ data }) => {
             <p className={styles.recipeText}>{data.description}</p>
             <button className={classnames(styles.userInfo, styles.resetButton)}>
               <div>
-                <img src={data.owner.avatar} alt="owner_img" />
+                {
+                  <img
+                    src={
+                      data.owner.avatar
+                        ? data.owner.avatar
+                        : profileAvatarPlaceholder
+                    }
+                    alt="owner_img"
+                  />
+                }
               </div>
               <div className={styles.userInfoText}>
                 <span className={styles.userInfoLabelText}>Created by:</span>
