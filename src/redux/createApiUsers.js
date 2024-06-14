@@ -130,6 +130,13 @@ export const createApiUsers = createApi({
       }),
       invalidatesTags: [{ type: "GetFollowing", id: "LIST" }],
     }),
+    logoutUser: builder.mutation({
+      query: (userData) => ({
+        url: "users/logout",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
@@ -138,6 +145,7 @@ export const {
   useGetCurrentUserQuery,
   useCreateUserMutation,
   useLoginUserMutation,
+  useLogoutUserMutation,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,

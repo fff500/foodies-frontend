@@ -8,16 +8,19 @@ export const useIsAuth = () => {
   });
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState(null);
 
   const checkAuth = useCallback(() => {
     setIsLoading(true);
     apiInstance
       .get("users/current")
-      .then(() => {
+      .then(({ data: { user } }) => {
+        setData(user);
         setIsAuth(true);
       })
       .catch(() => {
         setIsAuth(false);
+        setData(null);
       })
       .finally(() => setIsLoading(false));
   }, []);
@@ -32,5 +35,6 @@ export const useIsAuth = () => {
     checkAuth,
     isAuth: isValidUser,
     isLoading,
+    data,
   };
 };

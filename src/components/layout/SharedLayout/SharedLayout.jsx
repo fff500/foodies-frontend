@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { ReduxModal } from "../../shared/";
+import { LoadingSpinner, ReduxModal } from "../../shared/";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { Breadcrumbs } from "../Breadcrumbs";
@@ -24,7 +24,7 @@ export const SharedLayout = () => {
         })}
       >
         {!isHomePage && <Breadcrumbs />}
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingSpinner />}>
           <Outlet />
         </Suspense>
       </main>
