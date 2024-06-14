@@ -1,6 +1,6 @@
 import { Testimonials, Container, Hero, Categories } from "../../components";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Container wide>
@@ -16,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

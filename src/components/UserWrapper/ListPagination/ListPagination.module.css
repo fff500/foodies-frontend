@@ -1,0 +1,14 @@
+.pagination {
+  display: flex;
+  gap: 6px;
+  margin-top: 30px;
+}
+.paginationButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.activePage {
+  border: 1px solid var(--color-black);
+}
