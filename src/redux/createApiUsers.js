@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/api";
+import { apiInstance } from "../api";
 
 const getAuthHeader = () => {
   const token = window.localStorage.getItem("token");
@@ -21,6 +21,7 @@ export const createApiUsers = createApi({
   },
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
+      providesTags: ["current"],
       query: () => ({
         url: "users/current",
         method: "GET",
@@ -150,13 +151,6 @@ export const createApiUsers = createApi({
         method: "DELETE",
       }),
       invalidatesTags: ["current"],
-    }),
-    getCurrentUser: builder.query({
-      providesTags: ["current"],
-      query: (id) => ({
-        url: "users/current",
-        method: "GET",
-      }),
     }),
   }),
 });

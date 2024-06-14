@@ -53,9 +53,9 @@ const RecipePage = () => {
   const errors = recipeError || popularRecipeError || userCurrentError;
 
   const isFavorite = userCurrent?.user?.favorites?.find(
-    (id) => id === recipeData?._id,
+    (id) => id === recipeData?._id
   );
-  console.log(userCurrent);
+
   return (
     <Container>
       <section>

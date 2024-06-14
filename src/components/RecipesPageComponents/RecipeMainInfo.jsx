@@ -3,7 +3,7 @@ import { RecipeIngredients } from "./RecipeIngredients";
 import { RecipePreparation } from "./RecipePreparation";
 import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import styles from "./Recipes.module.css";
-import { PrivateLink } from "../shared/PrivateLink";
+import { PrivateLink } from "../shared";
 
 export const RecipeMainInfo = ({
   data,
@@ -24,7 +24,7 @@ export const RecipeMainInfo = ({
         <div
           className={classnames(
             styles.recipeContainer,
-            styles.recipeContainerWrapper,
+            styles.recipeContainerWrapper
           )}
         >
           <div className={styles.recipeMainInfoContainer}>

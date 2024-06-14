@@ -8,7 +8,6 @@ export const RecipePreparation = ({
   addToFavorites,
   removeFromFavorites,
 }) => {
-  console.log(data);
   return (
     <>
       <h3 className={styles.recipeTitle}>Recipe Preparation</h3>
