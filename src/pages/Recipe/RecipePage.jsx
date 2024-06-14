@@ -20,6 +20,7 @@ import { useEffect } from "react";
 const RecipePage = () => {
   const { recipeId } = useParams();
   const [, scrollTo] = useWindowScroll();
+
   const {
     data: recipeData,
     error: recipeError,
@@ -27,26 +28,31 @@ const RecipePage = () => {
     isFetching: recipeFetching,
     refetch: refetchRecipe,
   } = useGetRecipeQuery(recipeId);
+
   const {
     data: popularRecipeData,
     error: popularRecipeError,
     isLoading: popularRecipeLoading,
     isFetching: popularRecipeFetching,
   } = useGetPopularRecipesQuery();
+
   const {
     data: userCurrent,
     error: userCurrentError,
     isLoading: userCurrentLoading,
     isFetching: userCurrentFetching,
   } = useGetCurrentUserQuery();
+
   const [addToFavorites, { isError: error, isLoading: loadingFavoritesAdd }] =
     useAddToFavoritesMutation();
 
   const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
     useRemoveFromFavoritesMutation();
+
   useEffect(() => {
     scrollTo({ x: 0, y: 0 });
-  }, []);
+  }, [recipeId]);
+
   const isLoading =
     recipeLoading ||
     recipeFetching ||
@@ -57,7 +63,7 @@ const RecipePage = () => {
 
   const errors = recipeError || popularRecipeError || userCurrentError;
 
-  const isFavorite = userCurrent?.user?.favorites?.find(
+  const isFavorite = userCurrent?.favorites?.find(
     (id) => id === recipeData?._id
   );
 
@@ -85,6 +91,7 @@ const RecipePage = () => {
               data={popularRecipeData}
               addToFavorites={addToFavorites}
               removeFromFavorites={removeFromFavorites}
+              user={userCurrent}
             />
           )}
         </div>

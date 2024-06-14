@@ -147,11 +147,14 @@ select {
   height: 42px;
   border: 1px solid rgba(5, 5, 5, 0.1);
   border-radius: 50%;
-  padding: 12px;
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-ease);
 }
 .iconCircle:hover {
-  transform: scale(0.855);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 .iconCircle:active {
   transform: scale(1);
@@ -164,11 +167,12 @@ select {
   fill: var(--color-white);
   stroke: var(--color-black);
 }
+
 .icon:active {
   width: 16px;
   height: 16px;
   fill: var(--color-black);
-  stroke: var(--color-white);
+  stroke: var(--color-black);
 }
 .pagination {
   display: flex;
