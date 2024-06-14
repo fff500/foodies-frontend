@@ -20,9 +20,8 @@ export const PopularRecipes = ({
                 imgSrc={card.thumb}
                 author={card.owner.name}
                 avatarSrc={card.owner.avatar}
-                // className={styles.cardStyle}
               />
-            ),
+            )
         )}
       </div>
     </div>
