@@ -1,10 +1,29 @@
 import styles from "./Recipes.module.css";
+import { RecipeCard } from "../RecipesComponents";
 
-export const PopularRecipes = () => {
+export const PopularRecipes = ({
+  data,
+  addToFavorites,
+  removeFromFavorites,
+}) => {
   return (
-    <>
+    <div>
       <h3 className={styles.recipeTitle}>Popular recipes</h3>
-      <div>Cards</div>
-    </>
+      <div className={styles.cardsList}>
+        {data.map(
+          (card, index) =>
+            index <= 3 && (
+              <RecipeCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                imgSrc={card.thumb}
+                author={card.owner.name}
+                avatarSrc={card.owner.avatar}
+              />
+            )
+        )}
+      </div>
+    </div>
   );
 };

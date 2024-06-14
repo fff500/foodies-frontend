@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/api";
+import { apiInstance } from "../api";
 
 const getAuthHeader = () => {
   const token = window.localStorage.getItem("token");
@@ -21,6 +21,7 @@ export const createApiUsers = createApi({
   },
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
+      providesTags: ["current"],
       query: () => ({
         url: "users/current",
         method: "GET",
@@ -137,6 +138,20 @@ export const createApiUsers = createApi({
         body: userData,
       }),
     }),
+    addToFavorites: builder.mutation({
+      query: (id) => ({
+        url: `users/favorites/${id}`,
+        method: "POST",
+      }),
+      invalidatesTags: ["current"],
+    }),
+    removeFromFavorites: builder.mutation({
+      query: (id) => ({
+        url: `users/favorites/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["current"],
+    }),
   }),
 });
 
@@ -146,6 +161,8 @@ export const {
   useCreateUserMutation,
   useLoginUserMutation,
   useLogoutUserMutation,
+  useAddToFavoritesMutation,
+  useRemoveFromFavoritesMutation,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
