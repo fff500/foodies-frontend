@@ -9,11 +9,37 @@
   align-items: center;
 }
 
+.avatarContainer {
+  position: relative;
+  display: inline-block;
+}
+
 .avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   margin-bottom: 16px;
+}
+
+.plusButton {
+  position: absolute;
+  bottom: 4px;
+  right: 25px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fileInput {
+  display: none;
 }
 
 .name {

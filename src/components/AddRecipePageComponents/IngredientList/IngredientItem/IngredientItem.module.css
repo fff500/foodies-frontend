@@ -1,0 +1,38 @@
+.ingredientItem {
+  display: flex;
+  position: relative;
+  flex-basis: calc((100% - 15px) / 2);
+}
+
+.imageWrapper {
+  display: flex;
+  width: 75px;
+  height: 75px;
+  padding: 10px;
+  border: 1px solid var(--color-gray-secondary);
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.ingredientImage {
+  object-fit: cover;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredientItem {
+    flex-basis: calc((100% - (15px * 2)) / 3);
+  }
+}

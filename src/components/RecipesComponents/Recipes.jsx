@@ -1,3 +1,4 @@
+<<<<<<< create/RecipePagination
 import styles from "./Recipes.module.css";
 import { RecipeList } from "./RecipeList";
 import {
@@ -12,6 +13,12 @@ import { RecipePagination } from "./RecipePagination";
 import { useSearchParams } from "react-router-dom";
 import { useGetRecipesQuery } from "../../redux";
 import { RecipeFilters } from "./RecipeFilters";
+=======
+import { Button, Icon, MainTitle, Subtitle } from "../shared";
+import { RecipeList } from "./RecipeList";
+import RecipeFilters from "./RecipeFilters";
+import styles from "./Recipes.module.css";
+>>>>>>> main
 
 export const Recipes = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,6 +50,7 @@ export const Recipes = () => {
     <>
       <section className={styles.recipesSection}>
         <div className={styles.recipesNav}>
+<<<<<<< create/RecipePagination
           <button className={styles.backButton}>
             <Icon
               className={styles.logo}
@@ -50,8 +58,12 @@ export const Recipes = () => {
               width={18}
               height={18}
             />
+=======
+          <Button className={styles.backButton}>
+            <Icon id={"arrowLeft"} className={styles.icon} />
+>>>>>>> main
             Back
-          </button>
+          </Button>
         </div>
         <div className={styles.titleContainer}>
           <MainTitle>DESSERTS</MainTitle>
@@ -73,11 +85,19 @@ export const Recipes = () => {
           )}
           <RecipeList data={recipeData} />
         </div>
+<<<<<<< create/RecipePagination
         <RecipePagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
+=======
+        <nav className={styles.pagination}>
+          <Button className={styles.paginationButton}>1</Button>
+          <Button className={styles.paginationButton}>2</Button>
+          <Button className={styles.paginationButton}>3</Button>
+        </nav>
+>>>>>>> main
       </section>
     </>
   );

@@ -1,3 +1,8 @@
-export const MainTitle = ({ className, children }) => (
-  <h1 className={className}>{children}</h1>
-);
+import classnames from "classnames";
+import styles from "./MainTitle.module.css";
+
+export const MainTitle = ({ children, className }) => {
+  return (
+    <h1 className={classnames(styles.mainTitle, className)}>{children}</h1>
+  );
+};

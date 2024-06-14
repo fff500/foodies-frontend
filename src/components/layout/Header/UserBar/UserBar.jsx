@@ -26,6 +26,7 @@ export const UserBar = ({ userName, userImage }) => {
   return (
     <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>
       <img
+        loading="lazy"
         className={styles.userImage}
         src={userImage || DEFAULT_IMAGE_AVATAR_URL}
         alt={userName || "User avatar"}
