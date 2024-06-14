@@ -22,6 +22,9 @@ export const RecipeCard = ({
   const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
     useRemoveFromFavoritesMutation();
 
+  const handleFavoriteClick = () =>
+    isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId);
+
   return (
     <div className={styles.infoCard}>
       <img
@@ -46,13 +49,7 @@ export const RecipeCard = ({
           </PrivateLink>
 
           <div className={styles.infoCardSocial}>
-            <Button
-              onClick={
-                isFavorite
-                  ? () => removeFromFavorites(recipeId)
-                  : () => addToFavorites(recipeId)
-              }
-            >
+            <Button onClick={handleFavoriteClick}>
               <div className={styles.iconCircle}>
                 <Icon
                   id="heart"
