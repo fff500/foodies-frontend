@@ -12,6 +12,7 @@ export const NetworkLinks = () => (
           className={styles.networkLink}
           target="_blank"
           rel="nofollow noopener noreferrer"
+          aria-label={id}
         >
           <Icon id={id} width={20} height={20} />
         </Link>
