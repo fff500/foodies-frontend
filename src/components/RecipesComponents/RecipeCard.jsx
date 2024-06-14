@@ -1,10 +1,10 @@
-import { Button, Icon, PrivateLink } from "../shared";
-import styles from "./Recipes.module.css";
+import { Link } from "react-router-dom";
 import {
   useAddToFavoritesMutation,
   useRemoveFromFavoritesMutation,
 } from "../../redux";
-import { Link } from "react-router-dom";
+import { Button, Icon, PrivateLink } from "../shared";
+import styles from "./Recipes.module.css";
 
 export const RecipeCard = ({
   title,

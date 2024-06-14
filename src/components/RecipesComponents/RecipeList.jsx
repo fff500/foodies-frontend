@@ -1,8 +1,8 @@
+import { useMemo } from "react";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
+import { useGetCurrentUserQuery } from "../../redux";
 import { RecipeCard } from "./RecipeCard";
 import styles from "./Recipes.module.css";
-import { useGetCurrentUserQuery } from "../../redux";
-import { useMemo } from "react";
 
 export const RecipeList = ({ data }) => {
   const { data: userCurrent } = useGetCurrentUserQuery();
