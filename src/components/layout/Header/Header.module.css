@@ -7,8 +7,22 @@
   z-index: 99;
 }
 
+.loadingContainer {
+    background-color: transparent;
+    height: 100px;
+    .loading{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
 .logo {
   grid-area: logo;
+}
+
+.isLoadingLogo {
+    padding-top: 12px;
 }
 
 .authButtonsWrapper {

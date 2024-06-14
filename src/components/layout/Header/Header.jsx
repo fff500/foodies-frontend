@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { Logo } from "../../shared";
+import { LoadingSpinner, Logo } from "../../shared";
 import { Container } from "../Container";
 import { HeaderNav } from "./HeaderNav";
 import { BurgerMenu } from "./BurgerMenu";
@@ -11,6 +11,17 @@ import { useIsAuth } from "../../../hooks/useIsAuth";
 export const Header = ({ isHomePage }) => {
   const { isAuth, isLoading } = useIsAuth();
 
+  const content = !isAuth ? (
+    <div className={styles.authButtonsWrapper}>
+      <AuthButtons />
+    </div>
+  ) : (
+    <>
+      <HeaderNav />
+      <UserBar userName="User" />
+      <BurgerMenu isHomePage={isHomePage} />
+    </>
+  );
   return (
     <header
       className={classnames(styles.header, {
@@ -19,17 +30,18 @@ export const Header = ({ isHomePage }) => {
     >
       <Container>
         <div className={styles.headerContentWrapper}>
-          <Logo className={styles.logo} />
-          {!isAuth ? (
-            <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
-            </div>
+          <Logo
+            className={classnames(styles.logo, {
+              [styles.isLoadingLogo]: isLoading,
+            })}
+          />
+          {isLoading ? (
+            <LoadingSpinner
+              containerClassName={styles.loadingContainer}
+              className={styles.loading}
+            />
           ) : (
-            <>
-              <HeaderNav />
-              <UserBar userName="User" />
-              <BurgerMenu isHomePage={isHomePage} />
-            </>
+            content
           )}
         </div>
       </Container>

@@ -57,6 +57,13 @@ export const createApiUsers = createApi({
         body: userData,
       }),
     }),
+    logoutUser: builder.mutation({
+      query: (userData) => ({
+        url: "users/logout",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
@@ -64,6 +71,7 @@ export const {
   useGetUserQuery,
   useCreateUserMutation,
   useLoginUserMutation,
+  useLogoutUserMutation,
   useGetMyOwnRecipesQuery,
   useGetMyFavoritesQuery,
   useGetFollowingQuery,
