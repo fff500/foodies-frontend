@@ -14,8 +14,8 @@ export const INPUT_CONFIG = {
     validation: {
       required: "Email is required",
       minLength: {
-        value: 3,
-        message: "Atleast 3 symbols.",
+        value: 5,
+        message: "At least 5 symbols.",
       },
     },
   },
@@ -39,7 +39,7 @@ export const INPUT_CONFIG = {
       required: "Password is required",
       minLength: {
         value: 6,
-        message: "Atleast 6 symbols.",
+        message: "At least 6 symbols.",
       },
     },
   },
