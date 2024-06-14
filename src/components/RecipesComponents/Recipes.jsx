@@ -1,7 +1,7 @@
-<<<<<<< create/RecipePagination
 import styles from "./Recipes.module.css";
 import { RecipeList } from "./RecipeList";
 import {
+  Button,
   ErrorComponent,
   Icon,
   LoadingSpinner,
@@ -13,12 +13,6 @@ import { RecipePagination } from "./RecipePagination";
 import { useSearchParams } from "react-router-dom";
 import { useGetRecipesQuery } from "../../redux";
 import { RecipeFilters } from "./RecipeFilters";
-=======
-import { Button, Icon, MainTitle, Subtitle } from "../shared";
-import { RecipeList } from "./RecipeList";
-import RecipeFilters from "./RecipeFilters";
-import styles from "./Recipes.module.css";
->>>>>>> main
 
 export const Recipes = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -50,18 +44,8 @@ export const Recipes = () => {
     <>
       <section className={styles.recipesSection}>
         <div className={styles.recipesNav}>
-<<<<<<< create/RecipePagination
-          <button className={styles.backButton}>
-            <Icon
-              className={styles.logo}
-              id={"arrowLeft"}
-              width={18}
-              height={18}
-            />
-=======
           <Button className={styles.backButton}>
             <Icon id={"arrowLeft"} className={styles.icon} />
->>>>>>> main
             Back
           </Button>
         </div>
@@ -76,7 +60,7 @@ export const Recipes = () => {
         <div className={styles.mainResipesContainer}>
           <RecipeFilters />
           {recipeLoading && (
-            <div className={styles.loadingStyles}>
+            <div>
               <LoadingSpinner />
             </div>
           )}
@@ -85,19 +69,11 @@ export const Recipes = () => {
           )}
           <RecipeList data={recipeData} />
         </div>
-<<<<<<< create/RecipePagination
         <RecipePagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
-=======
-        <nav className={styles.pagination}>
-          <Button className={styles.paginationButton}>1</Button>
-          <Button className={styles.paginationButton}>2</Button>
-          <Button className={styles.paginationButton}>3</Button>
-        </nav>
->>>>>>> main
       </section>
     </>
   );

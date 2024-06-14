@@ -1,5 +1,5 @@
 import { Controller } from "react-hook-form";
-import { ErrorMessage } from "../ErrorMesage./ErrorMessage";
+import { ErrorMessage } from "../ErrorMesage/";
 import { Icon } from "../../shared";
 
 import styles from "./UploadImage.module.css";
