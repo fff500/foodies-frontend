@@ -1,70 +1,17 @@
-import { useState } from "react";
-import { nanoid } from "@reduxjs/toolkit";
-import classnames from "classnames";
-import { Button } from "../shared";
-import { CategoriesCard } from "./CategoriesCard";
-import { categoriesData } from "./categoriesData";
+import { MainTitle, Subtitle } from "../shared";
 import styles from "./Categories.module.css";
+import { CategoryList } from "./CategoryList";
 
 export const Categories = () => {
-  const [showAll, setShowAll] = useState(false);
-  const [visibleCategories, setVisibleCategories] = useState(
-    window.innerWidth < 767
-      ? categoriesData.slice(0, 8)
-      : categoriesData.slice(0, 11)
-  );
-  const handleShowAll = () => {
-    setShowAll(!showAll);
-    if (!showAll) {
-      setVisibleCategories(categoriesData);
-    } else {
-      setVisibleCategories(
-        window.innerWidth < 767
-          ? categoriesData.slice(0, 8)
-          : categoriesData.slice(0, 11)
-      );
-    }
-  };
-
   return (
     <section className={styles.categoriesSection}>
-      <h2 className={styles.title}>Categories</h2>
-      <p className={styles.subtitle}>
+      <MainTitle>Categories</MainTitle>
+      <Subtitle>
         Discover a limitless world of culinary possibilities and enjoy exquisite
         recipes that combine taste, style and the warm atmosphere of the
         kitchen.
-      </p>
-      <div className={styles.categoriesContainer}>
-        <ul className={styles.categories}>
-          {visibleCategories.map(
-            ({ id, title, imageUrl, imageUrl_x2 }, index) => (
-              <li
-                className={classnames(styles.category, {
-                  [styles.bigCategory]:
-                    index === 2 || index === 4 || index === 8 || index === 10,
-                })}
-                key={nanoid()}
-              >
-                <CategoriesCard
-                  categoryTitle={title}
-                  categoryImageUrl={imageUrl}
-                  categoryImageUrl_x2={imageUrl_x2}
-                  id={id}
-                />
-              </li>
-            )
-          )}
-          <li>
-            <Button
-              className={styles.allCategoriesButton}
-              type="button"
-              onClick={handleShowAll}
-            >
-              {showAll ? "Show less" : "All categories"}
-            </Button>
-          </li>
-        </ul>
-      </div>
+      </Subtitle>
+      <CategoryList />
     </section>
   );
 };

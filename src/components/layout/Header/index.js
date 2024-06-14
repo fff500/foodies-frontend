@@ -1,5 +1,5 @@
-export * from "./AuthButtons";
+export * from "./AuthBar";
 export * from "./BurgerMenu";
 export * from "./Header";
-export * from "./HeaderNav";
+export * from "./Nav";
 export * from "./UserBar";

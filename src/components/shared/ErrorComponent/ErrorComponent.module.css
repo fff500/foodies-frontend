@@ -1,4 +1,8 @@
 .errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     margin: 20px 0;
     border: 1px solid red;

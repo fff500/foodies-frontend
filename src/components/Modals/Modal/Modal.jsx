@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import sprite from "../../../assets/icons/sprite.svg";
-import { Button } from "../../shared";
+import { Icon, Button } from "../../shared";
 import { Portal } from "../Portal/Portal";
 import styles from "./Modal.module.css";
 
@@ -36,9 +35,7 @@ export const Modal = ({ children, onClose }) => {
             type="button"
             onClick={() => onClose()}
           >
-            <svg className={styles.closeSvg}>
-              <use xlinkHref={`${sprite}#close`} />
-            </svg>
+            <Icon className={styles.closeIcon} id={"close"} />
           </Button>
           {children}
         </div>

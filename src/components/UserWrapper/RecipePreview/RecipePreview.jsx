@@ -1,5 +1,6 @@
-import styles from "./RecipePreview.module.css";
+import { Link } from "react-router-dom";
 import { Button, Icon } from "../../shared";
+import styles from "./RecipePreview.module.css";
 
 export const RecipePreview = ({ recipe }) => {
   return (
@@ -10,9 +11,9 @@ export const RecipePreview = ({ recipe }) => {
         <p className={styles.description}>{recipe.description}</p>
       </div>
       <div className={styles.actions}>
-        <a href={`/recipe/${recipe._id}`} className={styles.link}>
+        <Link to={`/recipe/${recipe._id}`} className={styles.link}>
           <Icon id={"arrowUpRight"} width={16} height={16} />
-        </a>
+        </Link>
         <Button className={styles.deleteButton} type="button">
           <Icon id={"trash"} width={16} height={16} />
         </Button>

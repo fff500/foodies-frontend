@@ -1,15 +1,15 @@
 import classnames from "classnames";
+import { useIsAuth } from "../../../hooks/";
 import { Logo } from "../../shared";
 import { Container } from "../Container";
-import { HeaderNav } from "./HeaderNav";
+import { Nav } from "./Nav";
 import { BurgerMenu } from "./BurgerMenu";
-import { AuthButtons } from "./AuthButtons";
+import { AuthBar } from "./AuthBar";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
-import { useIsAuth } from "../../../hooks/useIsAuth";
 
 export const Header = ({ isHomePage }) => {
-  const { isAuth, isLoading } = useIsAuth();
+  const { isAuth } = useIsAuth();
 
   return (
     <header
@@ -22,11 +22,11 @@ export const Header = ({ isHomePage }) => {
           <Logo className={styles.logo} />
           {!isAuth ? (
             <div className={styles.authButtonsWrapper}>
-              <AuthButtons />
+              <AuthBar />
             </div>
           ) : (
             <>
-              <HeaderNav />
+              <Nav />
               <UserBar userName="User" />
               <BurgerMenu isHomePage={isHomePage} />
             </>
