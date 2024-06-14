@@ -1,15 +1,24 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/api";
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { apiInstance } from '../api/api';
 
 export const createApiRecipes = createApi({
-  reducerPath: "recipes",
+  reducerPath: 'recipes',
   baseQuery: apiInstance,
-  endpoints: (build) => ({
+  endpoints: build => ({
     getRecipe: build.query({
-      providesTags: "recipe",
-      query: (id) => `/recipes/${id}`,
+      providesTags: 'recipe',
+      query: id => `/recipes/${id}`,
+    }),
+    createRecipe: build.mutation({
+      providesTags: 'recipe',
+      query: body => ({
+        url: '/recipes',
+        method: 'POST',
+        body,
+      }),
+      // transformErrorResponse: response => response.status,
     }),
   }),
 });
 
-export const { useGetRecipeQuery } = createApiRecipes;
+export const { useGetRecipeQuery, useCreateRecipeMutation } = createApiRecipes;

@@ -1,8 +1,8 @@
-import { Container } from "../../components/layout";
+import { Container } from '../../components/layout';
 
-import { AddRecipeForm, MainTitle, Subtitle } from "../../components";
+import { AddRecipeForm, MainTitle, Subtitle } from '../../components';
 
-import styles from "./AddRecipe.module.css";
+import styles from './AddRecipe.module.css';
 
 const AddRecipe = () => {
   return (

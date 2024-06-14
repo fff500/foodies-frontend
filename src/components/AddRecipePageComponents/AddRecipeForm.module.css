@@ -1,0 +1,202 @@
+.buttonIcon {
+  stroke: var(--color-black);
+  fill: var(--color-white);
+}
+
+.spinner {
+  margin: 0 auto;
+}
+
+.smallSpinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+  margin-left: 10px;
+}
+
+.inputName::placeholder {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 3;
+  color: var(--color-light-black);
+  text-transform: uppercase;
+}
+
+.inputName {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 10px 10px 0;
+  width: 100%;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.descriptionWrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.description {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 2px solid var(--color-gray-secondary);
+
+  vertical-align: bottom;
+}
+
+.description::placeholder {
+  text-align: start;
+  transform: translateY(15px);
+}
+
+.select > div {
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.select div:last-child span {
+  display: none;
+}
+
+.fieldLabel {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.timeButtonsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.timeCount {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gray-secondary);
+  font-size: 20px;
+  padding-bottom: 3px;
+}
+
+.time {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--color-body-text-light);
+}
+
+.selectWrap {
+  margin-bottom: 30px;
+}
+
+.addIngredientButton {
+  border: 1px solid var(--color-body-text-light);
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.actionButtons {
+  display: flex;
+}
+
+.trashButton {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid var(--color-gray-secondary);
+}
+
+.publishButton {
+  background: var(--color-black);
+  padding: 14px;
+  width: 124px;
+  color: var(--color-white);
+}
+
+.fieldsWrapper {
+  margin-bottom: 30px;
+}
+
+.areaField {
+  margin-bottom: 30px;
+}
+
+.quantity {
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid var(--color-gray-secondary);
+  padding: 11px 11px 8px 0;
+  text-align: left;
+}
+
+.quantityField {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.formPpreparation {
+  position: relative;
+}
+
+.preparationField {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1440px) {
+  .formWrapper {
+    display: flex;
+  }
+
+  .formWrapper > div {
+    flex-basis: 50%;
+  }
+}
+
+.formField {
+  position: relative;
+}
+
+.labelName {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .quantityField {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+  }
+
+  .fieldsWrapper {
+    display: flex;
+    flex-basis: calc((100% - 15px) / 2);
+  }
+
+  .fieldsWrapper > div:first-child {
+    margin-right: 20px;
+  }
+
+  .fieldsWrapper > div:last-child {
+    margin-bottom: 0;
+  }
+
+  .formField {
+    flex-basis: calc((100% - 15px) / 2);
+  }
+
+  .selectWrap {
+    margin-bottom: 0;
+  }
+
+  .areaField {
+    width: 50%;
+  }
+}

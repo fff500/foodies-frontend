@@ -1,0 +1,6 @@
+.errorMessage {
+  color: var(--color-error-message);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
