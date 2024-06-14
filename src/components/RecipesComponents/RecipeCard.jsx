@@ -1,5 +1,10 @@
-import { Button, Icon } from "../shared";
+import { Button, Icon, PrivateLink } from "../shared";
 import styles from "./Recipes.module.css";
+import {
+  useAddToFavoritesMutation,
+  useRemoveFromFavoritesMutation,
+} from "../../redux";
+import { Link } from "react-router-dom";
 
 export const RecipeCard = ({
   title,
@@ -8,7 +13,15 @@ export const RecipeCard = ({
   alt,
   author,
   avatarSrc,
+  isFavorite,
+  recipeId,
 }) => {
+  const [addToFavorites, { isError: error, isLoading: loadingFavoritesAdd }] =
+    useAddToFavoritesMutation();
+
+  const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
+    useRemoveFromFavoritesMutation();
+
   return (
     <div className={styles.infoCard}>
       <img
@@ -17,21 +30,43 @@ export const RecipeCard = ({
         alt={alt}
         className={styles.infoCardImg}
       />
-      <div className={styles.infoCardContent}>
+      <div>
         <h3 className={styles.infoCardTitle}>{title}</h3>
         <p className={styles.infoCardDescription}>{description}</p>
         <div className={styles.infoCardFooter}>
-          <Button type="button" className={styles.infoCardAuthor}>
-            <img src={avatarSrc} alt={author} className={styles.authorAvatar} />
-            <span>{author}</span>
-          </Button>
+          <PrivateLink to={`/user/${author._id}`}>
+            <Button type="button" className={styles.infoCardAuthor}>
+              <img
+                src={avatarSrc}
+                alt={author}
+                className={styles.authorAvatar}
+              />
+              <span>{author.name}</span>
+            </Button>
+          </PrivateLink>
+
           <div className={styles.infoCardSocial}>
-            <div className={styles.iconCircle}>
-              <Icon id="heart" className={styles.icon} />
-            </div>
-            <div className={styles.iconCircle}>
-              <Icon id="arrowUpRight" className={styles.icon} />
-            </div>
+            <Button
+              onClick={
+                isFavorite
+                  ? () => removeFromFavorites(recipeId)
+                  : () => addToFavorites(recipeId)
+              }
+            >
+              <div className={styles.iconCircle}>
+                <Icon
+                  id="heart"
+                  className={isFavorite ? styles.iconActive : styles.icon}
+                />
+              </div>
+            </Button>
+            <Button>
+              <Link to={`/recipe/${recipeId}`}>
+                <div className={styles.iconCircle}>
+                  <Icon id="arrowUpRight" className={styles.icon} />
+                </div>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
