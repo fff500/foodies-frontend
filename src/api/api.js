@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const apiInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  // baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: "https://foodies-backend-ez4l.onrender.com/api",
 });
 
 apiInstance.interceptors.request.use(
@@ -12,5 +13,5 @@ apiInstance.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error),
+  (error) => Promise.reject(error)
 );
