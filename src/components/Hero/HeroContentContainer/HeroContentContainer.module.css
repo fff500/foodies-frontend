@@ -47,6 +47,17 @@
   text-transform: uppercase;
 
   border: 1px solid #ffffffe5;
+  transition:
+    color var(--transition-ease),
+    border-color var(--transition-ease),
+    background-color var(--transition-ease);
+}
+
+.heroSectionButton:hover,
+.heroSectionButton:focus {
+  background-color: var(--color-white, #ffffff);
+  color: var(--color-black, #050505);
+  border: 1px solid #050505e5;
 }
 
 @media screen and (min-width: 768px) {
