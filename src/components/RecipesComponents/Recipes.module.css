@@ -14,6 +14,7 @@
   width: 18px;
   aspect-ratio: 1;
   object-fit: auto;
+  fill: transparent;
 }
 
 .backButton {
@@ -28,8 +29,13 @@
 }
 
 .titleContainer {
+  display: flex;
+  flex-direction: column;
   width: 343px;
   margin-bottom: 32px;
+<<<<<<< create/RecipePagination
+  gap: 16px;
+=======
 }
 
 .title {
@@ -45,6 +51,7 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.32px;
+>>>>>>> main
 }
 
 .mainResipesContainer {
@@ -75,23 +82,39 @@ select {
   position: relative;
   display: inline-block;
 }
+<<<<<<< create/RecipePagination
+.customArrow {
+=======
 
 .selectWrapper:after {
   content: url("../../assets/icons/sprite.svg#dropDown");
+>>>>>>> main
   position: absolute;
-  right: 19px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
 }
+<<<<<<< create/RecipePagination
+.dropDownIcon {
+  fill: transparent;
+}
+=======
 
+>>>>>>> main
 .resipeList {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 32px;
 }
+<<<<<<< create/RecipePagination
+.textNotFound {
+  font-size: 14px;
+}
+=======
 
+>>>>>>> main
 .infoCard {
   width: 100%;
   display: flex;
@@ -143,7 +166,8 @@ select {
   gap: 8px;
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-light-black);
+  background: none;
+  border: none;
 }
 
 .authorAvatar {
@@ -210,9 +234,12 @@ select {
 
 .paginationButton:hover {
   transform: scale(1.1);
+  border-color: var(--color-black);
+}
+.paginationButton.active {
+  transform: scale(1.1);
   background: rgba(5, 5, 5, 0.1);
 }
-
 @media (min-width: 768px) {
   .recipesSection {
     margin-bottom: 50px;
@@ -222,8 +249,15 @@ select {
   .recipesNav {
     margin-bottom: 20px;
   }
+<<<<<<< create/RecipePagination
+  .textNotFound {
+    font-size: 28px;
+  }
+=======
 
+>>>>>>> main
   .titleContainer {
+    gap: 20px;
     width: 540px;
     margin-bottom: 40px;
   }
@@ -296,7 +330,13 @@ select {
   select {
     width: 330px;
   }
+<<<<<<< create/RecipePagination
+  .textNotFound {
+    font-size: 38px;
+  }
+=======
 
+>>>>>>> main
   .infoCard {
     width: 290px;
     display: flex;

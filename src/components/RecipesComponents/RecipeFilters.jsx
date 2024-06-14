@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import styles from "./Recipes.module.css";
+import { Icon } from "../shared";
 
 export const RecipeFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,28 +36,55 @@ export const RecipeFilters = () => {
 
   return (
     <div className={styles.filtersSelect}>
-      {!ingredientsIsLoading && (
-        <select value={selectedIngredient} onChange={handleIngredientChange}>
-          <option value="">{selectedIngredient ? "" : "Ingredients"}</option>
-          {ingredientsData.map((ingredient) => (
-            <option key={ingredient._id} value={ingredient._id}>
-              {ingredient.name}
-            </option>
-          ))}
-        </select>
-      )}
-      {!areasIsLoading && (
-        <select value={selectedArea} onChange={handleRegionChange}>
-          <option value="">{selectedArea ? "" : "Area"}</option>
-          {areasData.map((region) => (
-            <option key={region._id} value={region.name}>
-              {region.name}
-            </option>
-          ))}
-        </select>
-      )}
+      <div className={styles.selectWrapper}>
+        {!ingredientsIsLoading && (
+          <>
+            <select
+              value={selectedIngredient}
+              onChange={handleIngredientChange}
+            >
+              <option value="">
+                {selectedIngredient ? "" : "Ingredients"}
+              </option>
+              {ingredientsData.map((ingredient) => (
+                <option key={ingredient._id} value={ingredient._id}>
+                  {ingredient.name}
+                </option>
+              ))}
+            </select>
+            <span class={styles.customArrow}>
+              <Icon
+                width={18}
+                height={18}
+                id={"dropDown"}
+                className={styles.dropDownIcon}
+              />
+            </span>
+          </>
+        )}
+      </div>
+      <div className={styles.selectWrapper}>
+        {!areasIsLoading && (
+          <>
+            <select value={selectedArea} onChange={handleRegionChange}>
+              <option value="">{selectedArea ? "" : "Area"}</option>
+              {areasData.map((region) => (
+                <option key={region._id} value={region.name}>
+                  {region.name}
+                </option>
+              ))}
+            </select>
+            <span class={styles.customArrow}>
+              <Icon
+                width={18}
+                height={18}
+                id={"dropDown"}
+                className={styles.dropDownIcon}
+              />
+            </span>
+          </>
+        )}
+      </div>
     </div>
   );
 };
-
-export default RecipeFilters;
