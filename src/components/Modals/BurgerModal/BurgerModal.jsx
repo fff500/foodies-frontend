@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useFocusTrap } from "@mantine/hooks";
 import { useBodyScrollLock } from "../../../hooks";
 import { Button, Icon, Logo } from "../../shared";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
@@ -7,6 +8,7 @@ import styles from "./BurgerModal.module.css";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
   useBodyScrollLock();
+  const focusTrapRef = useFocusTrap();
   useEffect(() => {
     const onEscPress = (evt) => {
       if (evt.code === "Escape") {
@@ -27,7 +29,7 @@ export const BurgerModal = ({ isOpen, onClose }) => {
   return (
     <>
       {isOpen && (
-        <div className={styles.backdrop}>
+        <div className={styles.backdrop} ref={focusTrapRef}>
           <div className={styles.header}>
             <Logo />
             <Button
