@@ -11,7 +11,7 @@ export const CategoryList = () => {
   const [visibleCategories, setVisibleCategories] = useState(
     window.innerWidth < 767
       ? categoriesData.slice(0, 8)
-      : categoriesData.slice(0, 11),
+      : categoriesData.slice(0, 11)
   );
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const CategoryList = () => {
       setVisibleCategories(
         window.innerWidth < 767
           ? categoriesData.slice(0, 8)
-          : categoriesData.slice(0, 11),
+          : categoriesData.slice(0, 11)
       );
     };
 
@@ -35,7 +35,7 @@ export const CategoryList = () => {
       setVisibleCategories(
         window.innerWidth < 767
           ? categoriesData.slice(0, 8)
-          : categoriesData.slice(0, 11),
+          : categoriesData.slice(0, 11)
       );
     }
   };
@@ -63,7 +63,7 @@ export const CategoryList = () => {
                 id={id}
               />
             </li>
-          ),
+          )
         )}
         <li>
           <Button

@@ -1,12 +1,14 @@
 .pagination {
   display: flex;
+  justify-content: center;
   gap: 6px;
-  margin-top: 30px;
 }
+
 .paginationButton {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: 1px solid var(--color-border-icons-light);
 }
 
 .activePage {

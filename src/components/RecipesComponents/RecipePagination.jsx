@@ -10,7 +10,7 @@ export const RecipePagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   const pageNumbers = Array.from(
-    { length: Math.min(maxPageButtons, totalPages) },
+    { length: endPage - startPage + 1 },
     (_, index) => startPage + index
   );
 
