@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export const apiInstance = axios.create({
-  // baseURL: process.env.REACT_APP_API_BASE_URL,
-  baseURL: "https://foodies-backend-ez4l.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
 apiInstance.interceptors.request.use(
