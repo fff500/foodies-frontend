@@ -1,7 +1,8 @@
-import { Controller } from 'react-hook-form';
-import { ErrorMessage } from '../ErrorMesage./ErrorMessage';
-import sprite from '../../../assets/icons/sprite.svg';
-import styles from './UploadImage.module.css';
+import { Controller } from "react-hook-form";
+import { ErrorMessage } from "../ErrorMesage./ErrorMessage";
+import { Icon } from "../../shared";
+
+import styles from "./UploadImage.module.css";
 
 export const UploadImage = ({
   imageRecipe,
@@ -15,11 +16,8 @@ export const UploadImage = ({
       {!imageRecipe && (
         <label htmlFor="thumb" className={styles.photoLabel}>
           <div className={styles.block}>
-            <svg width={16} height={16}>
-              <use xlinkHref={`${sprite}#photo`} />
-            </svg>
+            <Icon id="photo" width={16} height={16} className={styles.icon} />
           </div>
-
           <span className={styles.labelText}>Upload a photo</span>
         </label>
       )}
@@ -51,7 +49,7 @@ export const UploadImage = ({
             id="thumb"
             name="thumb"
             accept="image/png, image/jpeg, image/webp"
-            onChange={e => {
+            onChange={(e) => {
               onChangeUpload(e);
               onChange(e);
             }}

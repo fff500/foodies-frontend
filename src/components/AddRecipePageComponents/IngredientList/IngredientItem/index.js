@@ -1,1 +1,1 @@
-export * from './IngredientItem';
+export * from "./IngredientItem";

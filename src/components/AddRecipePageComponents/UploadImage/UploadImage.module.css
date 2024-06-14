@@ -36,8 +36,12 @@
   justify-content: center;
   width: 51px;
   height: 51px;
-  background-image: url('../../../assets/icons/border.svg');
+  background-image: url("../../../assets/icons/border.svg");
   background-repeat: no-repeat;
+}
+
+.icon {
+  stroke: transparent;
 }
 
 .photoLabelImage {

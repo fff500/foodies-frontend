@@ -18,6 +18,6 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       createApiStatic.middleware,
       createApiRecipes.middleware,
-      createApiUsers.middleware,
+      createApiUsers.middleware
     ),
 });

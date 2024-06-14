@@ -1,38 +1,37 @@
-import { useRef, useState } from 'react';
-import classnames from 'classnames';
-import { useForm, Controller } from 'react-hook-form';
-import Select from 'react-select';
+import { useRef, useState } from "react";
+import classnames from "classnames";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
 import {
   useCreateRecipeMutation,
   useGetAreasQuery,
   useGetCategoriesQuery,
   useGetIngredientsQuery,
-} from '../../redux';
-import { Button, ErrorComponent, LoadingSpinner } from '../shared';
-import { getSelectOptions } from '../../utils/getSelectOptions';
-import { IngredientList } from './IngredientList/IngredientList';
-import { UploadImage } from './UploadImage';
-import { ErrorMessage } from './ErrorMesage./ErrorMessage';
-import { CountCharacters } from './CountCharacters';
-import sprite from '../../assets/icons/sprite.svg';
-import { useNavigate } from 'react-router-dom';
+} from "../../redux";
+import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
+import { getSelectOptions } from "../../utils/getSelectOptions";
+import { IngredientList } from "./IngredientList/IngredientList";
+import { UploadImage } from "./UploadImage";
+import { ErrorMessage } from "./ErrorMesage./ErrorMessage";
+import { CountCharacters } from "./CountCharacters";
+import { useNavigate } from "react-router-dom";
 
-import styles from './AddRecipeForm.module.css';
+import styles from "./AddRecipeForm.module.css";
 
 const defaultValues = {
-  thumb: '',
-  name: '',
-  description: '',
+  thumb: "",
+  name: "",
+  description: "",
   ingredients: null,
-  category: '',
+  category: "",
   time: 1,
-  area: '',
-  quantity: '',
+  area: "",
+  quantity: "",
 };
 
 export const AddRecipeForm = () => {
   const { data: categoriesData, isFetching: categoriesIsFetching } =
-    useGetCategoriesQuery('?limit=15');
+    useGetCategoriesQuery("?limit=15");
   const {
     data: ingredientsCollection = [],
     isFetching: ingredientsIsFetching,
@@ -51,7 +50,7 @@ export const AddRecipeForm = () => {
     getValues,
     watch,
     formState: { errors },
-  } = useForm({ defaultValues, mode: 'all' });
+  } = useForm({ defaultValues, mode: "all" });
 
   const inputRef = useRef(null);
 
@@ -80,16 +79,16 @@ export const AddRecipeForm = () => {
 
     create(formData)
       .unwrap()
-      .then(res => {
-        console.log('response', res);
+      .then((res) => {
+        console.log("response", res);
         if (res) {
           // navigate('/user');
         }
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
-  const onChangeUpload = e => {
+  const onChangeUpload = (e) => {
     if (!!e.target.files) {
       setImageRecipe(e.target.files[0]);
       inputRef.current = null;
@@ -97,23 +96,23 @@ export const AddRecipeForm = () => {
   };
 
   const handleIncrease = () => {
-    setValue('time', getValues('time') + 1);
+    setValue("time", getValues("time") + 1);
   };
 
   const handleDecrease = () => {
-    if (getValues('time') <= 1) return;
-    setValue('time', getValues('time') - 1);
+    if (getValues("time") <= 1) return;
+    setValue("time", getValues("time") - 1);
   };
 
   const handleAddIngredient = () => {
-    const ingredient = getValues('ingredients');
+    const ingredient = getValues("ingredients");
     if (!ingredient) return;
 
-    const quantity = getValues('quantity');
+    const quantity = getValues("quantity");
 
     const { img, label, value } = ingredient;
-    setNewIngredients(prev => [...prev, { img, label, quantity, id: value }]);
-    setIngredients(prev => [...prev, { id: value, quantity }]);
+    setNewIngredients((prev) => [...prev, { img, label, quantity, id: value }]);
+    setIngredients((prev) => [...prev, { id: value, quantity }]);
   };
 
   const handleReset = () => {
@@ -122,8 +121,8 @@ export const AddRecipeForm = () => {
     setNewIngredients([]);
   };
 
-  const handleDeleteIngredient = id => {
-    const callback = prev => prev.filter(item => item.id !== id);
+  const handleDeleteIngredient = (id) => {
+    const callback = (prev) => prev.filter((item) => item.id !== id);
 
     setNewIngredients(callback);
     setIngredients(callback);
@@ -150,7 +149,7 @@ export const AddRecipeForm = () => {
               type="text"
               id="name"
               name="name"
-              {...register('name', { required: true })}
+              {...register("name", { required: true })}
               placeholder="The name of the recipe"
               className={styles.inputName}
             />
@@ -158,7 +157,7 @@ export const AddRecipeForm = () => {
           </label>
           <div className={styles.descriptionWrapper}>
             <textarea
-              {...register('description', { required: true, maxLength: 200 })}
+              {...register("description", { required: true, maxLength: 200 })}
               id="description"
               name="description"
               placeholder="Enter a description of the dish"
@@ -218,7 +217,7 @@ export const AddRecipeForm = () => {
                       />
                       <span
                         className={styles.time}
-                      >{`${getValues('time')} min`}</span>
+                      >{`${getValues("time")} min`}</span>
                     </>
                   )}
                 />
@@ -324,7 +323,7 @@ export const AddRecipeForm = () => {
                 id="preparation"
                 name="preparation"
                 placeholder="Enter recipe"
-                {...register('preparation', {
+                {...register("preparation", {
                   required: true,
                   maxLength: 200,
                 })}
@@ -346,9 +345,12 @@ export const AddRecipeForm = () => {
               className={styles.trashButton}
               onClick={handleReset}
             >
-              <svg width="20" height="20" className={styles.buttonIcon}>
-                <use href={`${sprite}#trash`} />
-              </svg>
+              <Icon
+                width="20"
+                height="20"
+                id="trash"
+                className={styles.buttonIcon}
+              />
             </Button>
             <Button type="submit" className={styles.publishButton}>
               Publish

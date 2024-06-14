@@ -1,5 +1,5 @@
-import classnames from 'classnames';
-import styles from './CountCharacters.module.css';
+import classnames from "classnames";
+import styles from "./CountCharacters.module.css";
 
 export const CountCharacters = ({ watch, errors, field }) => {
   if (!errors) return null;
@@ -13,7 +13,7 @@ export const CountCharacters = ({ watch, errors, field }) => {
           <>
             <span
               className={classnames({
-                [styles.errorLimitCount]: errors[field]?.type === 'maxLength',
+                [styles.errorLimitCount]: errors[field]?.type === "maxLength",
               })}
             >
               {watcher.length}
@@ -21,7 +21,7 @@ export const CountCharacters = ({ watch, errors, field }) => {
             <span className={styles.countLimit}>/200</span>
           </>
         ) : (
-          ''
+          ""
         )}
       </span>
     </div>

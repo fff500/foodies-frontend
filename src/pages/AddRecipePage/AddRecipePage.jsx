@@ -3,8 +3,8 @@ import {
   AddRecipeForm,
   MainTitle,
   Subtitle,
-} from '../../components';
-import styles from './AddRecipePage.module.css';
+} from "../../components";
+import styles from "./AddRecipePage.module.css";
 
 const AddRecipePage = () => {
   return (

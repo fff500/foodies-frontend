@@ -1,5 +1,5 @@
-import { Button } from '../../../shared';
-import styles from './IngredientItem.module.css';
+import { Button } from "../../../shared";
+import styles from "./IngredientItem.module.css";
 
 export const IngredientItem = ({ label, img, quantity, id, onDelete }) => (
   <li className={styles.ingredientItem}>
