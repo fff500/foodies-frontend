@@ -9,15 +9,15 @@ import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
 export const Header = ({ isHomePage }) => {
-  const { isAuth } = useIsAuth();
+  const { isAuth, isLoading, data } = useIsAuth();
 
   const content = !isAuth ? (
     <div className={styles.authButtonsWrapper}>
-      <AuthButtons />
+      <AuthBar />
     </div>
   ) : (
     <>
-      <HeaderNav />
+      <Nav />
       <UserBar userName="User" />
       <BurgerMenu isHomePage={isHomePage} />
     </>
