@@ -5,11 +5,7 @@ const HomePage = () => {
     <>
       <Container wide>
         <Hero />
-      </Container>
-      <Container>
         <Categories />
-      </Container>
-      <Container>
         <Testimonials />
       </Container>
     </>

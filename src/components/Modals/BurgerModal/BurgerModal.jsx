@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useFocusTrap } from "@mantine/hooks";
-import { useBodyScrollLock } from "../../../hooks";
 import { Button, Icon, Logo } from "../../shared";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
+import { useBodyScrollLock } from "../../../hooks/useBodyScrollLock";
 import styles from "./BurgerModal.module.css";
 
 export const BurgerModal = ({ isOpen, onClose }) => {

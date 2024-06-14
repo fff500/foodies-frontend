@@ -12,6 +12,6 @@
   .imageContainer {
     height: 369px;
     padding: 24px;
-    min-width: 325px;
+    width: 100%;
   }
 }
