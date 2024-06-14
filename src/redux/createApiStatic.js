@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/";
+import { apiInstance } from "../api/api";
 
 export const createApiStatic = createApi({
   reducerPath: "static",
@@ -17,10 +17,9 @@ export const createApiStatic = createApi({
       providesTags: "testimonials",
       query: (arg) => "/testimonials",
     }),
-    getRecipes: build.query({
-      providesTags: "recipes",
-      query: ({ page, limit, filterIngredient, filterArea }) =>
-        `/recipes?page=${page}&limit=${limit}&ingredient=${filterIngredient}&area=${filterArea}`,
+    getCategories: build.query({
+      providesTags: "categories",
+      query: (arg) => `/categories${arg}`,
     }),
   }),
 });
@@ -29,5 +28,6 @@ export const {
   useGetIngredientsQuery,
   useGetAreasQuery,
   useGetTestimonialsQuery,
+  useGetCategoriesQuery,
   useGetRecipesQuery,
 } = createApiStatic;

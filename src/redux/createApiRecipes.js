@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { apiInstance } from "../api/";
+import { apiInstance } from "../api/api";
 
 export const createApiRecipes = createApi({
   reducerPath: "recipes",
@@ -9,6 +9,14 @@ export const createApiRecipes = createApi({
       providesTags: "recipe",
       query: (id) => `/recipes/${id}`,
     }),
+    createRecipe: build.mutation({
+      providesTags: "recipe",
+      query: (body) => ({
+        url: "/recipes",
+        method: "POST",
+        body,
+      }),
+    }),
     getPopularRecipes: build.query({
       providesTags: "popularRecipes",
       query: (id) => `/recipes/popular`,
@@ -16,5 +24,6 @@ export const createApiRecipes = createApi({
   }),
 });
 
-export const { useGetRecipeQuery, useGetPopularRecipesQuery } =
+export const { useGetRecipeQuery, useGetPopularRecipesQuery, useCreateRecipeMutation } =
   createApiRecipes;
+

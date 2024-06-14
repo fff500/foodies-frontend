@@ -1,9 +1,8 @@
 import { useState } from "react";
 import classnames from "classnames";
-import { Button } from "../../../shared";
+import { Button, Icon } from "../../../shared";
+import { BurgerModal } from "../../../Modals/";
 import styles from "./BurgerMenu.module.css";
-import { Icon } from "../../../shared";
-import { BurgerModal } from "../../../Modals/BurgerModal";
 
 export const BurgerMenu = ({ isHomePage }) => {
   const [isOpen, setIsOpen] = useState(false);

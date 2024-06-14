@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
-import { closeModal } from "../../../redux";
+import { closeModal, useLogoutUserMutation } from "../../../redux";
 import { MODALS } from "../../../constants";
 import { Button } from "../../shared";
 import { Modal } from "../Modal";
@@ -10,11 +10,13 @@ import styles from "./LogOutModal.module.css";
 export const LogOutModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [logout] = useLogoutUserMutation();
   const [, setToken] = useLocalStorage({
     key: "token",
   });
   const handleLogOut = () => {
     setToken(null);
+    logout();
     dispatch(closeModal());
     navigate("/");
   };

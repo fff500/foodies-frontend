@@ -1,5 +1,5 @@
 :root {
-  --font-family-body: "Mulish", sans-serif;
+  --font-family-body: 'Mulish', sans-serif;
 
   --color-black: #050505;
   --color-black-secondary: #000000;
@@ -10,6 +10,7 @@
   --color-body-text: rgba(5, 5, 5, 0.8);
   --color-body-text-light: rgba(5, 5, 5, 0.6);
   --color-border-icons-light: rgba(5, 5, 5, 0.12);
+  --color-error-message: rgb(189, 62, 62);
 
   --font-size-body-mobile: 14px;
   --font-size-body-tablet: 16px;
