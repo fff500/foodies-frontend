@@ -10,7 +10,7 @@ const AddRecipePage = () => {
   return (
     <div className={styles.pageWrapper}>
       <Container>
-        <MainTitle className={styles.pageTitle}>AddRecipe</MainTitle>
+        <MainTitle className={styles.pageTitle}>Add Recipe</MainTitle>
         <Subtitle className={styles.pageDescription}>
           Reveal your culinary art, share your favorite recipe and create
           gastronomic masterpieces with us.

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import classnames from "classnames";
+import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import {
@@ -8,7 +9,6 @@ import {
   useGetCategoriesQuery,
   useGetCurrentUserQuery,
   useGetIngredientsQuery,
-  useLazyGetCurrentUserQuery,
 } from "../../redux";
 import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
 import { getSelectOptions } from "../../utils/getSelectOptions";
@@ -18,7 +18,6 @@ import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
 
 import styles from "./AddRecipeForm.module.css";
-import { useNavigate } from "react-router-dom";
 
 const defaultValues = {
   thumb: "",
@@ -88,7 +87,7 @@ export const AddRecipeForm = () => {
       .unwrap()
       .then((res) => {
         if (res) {
-          // navigate(`/user/${currentUser._id}`);
+          navigate(`/user/${currentUser._id}`);
         }
       })
       .catch((error) => console.log(error));
