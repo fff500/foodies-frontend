@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useFocusTrap } from "@mantine/hooks";
+import { useBodyScrollLock } from "../../../hooks/";
 import { Icon, Button } from "../../shared";
 import { Portal } from "../Portal/Portal";
 import styles from "./Modal.module.css";
-import { useBodyScrollLock } from "../../../hooks/";
 
 export const Modal = ({ children, onClose }) => {
   const portal = document.getElementById("portal-root");

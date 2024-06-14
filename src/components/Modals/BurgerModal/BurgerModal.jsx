@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Button, Icon, Logo } from "../../shared";
 import { NavLink } from "react-router-dom";
+import { useBodyScrollLock } from "../../../hooks";
+import { Button, Icon, Logo } from "../../shared";
 import { HeroImageContainer } from "../../Hero/HeroImageContainer";
 import styles from "./BurgerModal.module.css";
-import { useBodyScrollLock } from "../../../hooks";
 
 export const BurgerModal = ({ isOpen, onClose }) => {
   useBodyScrollLock();
