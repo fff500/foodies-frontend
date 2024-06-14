@@ -2,7 +2,6 @@
   margin-bottom: 32px;
   margin-top: 32px;
 }
-
 .recipesNav {
   display: flex;
   align-items: center;
@@ -10,13 +9,13 @@
   margin-bottom: 16px;
 }
 
-.logo {
+.arrowLeft {
   width: 18px;
   aspect-ratio: 1;
   object-fit: auto;
   fill: transparent;
+  margin-right: 6px;
 }
-
 .backButton {
   display: flex;
   font-size: 14px;
@@ -24,8 +23,14 @@
   text-transform: uppercase;
   letter-spacing: -0.28px;
   line-height: 129%;
-  border: 0;
+  padding: 6px;
+  border: 1px solid transparent;
   background: none;
+}
+.backButton:hover {
+  font-weight: 900;
+  border: 1px solid var(--color-border-icons-light);
+  border-radius: 30px;
 }
 
 .titleContainer {
@@ -35,28 +40,11 @@
   margin-bottom: 32px;
   gap: 16px;
 }
-
-.title {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.8px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.description {
-  color: var(--color-body-text);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.32px;
-}
-
 .mainResipesContainer {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 }
-
 .filtersSelect {
   display: flex;
   flex-direction: column;
@@ -64,7 +52,6 @@
   width: 100%;
   margin-bottom: 32px;
 }
-
 select {
   width: 100%;
   height: 48px;
@@ -74,15 +61,11 @@ select {
   color: var(--color-body-text-light);
   appearance: none;
 }
-
 .selectWrapper {
   position: relative;
   display: inline-block;
 }
-.customArrow {}
-
-.selectWrapper:after {
-  content: url("../../assets/icons/sprite.svg#dropDown");
+.customArrow {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -92,31 +75,28 @@ select {
 .dropDownIcon {
   fill: transparent;
 }
-
-.resipeList {
+.recipeList {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 32px;
+  margin-bottom: 32px;
 }
 .textNotFound {
   font-size: 14px;
 }
-
 .infoCard {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .infoCardImg {
   width: 100%;
   height: 230px;
   border-radius: 16px;
   object-fit: cover;
 }
-
 .infoCardTitle {
   font-weight: 800;
   letter-spacing: -0.4px;
@@ -126,7 +106,6 @@ select {
   text-overflow: ellipsis;
   margin-bottom: 8px;
 }
-
 .infoCardDescription {
   height: 54px;
   color: var(--color-body-text);
@@ -141,13 +120,11 @@ select {
   -webkit-box-orient: vertical;
   margin-bottom: 8px;
 }
-
 .infoCardFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .infoCardAuthor {
   display: flex;
   align-items: center;
@@ -157,17 +134,14 @@ select {
   background: none;
   border: none;
 }
-
 .authorAvatar {
   width: 40px;
   border-radius: 50%;
 }
-
 .infoCardSocial {
   display: flex;
   gap: 4px;
 }
-
 .iconCircle {
   width: 42px;
   height: 42px;
@@ -176,37 +150,31 @@ select {
   padding: 12px;
   transition: transform 0.3s ease;
 }
-
 .iconCircle:hover {
   transform: scale(0.855);
 }
-
 .iconCircle:active {
   transform: scale(1);
   background-color: var(--color-black);
   color: var(--color-white);
 }
-
 .icon {
   width: 18px;
   height: 18px;
   fill: var(--color-white);
   stroke: var(--color-black);
 }
-
 .icon:active {
   width: 16px;
   height: 16px;
   fill: var(--color-black);
   stroke: var(--color-white);
 }
-
 .pagination {
   display: flex;
   justify-content: center;
   gap: 6px;
 }
-
 .paginationButton {
   font-size: 14px;
   font-weight: 400;
@@ -219,7 +187,6 @@ select {
   background: none;
   transition: transform 0.3s ease;
 }
-
 .paginationButton:hover {
   transform: scale(1.1);
   border-color: var(--color-black);
@@ -233,65 +200,57 @@ select {
     margin-bottom: 50px;
     margin-top: 50px;
   }
-
   .recipesNav {
     margin-bottom: 20px;
   }
-
   .textNotFound {
     font-size: 28px;
   }
-
   .titleContainer {
     gap: 20px;
     width: 540px;
     margin-bottom: 40px;
   }
-
   .title {
     max-width: 100%;
     font-size: 40px;
     margin-bottom: 20px;
   }
-
   .description {
     max-width: 100%;
     font-size: 16px;
     font-weight: 500;
   }
-
+  .recipeList {
+    gap: 40px 20px;
+    margin-bottom: 60px;
+  }
   .infoCard {
     width: 100%;
   }
-
   .filtersSelect {
     display: flex;
     flex-direction: row;
     gap: 14px;
   }
-
   select {
     width: 345px;
     height: 56px;
   }
-
   .resipeList {
     display: flex;
     flex-direction: row;
     gap: 40px 20px;
   }
-
   .infoCard {
     width: 342px;
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
-
   .infoCardImg {
     height: 275px;
   }
-
   .backButton {
     white-space: initial;
   }
@@ -302,25 +261,20 @@ select {
     margin-bottom: 60px;
     margin-top: 60px;
   }
-
   .mainResipesContainer {
     flex-direction: row;
   }
-
   .filtersSelect {
     flex-direction: column;
     width: 330px;
     margin-right: 40px;
   }
-
   select {
     width: 330px;
   }
-
   .textNotFound {
     font-size: 38px;
   }
-
   .infoCard {
     width: 290px;
     display: flex;

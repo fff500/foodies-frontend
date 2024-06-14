@@ -4,7 +4,7 @@ import styles from "./Recipes.module.css";
 
 export const RecipeList = ({ data }) => {
   return (
-    <div className={styles.resipeList}>
+    <div className={styles.recipeList}>
       {!data?.recipes.length && (
         <p className={styles.textNotFound}>
           Sorry, but nothing was found for your request 😔

@@ -21,6 +21,10 @@ export const createApiStatic = createApi({
       providesTags: "categories",
       query: (arg) => `/categories${arg}`,
     }),
+    getRecipes: build.query({
+      providesTags: "recipes",
+      query: (arg) => `/recipes${arg}`,
+    }),
   }),
 });
 

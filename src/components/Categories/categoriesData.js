@@ -39,7 +39,7 @@ export const categoriesData = [
     imageUrl_x2: breakfast_2x,
   },
   {
-    id: "desserts",
+    id: "dessert",
     title: "desserts",
     imageUrl: desserts,
     imageUrl_x2: desserts_2x,
