@@ -26,7 +26,6 @@ export const UserWrapper = ({ userId }) => {
   );
 
   useEffect(() => {
-    console.log("currentUser", currentUser);
     setIsFollowing(
       currentUser ? currentUser.following.includes(userId) : false
     );
