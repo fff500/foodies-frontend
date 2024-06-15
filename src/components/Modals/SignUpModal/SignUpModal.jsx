@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +41,12 @@ export const SignUpModal = ({ isOpen, onClose }) => {
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
   } = useForm({ mode: "all" });
+
+  const allFieldsFilled = watch(["name", "email", "password"]).every(
+    (field) => field
+  );
 
   const onSubmit = async (data) => {
     create(data)
@@ -87,7 +93,12 @@ export const SignUpModal = ({ isOpen, onClose }) => {
                 errors={errors}
                 config={INPUT_CONFIG.password}
               />
-              <Button className={styles.submitBtn} type="submit">
+              <Button
+                className={classnames(styles.submitBtn, {
+                  [styles.activeButton]: allFieldsFilled,
+                })}
+                type="submit"
+              >
                 CREATE
               </Button>
             </form>

@@ -58,10 +58,10 @@ export const createApiUsers = createApi({
       }),
     }),
     updateAvatar: builder.mutation({
-      query: (formData) => ({
+      query: (data) => ({
         url: "users/avatars",
         method: "PATCH",
-        body: formData,
+        data,
       }),
     }),
     getRecipesByOwnerId: builder.query({
@@ -120,10 +120,10 @@ export const createApiUsers = createApi({
       ],
     }),
     logoutUser: builder.mutation({
-      query: (userData) => ({
+      query: (data) => ({
         url: "users/logout",
         method: "POST",
-        body: userData,
+        data,
       }),
     }),
     addToFavorites: builder.mutation({
