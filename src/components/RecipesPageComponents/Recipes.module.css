@@ -91,6 +91,9 @@
     width: fit-content;
     text-transform: uppercase;
     border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.42;
 }
 .button:hover {
     background-color: var(--color-black);
@@ -166,6 +169,10 @@
     }
     .cardStyle{
         width: 48%;
+    }
+    .button {
+        font-size: var(--font-size-body-tablet, 16px);
+        line-height: var(--line-height-body-tablet, 24px);
     }
 
 }
