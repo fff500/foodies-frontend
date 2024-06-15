@@ -1,16 +1,15 @@
 .categoriesSection {
   display: flex;
   flex-direction: column;
-
   gap: 16px;
-  padding: 64px 16px;
+  padding: 64px 0;
 
   @media (min-width: 768px) {
     gap: 20px;
-    padding: 100px 32px;
+    padding: 100px 0;
   }
 
   @media (min-width: 1440px) {
-    padding: 120px 80px;
+    padding: 120px 0;
   }
 }
