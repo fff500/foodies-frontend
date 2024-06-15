@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import classnames from "classnames";
+import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import {
   useCreateRecipeMutation,
   useGetAreasQuery,
   useGetCategoriesQuery,
+  useGetCurrentUserQuery,
   useGetIngredientsQuery,
 } from "../../redux";
 import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
@@ -14,17 +16,19 @@ import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
+
 import styles from "./AddRecipeForm.module.css";
 
 const defaultValues = {
   thumb: "",
-  name: "",
+  title: "",
   description: "",
   ingredients: null,
+  instructions: "",
   category: "",
   time: 1,
   area: "",
-  quantity: "",
+  measure: "",
 };
 
 export const AddRecipeForm = () => {
@@ -35,7 +39,9 @@ export const AddRecipeForm = () => {
     isFetching: ingredientsIsFetching,
   } = useGetIngredientsQuery();
   const { data: areas, isFetching: areasIsFetching } = useGetAreasQuery();
-  const [create, { isLoading, error: errorCreate }] = useCreateRecipeMutation();
+  const [create, { error: errorCreate, reset: onRetry }] =
+    useCreateRecipeMutation();
+  const { data: currentUser } = useGetCurrentUserQuery();
 
   const {
     register,
@@ -53,32 +59,35 @@ export const AddRecipeForm = () => {
   const [imageRecipe, setImageRecipe] = useState(null);
   const [newIngredients, setNewIngredients] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const navigate = useNavigate();
 
   const onSubmit = ({
-    name,
+    title,
     area,
     category,
     description,
-    preparation,
+    instructions,
     time,
   }) => {
-    const formData = {
-      name,
+    const formFields = {
+      title,
       description,
-      preparation,
-      time,
-      ingredients: ingredients,
-      thumb: imageRecipe,
-      area: { _id: area.value },
-      category: { _id: category.value },
+      instructions,
+      time: time.toString(),
+      ingredients,
+      area: area.value,
+      category: category.value,
     };
 
-    create(formData)
+    const postData = new FormData();
+    postData.append("json", JSON.stringify(formFields));
+    postData.append("image", imageRecipe);
+
+    create(postData)
       .unwrap()
       .then((res) => {
-        console.log("response", res);
         if (res) {
-          // navigate('/user');
+          navigate(`/user/${currentUser._id}`);
         }
       })
       .catch((error) => console.log(error));
@@ -104,11 +113,12 @@ export const AddRecipeForm = () => {
     const ingredient = getValues("ingredients");
     if (!ingredient) return;
 
-    const quantity = getValues("quantity");
+    const measure = getValues("measure");
 
     const { img, label, value } = ingredient;
-    setNewIngredients((prev) => [...prev, { img, label, quantity, id: value }]);
-    setIngredients((prev) => [...prev, { id: value, quantity }]);
+
+    setNewIngredients((prev) => [...prev, { img, label, measure, id: value }]);
+    setIngredients((prev) => [...prev, { id: value, measure }]);
   };
 
   const handleReset = () => {
@@ -140,24 +150,25 @@ export const AddRecipeForm = () => {
         />
 
         <div>
-          <label className={styles.labelName}>
+          <label htmlFor="title" className={styles.labelName}>
             <input
               type="text"
-              id="name"
-              name="name"
-              {...register("name", { required: true })}
+              id="title"
+              name="title"
+              {...register("title", { required: true })}
               placeholder="The name of the recipe"
               className={styles.inputName}
             />
-            <ErrorMessage errors={errors} type="required" field="name" />
+            <ErrorMessage errors={errors} type="required" field="title" />
           </label>
           <div className={styles.descriptionWrapper}>
             <textarea
-              {...register("description", { required: true, maxLength: 200 })}
+              {...register("description", { required: true, maxLength: 199 })}
               id="description"
               name="description"
               placeholder="Enter a description of the dish"
               className={styles.description}
+              maxLength={200}
             />
             <CountCharacters
               errors={errors}
@@ -250,24 +261,24 @@ export const AddRecipeForm = () => {
             </div>
 
             <div className={styles.quantityField}>
-              <label htmlFor="quantity">
+              <label htmlFor="measure">
                 <Controller
-                  name="quantity"
-                  id="quantity"
+                  name="measure"
+                  id="measure"
                   control={control}
                   rules={{ required: true }}
                   render={({ field }) => (
                     <input
                       {...field}
                       type="text"
-                      name="quantity"
+                      name="measure"
                       placeholder="Enter quantity"
                       className={styles.quantity}
                     />
                   )}
                 />
               </label>
-              <ErrorMessage errors={errors} field="quantity" />
+              <ErrorMessage errors={errors} field="measure" />
             </div>
           </div>
 
@@ -311,17 +322,17 @@ export const AddRecipeForm = () => {
           </div>
 
           <div className={styles.preparationField}>
-            <label htmlFor="preparation" className={styles.fieldLabel}>
+            <label htmlFor="instructions" className={styles.fieldLabel}>
               Recipe Preparation
             </label>
             <div className={styles.formPpreparation}>
               <textarea
-                id="preparation"
-                name="preparation"
+                id="instructions"
+                name="instructions"
                 placeholder="Enter recipe"
-                {...register("preparation", {
+                {...register("instructions", {
                   required: true,
-                  maxLength: 200,
+                  maxLength: 199,
                 })}
                 maxLength={200}
                 className={styles.description}
@@ -329,9 +340,9 @@ export const AddRecipeForm = () => {
               <CountCharacters
                 errors={errors}
                 watch={watch}
-                field="preparation"
+                field="instructions"
               />
-              <ErrorMessage errors={errors} field="preparation" />
+              <ErrorMessage errors={errors} field="instructions" />
             </div>
           </div>
 
@@ -350,12 +361,13 @@ export const AddRecipeForm = () => {
             </Button>
             <Button type="submit" className={styles.publishButton}>
               Publish
-              {isLoading && <LoadingSpinner className={styles.smallSpinner} />}
             </Button>
           </div>
         </div>
       </form>
-      {errorCreate && <ErrorComponent message={errorCreate?.message} />}
+      {errorCreate && (
+        <ErrorComponent message={errorCreate?.message} onRetry={onRetry} />
+      )}
     </>
   );
 };

@@ -15,6 +15,12 @@
   border-radius: 30px;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.photoLabel:hover {
+  border-color: var(--color-black);
 }
 
 .imageRecipe {
@@ -48,6 +54,13 @@
   display: block;
   text-decoration: underline;
   text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.photoLabelImage:hover {
+  font-size: 17px;
+  color: var(--color-black);
 }
 
 .labelText {

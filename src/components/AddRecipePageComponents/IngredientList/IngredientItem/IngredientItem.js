@@ -1,7 +1,7 @@
 import { Button } from "../../../shared";
 import styles from "./IngredientItem.module.css";
 
-export const IngredientItem = ({ label, img, quantity, id, onDelete }) => (
+export const IngredientItem = ({ label, img, measure, id, onDelete }) => (
   <li className={styles.ingredientItem}>
     <div className={styles.imageWrapper}>
       <img
@@ -14,7 +14,7 @@ export const IngredientItem = ({ label, img, quantity, id, onDelete }) => (
     </div>
     <div className={styles.details}>
       <div>{label}</div>
-      <div>{quantity}</div>
+      <div>{measure}</div>
     </div>
     <Button
       type="button"
