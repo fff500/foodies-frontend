@@ -47,7 +47,7 @@
     gap: 20px;
   }
 
-  .categories>li:nth-child(5n+3) {
+  .categories > li:nth-child(5n + 3) {
     grid-column: span 2;
   }
 }

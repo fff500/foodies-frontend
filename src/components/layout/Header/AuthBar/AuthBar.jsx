@@ -13,7 +13,7 @@ export const AuthBar = () => {
       openModal({
         isOpen: true,
         modalType: "register",
-      }),
+      })
     );
   };
 
@@ -22,7 +22,7 @@ export const AuthBar = () => {
       openModal({
         isOpen: true,
         modalType: "login",
-      }),
+      })
     );
   };
 
