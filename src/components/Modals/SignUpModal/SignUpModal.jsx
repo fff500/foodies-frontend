@@ -73,7 +73,6 @@ export const SignUpModal = ({ isOpen, onClose }) => {
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
             <form
               className={styles.inputsBlock}
-              novalidate
               onSubmit={handleSubmit(onSubmit)}
             >
               <Input
