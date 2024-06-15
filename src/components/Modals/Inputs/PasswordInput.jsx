@@ -16,7 +16,7 @@ export const PasswordInput = ({ register, errors, config }) => {
           type={type ? "text" : "password"}
           {...register(`${config.name}`, config.validation)}
         />
-        <Button onClick={() => setType(!type)}>
+        <Button onClick={() => setType(!type)} type="button">
           <svg className={passwordStyles.showPassword}>
             <use
               xlinkHref={`${sprite}#${type ? "showPassword" : "hidePassword"}`}
