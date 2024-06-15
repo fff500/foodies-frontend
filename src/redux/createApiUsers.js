@@ -6,7 +6,6 @@ export const createApiUsers = createApi({
   baseQuery: apiInstance,
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
-      providesTags: ["current"],
       query: () => ({
         url: "users/current",
         method: "GET",
@@ -75,17 +74,17 @@ export const createApiUsers = createApi({
       ],
     }),
     createUser: builder.mutation({
-      query: (userData) => ({
+      query: (data) => ({
         url: "users/signup",
         method: "POST",
-        body: userData,
+        data,
       }),
     }),
     loginUser: builder.mutation({
-      query: (userData) => ({
+      query: (data) => ({
         url: "users/login",
         method: "POST",
-        body: userData,
+        data,
       }),
     }),
     deleteRecipe: builder.mutation({
@@ -132,14 +131,14 @@ export const createApiUsers = createApi({
         url: `users/favorites/${id}`,
         method: "POST",
       }),
-      invalidatesTags: ["current"],
+      invalidatesTags: ["GetCurrentUser"],
     }),
     removeFromFavorites: builder.mutation({
       query: (id) => ({
         url: `users/favorites/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["current"],
+      invalidatesTags: ["GetCurrentUser"],
     }),
   }),
 });

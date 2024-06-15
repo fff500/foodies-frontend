@@ -58,7 +58,13 @@
 
 .link {
   color: var(--color-black);
-    cursor: pointer;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+  padding: 0 4px;
 }
 
 @media (min-width: 768px) {

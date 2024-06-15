@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import {
   useCreateUserMutation,
   useLoginUserMutation,
   closeModal,
   openModal,
 } from "../../../redux";
-import { MODALS } from "../../../constants";
+import { INPUT_CONFIG, MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
+import { Input } from "../Inputs";
+import { PasswordInput } from "../Inputs";
 import styles from "./SignUpModal.module.css";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
@@ -28,15 +31,18 @@ export const SignUpModal = ({ isOpen, onClose }) => {
         isOpen: true,
         modalType: "login",
         to,
-      }),
+      })
     );
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({ mode: "all" });
 
-    const data = Object.fromEntries(formData.entries());
+  const onSubmit = async (data) => {
     create(data)
       .unwrap()
       .then(() => {
@@ -49,6 +55,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
               navigate(to);
             }
             dispatch(closeModal());
+            reset();
           });
       })
       .catch((e) => console.log(e));
@@ -61,28 +68,24 @@ export const SignUpModal = ({ isOpen, onClose }) => {
           <div className={styles.container}>
             {isLoading || (isLoadingLogin && <LoadingSpinner />)}
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
-            <form className={styles.inputsBlock} onSubmit={handleSubmit}>
-              <input
-                id="name"
-                name="name"
-                className={styles.input}
-                placeholder="name"
-                type="text"
+            <form
+              className={styles.inputsBlock}
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <Input
+                register={register}
+                errors={errors}
+                config={INPUT_CONFIG.name}
               />
-              <input
-                id="email"
-                name="email"
-                className={styles.input}
-                placeholder="email"
-                type="email"
+              <Input
+                register={register}
+                errors={errors}
+                config={INPUT_CONFIG.email}
               />
-              <input
-                id="password"
-                name="password"
-                className={styles.input}
-                placeholder="password"
-                type="password"
-                min="6"
+              <PasswordInput
+                register={register}
+                errors={errors}
+                config={INPUT_CONFIG.password}
               />
               <Button className={styles.submitBtn} type="submit">
                 CREATE
@@ -90,14 +93,14 @@ export const SignUpModal = ({ isOpen, onClose }) => {
             </form>
             <div className={styles.submitBlock}>
               <p className={styles.message}>
-                I already have an account?
-                <span
-                  role="button"
+                I already have an account?{" "}
+                <button
+                  type="button"
                   onClick={handleOpenLoginModal}
                   className={styles.link}
                 >
                   Sign in
-                </span>
+                </button>
               </p>
             </div>
           </div>
