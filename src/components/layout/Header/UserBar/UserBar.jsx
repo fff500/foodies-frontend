@@ -50,7 +50,7 @@ export const UserBar = ({ userName, userImage, id }) => {
             })}
           >
             <div>
-              <Link to={`/user/${id}`}>Profile</Link>
+              <Link to={"/user"}>Profile</Link>
             </div>
             <div>
               <Button
