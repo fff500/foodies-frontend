@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Foodies Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Foodies website! This website allows users to explore various
+recipes, add their own recipes, and manage their user profiles. Below are the
+details of the different pages and their functionalities.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+### Home Page
 
-### `yarn start`
+### Recipe Page
 
+### Add Recipe Page
+
+### User Page
+
+### Installation
+
+### Usage
+
+## Home Page
+
+The Home Page is the landing page of the Foodies website. It features:\
+
+Dashboard.\
+Navigation links to other parts of the website.\
+Sign up or log in to access personalized features.\
+Categories.\ Testimonials.\
+
+## Recipe Page
+
+The Recipe Page displays detailed information about chosen category. It
+includes:\
+
+The name of the recipe.\ A list of ingredients.\ A list of area.\
+Step-by-step instructions.\ Images of the finished dish.\
+
+## Add Recipe Page
+
+The Add Recipe Page allows users to contribute their own recipes. Users can:\
+
+Enter the recipe name, ingredients, area, cooking time and instructions.\ Upload
+images of their dish.\ Submit the recipe for review before it is published.\
+
+## User Page
+
+The User Page is a personalized section where users can manage their profiles.
+Features include:\
+
+Viewing user information and add user avatar.\ Viewing count recipes submitted
+by the user.\ Viewing count of favorites, followers and following.\
+Log out.\
+
+## Installation
+
+To run the Foodies website locally, follow these steps:\
+
+Clone the repository:
+`git clone https://github.com/fff500/foodies-frontend.git`.\
+Navigate to the project directory: `cd foodies`.\
+Install the required dependencies: `yarn install`.\
+Start the development server: `yarn start`.\
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.\
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `yarn test`
+Open your web browser and go to http://localhost:3000 to access the website.\
+Use the navigation links to explore different pages.\
+Sign up or log in to access personalized features.\
+Add and manage your own recipes through the Add Recipe Page and User Page.\
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Enjoy exploring and sharing delicious recipes on the Foodies website! If you have any questions or feedback, please feel free to reach out.
