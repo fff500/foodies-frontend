@@ -2,6 +2,16 @@
   display: flex;
 }
 
+.recipeImages {
+  display: none;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border-icons-light);
+  margin-bottom: 20px;
+}
+
 .userCard:not(:last-child) {
   margin-bottom: 20px;
 }
@@ -59,6 +69,30 @@
 }
 
 @media screen and (min-width: 768px) {
+  .recipeImages {
+    display: flex;
+    gap: 12px;
+  }
+
+  .recipeImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+  }
+
+  .userCard:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .divider {
+    margin-bottom: 40px;
+  }
+
+  .image {
+    width: 85px;
+    height: 85px;
+  }
+
   .icon {
     width: 18px;
     height: 18px;
