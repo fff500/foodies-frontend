@@ -1,5 +1,5 @@
 import { UserWrapper } from "../../components/UserWrapper";
-import { Container } from "../../components";
+import { Container, ErrorComponent, LoadingSpinner } from "../../components";
 import { MainTitle, Subtitle } from "../../components";
 import { UserWrapperLoggedIn } from "../../components/UserWrapper";
 import { useParams } from "react-router-dom";
@@ -9,9 +9,14 @@ import { useGetCurrentUserQuery } from "../../redux";
 const User = () => {
   const { userId } = useParams("userId");
 
-  const { data: currentUser } = useGetCurrentUserQuery();
+  const {
+    data: userCurrent,
+    error: userCurrentError,
+    isLoading: userCurrentLoading,
+    isFetching: userCurrentFetching,
+  } = useGetCurrentUserQuery();
 
-  const isCurrentUser = currentUser && currentUser._id === userId;
+  const isCurrentUser = userCurrent && userCurrent._id === userId;
 
   return (
     <section className={styles.userSection}>
@@ -21,11 +26,21 @@ const User = () => {
           Reveal your culinary art, share your favorite recipe and create
           gastronomic masterpieces with us.
         </Subtitle>
-        {!isCurrentUser ? (
-          <UserWrapper userId={userId} />
-        ) : (
-          <UserWrapperLoggedIn />
+        {userCurrentLoading && (
+          <div className={styles.loadingStyles}>
+            <LoadingSpinner />
+          </div>
         )}
+        {!userCurrentLoading && userCurrentError && (
+          <ErrorComponent onRetry={userCurrentFetching} />
+        )}
+        {!userCurrentLoading &&
+          !userCurrentError &&
+          (!isCurrentUser ? (
+            <UserWrapper userId={userId} />
+          ) : (
+            <UserWrapperLoggedIn />
+          ))}
       </Container>
     </section>
   );
