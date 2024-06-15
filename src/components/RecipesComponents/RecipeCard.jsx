@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useCallback } from "react";
 import {
   useAddToFavoritesMutation,
   useRemoveFromFavoritesMutation,
@@ -20,8 +21,11 @@ export const RecipeCard = ({
 
   const [removeFromFavorites] = useRemoveFromFavoritesMutation();
 
-  const handleFavoriteClick = () =>
-    isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId);
+  const handleFavoriteClick = useCallback(
+    () =>
+      isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId),
+    [isFavorite]
+  );
 
   return (
     <div className={styles.infoCard}>
@@ -47,13 +51,16 @@ export const RecipeCard = ({
           </PrivateLink>
 
           <div className={styles.infoCardSocial}>
-            <Button onClick={handleFavoriteClick}>
-              <div className={styles.iconCircle}>
+            <Button>
+              <PrivateLink
+                className={styles.iconCircle}
+                onSuccess={handleFavoriteClick}
+              >
                 <Icon
                   id="heart"
                   className={isFavorite ? styles.iconActive : styles.icon}
                 />
-              </div>
+              </PrivateLink>
             </Button>
             <Button>
               <Link to={`/recipe/${recipeId}`}>
