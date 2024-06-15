@@ -14,6 +14,8 @@ import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input } from "../Inputs";
 import { PasswordInput } from "../Inputs";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { validationSchema } from "../validation";
 import styles from "./SignUpModal.module.css";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
@@ -38,15 +40,10 @@ export const SignUpModal = ({ isOpen, onClose }) => {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
-    watch,
-  } = useForm({ mode: "all" });
-
-  const allFieldsFilled = watch(["name", "email", "password"]).every(
-    (field) => field
-  );
+  } = useForm({ mode: "all", resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (data) => {
     create(data)
@@ -76,6 +73,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
             <form
               className={styles.inputsBlock}
+              novalidate
               onSubmit={handleSubmit(onSubmit)}
             >
               <Input
@@ -95,7 +93,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
               />
               <Button
                 className={classnames(styles.submitBtn, {
-                  [styles.activeButton]: allFieldsFilled,
+                  [styles.activeButton]: isValid,
                 })}
                 type="submit"
               >

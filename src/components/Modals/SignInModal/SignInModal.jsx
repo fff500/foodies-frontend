@@ -8,6 +8,8 @@ import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input, PasswordInput } from "../Inputs";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { validationSchema } from "../validation";
 import styles from "./SignInModal.module.css";
 
 export const SignInModal = ({ isOpen, onClose }) => {
@@ -30,12 +32,10 @@ export const SignInModal = ({ isOpen, onClose }) => {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     reset,
-    watch,
-  } = useForm({ mode: "all" });
-  const allFieldsFilled = watch(["email", "password"]).every((field) => field);
+  } = useForm({ mode: "all", resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (data) => {
     try {
@@ -64,6 +64,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
             <h3 className={styles.titleBlock}>{MODALS.signIn}</h3>
             <form
               className={styles.inputsBlock}
+              novalidate
               onSubmit={handleSubmit(onSubmit)}
             >
               <Input
@@ -78,7 +79,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
               />
               <Button
                 className={classnames(styles.submitBtn, {
-                  [styles.activeButton]: allFieldsFilled,
+                  [styles.activeButton]: isValid,
                 })}
                 type="submit"
               >
