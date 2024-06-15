@@ -10,6 +10,7 @@
 .loadingContainer {
   background-color: transparent;
   height: 100px;
+
   .loading {
     width: 30px;
     height: 30px;
@@ -33,7 +34,6 @@
   display: grid;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 8px;
   grid-template-areas: "logo userMenu burgerMenu";
   grid-template-columns: auto 1fr auto;
 }
@@ -46,17 +46,12 @@
   .headerContentWrapper {
     grid-template-areas: "logo nav userMenu";
     grid-template-columns: auto 1fr auto;
-    padding-inline: 16px;
   }
 }
 
 @media (min-width: 1440px) {
   .header {
     top: 40px;
-  }
-
-  .headerContentWrapper {
-    padding-inline: 0px;
   }
 }
 
