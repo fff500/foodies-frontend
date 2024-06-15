@@ -32,10 +32,13 @@ export const SignInModal = ({ isOpen, onClose }) => {
 
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
     reset,
+    watch,
   } = useForm({ mode: "all", resolver: yupResolver(validationSchema) });
+
+  const allFieldsFilled = watch(["email", "password"]).every((field) => field);
 
   const onSubmit = async (data) => {
     try {
@@ -78,7 +81,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
               />
               <Button
                 className={classnames(styles.submitBtn, {
-                  [styles.activeButton]: isValid,
+                  [styles.activeButton]: allFieldsFilled,
                 })}
                 type="submit"
               >
