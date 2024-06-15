@@ -1,11 +1,11 @@
 import classnames from "classnames";
-import { useIsAuth } from "../../../hooks/useIsAuth";
+import { useIsAuth } from "../../../hooks";
 import { LoadingSpinner, Logo } from "../../shared";
 import { Container } from "../Container";
-import { Nav } from "./Nav/Nav";
+import { Nav } from "./Nav";
 import { BurgerMenu } from "./BurgerMenu";
-import { AuthBar } from "./AuthBar/AuthBar";
-import { UserBar } from "./UserBar/UserBar";
+import { AuthBar } from "./AuthBar";
+import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
 
 export const Header = ({ isHomePage }) => {
