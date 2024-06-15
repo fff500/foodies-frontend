@@ -9,12 +9,12 @@ import {
   closeModal,
   openModal,
 } from "../../../redux";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { INPUT_CONFIG, MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input } from "../Inputs";
 import { PasswordInput } from "../Inputs";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpValidationSchema } from "../validation";
 import styles from "./SignUpModal.module.css";
 

@@ -2,13 +2,13 @@ import classnames from "classnames";
 import { useLocalStorage } from "@mantine/hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { MODALS, INPUT_CONFIG } from "../../../constants";
 import { useForm } from "react-hook-form";
 import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input, PasswordInput } from "../Inputs";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { signInValidationSchema } from "../validation";
 import styles from "./SignInModal.module.css";
 
