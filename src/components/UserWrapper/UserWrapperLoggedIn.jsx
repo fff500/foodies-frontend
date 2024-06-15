@@ -106,7 +106,7 @@ export const UserWrapperLoggedIn = () => {
         />
       </div>
 
-      <div>
+      <div className={styles.tabsWrapper}>
         <TabsList
           setActiveTab={setActiveTab}
           activeTab={activeTab}

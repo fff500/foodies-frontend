@@ -2,6 +2,10 @@
   margin-bottom: 64px;
 }
 
+.tabsWrapper {
+  width: 100%;
+}
+
 .userInfoWrapper {
   display: flex;
   flex-direction: column;
