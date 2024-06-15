@@ -75,8 +75,8 @@ export const AddRecipeForm = () => {
       instructions,
       time: time.toString(),
       ingredients,
-      area: area.value,
-      category: category.value,
+      area: area.label,
+      category: category.label,
     };
 
     const postData = new FormData();
