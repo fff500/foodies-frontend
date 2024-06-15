@@ -56,7 +56,7 @@ export const UserCard = ({ type, user }) => {
           ))}
         </div>
         <div className={styles.actions}>
-          <Link to={`/recipe/${user._id}`} className={styles.link}>
+          <Link to={`/user/${user._id}`} className={styles.link}>
             <Icon className={styles.icon} id={"arrowUpRight"} />
           </Link>
         </div>

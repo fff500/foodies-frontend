@@ -106,7 +106,7 @@ export const UserWrapper = ({ userId }) => {
           refetch={dataForTabs().refetch}
           isCurrentUser={false}
         />
-        {activeTab === 0 && dataForTabs().totalCount && (
+        {activeTab === 0 && dataForTabs().totalCount > 0 && (
           <ListPagination
             setPage={setPage}
             totalCount={dataForTabs().totalCount}
