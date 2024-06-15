@@ -2,6 +2,7 @@ import * as yup from "yup";
 import { INPUT_CONFIG } from "../../constants";
 
 const { name, email, password } = INPUT_CONFIG;
+
 export const validationSchema = yup.object({
   name: yup
     .string()
