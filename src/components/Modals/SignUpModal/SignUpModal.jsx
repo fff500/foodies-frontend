@@ -15,7 +15,7 @@ import { Modal } from "../Modal";
 import { Input } from "../Inputs";
 import { PasswordInput } from "../Inputs";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { validationSchema } from "../validation";
+import { signUpValidationSchema } from "../validation";
 import styles from "./SignUpModal.module.css";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
@@ -44,7 +44,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
     handleSubmit,
     reset,
     watch,
-  } = useForm({ mode: "all", resolver: yupResolver(validationSchema) });
+  } = useForm({ mode: "all", resolver: yupResolver(signUpValidationSchema) });
 
   const allFieldsFilled = watch(["name", "email", "password"]).every(
     (field) => field
