@@ -8,7 +8,7 @@ export const Input = ({ register, errors, config }) => {
         className={styles.input}
         placeholder={config.placeholder}
         type={config.type}
-        {...register(`${config.name}`, config.validation)}
+        {...register(`${config.name}`)}
       />
       <p className={styles.errorMsg}>
         {errors[config.name] && <span>{errors[config.name].message}</span>}
