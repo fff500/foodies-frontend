@@ -6,8 +6,7 @@ import { useForm } from "react-hook-form";
 import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
-import { Input } from "../Inputs/Input";
-import { PasswordInput } from "../Inputs/PasswordInput";
+import { Input, PasswordInput } from "../Inputs";
 import styles from "./SignInModal.module.css";
 
 export const SignInModal = ({ isOpen, onClose }) => {

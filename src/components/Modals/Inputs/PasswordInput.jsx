@@ -1,6 +1,6 @@
+import sprite from "../../../assets/icons/sprite.svg";
 import styles from "./Input.module.css";
 import passwordStyles from "./PasswordInput.module.css";
-import sprite from "../../../assets/icons/sprite.svg";
 
 export const PasswordInput = ({ register, errors, config }) => {
   return (

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import {
   useCreateUserMutation,
   useLoginUserMutation,
@@ -10,10 +11,9 @@ import {
 import { INPUT_CONFIG, MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
+import { Input } from "../Inputs";
+import { PasswordInput } from "../Inputs";
 import styles from "./SignUpModal.module.css";
-import { Input } from "../Inputs/Input";
-import { PasswordInput } from "../Inputs/PasswordInput";
-import { useForm } from "react-hook-form";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
