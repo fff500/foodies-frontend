@@ -16,11 +16,9 @@ export const RecipeCard = ({
   isFavorite,
   recipeId,
 }) => {
-  const [addToFavorites, { isError: error, isLoading: loadingFavoritesAdd }] =
-    useAddToFavoritesMutation();
+  const [addToFavorites] = useAddToFavoritesMutation();
 
-  const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
-    useRemoveFromFavoritesMutation();
+  const [removeFromFavorites] = useRemoveFromFavoritesMutation();
 
   const handleFavoriteClick = () =>
     isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId);

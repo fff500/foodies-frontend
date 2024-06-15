@@ -52,7 +52,7 @@ export const RecipeFilters = () => {
                 </option>
               ))}
             </select>
-            <span class={styles.customArrow}>
+            <span className={styles.customArrow}>
               <Icon
                 width={18}
                 height={18}
@@ -74,7 +74,7 @@ export const RecipeFilters = () => {
                 </option>
               ))}
             </select>
-            <span class={styles.customArrow}>
+            <span className={styles.customArrow}>
               <Icon
                 width={18}
                 height={18}

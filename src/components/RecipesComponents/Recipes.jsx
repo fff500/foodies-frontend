@@ -1,19 +1,11 @@
 import styles from "./Recipes.module.css";
 import { RecipeList } from "./RecipeList";
-import {
-  Button,
-  ErrorComponent,
-  Icon,
-  LoadingSpinner,
-  MainTitle,
-  Subtitle,
-} from "../shared";
-import { useState } from "react";
+import { Button, Icon, MainTitle, Subtitle } from "../shared";
+import { useEffect, useState } from "react";
 import { RecipePagination } from "./RecipePagination";
 import { useSearchParams } from "react-router-dom";
 import { useGetRecipesQuery } from "../../redux";
 import { RecipeFilters } from "./RecipeFilters";
-import { Container } from "../layout";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 export const Recipes = ({ category }) => {
@@ -21,17 +13,27 @@ export const Recipes = ({ category }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedIngredient = searchParams.get("ingredient") || "";
   const selectedArea = searchParams.get("area") || "";
-  const limit = 12;
+  const [limit, setLimit] = useState(window.innerWidth >= 768 ? 12 : 8);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setLimit(window.innerWidth >= 768 ? 12 : 8);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const queryString = `?page=${currentPage}&limit=${limit}&category=${capitalizeFirstLetter(category)}&ingredient=${selectedIngredient}&area=${selectedArea}`;
 
   const {
     data: recipeData,
+    isFetching: recipeIsFetching,
     error: recipeError,
     isLoading: recipeLoading,
     refetch: refetchRecipe,
   } = useGetRecipesQuery(queryString);
-
+  const isLoading = recipeIsFetching || recipeLoading;
   let totalPages = 0;
   if (recipeData) {
     totalPages = Math.ceil(recipeData.totalCount / limit);
@@ -43,6 +45,8 @@ export const Recipes = ({ category }) => {
 
   const handleBackClick = () => {
     searchParams.delete("category");
+    searchParams.delete("area");
+    searchParams.delete("ingredient");
     setSearchParams(searchParams);
   };
 
@@ -65,16 +69,13 @@ export const Recipes = ({ category }) => {
         </div>
         <div className={styles.mainResipesContainer}>
           <RecipeFilters />
-          {recipeLoading && (
-            <div>
-              <LoadingSpinner />
-            </div>
-          )}
-          {!recipeLoading && recipeError && (
-            <ErrorComponent onRetry={refetchRecipe} />
-          )}
           <div>
-            <RecipeList data={recipeData} />
+            <RecipeList
+              data={recipeData}
+              isLoading={isLoading}
+              error={recipeError}
+              refetch={refetchRecipe}
+            />
             <RecipePagination
               currentPage={currentPage}
               totalPages={totalPages}

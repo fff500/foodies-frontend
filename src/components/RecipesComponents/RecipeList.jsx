@@ -3,8 +3,9 @@ import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import { useGetCurrentUserQuery } from "../../redux";
 import { RecipeCard } from "./RecipeCard";
 import styles from "./Recipes.module.css";
+import { ErrorComponent, LoadingSpinner } from "../shared";
 
-export const RecipeList = ({ data }) => {
+export const RecipeList = ({ data, isLoading, error, refetch }) => {
   const { data: userCurrent } = useGetCurrentUserQuery();
 
   const favorites = useMemo(
@@ -18,7 +19,13 @@ export const RecipeList = ({ data }) => {
 
   return (
     <div className={styles.recipeList}>
-      {!data?.recipes.length && (
+      {isLoading && (
+        <div>
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && error && <ErrorComponent onRetry={refetch} />}
+      {!isLoading && !error && !data?.recipes.length && (
         <p className={styles.textNotFound}>
           Sorry, but nothing was found for your request 😔
         </p>
