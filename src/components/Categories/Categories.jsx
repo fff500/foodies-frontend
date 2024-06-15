@@ -6,7 +6,7 @@ import styles from "./Categories.module.css";
 import { CategoryList } from "./CategoryList";
 import { Recipes } from "../RecipesComponents";
 
-export const Categories = ({ refParent }) => {
+export const Categories = () => {
   const [searchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
   const [, scrollTo] = useWindowScroll();
