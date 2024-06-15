@@ -69,6 +69,7 @@ select {
   position: relative;
   display: inline-block;
 }
+
 .customReset {
   position: absolute;
   right: -25px;
@@ -76,9 +77,7 @@ select {
   transform: translateY(-50%);
   cursor: pointer;
 }
-/*.dropDownIcon {*/
-/*  fill: transparent;*/
-/*}*/
+
 .recipeList {
   display: flex;
   flex-wrap: wrap;
