@@ -1,211 +1,208 @@
 .recipeWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .recipeContainers {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.recipeContainerWrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+.recipeContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .imageContainer {
-    border-radius: 30px;
+  border-radius: 30px;
 }
 
-
 .recipeTitle {
-    font-size: 24px;
-    text-transform: uppercase;
+  font-size: 24px;
+  text-transform: uppercase;
 }
 
 .recipeMainInfoContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .recipeLabelContainer {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 .recipeLabel {
-    border: 1px solid rgba(5, 5, 5, 0.2);
-    border-radius: 30px;
-    padding: 10px;
-    color: var(--color-body-text-light);
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: 30px;
+  padding: 10px;
+  color: var(--color-body-text-light);
 }
 .userInfo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .userInfo img {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
 }
 
 .userInfoText {
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
 }
 
 .userInfoLabelText {
-    color: var(--color-body-text-light);
-    font-size: 12px;
+  color: var(--color-body-text-light);
+  font-size: 12px;
 }
 
-.userInfoTextName{
-    font-weight: bold;
-    font-size: 14px;
+.userInfoTextName {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .resetButton {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: fit-content;
-    overflow: visible;
-    cursor: pointer;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  overflow: visible;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
 }
 
 .button {
-    padding: 14px 20px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
-    width: fit-content;
-    text-transform: uppercase;
-    border-radius: 30px;
+  padding: 14px 20px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  width: fit-content;
+  text-transform: uppercase;
+  border-radius: 30px;
 }
 .button:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
-    border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
 }
 
 .buttonPosition {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
-.recipeText{
-    font-size: 14px;
+.recipeText {
+  font-size: 14px;
 }
 
 .cardsList {
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-    margin-top: 32px;
-    margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+  margin-bottom: 64px;
 }
 
 @media (min-width: 768px) {
-    .recipeWrapper {
-        gap: 98px;
-    }
-    .recipeContainers {
-        gap: 40px;
-    }
-    .imageContainer {
-        width: 100%;
-    }
-    .recipeTitle {
-        font-size: 28px;
-    }
+  .recipeWrapper {
+    gap: 98px;
+  }
+  .recipeContainers {
+    gap: 40px;
+  }
+  .imageContainer {
+    width: 100%;
+  }
+  .recipeTitle {
+    font-size: 28px;
+  }
 
-    .recipeMainInfoContainer {
-        gap: 40px;
-    }
+  .recipeMainInfoContainer {
+    gap: 40px;
+  }
 
-    .userInfo img {
-        width: 50px;
-        height: 50px;
-    }
+  .userInfo img {
+    width: 50px;
+    height: 50px;
+  }
 
-    .recipeContainerWrapper{
-        gap: 40px;
-    }
+  .recipeContainerWrapper {
+    gap: 40px;
+  }
 
-    .buttonPosition {
-        margin-top: 20px;
-    }
+  .buttonPosition {
+    margin-top: 20px;
+  }
 
-    .userInfoLabelText {
-        font-size: 14px;
-    }
+  .userInfoLabelText {
+    font-size: 14px;
+  }
 
-    .userInfoTextName{
-        font-size: 16px;
-    }
+  .userInfoTextName {
+    font-size: 16px;
+  }
 
-    .recipeText{
-        font-size: 16px;
-    }
-    .cardsList {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 40px;
-        margin-bottom: 100px;
-        justify-content: space-between;
-    }
-    .cardStyle{
-        width: 48%;
-    }
-
+  .recipeText {
+    font-size: 16px;
+  }
+  .cardsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+  }
+  .cardStyle {
+    width: 48%;
+  }
 }
 
 @media (min-width: 1440px) {
+  .recipeWrapper {
+    gap: 120px;
+  }
 
-    .recipeWrapper {
-        gap: 120px;
-    }
+  .recipeContainers {
+    flex-direction: row;
+    align-items: start;
+    gap: 80px;
+  }
 
-    .recipeContainers {
-        flex-direction: row;
-        align-items: start;
-        gap: 80px;
-    }
+  .recipeContainer {
+    width: 50%;
+  }
 
-    .recipeContainer {
-        width: 50%;
-    }
+  .imageContainer {
+    object-fit: cover;
+    min-width: 550px;
+  }
 
-    .imageContainer {
-        object-fit: cover;
-        min-width: 550px;
-    }
+  .recipeMainInfoContainer {
+    gap: 20px;
+  }
 
-    .recipeMainInfoContainer {
-        gap: 20px;
-    }
+  .button {
+    padding: 16px 32px;
+  }
+  .cardsList {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 120px;
+    gap: 20px;
+  }
 
-    .button {
-        padding: 16px 32px;
-    }
-    .cardsList {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 120px;
-        gap:20px
-    }
-
-    .cardStyle{
-        width: 23%;
-    }
+  .cardStyle {
+    width: 23%;
+  }
 }

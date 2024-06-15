@@ -43,11 +43,9 @@ const RecipePage = () => {
     isFetching: userCurrentFetching,
   } = useGetCurrentUserQuery();
 
-  const [addToFavorites, { isError: error, isLoading: loadingFavoritesAdd }] =
-    useAddToFavoritesMutation();
+  const [addToFavorites] = useAddToFavoritesMutation();
 
-  const [removeFromFavorites, { isError, isLoading: loadingFavoritesRemove }] =
-    useRemoveFromFavoritesMutation();
+  const [removeFromFavorites] = useRemoveFromFavoritesMutation();
 
   useEffect(() => {
     scrollTo({ x: 0, y: 0 });

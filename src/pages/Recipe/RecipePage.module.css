@@ -1,33 +1,32 @@
 .sectionWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .isHidden {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .loadingStyles {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
-    .sectionWrapper {
-       gap: 100px;
-    }
-
+  .sectionWrapper {
+    gap: 100px;
+  }
 }
 
 @media (min-width: 1440px) {
-    .sectionWrapper{
-        gap: 120px;
-    }
+  .sectionWrapper {
+    gap: 120px;
+  }
 }

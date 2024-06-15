@@ -1,2 +1,9 @@
 # Ignore artifacts:
-build
+build/
+node_modules/
+yarn.lock
+package.json
+
+**/.git
+
+README.md
