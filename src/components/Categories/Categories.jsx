@@ -13,7 +13,7 @@ export const Categories = () => {
   const tablet = useMediaQuery("(min-width: 768px)");
   useEffect(() => {
     if (selectedCategory) {
-      scrollTo({ y: tablet ? 980 : 700 });
+      scrollTo({ y: tablet ? 980 : 840 });
     }
   }, [selectedCategory]);
 
