@@ -8,14 +8,14 @@ import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
 
-export const UserBar = ({ userName, userImage }) => {
+export const UserBar = ({ userName, userImage, id }) => {
   const dispatch = useDispatch();
   const handleLogoutRegisterModal = () => {
     dispatch(
       openModal({
         isOpen: true,
         modalType: "logout",
-      }),
+      })
     );
   };
   const [open, setOpen] = useState(false);
@@ -50,7 +50,7 @@ export const UserBar = ({ userName, userImage }) => {
             })}
           >
             <div>
-              <Link to="/user">Profile</Link>
+              <Link to={`/user/${id}`}>Profile</Link>
             </div>
             <div>
               <Button

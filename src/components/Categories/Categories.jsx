@@ -1,12 +1,22 @@
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { MainTitle, Subtitle } from "../shared";
 import styles from "./Categories.module.css";
 import { CategoryList } from "./CategoryList";
 import { Recipes } from "../RecipesComponents";
 
-export const Categories = () => {
+export const Categories = ({ refParent }) => {
   const [searchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
+  const [, scrollTo] = useWindowScroll();
+  const tablet = useMediaQuery("(min-width: 768px)");
+  useEffect(() => {
+    if (selectedCategory) {
+      scrollTo({ y: tablet ? 980 : 700 });
+    }
+  }, [selectedCategory]);
+
   if (selectedCategory) {
     return <Recipes category={selectedCategory} />;
   }
