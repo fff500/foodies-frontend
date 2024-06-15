@@ -8,21 +8,20 @@
 }
 
 .loadingContainer {
-    background-color: transparent;
-    height: 100px;
-    .loading{
-        width: 30px;
-        height: 30px;
-    }
+  background-color: transparent;
+  height: 100px;
+  .loading {
+    width: 30px;
+    height: 30px;
+  }
 }
-
 
 .logo {
   grid-area: logo;
 }
 
 .isLoadingLogo {
-    padding-top: 12px;
+  padding-top: 12px;
 }
 
 .authButtonsWrapper {

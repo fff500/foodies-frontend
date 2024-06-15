@@ -8,6 +8,7 @@ import {
   useGetCurrentUserQuery,
   useGetFollowersQuery,
   useGetRecipesByOwnerIdQuery,
+  useGetUserQuery,
   useUnfollowUserMutation,
 } from "../../redux";
 
@@ -18,13 +19,13 @@ export const UserWrapper = ({ userId }) => {
   const [unfollowUser] = useUnfollowUserMutation();
 
   const { data: currentUser } = useGetCurrentUserQuery();
+  const userQuery = useGetUserQuery(userId);
 
   const [isFollowing, setIsFollowing] = useState(
     currentUser ? currentUser.following.includes(userId) : false
   );
 
   useEffect(() => {
-    console.log("currentUser", currentUser);
     setIsFollowing(
       currentUser ? currentUser.following.includes(userId) : false
     );
@@ -89,10 +90,12 @@ export const UserWrapper = ({ userId }) => {
           ctaText={isFollowing ? "UNFOLLOW" : "FOLLOW"}
           handleCtaClick={isFollowing ? handleUnfollow : handleFollow}
           userId={userId}
+          isCurrentUserPage={false}
+          queryToFetchData={userQuery}
         />
       </div>
 
-      <div>
+      <div className={styles.tabsWrapper}>
         <TabsList
           setActiveTab={setActiveTab}
           activeTab={activeTab}
@@ -102,7 +105,7 @@ export const UserWrapper = ({ userId }) => {
           refetch={dataForTabs().refetch}
           isCurrentUser={false}
         />
-        {activeTab === 0 && dataForTabs().totalCount && (
+        {activeTab === 0 && dataForTabs().totalCount > 0 && (
           <ListPagination
             setPage={setPage}
             totalCount={dataForTabs().totalCount}

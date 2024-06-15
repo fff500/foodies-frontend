@@ -2,12 +2,14 @@ import classnames from "classnames";
 import { useLocalStorage } from "@mantine/hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { MODALS, INPUT_CONFIG } from "../../../constants";
 import { useForm } from "react-hook-form";
 import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input, PasswordInput } from "../Inputs";
+import { signInValidationSchema } from "../validation";
 import styles from "./SignInModal.module.css";
 
 export const SignInModal = ({ isOpen, onClose }) => {
@@ -34,7 +36,8 @@ export const SignInModal = ({ isOpen, onClose }) => {
     handleSubmit,
     reset,
     watch,
-  } = useForm({ mode: "all" });
+  } = useForm({ mode: "all", resolver: yupResolver(signInValidationSchema) });
+
   const allFieldsFilled = watch(["email", "password"]).every((field) => field);
 
   const onSubmit = async (data) => {

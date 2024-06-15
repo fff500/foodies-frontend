@@ -9,11 +9,13 @@ import {
   closeModal,
   openModal,
 } from "../../../redux";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { INPUT_CONFIG, MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input } from "../Inputs";
 import { PasswordInput } from "../Inputs";
+import { signUpValidationSchema } from "../validation";
 import styles from "./SignUpModal.module.css";
 
 export const SignUpModal = ({ isOpen, onClose }) => {
@@ -42,7 +44,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
     handleSubmit,
     reset,
     watch,
-  } = useForm({ mode: "all" });
+  } = useForm({ mode: "all", resolver: yupResolver(signUpValidationSchema) });
 
   const allFieldsFilled = watch(["name", "email", "password"]).every(
     (field) => field
@@ -55,7 +57,6 @@ export const SignUpModal = ({ isOpen, onClose }) => {
         login({ password: data.password, email: data.email })
           .unwrap()
           .then(({ user: { token } }) => {
-            console.log(token);
             setToken(token);
             if (to) {
               navigate(to);

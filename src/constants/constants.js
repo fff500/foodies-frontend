@@ -12,7 +12,7 @@ export const INPUT_CONFIG = {
     type: "text",
     placeholder: "Name*",
     validation: {
-      required: "Email is required",
+      required: "Name is required",
       minLength: {
         value: 5,
         message: "At least 5 symbols.",
@@ -21,7 +21,7 @@ export const INPUT_CONFIG = {
   },
   email: {
     name: "email",
-    type: "email",
+    type: "text",
     placeholder: "Email*",
     validation: {
       required: "Email is required",

@@ -5,7 +5,7 @@ import styles from "./Input.module.css";
 import passwordStyles from "./PasswordInput.module.css";
 
 export const PasswordInput = ({ register, errors, config }) => {
-  const [type, setType] = useState(true);
+  const [type, setType] = useState(false);
   return (
     <div className={styles.container}>
       <div className={passwordStyles.passInput}>
@@ -14,12 +14,12 @@ export const PasswordInput = ({ register, errors, config }) => {
           className={styles.input}
           placeholder={config.placeholder}
           type={type ? "text" : "password"}
-          {...register(`${config.name}`, config.validation)}
+          {...register(`${config.name}`)}
         />
         <Button onClick={() => setType(!type)} type="button">
           <svg className={passwordStyles.showPassword}>
             <use
-              xlinkHref={`${sprite}#${type ? "showPassword" : "hidePassword"}`}
+              xlinkHref={`${sprite}#${type ? "hidePassword" : "showPassword"}`}
             />
           </svg>
         </Button>

@@ -8,6 +8,7 @@ import {
   useGetFollowingQuery,
   useGetFollowersCurrentUserQuery,
   openModal,
+  useGetCurrentUserQuery,
 } from "../../redux";
 import { useDispatch } from "react-redux";
 import { TabsList } from "./TabsList";
@@ -15,6 +16,8 @@ import { TabsList } from "./TabsList";
 export const UserWrapperLoggedIn = () => {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
+
+  const currentUserQuery = useGetCurrentUserQuery();
 
   const dispatch = useDispatch();
 
@@ -98,10 +101,12 @@ export const UserWrapperLoggedIn = () => {
         <UserInfo
           ctaText={"LOG OUT"}
           handleCtaClick={handleLogoutRegisterModal}
+          isCurrentUserPage={true}
+          queryToFetchData={currentUserQuery}
         />
       </div>
 
-      <div>
+      <div className={styles.tabsWrapper}>
         <TabsList
           setActiveTab={setActiveTab}
           activeTab={activeTab}
@@ -111,13 +116,14 @@ export const UserWrapperLoggedIn = () => {
           refetch={dataForTabs().refetch}
           isCurrentUser={true}
         />
-        {(activeTab === 0 || activeTab === 1) && dataForTabs().totalCount && (
-          <ListPagination
-            setPage={setPage}
-            totalCount={dataForTabs().totalCount}
-            page={page}
-          />
-        )}
+        {(activeTab === 0 || activeTab === 1) &&
+          dataForTabs().totalCount > 0 && (
+            <ListPagination
+              setPage={setPage}
+              totalCount={dataForTabs().totalCount}
+              page={page}
+            />
+          )}
       </div>
     </div>
   );
