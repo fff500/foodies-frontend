@@ -36,16 +36,17 @@ const RecipePage = () => {
     isFetching: popularRecipeFetching,
   } = useGetPopularRecipesQuery();
 
-  const {
-    data: userCurrent,
-    error: userCurrentError,
-    isLoading: userCurrentLoading,
-    isFetching: userCurrentFetching,
-  } = useGetCurrentUserQuery();
+  const { data: userCurrent } = useGetCurrentUserQuery();
 
-  const [addToFavorites] = useAddToFavoritesMutation();
+  const [
+    addToFavorites,
+    { isError: errorAddFavorites, isLoading: loadingFavoritesAdd },
+  ] = useAddToFavoritesMutation();
 
-  const [removeFromFavorites] = useRemoveFromFavoritesMutation();
+  const [
+    removeFromFavorites,
+    { errorRemoveFavorites, isLoading: loadingFavoritesRemove },
+  ] = useRemoveFromFavoritesMutation();
 
   useEffect(() => {
     scrollTo({ x: 0, y: 0 });
@@ -56,10 +57,14 @@ const RecipePage = () => {
     recipeFetching ||
     popularRecipeLoading ||
     popularRecipeFetching ||
-    userCurrentLoading ||
-    userCurrentFetching;
+    loadingFavoritesAdd ||
+    loadingFavoritesRemove;
 
-  const errors = recipeError || popularRecipeError || userCurrentError;
+  const errors =
+    recipeError ||
+    popularRecipeError ||
+    errorRemoveFavorites ||
+    errorAddFavorites;
 
   const isFavorite = userCurrent?.favorites?.find(
     (id) => id === recipeData?._id
