@@ -2,7 +2,6 @@ import Select from "react-select";
 import { useSearchParams } from "react-router-dom";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import styles from "./Recipes.module.css";
-import { Icon } from "../shared";
 
 export const RecipeFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,7 +15,10 @@ export const RecipeFilters = () => {
 
   const newSearchParams = new URLSearchParams(searchParams);
   const handleFilterChange = (select, field) => {
-    const value = field === "area" ? select.label : select.id;
+    let value;
+    if (select) {
+      value = field === "area" ? select.label : select.id;
+    }
     if (value) {
       newSearchParams.set(field, value);
     } else {
@@ -26,17 +28,17 @@ export const RecipeFilters = () => {
   };
 
   const resetFilter = (field) => {
-    console.log(field);
-    newSearchParams.delete(field);
+    searchParams.delete(field);
+    setSearchParams(searchParams);
   };
 
-  const mapedIngredients = ingredientsData.map((el) => ({
+  const mappedIngredients = ingredientsData.map((el) => ({
     label: el.name,
     id: el._id,
     value: el._id,
   }));
 
-  const mapedareasData = areasData.map((el) => ({
+  const mappedAreasData = areasData.map((el) => ({
     label: el.name,
     id: el._id,
     value: el._id,
@@ -44,12 +46,12 @@ export const RecipeFilters = () => {
 
   const customStyles = {
     menu: (provided) => ({
-      // 'menu' is from the div class too.
       ...provided,
-
+      padding: "10px 10px 10px 15px!important",
       zIndex: 100,
     }),
   };
+
   return (
     <div className={styles.filtersSelect}>
       <div className={styles.selectWrapper}>
@@ -60,18 +62,12 @@ export const RecipeFilters = () => {
               className={styles.select}
               placeholder="Ingredients"
               onChange={(selected) =>
-                handleFilterChange(selected, "ingredients")
+                handleFilterChange(selected, "ingredient")
               }
-              options={ingredientsData && mapedIngredients}
+              options={ingredientsData && mappedIngredients}
+              isClearable={true}
+              clearValue={() => resetFilter("ingredient")}
             />
-            {selectedIngredient && (
-              <span
-                className={styles.customReset}
-                onClick={() => resetFilter("ingredients")}
-              >
-                <Icon width={18} height={18} id={"close"} />
-              </span>
-            )}
           </>
         )}
       </div>
@@ -83,16 +79,10 @@ export const RecipeFilters = () => {
               className={styles.select}
               placeholder="Area"
               onChange={(selected) => handleFilterChange(selected, "area")}
-              options={areasData && mapedareasData}
+              options={areasData && mappedAreasData}
+              isClearable={true}
+              clearValue={() => resetFilter("area")}
             />
-            {selectedArea && (
-              <span
-                className={styles.customReset}
-                onClick={() => resetFilter("area")}
-              >
-                <Icon width={18} height={18} id={"close"} />
-              </span>
-            )}
           </>
         )}
       </div>
