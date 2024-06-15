@@ -19,7 +19,11 @@ export const RecipePreview = ({ recipe }) => {
 
   return (
     <div className={styles.recipePreview}>
-      <img src={recipe.thumb} alt={recipe.title} className={styles.image} />
+      <img
+        src={`${process.env.REACT_APP_BACKEND_BASE_URL}/${recipe.thumb}`}
+        alt={recipe.title}
+        className={styles.image}
+      />
       <div className={styles.details}>
         <h3 className={styles.title}>{recipe.title.toUpperCase()}</h3>
         <p className={styles.description}>{recipe.description}</p>
