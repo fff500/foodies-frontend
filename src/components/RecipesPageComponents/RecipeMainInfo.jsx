@@ -4,6 +4,7 @@ import { RecipePreparation } from "./RecipePreparation";
 import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import styles from "./Recipes.module.css";
 import { PrivateLink } from "../shared";
+import { useGenerateImageUrl } from "../../hooks";
 
 export const RecipeMainInfo = ({
   data,
@@ -11,12 +12,14 @@ export const RecipeMainInfo = ({
   addToFavorites,
   removeFromFavorites,
 }) => {
+  const imageSrc = useGenerateImageUrl(data?.thumb);
+
   return (
     <div className={styles.recipeWrapper}>
       <div className={styles.recipeContainers}>
         <div className={styles.recipeContainer}>
           <img
-            src={data?.thumb}
+            src={imageSrc}
             alt={data.title}
             className={styles.imageContainer}
           />
