@@ -63,6 +63,7 @@ export const createApiUsers = createApi({
         method: "PATCH",
         data,
       }),
+      invalidatesTags: ["GetCurrentUser"],
     }),
     getRecipesByOwnerId: builder.query({
       query: (id, page) => ({

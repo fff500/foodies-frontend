@@ -7,6 +7,7 @@ import { openModal } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
+import { useGenerateImageUrl } from "../../../../hooks";
 
 export const UserBar = ({ userName, userImage, id }) => {
   const dispatch = useDispatch();
@@ -23,12 +24,14 @@ export const UserBar = ({ userName, userImage, id }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  const imageSrc = useGenerateImageUrl(userImage);
+
   return (
     <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>
       <img
         loading="lazy"
         className={styles.userImage}
-        src={userImage || DEFAULT_IMAGE_AVATAR_URL}
+        src={imageSrc || DEFAULT_IMAGE_AVATAR_URL}
         alt={userName || "User avatar"}
       />
       <div className={styles.userDetails}>
