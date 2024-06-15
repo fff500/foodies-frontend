@@ -1,11 +1,17 @@
+import { useMemo } from "react";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import styles from "./Recipes.module.css";
 import { RecipeCard } from "../RecipesComponents";
 
-export const PopularRecipes = ({
-  data,
-  addToFavorites,
-  removeFromFavorites,
-}) => {
+export const PopularRecipes = ({ data, user }) => {
+  const favorites = useMemo(
+    () =>
+      [...(user?.favorites || [])].reduce((acc, el) => {
+        acc[el] = true;
+        return acc;
+      }, {}),
+    [user]
+  );
   return (
     <div>
       <h3 className={styles.recipeTitle}>Popular recipes</h3>
@@ -18,8 +24,10 @@ export const PopularRecipes = ({
                 title={card.title}
                 description={card.description}
                 imgSrc={card.thumb}
-                author={card.owner.name}
-                avatarSrc={card.owner.avatar}
+                author={card.owner}
+                isFavorite={!!favorites[card?._id]}
+                recipeId={card._id}
+                avatarSrc={card.owner.avatar || DEFAULT_IMAGE_AVATAR_URL}
               />
             )
         )}

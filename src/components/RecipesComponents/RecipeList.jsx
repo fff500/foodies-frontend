@@ -1,10 +1,23 @@
+import { useMemo } from "react";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
+import { useGetCurrentUserQuery } from "../../redux";
 import { RecipeCard } from "./RecipeCard";
 import styles from "./Recipes.module.css";
 
 export const RecipeList = ({ data }) => {
+  const { data: userCurrent } = useGetCurrentUserQuery();
+
+  const favorites = useMemo(
+    () =>
+      [...(userCurrent?.favorites || [])].reduce((acc, el) => {
+        acc[el] = true;
+        return acc;
+      }, {}),
+    [userCurrent]
+  );
+
   return (
-    <div className={styles.resipeList}>
+    <div className={styles.recipeList}>
       {!data?.recipes.length && (
         <p className={styles.textNotFound}>
           Sorry, but nothing was found for your request 😔
@@ -18,7 +31,9 @@ export const RecipeList = ({ data }) => {
           description={card.description}
           imgSrc={card.thumb}
           alt={card.title}
-          author={card.owner.name}
+          isFavorite={!!favorites[card._id]}
+          recipeId={card._id}
+          author={card.owner}
           avatarSrc={card.owner.avatar || DEFAULT_IMAGE_AVATAR_URL}
         />
       ))}

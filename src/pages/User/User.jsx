@@ -1,5 +1,5 @@
 import { UserWrapper } from "../../components/UserWrapper";
-import { Breadcrumbs, Container } from "../../components";
+import { Container } from "../../components";
 import { MainTitle, Subtitle } from "../../components";
 import { UserWrapperLoggedIn } from "../../components/UserWrapper";
 import { useParams } from "react-router-dom";
@@ -10,8 +10,6 @@ const User = () => {
 
   return (
     <section className={styles.userSection}>
-      <Breadcrumbs />
-      <Breadcrumbs />
       <Container>
         <MainTitle className={styles.pageTitle}>Profile</MainTitle>
         <Subtitle className={styles.pageDescription}>
