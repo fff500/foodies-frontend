@@ -20,6 +20,7 @@
 .categories {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
 
   @media (min-width: 1440px) {

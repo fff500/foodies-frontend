@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { useIsAuth } from "../../../hooks/";
+import { useIsAuth } from "../../../hooks";
 import { LoadingSpinner, Logo } from "../../shared";
 import { Container } from "../Container";
 import { Nav } from "./Nav";

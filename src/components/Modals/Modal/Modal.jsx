@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFocusTrap } from "@mantine/hooks";
-import { useBodyScrollLock } from "../../../hooks/";
+import { useBodyScrollLock } from "../../../hooks";
 import { Icon, Button } from "../../shared";
 import { Portal } from "../Portal/Portal";
 import styles from "./Modal.module.css";
