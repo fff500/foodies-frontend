@@ -1,20 +1,21 @@
 import { useRef } from "react";
 import styles from "./UserInfo.module.css";
 import { Button, ErrorComponent, LoadingSpinner } from "../../shared";
-import { useGetCurrentUserQuery, useGetUserQuery } from "../../../redux";
 import { useUpdateAvatarMutation } from "../../../redux";
 
-export const UserInfo = ({ handleCtaClick, ctaText, userId }) => {
-  const currentQuery = useGetCurrentUserQuery();
-  const userQuery = useGetUserQuery(userId);
-
+export const UserInfo = ({
+  handleCtaClick,
+  ctaText,
+  isCurrentUserPage,
+  queryToFetchData,
+}) => {
   const {
     data: userData = {},
     isFetching: userIsFetching,
     isLoading: userIsLoading,
     isError: userIsError,
     refetch: refetchUser,
-  } = userId ? userQuery : currentQuery;
+  } = queryToFetchData;
 
   const fileInputRef = useRef(null);
   const [updateAvatar, { isLoading }] = useUpdateAvatarMutation();
@@ -55,7 +56,7 @@ export const UserInfo = ({ handleCtaClick, ctaText, userId }) => {
                 alt="User avatar"
                 className={styles.avatar}
               />
-              {!userId && (
+              {isCurrentUserPage && (
                 <>
                   <div
                     className={styles.plusButton}
@@ -85,25 +86,25 @@ export const UserInfo = ({ handleCtaClick, ctaText, userId }) => {
                   {userData.createdRecipesCount || 0}
                 </span>
               </div>
-              {!userId && (
+              {isCurrentUserPage && (
                 <div>
                   <span className={styles.statLabel}>Favorites:</span>
                   <span className={styles.statValue}>
-                    {userData.favorites.length || 0}
+                    {userData.favorites?.length || 0}
                   </span>
                 </div>
               )}
               <div>
                 <span className={styles.statLabel}>Followers:</span>
                 <span className={styles.statValue}>
-                  {userData.followers.length || 0}
+                  {userData.followers?.length || 0}
                 </span>
               </div>
-              {!userId && (
+              {isCurrentUserPage && (
                 <div>
                   <span className={styles.statLabel}>Following:</span>
                   <span className={styles.statValue}>
-                    {userData.following.length || 0}
+                    {userData.following?.length || 0}
                   </span>
                 </div>
               )}

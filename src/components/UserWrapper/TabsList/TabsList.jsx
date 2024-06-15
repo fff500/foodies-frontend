@@ -43,9 +43,21 @@ export const TabsList = ({
         />
       </TabPanel>
 
+      {isCurrentUser && (
+        <TabPanel>
+          <TabContent
+            type="recipes"
+            loading={loading}
+            error={error}
+            refetch={refetch}
+            data={data}
+          />
+        </TabPanel>
+      )}
+
       <TabPanel>
         <TabContent
-          type="recipes"
+          type="followers"
           loading={loading}
           error={error}
           refetch={refetch}
@@ -54,27 +66,15 @@ export const TabsList = ({
       </TabPanel>
 
       {isCurrentUser && (
-        <>
-          <TabPanel>
-            <TabContent
-              type="followers"
-              loading={loading}
-              error={error}
-              refetch={refetch}
-              data={data}
-            />
-          </TabPanel>
-
-          <TabPanel>
-            <TabContent
-              type="following"
-              loading={loading}
-              error={error}
-              refetch={refetch}
-              data={data}
-            />
-          </TabPanel>
-        </>
+        <TabPanel>
+          <TabContent
+            type="following"
+            loading={loading}
+            error={error}
+            refetch={refetch}
+            data={data}
+          />
+        </TabPanel>
       )}
     </Tabs>
   );

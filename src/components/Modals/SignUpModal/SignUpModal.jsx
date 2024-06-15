@@ -55,7 +55,6 @@ export const SignUpModal = ({ isOpen, onClose }) => {
         login({ password: data.password, email: data.email })
           .unwrap()
           .then(({ user: { token } }) => {
-            console.log(token);
             setToken(token);
             if (to) {
               navigate(to);
