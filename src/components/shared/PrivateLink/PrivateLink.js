@@ -5,20 +5,27 @@ import { apiInstance } from "../../../api/";
 import { openModal } from "../../../redux";
 import styles from "./PrivateLink.module.css";
 
-export const PrivateLink = ({ to = "/", children, className }) => {
+export const PrivateLink = ({ to, children, className, onSuccess }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const getCurrent = () =>
     apiInstance
       .get("users/current")
-      .then(() => navigate(to))
+      .then(() => {
+        if (to) {
+          navigate(to);
+        }
+        if (onSuccess) {
+          onSuccess();
+        }
+      })
       .catch((e) => {
         dispatch(
           openModal({
             isOpen: true,
             modalType: "login",
             to,
-          }),
+          })
         );
       });
   return (

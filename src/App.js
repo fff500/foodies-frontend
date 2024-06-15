@@ -16,11 +16,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path="recipe/:recipeId" element={<RecipePage />} />
           <Route path="/" element={<PrivateRoutes isAuth={isAuth} />}>
             <Route path="/user" element={<User />} />
             <Route path="user/:userId" element={<User />} />
             <Route path="recipe/add" element={<AddRecipe />} />
-            <Route path="recipe/:recipeId" element={<RecipePage />} />
           </Route>
           <Route path="*" element={<Home />} />
         </Route>
