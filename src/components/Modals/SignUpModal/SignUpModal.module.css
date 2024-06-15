@@ -61,6 +61,11 @@
   padding: 0 4px;
 }
 
+.activeButton {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
 @media (min-width: 768px) {
   .container {
     row-gap: 32px;

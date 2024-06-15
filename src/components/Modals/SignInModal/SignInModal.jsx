@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import { useLocalStorage } from "@mantine/hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +33,9 @@ export const SignInModal = ({ isOpen, onClose }) => {
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
   } = useForm({ mode: "all" });
+  const allFieldsFilled = watch(["email", "password"]).every((field) => field);
 
   const onSubmit = async (data) => {
     try {
@@ -73,7 +76,12 @@ export const SignInModal = ({ isOpen, onClose }) => {
                 errors={errors}
                 config={INPUT_CONFIG.password}
               />
-              <Button className={styles.submitBtn} type="submit">
+              <Button
+                className={classnames(styles.submitBtn, {
+                  [styles.activeButton]: allFieldsFilled,
+                })}
+                type="submit"
+              >
                 SIGN IN
               </Button>
             </form>
