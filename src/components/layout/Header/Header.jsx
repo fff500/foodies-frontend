@@ -18,7 +18,7 @@ export const Header = ({ isHomePage }) => {
   ) : (
     <>
       <Nav />
-      <UserBar userName="User" />
+      <UserBar userName={data?.name || ""} />
       <BurgerMenu isHomePage={isHomePage} />
     </>
   );

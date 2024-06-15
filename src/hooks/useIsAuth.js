@@ -14,8 +14,8 @@ export const useIsAuth = () => {
     setIsLoading(true);
     apiInstance
       .get("users/current")
-      .then(({ data: { user } }) => {
-        setData(user);
+      .then(({ data }) => {
+        setData(data);
         setIsAuth(true);
       })
       .catch(() => {
