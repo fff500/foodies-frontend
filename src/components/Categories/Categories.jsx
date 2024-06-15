@@ -9,13 +9,6 @@ import { Recipes } from "../RecipesComponents";
 export const Categories = () => {
   const [searchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
-  const [, scrollTo] = useWindowScroll();
-  const tablet = useMediaQuery("(min-width: 768px)");
-  useEffect(() => {
-    if (selectedCategory) {
-      scrollTo({ y: tablet ? 980 : 840 });
-    }
-  }, [selectedCategory]);
 
   if (selectedCategory) {
     return <Recipes category={selectedCategory} />;
