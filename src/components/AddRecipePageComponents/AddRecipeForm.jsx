@@ -48,6 +48,7 @@ export const AddRecipeForm = () => {
     reset,
     setValue,
     getValues,
+    setError,
     watch,
     formState: { errors, isSubmitted },
   } = useForm({ defaultValues, mode: "all" });
@@ -138,12 +139,25 @@ export const AddRecipeForm = () => {
     setNewIngredients(callback);
     setIngredients(callback);
   };
+
   const customStyles = {
     menu: (provided) => ({
       ...provided,
       padding: "10px 10px 10px 15px!important",
     }),
   };
+
+  const validateMeasure = (value) => {
+    if (value.startsWith("-")) {
+      setError("measure", {
+        type: "validate",
+        message: "can not be negative",
+      });
+      return false;
+    }
+    return true;
+  };
+
   if (categoriesIsFetching || ingredientsIsFetching || areasIsFetching) {
     return <LoadingSpinner className={styles.spinner} />;
   }
@@ -281,7 +295,7 @@ export const AddRecipeForm = () => {
                   name="measure"
                   id="measure"
                   control={control}
-                  rules={{ required: true }}
+                  rules={{ required: true, validate: validateMeasure }}
                   render={({ field }) => (
                     <input
                       {...field}
