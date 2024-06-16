@@ -6,7 +6,7 @@ export const IngredientsList = ({ ingredients }) => {
       {ingredients?.map((elem) => (
         <li className={styles.ingredient} key={elem._id}>
           <div className={styles.ingredientImg}>
-            <img width={90} height={90} src={elem.img} alt={elem.name} />
+            <img src={elem.img} alt={elem.name} />
           </div>
           <div className={styles.ingredientTextItems}>
             <span>{elem.name}</span>
