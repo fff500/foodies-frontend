@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useCallback } from "react";
 import { useGenerateImageUrl } from "../../hooks";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import {
