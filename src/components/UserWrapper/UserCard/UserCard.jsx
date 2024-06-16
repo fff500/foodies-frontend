@@ -6,6 +6,7 @@ import {
   useGetRecipesByOwnerIdQuery,
   useUnfollowUserMutation,
 } from "../../../redux";
+import { UserRecipeImage } from "./UserRecipeImage";
 
 export const UserCard = ({ type, user }) => {
   const [unfollowUser] = useUnfollowUserMutation();
@@ -47,7 +48,7 @@ export const UserCard = ({ type, user }) => {
         </div>
         <div className={styles.recipeImages}>
           {userRecipes.recipes?.slice(0, 3).map((recipe) => (
-            <img
+            <UserRecipeImage
               key={recipe._id}
               src={recipe.image}
               alt={recipe.title}
