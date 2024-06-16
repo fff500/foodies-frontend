@@ -5,8 +5,6 @@ import styles from "./Recipes.module.css";
 
 export const RecipeFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedIngredient = searchParams.get("ingredient") || "";
-  const selectedArea = searchParams.get("area") || "";
   const { data: ingredientsData = [], isLoading: ingredientsIsLoading } =
     useGetIngredientsQuery();
 

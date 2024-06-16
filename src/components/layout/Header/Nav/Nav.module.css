@@ -45,4 +45,9 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+}
+
+.active:hover {
+  border-color: var(--color-gray-secondary, #d9d9d9);
 }

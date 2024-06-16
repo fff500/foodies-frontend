@@ -55,7 +55,13 @@ export const UserInfo = ({
         <div>
           <div className={styles.userInfo}>
             <div className={styles.avatarContainer}>
-              <img src={imageSrc} alt="User avatar" className={styles.avatar} />
+              <img
+                width={80}
+                height={80}
+                src={imageSrc}
+                alt="User avatar"
+                className={styles.avatar}
+              />
               {isCurrentUserPage && (
                 <>
                   <div
