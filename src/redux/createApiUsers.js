@@ -63,6 +63,7 @@ export const createApiUsers = createApi({
         method: "PATCH",
         data,
       }),
+      invalidatesTags: ["GetCurrentUser"],
     }),
     getRecipesByOwnerId: builder.query({
       query: (id, page) => ({
@@ -125,6 +126,7 @@ export const createApiUsers = createApi({
         method: "POST",
         data,
       }),
+      invalidatesTags: [{ type: "GetCurrentUser", id: "LIST" }],
     }),
     addToFavorites: builder.mutation({
       query: (id) => ({

@@ -69,16 +69,15 @@ select {
   position: relative;
   display: inline-block;
 }
-.customArrow {
+
+.customReset {
   position: absolute;
-  right: 10px;
+  right: -25px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none;
+  cursor: pointer;
 }
-.dropDownIcon {
-  fill: transparent;
-}
+
 .recipeList {
   display: flex;
   flex-wrap: wrap;
@@ -171,6 +170,17 @@ select {
   stroke: var(--color-black);
 }
 
+.select > div {
+  border-radius: var(--border-radius-regular);
+  padding: 5px;
+  min-width: 330px;
+  width: 100%;
+}
+
+.select div:last-child span {
+  display: none;
+}
+
 .icon:active,
 .iconActive {
   width: 16px;
@@ -239,6 +249,7 @@ select {
   .filtersSelect {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 14px;
   }
   select {
@@ -274,6 +285,7 @@ select {
   }
   .filtersSelect {
     flex-direction: column;
+    justify-content: start;
     width: 330px;
     margin-right: 40px;
   }
