@@ -1,3 +1,16 @@
+.formWrapper {
+    input, textarea {
+        outline: none;
+    }
+    .errorMessage {
+        color: var(--color-error-message);
+        position: absolute;
+        bottom: -20px;
+        font-size: 14px;
+        left: 0;
+    }
+}
+
 .buttonIcon {
   stroke: var(--color-black);
   fill: var(--color-white);
@@ -18,10 +31,10 @@
 .inputName {
   font-size: 24px;
   font-weight: 700;
-  padding: 10px 10px 10px 0;
   width: 100%;
   text-transform: uppercase;
   border: 0;
+  margin-bottom: 32px;
 }
 
 .descriptionWrapper {
@@ -34,17 +47,12 @@
   width: 100%;
   font-size: 16px;
   border-bottom: 2px solid var(--color-gray-secondary);
-
-  vertical-align: bottom;
+  padding-bottom: 16px;
 }
 
-.description::placeholder {
-  text-align: start;
-  transform: translateY(15px);
-}
 
 .select > div {
-  border-radius: 20px;
+  border-radius: var(--border-radius-regular);
   padding: 5px;
 }
 
@@ -148,8 +156,8 @@
   border: none;
   width: 100%;
   border-bottom: 2px solid var(--color-gray-secondary);
-  padding: 11px 11px 8px 0;
   text-align: left;
+  padding-bottom: 16px;
 }
 
 .quantityField {
@@ -182,10 +190,14 @@
 .labelName {
   display: inline-block;
   position: relative;
-  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
+
+  .inputName {
+    margin-bottom: 40px;
+  }
+
   .quantityField {
     display: flex;
     flex-wrap: wrap;
