@@ -126,6 +126,7 @@ export const createApiUsers = createApi({
         method: "POST",
         data,
       }),
+      invalidatesTags: [{ type: "GetCurrentUser", id: "LIST" }],
     }),
     addToFavorites: builder.mutation({
       query: (id) => ({
