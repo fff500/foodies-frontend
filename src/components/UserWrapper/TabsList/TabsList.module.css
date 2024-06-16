@@ -11,10 +11,13 @@
   font-size: 18px;
   font-weight: 800;
   color: var(--color-black, #050505);
+  cursor: pointer;
+  outline: transparent;
 }
 
 .selectedTab {
   border-bottom: 3px solid var(--color-black, #050505);
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {

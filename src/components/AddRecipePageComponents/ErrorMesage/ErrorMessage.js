@@ -1,25 +1,20 @@
 import styles from "./ErrorMessage.module.css";
 
-const typeError = {
-  required: "required",
-  maxLength: "maxLength",
-};
-
-const message = {
-  [typeError.required]: "This is required",
-  [typeError.maxLength]: "Max length exceeded",
+const errorMessages = {
+  required: "This is required",
+  maxLength: "Max length exceeded",
+  validate: "Can't be negative",
 };
 
 export const ErrorMessage = ({ errors, field }) => {
-  if (!errors) return null;
+  if (!errors || !errors[field]) {
+    return null;
+  }
 
-  const error = errors[field];
-  const type = error?.type;
+  const errorType = errors[field]?.type;
+  const errorMessage = errorMessages[errorType];
 
-  return (
-    error &&
-    type === typeError[type] && (
-      <span className={styles.errorMessage}>{message[type]}</span>
-    )
-  );
+  return errorMessage ? (
+    <span className={styles.errorMessage}>{errorMessage}</span>
+  ) : null;
 };

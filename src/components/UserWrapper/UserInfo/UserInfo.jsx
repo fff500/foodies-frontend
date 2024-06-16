@@ -1,8 +1,9 @@
 import { useRef } from "react";
-import styles from "./UserInfo.module.css";
-import { Button, ErrorComponent, LoadingSpinner } from "../../shared";
 import { useUpdateAvatarMutation } from "../../../redux";
 import { useGenerateImageUrl } from "../../../hooks";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../../constants";
+import { Button, ErrorComponent, LoadingSpinner } from "../../shared";
+import styles from "./UserInfo.module.css";
 
 export const UserInfo = ({
   handleCtaClick,
@@ -41,7 +42,8 @@ export const UserInfo = ({
       }
     }
   };
-  const imageSrc = useGenerateImageUrl(userData.avatar);
+  const imageSrc =
+    useGenerateImageUrl(userData.avatar) || DEFAULT_IMAGE_AVATAR_URL;
 
   return (
     <>
@@ -53,7 +55,13 @@ export const UserInfo = ({
         <div>
           <div className={styles.userInfo}>
             <div className={styles.avatarContainer}>
-              <img src={imageSrc} alt="User avatar" className={styles.avatar} />
+              <img
+                width={80}
+                height={80}
+                src={imageSrc}
+                alt="User avatar"
+                className={styles.avatar}
+              />
               {isCurrentUserPage && (
                 <>
                   <div

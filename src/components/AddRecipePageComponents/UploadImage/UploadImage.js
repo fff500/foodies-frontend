@@ -28,6 +28,8 @@ export const UploadImage = ({
             <img
               loading="lazy"
               alt="new recipe"
+              width={100}
+              height={100}
               src={URL.createObjectURL(imageRecipe)}
               className={styles.imageRecipe}
             />

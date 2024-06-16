@@ -66,7 +66,7 @@ export const createApiUsers = createApi({
       invalidatesTags: ["GetCurrentUser"],
     }),
     getRecipesByOwnerId: builder.query({
-      query: (id, page) => ({
+      query: ({ id, page }) => ({
         url: `recipes?owner=${id}&page=${page}`,
         method: "GET",
       }),

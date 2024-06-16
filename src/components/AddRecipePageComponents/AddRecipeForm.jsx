@@ -10,13 +10,12 @@ import {
   useGetCurrentUserQuery,
   useGetIngredientsQuery,
 } from "../../redux";
-import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
-import { getSelectOptions } from "../../utils/getSelectOptions";
+import { getSelectOptions, showError } from "../../utils";
+import { Button, Icon, LoadingSpinner } from "../shared";
 import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
-
 import styles from "./AddRecipeForm.module.css";
 
 const defaultValues = {
@@ -39,8 +38,7 @@ export const AddRecipeForm = () => {
     isFetching: ingredientsIsFetching,
   } = useGetIngredientsQuery();
   const { data: areas, isFetching: areasIsFetching } = useGetAreasQuery();
-  const [create, { error: errorCreate, reset: onRetry }] =
-    useCreateRecipeMutation();
+  const [create, { isLoading }] = useCreateRecipeMutation();
   const { data: currentUser } = useGetCurrentUserQuery();
 
   const {
@@ -50,8 +48,9 @@ export const AddRecipeForm = () => {
     reset,
     setValue,
     getValues,
+    setError,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitted },
   } = useForm({ defaultValues, mode: "all" });
 
   const inputRef = useRef(null);
@@ -79,6 +78,10 @@ export const AddRecipeForm = () => {
       category: category.label,
     };
 
+    if (!newIngredients.length) {
+      return;
+    }
+
     const postData = new FormData();
     postData.append("json", JSON.stringify(formFields));
     postData.append("image", imageRecipe);
@@ -90,7 +93,10 @@ export const AddRecipeForm = () => {
           navigate(`/user/${currentUser._id}`);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((e) => {
+        console.log(e);
+        showError(e?.message);
+      });
   };
 
   const onChangeUpload = (e) => {
@@ -134,6 +140,24 @@ export const AddRecipeForm = () => {
     setIngredients(callback);
   };
 
+  const customStyles = {
+    menu: (provided) => ({
+      ...provided,
+      padding: "10px 10px 10px 15px!important",
+    }),
+  };
+
+  const validateMeasure = (value) => {
+    if (value.startsWith("-")) {
+      setError("measure", {
+        type: "validate",
+        message: "can not be negative",
+      });
+      return false;
+    }
+    return true;
+  };
+
   if (categoriesIsFetching || ingredientsIsFetching || areasIsFetching) {
     return <LoadingSpinner className={styles.spinner} />;
   }
@@ -169,6 +193,7 @@ export const AddRecipeForm = () => {
               placeholder="Enter a description of the dish"
               className={styles.description}
               maxLength={200}
+              rows={1}
             />
             <CountCharacters
               errors={errors}
@@ -190,9 +215,11 @@ export const AddRecipeForm = () => {
                 render={({ field }) => (
                   <Select
                     {...field}
+                    styles={customStyles}
                     className={styles.select}
                     placeholder="Select a category"
                     options={getSelectOptions(categoriesData?.categories)}
+                    isClearable={true}
                   />
                 )}
               />
@@ -250,10 +277,12 @@ export const AddRecipeForm = () => {
                 rules={{ required: true }}
                 render={({ field }) => (
                   <Select
+                    {...field}
                     className={styles.select}
                     placeholder="Add an ingredient"
                     options={getSelectOptions(ingredientsCollection)}
-                    {...field}
+                    styles={customStyles}
+                    isClearable={true}
                   />
                 )}
               />
@@ -266,7 +295,7 @@ export const AddRecipeForm = () => {
                   name="measure"
                   id="measure"
                   control={control}
-                  rules={{ required: true }}
+                  rules={{ required: true, validate: validateMeasure }}
                   render={({ field }) => (
                     <input
                       {...field}
@@ -291,6 +320,11 @@ export const AddRecipeForm = () => {
               >
                 Add ingredient &#x2b;
               </Button>
+              {newIngredients.length === 0 && isSubmitted && (
+                <span className={styles.errorMessage}>
+                  Please add at least one ingredient
+                </span>
+              )}
             </div>
           </div>
 
@@ -311,10 +345,12 @@ export const AddRecipeForm = () => {
               rules={{ required: true }}
               render={({ field }) => (
                 <Select
+                  {...field}
                   className={styles.select}
                   placeholder="Select a area"
                   options={getSelectOptions(areas)}
-                  {...field}
+                  styles={customStyles}
+                  isClearable={true}
                 />
               )}
             />
@@ -330,6 +366,7 @@ export const AddRecipeForm = () => {
                 id="instructions"
                 name="instructions"
                 placeholder="Enter recipe"
+                rows={1}
                 {...register("instructions", {
                   required: true,
                   maxLength: 199,
@@ -365,9 +402,7 @@ export const AddRecipeForm = () => {
           </div>
         </div>
       </form>
-      {errorCreate && (
-        <ErrorComponent message={errorCreate?.message} onRetry={onRetry} />
-      )}
+      {isLoading && <LoadingSpinner />}
     </>
   );
 };

@@ -2,5 +2,6 @@
   color: var(--color-error-message);
   position: absolute;
   bottom: -20px;
+  font-size: 14px;
   left: 0;
 }

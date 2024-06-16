@@ -14,8 +14,11 @@ const mapRouteName = {
 export const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((path) => path);
+
   const id = pathnames.filter((el) => el !== "recipe" && !mapRouteName[el]);
-  const { data: { title } = {} } = useGetRecipeQuery(id, { skip: !id });
+  const { data: { title } = {} } = useGetRecipeQuery(id, {
+    skip: !id || !location.pathname.includes("recipe"),
+  });
   const renderPathNames = useMemo(() => {
     if (location.pathname.includes("user")) {
       return ["user"];

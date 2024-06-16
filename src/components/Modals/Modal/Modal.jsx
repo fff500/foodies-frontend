@@ -43,7 +43,12 @@ export const Modal = ({ children, onClose }) => {
             type="button"
             onClick={() => onClose()}
           >
-            <Icon className={styles.closeIcon} id={"close"} />
+            <Icon
+              className={styles.closeIcon}
+              id={"close"}
+              width={24}
+              height={24}
+            />
           </Button>
           {children}
         </div>

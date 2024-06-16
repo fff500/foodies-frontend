@@ -13,12 +13,17 @@ export const RecipeMainInfo = ({
   removeFromFavorites,
 }) => {
   const imageSrc = useGenerateImageUrl(data?.thumb);
+  const userSrc =
+    useGenerateImageUrl(data?.owner?.avatar) || profileAvatarPlaceholder;
 
   return (
     <div className={styles.recipeWrapper}>
       <div className={styles.recipeContainers}>
         <div className={styles.recipeContainer}>
           <img
+            loading="lazy"
+            width={100}
+            height={100}
             src={imageSrc}
             alt={data.title}
             className={styles.imageContainer}
@@ -41,18 +46,13 @@ export const RecipeMainInfo = ({
               <button
                 className={classnames(styles.userInfo, styles.resetButton)}
               >
-                <div>
-                  {
-                    <img
-                      src={
-                        data.owner.avatar
-                          ? data.owner.avatar
-                          : profileAvatarPlaceholder
-                      }
-                      alt="owner_img"
-                    />
-                  }
-                </div>
+                <div>{<img     
+                      loading="lazy"
+                      width={80}
+                      height={80}
+                      src={userSrc} 
+                      alt="owner_img" />}
+                 </div>
                 <div className={styles.userInfoText}>
                   <span className={styles.userInfoLabelText}>Created by:</span>
                   <span className={styles.userInfoTextName}>

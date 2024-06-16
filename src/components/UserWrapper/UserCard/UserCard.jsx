@@ -10,6 +10,7 @@ import {
 import { UserRecipeImage } from "./UserRecipeImage";
 import { useGenerateImageUrl } from "../../../hooks";
 import { useEffect, useState } from "react";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../../constants";
 
 export const UserCard = ({ type, user }) => {
   const [unfollowUser] = useUnfollowUserMutation();
@@ -23,9 +24,12 @@ export const UserCard = ({ type, user }) => {
     followUser(user._id);
   };
 
-  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery(user._id);
+  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery({
+    id: user._id,
+  });
 
-  const imageSrc = useGenerateImageUrl(user?.avatar);
+  const imageSrc =
+    useGenerateImageUrl(user?.avatar) || DEFAULT_IMAGE_AVATAR_URL;
 
   const { data: currentUser } = useGetCurrentUserQuery();
 
@@ -42,7 +46,14 @@ export const UserCard = ({ type, user }) => {
   return (
     <>
       <div className={styles.userCard}>
-        <img src={imageSrc} alt={user.name} className={styles.image} />
+        <img
+          loading="lazy"
+          width={100}
+          height={100}
+          src={user.avatar}
+          alt={user.name}
+          className={styles.image}
+        />
         <div>
           <h3 className={styles.title}>{user.name.toUpperCase()}</h3>
           <p className={styles.description}>
@@ -63,7 +74,12 @@ export const UserCard = ({ type, user }) => {
         </div>
         <div className={styles.actions}>
           <Link to={`/user/${user._id}`} className={styles.link}>
-            <Icon className={styles.icon} id={"arrowUpRight"} />
+            <Icon
+              className={styles.icon}
+              id={"arrowUpRight"}
+              width={16}
+              height={16}
+            />
           </Link>
         </div>
       </div>
