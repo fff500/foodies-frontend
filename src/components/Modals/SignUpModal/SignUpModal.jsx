@@ -8,6 +8,7 @@ import {
   useLoginUserMutation,
   closeModal,
   openModal,
+  useGetCurrentUserQuery,
 } from "../../../redux";
 import { showError } from "../../../utils/";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -47,6 +48,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
     watch,
   } = useForm({ mode: "all", resolver: yupResolver(signUpValidationSchema) });
 
+  const { refetch } = useGetCurrentUserQuery();
   const allFieldsFilled = watch(["name", "email", "password"]).every(
     (field) => field
   );
@@ -64,6 +66,8 @@ export const SignUpModal = ({ isOpen, onClose }) => {
               navigate(to);
             }
             dispatch(closeModal());
+            refetch();
+
             reset();
           });
       })
@@ -78,7 +82,7 @@ export const SignUpModal = ({ isOpen, onClose }) => {
       {isOpen && (
         <Modal onClose={onClose}>
           <div className={styles.container}>
-            {isLoading || (isLoadingLogin && <LoadingSpinner />)}
+            {(isLoading || isLoadingLogin) && <LoadingSpinner />}
             <h3 className={styles.titleBlock}>{MODALS.signUp}</h3>
             <form
               className={styles.inputsBlock}

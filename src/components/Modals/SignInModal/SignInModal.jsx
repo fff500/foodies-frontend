@@ -6,7 +6,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { MODALS, INPUT_CONFIG } from "../../../constants";
 import { showError } from "../../../utils/";
 import { useForm } from "react-hook-form";
-import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
+import {
+  useLoginUserMutation,
+  closeModal,
+  openModal,
+  useGetCurrentUserQuery,
+} from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input, PasswordInput } from "../Inputs";
@@ -40,6 +45,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
   } = useForm({ mode: "all", resolver: yupResolver(signInValidationSchema) });
 
   const allFieldsFilled = watch(["email", "password"]).every((field) => field);
+  const { refetch } = useGetCurrentUserQuery();
 
   const onSubmit = (data) => {
     login(data)
@@ -55,6 +61,7 @@ export const SignInModal = ({ isOpen, onClose }) => {
         if (to) {
           navigate(to);
         }
+        refetch();
       })
       .catch((e) => {
         console.log(e);
