@@ -32,19 +32,11 @@ export const UserWrapper = ({ userId }) => {
   }, [currentUser, userId]);
 
   const handleFollow = async () => {
-    try {
-      await followUser(userId).unwrap();
-    } catch (error) {
-      console.error("Error when following user", error);
-    }
+    followUser(userId);
   };
 
   const handleUnfollow = async () => {
-    try {
-      await unfollowUser(userId).unwrap();
-    } catch (error) {
-      console.error("Error when unfollowing user", error);
-    }
+    unfollowUser(userId);
   };
 
   const {

@@ -3,11 +3,13 @@ import { Button, Icon } from "../../shared";
 import styles from "./UserCard.module.css";
 import {
   useFollowUserMutation,
+  useGetCurrentUserQuery,
   useGetRecipesByOwnerIdQuery,
   useUnfollowUserMutation,
 } from "../../../redux";
 import { UserRecipeImage } from "./UserRecipeImage";
 import { useGenerateImageUrl } from "../../../hooks";
+import { useEffect, useState } from "react";
 
 export const UserCard = ({ type, user }) => {
   const [unfollowUser] = useUnfollowUserMutation();
@@ -25,6 +27,18 @@ export const UserCard = ({ type, user }) => {
 
   const imageSrc = useGenerateImageUrl(user?.avatar);
 
+  const { data: currentUser } = useGetCurrentUserQuery();
+
+  const [isFollowing, setIsFollowing] = useState(
+    currentUser ? currentUser.following.includes(user._id) : false
+  );
+
+  useEffect(() => {
+    setIsFollowing(
+      currentUser ? currentUser.following.includes(user._id) : false
+    );
+  }, [currentUser, user]);
+
   return (
     <>
       <div className={styles.userCard}>
@@ -34,20 +48,13 @@ export const UserCard = ({ type, user }) => {
           <p className={styles.description}>
             Own recipes: {user.createdRecipesCount}
           </p>
-          {type === "following" && (
-            <Button
-              onClick={handleUnfollow}
-              className={styles.cta}
-              type="button"
-            >
-              FOLLOWING
-            </Button>
-          )}
-          {type === "followers" && (
-            <Button onClick={handleFollow} className={styles.cta} type="button">
-              FOLLOW
-            </Button>
-          )}
+          <Button
+            onClick={isFollowing ? handleUnfollow : handleFollow}
+            className={styles.cta}
+            type="button"
+          >
+            {isFollowing ? "UNFOLLOW" : "FOLLOW"}
+          </Button>
         </div>
         <div className={styles.recipeImages}>
           {userRecipes.recipes?.slice(0, 3).map((recipe) => (
