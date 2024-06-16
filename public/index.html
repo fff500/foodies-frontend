@@ -9,7 +9,7 @@
       name="description"
       content="Foodies is an application that allows users to search for recipes based on ingredients they have on hand. Users can also save their favorite recipes in their account."
     />
-        <!--
+    <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
@@ -31,7 +31,7 @@
       type="font/ttf"
       crossorigin="anonymous"
     />
-         <link
+    <link
       rel="preload"
       href="%PUBLIC_URL%/fonts/Mulish/Mulish-Bold.ttf"
       as="font"
@@ -45,6 +45,7 @@
       type="font/ttf"
       crossorigin="anonymous"
     />
+
     <style>
       @font-face {
         font-family: "Mulish";
@@ -80,30 +81,11 @@
         font-style: normal;
         font-display: swap;
       }
-
-      body {
-        font-family: 'Mulish', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      
-      /* Critical CSS */
-      .MainTitle_mainTitle__Ubri6 {
-        font-size: 2rem;
-        font-weight: 800;
-        color: #333;
-      }
-
-      .HeroContentContainer_heroTitle__o7lEC {
-        text-align: center;
-        margin-top: 50px;
-      }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-         </div>
+    <div id="root"></div>
     <div id="portal-root"></div>
     <!--
       This HTML file is a template.
@@ -115,11 +97,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- Non-critical CSS loaded asynchronously -->
-    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-    
-    <!-- Scripts loaded asynchronously -->
-    <script src="index.js" defer></script>
   </body>
 </html>
