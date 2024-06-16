@@ -19,7 +19,7 @@ export const Header = ({ isHomePage }) => {
     </div>
   ) : (
     <>
-      <Nav />
+      <Nav isHomePage={isHomePage} />
       <UserBar
         userName={data?.name || ""}
         userImage={userData?.avatar}
