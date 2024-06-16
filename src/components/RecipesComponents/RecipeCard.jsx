@@ -31,6 +31,8 @@ export const RecipeCard = ({
     <div className={styles.infoCard}>
       <img
         loading="lazy"
+        width={100}
+        height={100}
         src={imgSrc}
         alt={alt}
         className={styles.infoCardImg}
@@ -42,6 +44,9 @@ export const RecipeCard = ({
           <PrivateLink to={`/user/${author._id}`}>
             <Button type="button" className={styles.infoCardAuthor}>
               <img
+                loading="lazy"
+                width={32}
+                height={32}
                 src={avatarSrc}
                 alt={author}
                 className={styles.authorAvatar}
@@ -57,6 +62,8 @@ export const RecipeCard = ({
                 onSuccess={handleFavoriteClick}
               >
                 <Icon
+                  width={16}
+                  height={16}
                   id="heart"
                   className={isFavorite ? styles.iconActive : styles.icon}
                 />
@@ -65,7 +72,12 @@ export const RecipeCard = ({
             <Button>
               <Link to={`/recipe/${recipeId}`}>
                 <div className={styles.iconCircle}>
-                  <Icon id="arrowUpRight" className={styles.icon} />
+                  <Icon
+                    id="arrowUpRight"
+                    className={styles.icon}
+                    width={16}
+                    height={16}
+                  />
                 </div>
               </Link>
             </Button>

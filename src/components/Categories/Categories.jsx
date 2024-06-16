@@ -1,10 +1,8 @@
-import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { MainTitle, Subtitle } from "../shared";
+import { Recipes } from "../RecipesComponents";
 import styles from "./Categories.module.css";
 import { CategoryList } from "./CategoryList";
-import { Recipes } from "../RecipesComponents";
 
 export const Categories = () => {
   const [searchParams] = useSearchParams();

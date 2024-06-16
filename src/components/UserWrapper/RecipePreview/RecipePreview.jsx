@@ -20,6 +20,9 @@ export const RecipePreview = ({ recipe }) => {
   return (
     <div className={styles.recipePreview}>
       <img
+        loading="lazy"
+        width={75}
+        height={75}
         src={`${process.env.REACT_APP_BACKEND_BASE_URL}/${recipe.thumb}`}
         alt={recipe.title}
         className={styles.image}
@@ -30,7 +33,7 @@ export const RecipePreview = ({ recipe }) => {
       </div>
       <div className={styles.actions}>
         <Link to={`/recipe/${recipe._id}`} className={styles.link}>
-          <Icon className={styles.icon} id={"arrowUpRight"} />
+          <Icon className={styles.icon} id={"arrowUpRight"}   width={16} height={16}/>
         </Link>
         {isOwner && (
           <Button
@@ -38,7 +41,7 @@ export const RecipePreview = ({ recipe }) => {
             className={styles.deleteButton}
             type="button"
           >
-            <Icon className={styles.icon} id={"trash"} />
+            <Icon className={styles.icon} id={"trash"}  width={16} height={16}/>
           </Button>
         )}
       </div>

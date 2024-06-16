@@ -25,7 +25,14 @@ export const UserCard = ({ type, user }) => {
   return (
     <>
       <div className={styles.userCard}>
-        <img src={user.avatar} alt={user.name} className={styles.image} />
+        <img
+          loading="lazy"
+          width={100}
+          height={100}
+          src={user.avatar}
+          alt={user.name}
+          className={styles.image}
+        />
         <div>
           <h3 className={styles.title}>{user.name.toUpperCase()}</h3>
           <p className={styles.description}>
@@ -58,7 +65,12 @@ export const UserCard = ({ type, user }) => {
         </div>
         <div className={styles.actions}>
           <Link to={`/user/${user._id}`} className={styles.link}>
-            <Icon className={styles.icon} id={"arrowUpRight"} />
+            <Icon
+              className={styles.icon}
+              id={"arrowUpRight"}
+              width={16}
+              height={16}
+            />
           </Link>
         </div>
       </div>

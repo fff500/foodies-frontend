@@ -55,7 +55,12 @@ export const Recipes = ({ category }) => {
       <section className={styles.recipesSection}>
         <div className={styles.recipesNav}>
           <Button className={styles.backButton} onClick={handleBackClick}>
-            <Icon id={"arrowLeft"} className={styles.arrowLeft} />
+            <Icon
+              id={"arrowLeft"}
+              className={styles.arrowLeft}
+              width={16}
+              height={16}
+            />
             Back
           </Button>
         </div>

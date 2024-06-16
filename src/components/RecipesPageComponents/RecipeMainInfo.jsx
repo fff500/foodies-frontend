@@ -19,6 +19,9 @@ export const RecipeMainInfo = ({
       <div className={styles.recipeContainers}>
         <div className={styles.recipeContainer}>
           <img
+            loading="lazy"
+            width={100}
+            height={100}
             src={imageSrc}
             alt={data.title}
             className={styles.imageContainer}
@@ -44,6 +47,9 @@ export const RecipeMainInfo = ({
                 <div>
                   {
                     <img
+                      loading="lazy"
+                      width={80}
+                      height={80}
                       src={
                         data.owner.avatar
                           ? data.owner.avatar
