@@ -1,30 +1,24 @@
 import classnames from "classnames";
-import { useIsAuth } from "../../../hooks";
-import { LoadingSpinner, Logo } from "../../shared";
+import { useGetCurrentUserQuery } from "../../../redux";
+import { Logo } from "../../shared";
 import { Container } from "../Container";
 import { Nav } from "./Nav";
 import { BurgerMenu } from "./BurgerMenu";
 import { AuthBar } from "./AuthBar";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
-import { useGetCurrentUserQuery } from "../../../redux";
 
 export const Header = ({ isHomePage }) => {
-  const { isAuth, isLoading, data } = useIsAuth();
-  const { data: userData } = useGetCurrentUserQuery();
+  const { isLoading, data } = useGetCurrentUserQuery();
 
-  const content = !isAuth ? (
+  const content = !data ? (
     <div className={styles.authButtonsWrapper}>
       <AuthBar />
     </div>
   ) : (
     <>
       <Nav isHomePage={isHomePage} />
-      <UserBar
-        userName={data?.name || ""}
-        userImage={userData?.avatar}
-        id={data?._id}
-      />
+      <UserBar userName={data?.name || ""} id={data?._id} />
       <BurgerMenu isHomePage={isHomePage} />
     </>
   );
@@ -41,14 +35,8 @@ export const Header = ({ isHomePage }) => {
               [styles.isLoadingLogo]: isLoading,
             })}
           />
-          {isLoading ? (
-            <LoadingSpinner
-              containerClassName={styles.loadingContainer}
-              className={styles.loading}
-            />
-          ) : (
-            content
-          )}
+
+          {isLoading ? null : content}
         </div>
       </Container>
     </header>

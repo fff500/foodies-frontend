@@ -3,13 +3,13 @@ import { useClickOutside } from "@mantine/hooks";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import classnames from "classnames";
-import { openModal } from "../../../../redux";
+import { openModal, useGetCurrentUserQuery } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
 import { useGenerateImageUrl } from "../../../../hooks";
 
-export const UserBar = ({ userName, userImage, id }) => {
+export const UserBar = ({ userName, id }) => {
   const dispatch = useDispatch();
   const handleLogoutRegisterModal = () => {
     dispatch(
@@ -24,7 +24,9 @@ export const UserBar = ({ userName, userImage, id }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const imageSrc = useGenerateImageUrl(userImage);
+  const { data: currentUser } = useGetCurrentUserQuery();
+
+  const imageSrc = useGenerateImageUrl(currentUser?.avatar);
 
   return (
     <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>

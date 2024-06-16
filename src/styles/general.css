@@ -13,6 +13,10 @@ h6 {
   margin: 0;
 }
 
+button {
+    outline: transparent;
+}
+
 ul,
 ol {
   margin: 0;
