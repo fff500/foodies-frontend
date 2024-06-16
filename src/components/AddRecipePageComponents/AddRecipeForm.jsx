@@ -10,13 +10,12 @@ import {
   useGetCurrentUserQuery,
   useGetIngredientsQuery,
 } from "../../redux";
-import { Button, ErrorComponent, Icon, LoadingSpinner } from "../shared";
-import { getSelectOptions } from "../../utils/getSelectOptions";
+import { Button, Icon, LoadingSpinner } from "../shared";
+import { getSelectOptions, showError } from "../../utils";
 import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
-
 import styles from "./AddRecipeForm.module.css";
 
 const defaultValues = {
@@ -39,8 +38,7 @@ export const AddRecipeForm = () => {
     isFetching: ingredientsIsFetching,
   } = useGetIngredientsQuery();
   const { data: areas, isFetching: areasIsFetching } = useGetAreasQuery();
-  const [create, { error: errorCreate, reset: onRetry }] =
-    useCreateRecipeMutation();
+  const [create] = useCreateRecipeMutation();
   const { data: currentUser } = useGetCurrentUserQuery();
 
   const {
@@ -90,7 +88,10 @@ export const AddRecipeForm = () => {
           navigate(`/user/${currentUser._id}`);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((e) => {
+        console.log(e);
+        showError(e?.message);
+      });
   };
 
   const onChangeUpload = (e) => {
@@ -365,9 +366,6 @@ export const AddRecipeForm = () => {
           </div>
         </div>
       </form>
-      {errorCreate && (
-        <ErrorComponent message={errorCreate?.message} onRetry={onRetry} />
-      )}
     </>
   );
 };

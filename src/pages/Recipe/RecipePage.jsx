@@ -50,7 +50,7 @@ const RecipePage = () => {
 
   useEffect(() => {
     scrollTo({ x: 0, y: 0 });
-  }, [recipeId]);
+  }, [recipeId, scrollTo]);
 
   const isLoading =
     recipeLoading ||

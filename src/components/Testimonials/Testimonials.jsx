@@ -36,13 +36,7 @@ export const Testimonials = () => {
           >
             {testimonialsData.map((el) => (
               <SwiperSlide className={styles.swiperSlide} key={el._id}>
-                <Icon
-                  id={"quote"}
-                  className={styles.icon}
-                  width={24}
-                  height={24}
-                />
-
+                <Icon id="quote" className={styles.svg} />
                 <span className={styles.description}>{el.testimonial}</span>
                 <span className={styles.owner}>{el?.owner?.name}</span>
               </SwiperSlide>

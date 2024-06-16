@@ -9,6 +9,7 @@ import {
   closeModal,
   openModal,
 } from "../../../redux";
+import { showError } from "../../../utils/";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { INPUT_CONFIG, MODALS } from "../../../constants";
 import { Button, LoadingSpinner } from "../../shared";
@@ -56,7 +57,8 @@ export const SignUpModal = ({ isOpen, onClose }) => {
       .then(() => {
         login({ password: data.password, email: data.email })
           .unwrap()
-          .then(({ user: { token } }) => {
+          .then((data) => {
+            const token = data?.user?.token || null;
             setToken(token);
             if (to) {
               navigate(to);
@@ -65,7 +67,10 @@ export const SignUpModal = ({ isOpen, onClose }) => {
             reset();
           });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        showError(e.message);
+      });
   };
 
   return (

@@ -24,7 +24,7 @@ export const RecipeCard = ({
   const handleFavoriteClick = useCallback(
     () =>
       isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId),
-    [isFavorite]
+    [isFavorite, removeFromFavorites, addToFavorites, recipeId]
   );
 
   return (

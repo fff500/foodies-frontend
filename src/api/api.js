@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const apiInstance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
+  // withCredentials: true,
 });
 
 apiInstance.interceptors.request.use(
@@ -13,4 +14,13 @@ apiInstance.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+apiInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    return Promise.reject(error.response.data);
+  }
 );
