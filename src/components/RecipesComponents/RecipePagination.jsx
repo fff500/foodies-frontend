@@ -1,7 +1,7 @@
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { useEffect } from "react";
-import styles from "./Recipes.module.css";
 import { Button } from "../shared";
+import styles from "./Recipes.module.css";
 
 export const RecipePagination = ({ currentPage, totalPages, onPageChange }) => {
   const maxPageButtons = 3;

@@ -48,7 +48,7 @@ export const UserCard = ({ type, user }) => {
           loading="lazy"
           width={100}
           height={100}
-          src={user.avatar}
+          src={imageSrc}
           alt={user.name}
           className={styles.image}
         />
