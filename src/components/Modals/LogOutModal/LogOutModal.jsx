@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLocalStorage } from "@mantine/hooks";
-import { closeModal, useLogoutUserMutation } from "../../../redux";
+import {
+  closeModal,
+  useLogoutUserMutation,
+  createApiUsers,
+} from "../../../redux";
 import { MODALS } from "../../../constants";
 import { Button } from "../../shared";
 import { Modal } from "../Modal";
@@ -15,8 +19,9 @@ export const LogOutModal = ({ isOpen, onClose }) => {
     key: "token",
   });
   const handleLogOut = () => {
-    setToken(null);
     logout();
+    setToken(null);
+    dispatch(createApiUsers.util.resetApiState());
     dispatch(closeModal());
     navigate("/");
   };
