@@ -1,7 +1,6 @@
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { useEffect } from "react";
 import styles from "./Recipes.module.css";
-import { Button } from "../shared";
 
 export const RecipePagination = ({ currentPage, totalPages, onPageChange }) => {
   const maxPageButtons = 3;
@@ -26,13 +25,13 @@ export const RecipePagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <nav className={styles.pagination}>
       {pageNumbers.map((page) => (
-        <Button
+        <button
           key={page}
           className={`${styles.paginationButton} ${currentPage === page ? styles.active : ""}`}
           onClick={() => onPageChange(page)}
         >
           {page}
-        </Button>
+        </button>
       ))}
     </nav>
   );
