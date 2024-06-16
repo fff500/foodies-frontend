@@ -12,6 +12,7 @@
   font-weight: 800;
   color: var(--color-black, #050505);
   cursor: pointer;
+  outline: transparent;
 }
 
 .selectedTab {
