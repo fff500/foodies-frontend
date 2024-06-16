@@ -22,14 +22,14 @@ export const ListPagination = ({ setPage, totalCount, page }) => {
     );
 
     if (startPage > 1) {
-      pages.unshift("...");
+      pages.unshift("<");
     }
 
     if (endPage < totalPages) {
-      pages.push("...");
+      pages.push(">");
     }
 
-    if (totalPages === 0) {
+    if (totalPages === 1) {
       return null;
     }
   }
@@ -43,6 +43,12 @@ export const ListPagination = ({ setPage, totalCount, page }) => {
             pageNum === page ? styles.activePage : ""
           }`}
           onClick={() => {
+            if (pageNum === ">") {
+              return setPage(Math.ceil(totalCount / 20));
+            }
+            if (pageNum === "<") {
+              return setPage(1);
+            }
             setPage(pageNum);
           }}
         >
