@@ -7,11 +7,9 @@ import { BurgerMenu } from "./BurgerMenu";
 import { AuthBar } from "./AuthBar";
 import { UserBar } from "./UserBar";
 import styles from "./Header.module.css";
-import { useGetCurrentUserQuery } from "../../../redux";
 
 export const Header = ({ isHomePage }) => {
   const { isAuth, isLoading, data } = useIsAuth();
-  const { data: userData } = useGetCurrentUserQuery();
 
   const content = !isAuth ? (
     <div className={styles.authButtonsWrapper}>
@@ -20,11 +18,7 @@ export const Header = ({ isHomePage }) => {
   ) : (
     <>
       <Nav isHomePage={isHomePage} />
-      <UserBar
-        userName={data?.name || ""}
-        userImage={userData?.avatar}
-        id={data?._id}
-      />
+      <UserBar userName={data?.name || ""} id={data?._id} />
       <BurgerMenu isHomePage={isHomePage} />
     </>
   );

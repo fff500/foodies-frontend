@@ -16,7 +16,7 @@ export const TabsList = ({
     <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
       <TabList className={styles.tabList}>
         <Tab className={styles.tab} selectedClassName={styles.selectedTab}>
-          MY RECIPES
+          {isCurrentUser ? "MY RECIPES" : "RECIPES"}
         </Tab>
         {isCurrentUser && (
           <Tab className={styles.tab} selectedClassName={styles.selectedTab}>

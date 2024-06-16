@@ -35,7 +35,10 @@ export const UserWrapperLoggedIn = () => {
     isLoading: isLoadingMyRecipes,
     isError: isErrorMyRecipes,
     refetch: refetchMyRecipes,
-  } = useGetMyOwnRecipesQuery(page, { skip: activeTab !== 0 });
+  } = useGetMyOwnRecipesQuery(page, {
+    skip: activeTab !== 0,
+    refetchOnMountOrArgChange: true,
+  });
 
   const {
     data: myFavorites = {},
