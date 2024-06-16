@@ -7,7 +7,9 @@ const errorMessages = {
 };
 
 export const ErrorMessage = ({ errors, field }) => {
-  if (!errors || !errors[field]) return null;
+  if (!errors || !errors[field]) {
+    return null;
+  }
 
   const errorType = errors[field]?.type;
   const errorMessage = errorMessages[errorType];
