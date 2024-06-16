@@ -9,7 +9,6 @@ export const IngredientItem = ({ label, img, measure, id, onDelete }) => (
         src={img}
         alt={label}
         width={100}
-        height={100}
         className={styles.ingredientImage}
       />
     </div>

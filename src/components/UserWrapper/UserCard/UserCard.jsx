@@ -24,7 +24,9 @@ export const UserCard = ({ type, user }) => {
     followUser(user._id);
   };
 
-  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery(user._id);
+  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery({
+    id: user._id,
+  });
 
   const imageSrc =
     useGenerateImageUrl(user?.avatar) || DEFAULT_IMAGE_AVATAR_URL;
@@ -72,12 +74,7 @@ export const UserCard = ({ type, user }) => {
         </div>
         <div className={styles.actions}>
           <Link to={`/user/${user._id}`} className={styles.link}>
-            <Icon
-              className={styles.icon}
-              id={"arrowUpRight"}
-              width={16}
-              height={16}
-            />
+            <Icon className={styles.icon} id={"arrowUpRight"} />
           </Link>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import styles from "./UserWrapper.module.css";
 import { UserInfo } from "./UserInfo";
 import { TabsList } from "./TabsList";
@@ -17,13 +18,19 @@ export const UserWrapper = ({ userId }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [followUser] = useFollowUserMutation();
   const [unfollowUser] = useUnfollowUserMutation();
-
+  const [, scrollTo] = useWindowScroll();
   const { data: currentUser } = useGetCurrentUserQuery();
   const userQuery = useGetUserQuery(userId);
-
   const [isFollowing, setIsFollowing] = useState(
     currentUser ? currentUser.following.includes(userId) : false
   );
+
+  const desktop = useMediaQuery("(min-width: 1440px)");
+  const tablet = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    scrollTo({ y: desktop ? 300 : tablet ? 680 : 550 });
+  }, [page]);
 
   useEffect(() => {
     setIsFollowing(
@@ -44,7 +51,10 @@ export const UserWrapper = ({ userId }) => {
     isLoading: isLoadingUserRecipes,
     isError: isErrorUserRecipes,
     refetch: refetchUseRecipes,
-  } = useGetRecipesByOwnerIdQuery(userId, page, { skip: activeTab !== 0 });
+  } = useGetRecipesByOwnerIdQuery(
+    { id: userId, page },
+    { skip: activeTab !== 0 }
+  );
 
   const {
     data: followers = {},
@@ -57,7 +67,7 @@ export const UserWrapper = ({ userId }) => {
     switch (activeTab) {
       case 0:
         return {
-          data: userRecipes.recipes || [],
+          data: userRecipes?.recipes || [],
           loading: isLoadingUserRecipes,
           error: isErrorUserRecipes,
           refetch: refetchUseRecipes,
