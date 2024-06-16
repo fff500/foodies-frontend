@@ -1,10 +1,8 @@
 import { useMemo } from "react";
-import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import { useGetCurrentUserQuery } from "../../redux";
 import { RecipeCard } from "./RecipeCard";
 import styles from "./Recipes.module.css";
 import { ErrorComponent, LoadingSpinner } from "../shared";
-import { useGenerateImageUrl } from "../../hooks";
 
 export const RecipeList = ({ data, isLoading, error, refetch }) => {
   const { data: userCurrent } = useGetCurrentUserQuery();
