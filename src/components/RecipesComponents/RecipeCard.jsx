@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useCallback } from "react";
+import { useGenerateImageUrl } from "../../hooks";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import {
   useAddToFavoritesMutation,
   useRemoveFromFavoritesMutation,
@@ -25,13 +26,16 @@ export const RecipeCard = ({
     ? () => removeFromFavorites(recipeId)
     : () => addToFavorites(recipeId);
 
+  const cardImageSrc = useGenerateImageUrl(imgSrc) || DEFAULT_IMAGE_AVATAR_URL;
+  const userAvatarSrc =
+    useGenerateImageUrl(avatarSrc) || DEFAULT_IMAGE_AVATAR_URL;
   return (
     <div className={styles.infoCard}>
       <img
         loading="lazy"
         width={100}
         height={100}
-        src={imgSrc}
+        src={cardImageSrc}
         alt={alt}
         className={styles.infoCardImg}
       />
@@ -42,10 +46,11 @@ export const RecipeCard = ({
           <PrivateLink to={`/user/${author._id}`}>
             <Button type="button" className={styles.infoCardAuthor}>
               <img
+
                 loading="lazy"
                 width={32}
                 height={32}
-                src={avatarSrc}
+                src={userAvatarSrc}
                 alt={author}
                 className={styles.authorAvatar}
               />
