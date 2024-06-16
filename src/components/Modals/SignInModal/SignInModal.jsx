@@ -4,8 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { MODALS, INPUT_CONFIG } from "../../../constants";
+import { showError } from "../../../utils/";
 import { useForm } from "react-hook-form";
-import { useLoginUserMutation, closeModal, openModal } from "../../../redux";
+import {
+  useLoginUserMutation,
+  closeModal,
+  openModal,
+  useGetCurrentUserQuery,
+} from "../../../redux";
 import { Button, LoadingSpinner } from "../../shared";
 import { Modal } from "../Modal";
 import { Input, PasswordInput } from "../Inputs";
@@ -39,23 +45,28 @@ export const SignInModal = ({ isOpen, onClose }) => {
   } = useForm({ mode: "all", resolver: yupResolver(signInValidationSchema) });
 
   const allFieldsFilled = watch(["email", "password"]).every((field) => field);
+  const { refetch } = useGetCurrentUserQuery();
 
-  const onSubmit = async (data) => {
-    try {
-      const {
-        data: {
-          user: { token },
-        },
-      } = await login(data);
-      setToken(token);
-      if (to) {
-        navigate(to);
-      }
-      dispatch(closeModal());
-      reset();
-    } catch (e) {
-      console.log(e);
-    }
+  const onSubmit = (data) => {
+    login(data)
+      .unwrap()
+      .then((response) => {
+        const token = response?.user?.token || null;
+
+        if (token) {
+          setToken(token);
+          reset();
+          dispatch(closeModal());
+        }
+        if (to) {
+          navigate(to);
+        }
+        refetch();
+      })
+      .catch((e) => {
+        console.log(e);
+        showError(e.message);
+      });
   };
 
   return (

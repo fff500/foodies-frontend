@@ -21,11 +21,9 @@ export const RecipeCard = ({
 
   const [removeFromFavorites] = useRemoveFromFavoritesMutation();
 
-  const handleFavoriteClick = useCallback(
-    () =>
-      isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId),
-    [isFavorite]
-  );
+  const handleFavoriteClick = isFavorite
+    ? () => removeFromFavorites(recipeId)
+    : () => addToFavorites(recipeId);
 
   return (
     <div className={styles.infoCard}>
