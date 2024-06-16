@@ -7,14 +7,28 @@ export const Nav = ({ isHomePage }) => {
     <nav className={styles.headerNav}>
       <ul className={styles.headerNavList}>
         <li className={styles.headerNavItem}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              classnames(styles.headerNavLink, { [styles.active]: isActive })
+            }
+          >
+            Home
+          </NavLink>
         </li>
         <li
           className={classnames(styles.headerNavItem, {
-            [styles.active]: !isHomePage,
+            [styles.notHomePage]: !isHomePage,
           })}
         >
-          <NavLink to="/recipe/add">Add recipe</NavLink>
+          <NavLink
+            to="/recipe/add"
+            className={({ isActive }) =>
+              classnames(styles.headerNavLink, { [styles.active]: isActive })
+            }
+          >
+            Add recipe
+          </NavLink>
         </li>
       </ul>
     </nav>
