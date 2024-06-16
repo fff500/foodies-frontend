@@ -7,6 +7,7 @@ import {
   useUnfollowUserMutation,
 } from "../../../redux";
 import { UserRecipeImage } from "./UserRecipeImage";
+import { useGenerateImageUrl } from "../../../hooks";
 
 export const UserCard = ({ type, user }) => {
   const [unfollowUser] = useUnfollowUserMutation();
@@ -22,10 +23,12 @@ export const UserCard = ({ type, user }) => {
 
   const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery(user._id);
 
+  const imageSrc = useGenerateImageUrl(user?.avatar);
+
   return (
     <>
       <div className={styles.userCard}>
-        <img src={user.avatar} alt={user.name} className={styles.image} />
+        <img src={imageSrc} alt={user.name} className={styles.image} />
         <div>
           <h3 className={styles.title}>{user.name.toUpperCase()}</h3>
           <p className={styles.description}>
@@ -48,12 +51,7 @@ export const UserCard = ({ type, user }) => {
         </div>
         <div className={styles.recipeImages}>
           {userRecipes.recipes?.slice(0, 3).map((recipe) => (
-            <UserRecipeImage
-              key={recipe._id}
-              src={recipe.image}
-              alt={recipe.title}
-              className={styles.recipeImage}
-            />
+            <UserRecipeImage key={recipe._id} recipe={recipe} />
           ))}
         </div>
         <div className={styles.actions}>
