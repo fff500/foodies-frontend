@@ -27,7 +27,7 @@ export const PopularRecipes = ({ data, user }) => {
                 author={card.owner}
                 isFavorite={!!favorites[card?._id]}
                 recipeId={card._id}
-                avatarSrc={card.owner.avatar || DEFAULT_IMAGE_AVATAR_URL}
+                avatarSrc={card.owner.avatar}
               />
             )
         )}
