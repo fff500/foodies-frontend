@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import { useGetCurrentUserQuery } from "../../redux";
 import { RecipeCard } from "./RecipeCard";
 import styles from "./Recipes.module.css";
@@ -41,7 +40,7 @@ export const RecipeList = ({ data, isLoading, error, refetch }) => {
           isFavorite={!!favorites[card._id]}
           recipeId={card._id}
           author={card.owner}
-          avatarSrc={card.owner.avatar || DEFAULT_IMAGE_AVATAR_URL}
+          avatarSrc={card.owner.avatar}
         />
       ))}
     </div>
