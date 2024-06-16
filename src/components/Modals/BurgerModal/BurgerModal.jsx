@@ -27,7 +27,7 @@ export const BurgerModal = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(isOpen);
   const transition = useTransition(isShow, {
     from: { translateX: "100%" },
     enter: { translateX: "0%" },
