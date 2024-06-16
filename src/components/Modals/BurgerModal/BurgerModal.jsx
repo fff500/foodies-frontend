@@ -56,7 +56,12 @@ export const BurgerModal = ({ isOpen, onClose }) => {
                 type="button"
                 onClick={() => onMenuClose()}
               >
-                <Icon className={styles.closeSvg} id={"close"} />
+                <Icon
+                  className={styles.closeSvg}
+                  id={"close"}
+                  width={24}
+                  height={24}
+                />
               </Button>
             </div>
             <ul className={styles.headerNavList}>
