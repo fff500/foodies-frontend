@@ -146,7 +146,6 @@ export const AddRecipeForm = () => {
       padding: "10px 10px 10px 15px!important",
     }),
   };
-  console.log({ errors });
 
   const validateMeasure = (value) => {
     if (value.startsWith("-")) {
