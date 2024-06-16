@@ -10,6 +10,7 @@ import {
 import { UserRecipeImage } from "./UserRecipeImage";
 import { useGenerateImageUrl } from "../../../hooks";
 import { useEffect, useState } from "react";
+import { DEFAULT_IMAGE_AVATAR_URL } from "../../../constants";
 
 export const UserCard = ({ type, user }) => {
   const [unfollowUser] = useUnfollowUserMutation();
@@ -27,7 +28,8 @@ export const UserCard = ({ type, user }) => {
     id: user._id,
   });
 
-  const imageSrc = useGenerateImageUrl(user?.avatar);
+  const imageSrc =
+    useGenerateImageUrl(user?.avatar) || DEFAULT_IMAGE_AVATAR_URL;
 
   const { data: currentUser } = useGetCurrentUserQuery();
 

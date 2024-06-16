@@ -5,6 +5,7 @@ import {
   useDeleteRecipeMutation,
   useGetCurrentUserQuery,
 } from "../../../redux";
+import { useGenerateImageUrl } from "../../../hooks";
 
 export const RecipePreview = ({ recipe }) => {
   const [deleteRecipe] = useDeleteRecipeMutation();
@@ -17,13 +18,10 @@ export const RecipePreview = ({ recipe }) => {
 
   const isOwner = recipe.owner._id === currentUser?._id;
 
+  const recipeImg = useGenerateImageUrl(recipe.thumb);
   return (
     <div className={styles.recipePreview}>
-      <img
-        src={`${process.env.REACT_APP_BACKEND_BASE_URL}/${recipe.thumb}`}
-        alt={recipe.title}
-        className={styles.image}
-      />
+      <img src={recipeImg} alt={recipe.title} className={styles.image} />
       <div className={styles.details}>
         <h3 className={styles.title}>{recipe.title.toUpperCase()}</h3>
         <p className={styles.description}>{recipe.description}</p>
