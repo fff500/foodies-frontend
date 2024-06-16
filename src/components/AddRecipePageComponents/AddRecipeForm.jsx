@@ -10,8 +10,8 @@ import {
   useGetCurrentUserQuery,
   useGetIngredientsQuery,
 } from "../../redux";
-import { Button, Icon, LoadingSpinner } from "../shared";
 import { getSelectOptions, showError } from "../../utils";
+import { Button, Icon, LoadingSpinner } from "../shared";
 import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
@@ -275,6 +275,12 @@ export const AddRecipeForm = () => {
                       name="measure"
                       placeholder="Enter quantity"
                       className={styles.quantity}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        if (value >= 0) {
+                          field.onChange(e);
+                        }
+                      }}
                     />
                   )}
                 />
