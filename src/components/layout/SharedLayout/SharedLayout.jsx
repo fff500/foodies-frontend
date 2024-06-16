@@ -2,6 +2,7 @@ import classnames from "classnames";
 import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { LoadingSpinner, ReduxModal } from "../../shared/";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
@@ -33,6 +34,7 @@ export const SharedLayout = () => {
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
         <ReduxModal key={modalType} />
+        <ToastContainer />
       </Suspense>
     </>
   );

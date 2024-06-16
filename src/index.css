@@ -2,6 +2,8 @@
 
 @import "swiper/css";
 @import "swiper/css/pagination";
+@import "react-toastify/dist/ReactToastify.css";
+
 
 @import "./styles/variables.css";
 @import "./styles/general.css";

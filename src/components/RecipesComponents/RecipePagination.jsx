@@ -11,7 +11,7 @@ export const RecipePagination = ({ currentPage, totalPages, onPageChange }) => {
   const tablet = useMediaQuery("(min-width: 768px)");
   useEffect(() => {
     scrollTo({ y: tablet ? 980 : 840 });
-  }, [currentPage]);
+  }, [currentPage, currentPage, scrollTo, tablet]);
 
   if (endPage - startPage < maxPageButtons - 1) {
     startPage = Math.max(endPage - maxPageButtons + 1, 1);

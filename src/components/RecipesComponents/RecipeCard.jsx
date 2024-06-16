@@ -23,11 +23,9 @@ export const RecipeCard = ({
 
   const [removeFromFavorites] = useRemoveFromFavoritesMutation();
 
-  const handleFavoriteClick = useCallback(
-    () =>
-      isFavorite ? removeFromFavorites(recipeId) : addToFavorites(recipeId),
-    [isFavorite]
-  );
+  const handleFavoriteClick = isFavorite
+    ? () => removeFromFavorites(recipeId)
+    : () => addToFavorites(recipeId);
 
   const cardImageSrc = useGenerateImageUrl(imgSrc) || DEFAULT_IMAGE_AVATAR_URL;
   const userAvatarSrc =

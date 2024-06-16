@@ -1,6 +1,4 @@
-import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { MainTitle, Subtitle } from "../shared";
 import styles from "./Categories.module.css";
 import { CategoryList } from "./CategoryList";
