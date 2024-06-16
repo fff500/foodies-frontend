@@ -23,7 +23,9 @@ export const UserCard = ({ type, user }) => {
     followUser(user._id);
   };
 
-  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery(user._id);
+  const { data: userRecipes = {} } = useGetRecipesByOwnerIdQuery({
+    id: user._id,
+  });
 
   const imageSrc = useGenerateImageUrl(user?.avatar);
 

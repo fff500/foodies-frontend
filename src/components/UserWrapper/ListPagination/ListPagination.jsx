@@ -6,7 +6,28 @@ export const ListPagination = ({ setPage, totalCount, page }) => {
   if (totalCount) {
     const totalPages = Math.ceil(totalCount / 20);
 
-    pages = [...Array(totalPages).keys()].map((i) => i + 1);
+    let startPage = Math.max(1, page - 2);
+    let endPage = Math.min(totalPages, page + 2);
+
+    if (endPage - startPage + 1 < 5) {
+      if (startPage === 1) {
+        endPage = Math.min(totalPages, startPage + 4);
+      } else if (endPage === totalPages) {
+        startPage = Math.max(1, endPage - 4);
+      }
+    }
+
+    pages = [...Array(endPage - startPage + 1).keys()].map(
+      (i) => startPage + i
+    );
+
+    if (startPage > 1) {
+      pages.unshift("...");
+    }
+
+    if (endPage < totalPages) {
+      pages.push("...");
+    }
 
     if (totalPages === 0) {
       return null;
@@ -15,13 +36,15 @@ export const ListPagination = ({ setPage, totalCount, page }) => {
 
   return (
     <nav className={styles.pagination}>
-      {pages.map((pageNum) => (
+      {pages.map((pageNum, index) => (
         <button
-          key={pageNum}
+          key={index}
           className={`${styles.paginationButton} ${
-            page === pageNum ? styles.activePage : ""
+            pageNum === page ? styles.activePage : ""
           }`}
-          onClick={() => setPage(pageNum)}
+          onClick={() => {
+            setPage(pageNum);
+          }}
         >
           {pageNum}
         </button>
