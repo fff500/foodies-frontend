@@ -16,7 +16,16 @@ import { IngredientList } from "./IngredientList/";
 import { UploadImage } from "./UploadImage";
 import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
+import { validateFormData } from "../../utils/validateCreateForm";
 import styles from "./AddRecipeForm.module.css";
+
+const customStyles = {
+  menu: (provided) => ({
+    ...provided,
+    padding: "10px 10px 10px 15px!important",
+    zIndex: 3,
+  }),
+};
 
 const defaultValues = {
   thumb: "",
@@ -60,7 +69,7 @@ export const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const navigate = useNavigate();
 
-  const onSubmit = ({
+  const onSubmit = async ({
     title,
     area,
     category,
@@ -78,9 +87,7 @@ export const AddRecipeForm = () => {
       category: category.label,
     };
 
-    if (!newIngredients.length) {
-      return;
-    }
+    if (!newIngredients.length || !(await validateFormData(formFields))) return;
 
     const postData = new FormData();
     postData.append("json", JSON.stringify(formFields));
@@ -140,18 +147,10 @@ export const AddRecipeForm = () => {
     setIngredients(callback);
   };
 
-  const customStyles = {
-    menu: (provided) => ({
-      ...provided,
-      padding: "10px 10px 10px 15px!important",
-    }),
-  };
-
   const validateMeasure = (value) => {
     if (value.startsWith("-")) {
       setError("measure", {
         type: "validate",
-        message: "can not be negative",
       });
       return false;
     }

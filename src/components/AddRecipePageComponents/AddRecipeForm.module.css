@@ -1,14 +1,15 @@
 .formWrapper {
-    input, textarea {
-        outline: none;
-    }
-    .errorMessage {
-        color: var(--color-error-message);
-        position: absolute;
-        bottom: -20px;
-        font-size: 14px;
-        left: 0;
-    }
+  input,
+  textarea {
+    outline: none;
+  }
+  .errorMessage {
+    color: var(--color-error-message);
+    position: absolute;
+    bottom: -20px;
+    font-size: 14px;
+    left: 0;
+  }
 }
 
 .buttonIcon {
@@ -49,7 +50,6 @@
   border-bottom: 2px solid var(--color-gray-secondary);
   padding-bottom: 16px;
 }
-
 
 .select > div {
   border-radius: var(--border-radius-regular);
@@ -188,12 +188,10 @@
 }
 
 .labelName {
-  display: inline-block;
   position: relative;
 }
 
 @media screen and (min-width: 768px) {
-
   .inputName {
     margin-bottom: 40px;
   }
