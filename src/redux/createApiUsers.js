@@ -50,6 +50,9 @@ export const createApiUsers = createApi({
         url: `users/followers/${userId}`,
         method: "GET",
       }),
+      providesTags: (result, error, page) => [
+        { type: "GetFollowing", id: "LIST" },
+      ],
     }),
     getFollowersCurrentUser: builder.query({
       query: () => ({
