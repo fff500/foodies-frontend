@@ -7,7 +7,7 @@ import { openModal, useGetCurrentUserQuery } from "../../../../redux";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../../constants";
 import { Button, Icon } from "../../../shared";
 import styles from "./UserBar.module.css";
-import { useGenerateImageUrl } from "../../../../hooks";
+import { generateImageUrl } from "../../../../utils";
 
 export const UserBar = ({ userName, id }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const UserBar = ({ userName, id }) => {
 
   const { data: currentUser } = useGetCurrentUserQuery();
 
-  const imageSrc = useGenerateImageUrl(currentUser?.avatar);
+  const imageSrc = generateImageUrl(currentUser?.avatar);
 
   return (
     <div className={styles.user} ref={ref} onClick={() => setOpen(!open)}>

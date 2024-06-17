@@ -1,4 +1,4 @@
-export const useGenerateImageUrl = (thumb) => {
+export const generateImageUrl = (thumb) => {
   if (!thumb) return null;
 
   return thumb.startsWith("http")

@@ -4,7 +4,7 @@ import { RecipePreparation } from "./RecipePreparation";
 import profileAvatarPlaceholder from "../../assets/images/profile-avatar-placeholder.png";
 import styles from "./Recipes.module.css";
 import { PrivateLink } from "../shared";
-import { useGenerateImageUrl } from "../../hooks";
+import { generateImageUrl } from "../../utils";
 
 export const RecipeMainInfo = ({
   data,
@@ -12,9 +12,9 @@ export const RecipeMainInfo = ({
   addToFavorites,
   removeFromFavorites,
 }) => {
-  const imageSrc = useGenerateImageUrl(data?.thumb);
+  const imageSrc = generateImageUrl(data?.thumb);
   const userSrc =
-    useGenerateImageUrl(data?.owner?.avatar) || profileAvatarPlaceholder;
+    generateImageUrl(data?.owner?.avatar) || profileAvatarPlaceholder;
 
   return (
     <div className={styles.recipeWrapper}>

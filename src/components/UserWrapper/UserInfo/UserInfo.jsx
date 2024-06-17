@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useUpdateAvatarMutation } from "../../../redux";
-import { useGenerateImageUrl } from "../../../hooks";
+import { generateImageUrl } from "../../../utils";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../constants";
 import { Button, ErrorComponent, LoadingSpinner } from "../../shared";
 import styles from "./UserInfo.module.css";
@@ -43,7 +43,7 @@ export const UserInfo = ({
     }
   };
   const imageSrc =
-    useGenerateImageUrl(userData.avatar) || DEFAULT_IMAGE_AVATAR_URL;
+    generateImageUrl(userData.avatar) || DEFAULT_IMAGE_AVATAR_URL;
 
   return (
     <>

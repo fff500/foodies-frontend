@@ -8,7 +8,7 @@ import {
   useUnfollowUserMutation,
 } from "../../../redux";
 import { UserRecipeImage } from "./UserRecipeImage";
-import { useGenerateImageUrl } from "../../../hooks";
+import { generateImageUrl } from "../../../utils";
 import { useEffect, useState } from "react";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../../constants";
 
@@ -28,8 +28,7 @@ export const UserCard = ({ type, user }) => {
     id: user._id,
   });
 
-  const imageSrc =
-    useGenerateImageUrl(user?.avatar) || DEFAULT_IMAGE_AVATAR_URL;
+  const imageSrc = generateImageUrl(user?.avatar) || DEFAULT_IMAGE_AVATAR_URL;
 
   const { data: currentUser } = useGetCurrentUserQuery();
 

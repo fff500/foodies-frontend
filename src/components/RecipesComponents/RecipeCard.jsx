@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGenerateImageUrl } from "../../hooks";
+import { generateImageUrl } from "../../utils";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import {
   useAddToFavoritesMutation,
@@ -26,9 +26,8 @@ export const RecipeCard = ({
     ? () => removeFromFavorites(recipeId)
     : () => addToFavorites(recipeId);
 
-  const cardImageSrc = useGenerateImageUrl(imgSrc) || DEFAULT_IMAGE_AVATAR_URL;
-  const userAvatarSrc =
-    useGenerateImageUrl(avatarSrc) || DEFAULT_IMAGE_AVATAR_URL;
+  const cardImageSrc = generateImageUrl(imgSrc) || DEFAULT_IMAGE_AVATAR_URL;
+  const userAvatarSrc = generateImageUrl(avatarSrc) || DEFAULT_IMAGE_AVATAR_URL;
   return (
     <div className={styles.infoCard}>
       <img
