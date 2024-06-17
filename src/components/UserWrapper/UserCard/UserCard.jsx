@@ -51,13 +51,15 @@ export const UserCard = ({ type, user }) => {
           <p className={styles.description}>
             Own recipes: {user.createdRecipesCount}
           </p>
-          <Button
-            onClick={isFollowing ? handleUnfollow : handleFollow}
-            className={styles.cta}
-            type="button"
-          >
-            {isFollowing ? "UNFOLLOW" : "FOLLOW"}
-          </Button>
+          {currentUser?._id !== user._id && (
+            <Button
+              onClick={isFollowing ? handleUnfollow : handleFollow}
+              className={styles.cta}
+              type="button"
+            >
+              {isFollowing ? "UNFOLLOW" : "FOLLOW"}
+            </Button>
+          )}
         </div>
         <div className={styles.recipeImages}>
           {userRecipes.recipes?.slice(0, 3).map((recipe) => (
