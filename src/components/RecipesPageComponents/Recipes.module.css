@@ -85,14 +85,14 @@
 }
 
 .button {
-    padding: 14px 20px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
-    width: fit-content;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.42;
+  padding: 14px 20px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  width: fit-content;
+  text-transform: uppercase;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.42;
 }
 .button:hover {
   background-color: var(--color-black);
@@ -155,25 +155,24 @@
     font-size: 16px;
   }
 
-    .recipeText{
-        font-size: 16px;
-    }
-    .cardsList {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 40px;
-        margin-bottom: 100px;
-        justify-content: space-between;
-    }
-    .cardStyle{
-        width: 48%;
-    }
-    .button {
-        font-size: var(--font-size-body-tablet, 16px);
-        line-height: var(--line-height-body-tablet, 24px);
-    }
-
+  .recipeText {
+    font-size: 16px;
+  }
+  .cardsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+  }
+  .cardStyle {
+    width: 48%;
+  }
+  .button {
+    font-size: var(--font-size-body-tablet, 16px);
+    line-height: var(--line-height-body-tablet, 24px);
+  }
 }
 
 @media (min-width: 1440px) {
