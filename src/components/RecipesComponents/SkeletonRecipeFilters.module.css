@@ -1,6 +1,6 @@
 .skeletonList {
     display: grid;
-    gap: 16px; /* Відстань між елементами */
+    gap: 16px;
     width: 100%;
 }
 
