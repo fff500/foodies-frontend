@@ -1,9 +1,8 @@
 import classnames from "classnames";
-import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { LoadingSpinner, ReduxModal } from "../../shared/";
+import { ReduxModal } from "../../shared/";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { Breadcrumbs } from "../Breadcrumbs";
@@ -16,26 +15,18 @@ export const SharedLayout = () => {
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Header isHomePage={isHomePage} />
-      </Suspense>
+      <Header isHomePage={isHomePage} />
       <main
         className={classnames(styles.main, {
           [styles.paddingTop]: !isHomePage,
         })}
       >
         {!isHomePage && <Breadcrumbs />}
-        <Suspense fallback={<LoadingSpinner />}>
-          <Outlet />
-        </Suspense>
+        <Outlet />
       </main>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Footer />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ReduxModal key={modalType} />
-        <ToastContainer />
-      </Suspense>
+      <Footer />
+      <ReduxModal key={modalType} />
+      <ToastContainer />
     </>
   );
 };

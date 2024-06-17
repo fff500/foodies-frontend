@@ -22,15 +22,55 @@
     flex-direction: column;
     align-items: center;
 }
+.skeletonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+.skeletonList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+}
 
-@media (min-width: 768px) {
-  .sectionWrapper {
-    gap: 100px;
-  }
+.skeletonItem {
+    width: 60px;
+    height: 60px;
+}
+.skeletonImageWrapper {
+    height: 700px;
+}
+
+.skeletonImageWrapper,
+.skeletonTextWrapper {
+    width: 100%;
+}
+
+.skeletonImage {
+    width: 100%;
+    height: 100%
+}
+
+.skeletonText {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 @media (min-width: 1440px) {
-  .sectionWrapper {
-    gap: 120px;
-  }
+
+    .skeletonWrapper {
+        flex-direction: row;
+    }
+
+    .skeletonImageWrapper {
+        width: 47%;
+        height: 600px;
+    }
+
+    .skeletonTextWrapper {
+        width: 50%;
+        padding-left: 60px;
+    }
 }

@@ -1,12 +1,13 @@
-import styles from "./Recipes.module.css";
-import { RecipeList } from "./RecipeList";
-import { Button, Icon, MainTitle, Subtitle } from "../shared";
-import { useEffect, useState } from "react";
-import { RecipePagination } from "./RecipePagination";
 import { useSearchParams } from "react-router-dom";
 import { useGetRecipesQuery } from "../../redux";
 import { capitalizeFirstLetter } from "../../utils";
+import { Button, Icon, MainTitle, Subtitle } from "../shared";
+import styles from "./Recipes.module.css";
+import { RecipeList } from "./RecipeList";
+import { useEffect, useState } from "react";
+import { RecipePagination } from "./RecipePagination";
 import { RecipeFilters } from "./RecipeFilters";
+import { RecipesSkeleton } from "./RecipesSkeleton";
 
 export const Recipes = ({ category }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,19 +70,22 @@ export const Recipes = ({ category }) => {
         </div>
         <div className={styles.mainResipesContainer}>
           <RecipeFilters />
-          <div>
-            <RecipeList
-              data={recipeData}
-              isLoading={isLoading}
-              error={recipeError}
-              refetch={refetchRecipe}
-            />
-            <RecipePagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-          </div>
+          {isLoading && <RecipesSkeleton />}
+          {!isLoading && (
+            <div>
+              <RecipeList
+                data={recipeData}
+                isLoading={isLoading}
+                error={recipeError}
+                refetch={refetchRecipe}
+              />
+              <RecipePagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
+            </div>
+          )}
         </div>
       </section>
     </>

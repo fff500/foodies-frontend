@@ -2,11 +2,10 @@ import Select from "react-select";
 import { useSearchParams } from "react-router-dom";
 import { useGetAreasQuery, useGetIngredientsQuery } from "../../redux";
 import styles from "./Recipes.module.css";
+import { SkeletonRecipeFilters } from "./SkeletonRecipeFilters";
 
 export const RecipeFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedIngredient = searchParams.get("ingredient") || "";
-  const selectedArea = searchParams.get("area") || "";
   const { data: ingredientsData = [], isLoading: ingredientsIsLoading } =
     useGetIngredientsQuery();
 
@@ -55,6 +54,7 @@ export const RecipeFilters = () => {
   return (
     <div className={styles.filtersSelect}>
       <div className={styles.selectWrapper}>
+        {ingredientsIsLoading && <SkeletonRecipeFilters />}
         {!ingredientsIsLoading && (
           <>
             <Select
