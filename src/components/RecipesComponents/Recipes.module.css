@@ -1,383 +1,383 @@
 .recipesSection {
-    margin-bottom: 32px;
-    margin-top: 32px;
+  margin-bottom: 32px;
+  margin-top: 32px;
 }
 
 .recipesNav {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 .arrowLeft {
-    width: 18px;
-    aspect-ratio: 1;
-    object-fit: auto;
-    fill: transparent;
-    margin-right: 6px;
+  width: 18px;
+  aspect-ratio: 1;
+  object-fit: auto;
+  fill: transparent;
+  margin-right: 6px;
 }
 
 .backButton {
-    display: flex;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.28px;
-    line-height: 129%;
-    padding: 6px;
-    border: 1px solid transparent;
-    background: none;
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.28px;
+  line-height: 129%;
+  padding: 6px;
+  border: 1px solid transparent;
+  background: none;
 }
 
 .backButton:hover {
-    font-weight: 900;
-    border: 1px solid var(--color-border-icons-light);
-    border-radius: 30px;
+  font-weight: 900;
+  border: 1px solid var(--color-border-icons-light);
+  border-radius: 30px;
 }
 
 .loadingStyles {
-    width: 50px;
-    height: 50px;
-    border-width: 5px;
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
 }
 
 .titleContainer {
-    display: flex;
-    flex-direction: column;
-    width: 343px;
-    margin-bottom: 32px;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  margin-bottom: 32px;
+  gap: 16px;
 }
 
 .mainResipesContainer {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .filtersSelect {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    width: 100%;
-    margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 32px;
 }
 
 select {
-    width: 100%;
-    height: 48px;
-    border-radius: 30px;
-    border: 1px solid var(--color-border-icons-light);
-    padding: 16px 18px 16px 18px;
-    color: var(--color-body-text-light);
-    appearance: none;
+  width: 100%;
+  height: 48px;
+  border-radius: 30px;
+  border: 1px solid var(--color-border-icons-light);
+  padding: 16px 18px 16px 18px;
+  color: var(--color-body-text-light);
+  appearance: none;
 }
 
 .selectWrapper {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .customReset {
-    position: absolute;
-    right: -25px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .recipeList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .textNotFound {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .infoCard {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .infoCardImg {
-    width: 100%;
-    height: 230px;
-    border-radius: 16px;
-    object-fit: cover;
+  width: 100%;
+  height: 230px;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
 .infoCardTitle {
-    font-weight: 800;
-    letter-spacing: -0.4px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
 }
 
 .infoCardDescription {
-    height: 54px;
-    color: var(--color-body-text);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.32px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    margin-bottom: 8px;
+  height: 54px;
+  color: var(--color-body-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 8px;
 }
 
 .infoCardFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .infoCardAuthor {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    background: none;
-    border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  background: none;
+  border: none;
 }
 
 .authorAvatar {
-    width: 40px;
-    border-radius: 50%;
+  width: 40px;
+  border-radius: 50%;
 }
 
 .infoCardSocial {
-    display: flex;
-    gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 
 .iconCircle {
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(5, 5, 5, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform var(--transition-ease);
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(5, 5, 5, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-ease);
 }
 
 .iconCircle:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .iconCircle:active {
-    transform: scale(1);
-    background-color: var(--color-black);
-    color: var(--color-white);
+  transform: scale(1);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 .icon {
-    width: 18px;
-    height: 18px;
-    fill: var(--color-white);
-    stroke: var(--color-black);
+  width: 18px;
+  height: 18px;
+  fill: var(--color-white);
+  stroke: var(--color-black);
 }
 
 .select > div {
-    border-radius: var(--border-radius-regular);
-    padding: 5px;
-    min-width: 330px;
-    width: 100%;
+  border-radius: var(--border-radius-regular);
+  padding: 5px;
+  min-width: 330px;
+  width: 100%;
 }
 
 .select div:last-child span {
-    display: none;
+  display: none;
 }
 
 .icon:active,
 .iconActive {
-    width: 16px;
-    height: 16px;
-    fill: var(--color-black);
-    stroke: var(--color-black);
+  width: 16px;
+  height: 16px;
+  fill: var(--color-black);
+  stroke: var(--color-black);
 }
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
 }
 
 .paginationButton {
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    letter-spacing: 0.17px;
-    line-height: 143%;
-    padding: 15px 20px;
-    border-radius: 50%;
-    border: 1px solid rgba(5, 5, 5, 0.1);
-    background: none;
-    transition: transform 0.3s ease;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.17px;
+  line-height: 143%;
+  padding: 15px 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(5, 5, 5, 0.1);
+  background: none;
+  transition: transform 0.3s ease;
 }
 
 .paginationButton:hover {
-    transform: scale(1.1);
-    border-color: var(--color-black);
+  transform: scale(1.1);
+  border-color: var(--color-black);
 }
 
 .paginationButton.active {
-    transform: scale(1.1);
-    background: rgba(5, 5, 5, 0.1);
+  transform: scale(1.1);
+  background: rgba(5, 5, 5, 0.1);
 }
 
 @media (min-width: 768px) {
-    .recipesSection {
-        margin-bottom: 50px;
-        margin-top: 50px;
-    }
+  .recipesSection {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
 
-    .recipesNav {
-        margin-bottom: 20px;
-    }
+  .recipesNav {
+    margin-bottom: 20px;
+  }
 
-    .textNotFound {
-        font-size: 28px;
-    }
+  .textNotFound {
+    font-size: 28px;
+  }
 
-    .titleContainer {
-        gap: 20px;
-        width: 540px;
-        margin-bottom: 40px;
-    }
+  .titleContainer {
+    gap: 20px;
+    width: 540px;
+    margin-bottom: 40px;
+  }
 
-    .title {
-        max-width: 100%;
-        font-size: 40px;
-        margin-bottom: 20px;
-    }
+  .title {
+    max-width: 100%;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
 
-    .description {
-        max-width: 100%;
-        font-size: 16px;
-        font-weight: 500;
-    }
+  .description {
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+  }
 
-    .recipeList {
-        gap: 40px 20px;
-        margin-bottom: 60px;
-    }
+  .recipeList {
+    gap: 40px 20px;
+    margin-bottom: 60px;
+  }
 
-    .infoCard {
-        width: 100%;
-    }
+  .infoCard {
+    width: 100%;
+  }
 
-    .filtersSelect {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 14px;
-    }
+  .filtersSelect {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 14px;
+  }
 
-    select {
-        width: 345px;
-        height: 56px;
-    }
+  select {
+    width: 345px;
+    height: 56px;
+  }
 
-    .resipeList {
-        display: flex;
-        flex-direction: row;
-        gap: 40px 20px;
-    }
+  .resipeList {
+    display: flex;
+    flex-direction: row;
+    gap: 40px 20px;
+  }
 
-    .infoCard {
-        width: 342px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
+  .infoCard {
+    width: 342px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-    .infoCardImg {
-        height: 275px;
-    }
+  .infoCardImg {
+    height: 275px;
+  }
 
-    .backButton {
-        white-space: initial;
-    }
+  .backButton {
+    white-space: initial;
+  }
 }
 
 @media (min-width: 1440px) {
-    .recipesSection {
-        margin-bottom: 60px;
-        margin-top: 60px;
-    }
+  .recipesSection {
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
 
-    .mainResipesContainer {
-        flex-direction: row;
-    }
+  .mainResipesContainer {
+    flex-direction: row;
+  }
 
-    .filtersSelect {
-        flex-direction: column;
-        justify-content: start;
-        width: 330px;
-        margin-right: 40px;
-    }
+  .filtersSelect {
+    flex-direction: column;
+    justify-content: start;
+    width: 330px;
+    margin-right: 40px;
+  }
 
-    select {
-        width: 330px;
-    }
+  select {
+    width: 330px;
+  }
 
-    .textNotFound {
-        font-size: 38px;
-    }
+  .textNotFound {
+    font-size: 38px;
+  }
 
-    .infoCard {
-        width: 290px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
+  .infoCard {
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 .skeletonList {
-    display: grid;
-    gap: 16px;
-    width: 100%;
+  display: grid;
+  gap: 16px;
+  width: 100%;
 }
 
 .skeletonItem {
-    height: 220px;
+  height: 220px;
 }
 
 .skeletonList {
-    grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 }
 
 @media (min-width: 768px) {
-    .skeletonItem {
-        height: 275px;
-    }
+  .skeletonItem {
+    height: 275px;
+  }
 
-    .skeletonList {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .skeletonList {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1440px) {
-    .skeletonItem {
-        height: 275px;
-    }
+  .skeletonItem {
+    height: 275px;
+  }
 
-    .skeletonList {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .skeletonList {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

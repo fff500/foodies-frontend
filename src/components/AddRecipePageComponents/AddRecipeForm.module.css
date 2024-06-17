@@ -228,56 +228,53 @@
   }
 }
 
-
 .skeletonWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 .skeletonList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
 }
 
 .skeletonItem {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 .skeletonImageWrapper {
-    height: 300px;
-
+  height: 300px;
 }
 
 .skeletonImageWrapper,
 .skeletonTextWrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .skeletonImage {
-    width: 100%;
-    height: 100%
+  width: 100%;
+  height: 100%;
 }
 
 .skeletonText {
-    width: 100%;
-    margin-bottom: 30px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 1440px) {
+  .skeletonWrapper {
+    flex-direction: row;
+  }
 
-    .skeletonWrapper {
-        flex-direction: row;
-    }
+  .skeletonImageWrapper {
+    width: 45%;
+  }
 
-    .skeletonImageWrapper {
-        width: 45%;
-    }
-
-    .skeletonTextWrapper {
-        width: 50%;
-        padding-left: 60px;
-    }
+  .skeletonTextWrapper {
+    width: 50%;
+    padding-left: 60px;
+  }
 }
