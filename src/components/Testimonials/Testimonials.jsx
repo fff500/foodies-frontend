@@ -25,23 +25,25 @@ export const Testimonials = () => {
         <>
           <h3 className={styles.tagline}>What our customer say</h3>
           <h2 className={styles.headline}>TESTIMONIALS</h2>
-          <Swiper
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: true,
-            }}
-            pagination={{ clickable: true }}
-            modules={[Pagination, Autoplay]}
-            className={styles.swiper}
-          >
-            {testimonialsData.map((el) => (
-              <SwiperSlide className={styles.swiperSlide} key={el._id}>
-                <Icon id="quote" className={styles.svg} />
-                <span className={styles.description}>{el.testimonial}</span>
-                <span className={styles.owner}>{el?.owner?.name}</span>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className={styles.sliderContainer}>
+            <Swiper
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: true,
+              }}
+              pagination={{ clickable: true }}
+              modules={[Pagination, Autoplay]}
+              className={styles.swiper}
+            >
+              {testimonialsData.map((el) => (
+                <SwiperSlide className={styles.swiperSlide} key={el._id}>
+                  <Icon id="quote" className={styles.svg} />
+                  <span className={styles.description}>{el.testimonial}</span>
+                  <span className={styles.owner}>{el?.owner?.name}</span>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </>
       )}
     </div>
