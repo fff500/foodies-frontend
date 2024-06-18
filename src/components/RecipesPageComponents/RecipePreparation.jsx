@@ -6,6 +6,7 @@ export const RecipePreparation = ({
   isFavorite,
   addToFavorites,
   removeFromFavorites,
+  isLoading,
 }) => {
   const handleFavoritesClick = (id) =>
     isFavorite ? removeFromFavorites(id) : addToFavorites(id);
@@ -21,6 +22,11 @@ export const RecipePreparation = ({
             onSuccess={() => handleFavoritesClick(data._id)}
           >
             <div>
+              {isLoading && (
+                <div className={styles.loaderContainer}>
+                  <div className={styles.loader} />
+                </div>
+              )}
               {isFavorite ? "Remove from favorites" : "Add to favorites"}
             </div>
           </PrivateLink>
