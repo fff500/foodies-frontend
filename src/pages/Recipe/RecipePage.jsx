@@ -79,6 +79,7 @@ const RecipePage = () => {
         <div className={styles.sectionWrapper}>
           {recipeData && (
             <RecipeInfo
+              isLoading={isLoading}
               data={recipeData}
               isFavorite={isFavorite}
               addToFavorites={addToFavorites}

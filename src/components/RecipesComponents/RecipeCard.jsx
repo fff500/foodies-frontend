@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import classnames from "classnames";
 import { generateImageUrl } from "../../utils";
 import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import {
@@ -18,16 +19,18 @@ export const RecipeCard = ({
   isFavorite,
   recipeId,
 }) => {
-  const [addToFavorites] = useAddToFavoritesMutation();
+  const [addToFavorites, { isLoading: isLoadingAdd }] =
+    useAddToFavoritesMutation();
 
-  const [removeFromFavorites] = useRemoveFromFavoritesMutation();
-
+  const [removeFromFavorites, { isLoading: isLoadingRemove }] =
+    useRemoveFromFavoritesMutation();
   const handleFavoriteClick = isFavorite
     ? () => removeFromFavorites(recipeId)
     : () => addToFavorites(recipeId);
 
   const cardImageSrc = generateImageUrl(imgSrc) || DEFAULT_IMAGE_AVATAR_URL;
   const userAvatarSrc = generateImageUrl(avatarSrc) || DEFAULT_IMAGE_AVATAR_URL;
+  const isLoading = isLoadingAdd || isLoadingRemove;
   return (
     <div className={styles.infoCard}>
       <img
@@ -54,13 +57,17 @@ export const RecipeCard = ({
           <div className={styles.infoCardSocial}>
             <Button>
               <PrivateLink
-                className={styles.iconCircle}
+                className={classnames(styles.iconCircle, {
+                  [styles.loading]: isLoading,
+                })}
                 onSuccess={handleFavoriteClick}
               >
-                <Icon
-                  id="heart"
-                  className={isFavorite ? styles.iconActive : styles.icon}
-                />
+                {!isLoading && (
+                  <Icon
+                    id="heart"
+                    className={isFavorite ? styles.iconActive : styles.icon}
+                  />
+                )}
               </PrivateLink>
             </Button>
             <Button>

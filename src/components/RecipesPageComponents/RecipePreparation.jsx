@@ -6,6 +6,7 @@ export const RecipePreparation = ({
   isFavorite,
   addToFavorites,
   removeFromFavorites,
+  isLoading,
 }) => {
   const handleFavoritesClick = (id) =>
     isFavorite ? removeFromFavorites(id) : addToFavorites(id);
@@ -15,9 +16,17 @@ export const RecipePreparation = ({
       <h3 className={styles.recipeTitle}>Recipe Preparation</h3>
       <p className={styles.recipeText}>{data.instructions}</p>
       <div className={styles.buttonPosition}>
-        <Button className={styles.button}>
-          <PrivateLink onSuccess={() => handleFavoritesClick(data._id)}>
+        <Button>
+          <PrivateLink
+            className={styles.button}
+            onSuccess={() => handleFavoritesClick(data._id)}
+          >
             <div>
+              {isLoading && (
+                <div className={styles.loaderContainer}>
+                  <div className={styles.loader} />
+                </div>
+              )}
               {isFavorite ? "Remove from favorites" : "Add to favorites"}
             </div>
           </PrivateLink>

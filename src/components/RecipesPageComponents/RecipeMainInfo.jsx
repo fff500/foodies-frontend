@@ -11,6 +11,7 @@ export const RecipeMainInfo = ({
   isFavorite,
   addToFavorites,
   removeFromFavorites,
+  isLoading,
 }) => {
   const imageSrc = generateImageUrl(data?.thumb);
   const userSrc =
@@ -58,6 +59,7 @@ export const RecipeMainInfo = ({
           </div>
           <div className={styles.recipeMainInfoContainer}>
             <RecipePreparation
+              isLoading={isLoading}
               data={data}
               isFavorite={isFavorite}
               addToFavorites={addToFavorites}

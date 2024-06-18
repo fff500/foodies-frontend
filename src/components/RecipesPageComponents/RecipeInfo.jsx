@@ -5,6 +5,7 @@ export const RecipeInfo = ({
   isFavorite,
   addToFavorites,
   removeFromFavorites,
+  isLoading,
 }) => {
   return (
     <RecipeMainInfo
@@ -12,6 +13,7 @@ export const RecipeInfo = ({
       isFavorite={isFavorite}
       addToFavorites={addToFavorites}
       removeFromFavorites={removeFromFavorites}
+      isLoading={isLoading}
     />
   );
 };
