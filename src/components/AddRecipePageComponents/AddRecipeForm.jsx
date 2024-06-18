@@ -18,6 +18,7 @@ import { ErrorMessage } from "./ErrorMesage/";
 import { CountCharacters } from "./CountCharacters";
 import { validateFormData } from "../../utils/validateCreateForm";
 import styles from "./AddRecipeForm.module.css";
+import { AddRecipeSkeleton } from "./AddRecipeSkeleton";
 
 const customStyles = {
   menu: (provided) => ({
@@ -158,7 +159,7 @@ export const AddRecipeForm = () => {
   };
 
   if (categoriesIsFetching || ingredientsIsFetching || areasIsFetching) {
-    return <LoadingSpinner className={styles.spinner} />;
+    return <AddRecipeSkeleton />;
   }
 
   return (

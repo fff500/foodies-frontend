@@ -9,13 +9,13 @@ import {
 import {
   Container,
   ErrorComponent,
-  LoadingSpinner,
   PopularRecipes,
   RecipeInfo,
 } from "../../components";
 import styles from "./RecipePage.module.css";
 import { useWindowScroll } from "@mantine/hooks";
 import { useEffect } from "react";
+import { RecipePageSkeleton } from "./RecipePageSkeleton";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -74,11 +74,7 @@ const RecipePage = () => {
     <Container>
       <section>
         <h1 className={styles.isHidden}>Recipe</h1>
-        {isLoading && (
-          <div className={styles.loadingStyles}>
-            <LoadingSpinner />
-          </div>
-        )}
+        {isLoading && <RecipePageSkeleton />}
         {!isLoading && errors && <ErrorComponent onRetry={refetchRecipe} />}
         <div className={styles.sectionWrapper}>
           {recipeData && (

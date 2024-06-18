@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { DEFAULT_IMAGE_AVATAR_URL } from "../../constants";
 import styles from "./Recipes.module.css";
 import { RecipeCard } from "../RecipesComponents";
 

@@ -12,20 +12,43 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-.spinner {
-  border: 10px solid #f3f3f3;
-  border-top: 10px solid #3498db;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  animation: spin 2s linear infinite;
+.loader {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
 }
 
-@keyframes spin {
+.loaderItem {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-black-secondary);
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.loaderItem1 {
+  animation: blink 0.5s infinite alternate 1.5s;
+}
+
+.loaderItem5 {
+  animation: blink 0.5s infinite alternate 0.75s;
+}
+
+.loaderItem9 {
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
   0% {
-    transform: rotate(0deg);
+    opacity: 0.2;
   }
+
   100% {
-    transform: rotate(360deg);
+    opacity: 0.4;
   }
 }
