@@ -93,6 +93,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 1.42;
+  min-width: 225px;
 }
 .button:hover {
   background-color: var(--color-black);
@@ -117,6 +118,11 @@
 }
 
 @media (min-width: 768px) {
+
+  .button {
+    min-width: 250px;
+  }
+
   .recipeWrapper {
     gap: 98px;
   }
@@ -201,6 +207,7 @@
 
   .button {
     padding: 16px 32px;
+      min-width: 275px;
   }
   .cardsList {
     display: flex;

@@ -181,7 +181,6 @@ select {
 
 .iconCircle:active {
   transform: scale(1);
-  background-color: var(--color-black);
   color: var(--color-white);
 }
 
@@ -347,6 +346,35 @@ select {
     gap: 16px;
   }
 }
+
+.iconCircle {
+    position: relative;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 46%;
+    left: 45%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border: 2px solid rgba(87, 87, 87, 0.6);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 .skeletonList {
   display: grid;
